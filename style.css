@@ -1,0 +1,12 @@
+/*
+Theme Name:        ServoMotion
+Description:       ServoMotion endüstriyel lazer konumlandırma sitesi için özel tema.
+Version:           1.0.0
+Requires at least: 6.4
+Requires PHP:      7.4
+Text Domain:       servomotion
+Domain Path:       /languages
+License:           Proprietary
+*/
+
+/* Tema stilleri assets/css/ altındadır ve inc/enqueue.php ile yüklenir. */
