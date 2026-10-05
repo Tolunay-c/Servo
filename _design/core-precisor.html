@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="mask-icon" href="favicon.svg" color="#FFD400"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"><link rel="manifest" href="site.webmanifest"><meta name="theme-color" content="#0B0F14">
+<title>CORE PRECISOR — Servo Kontrollü Otomatik Lazer Hizalama | ServoMotion</title>
+<meta name="description" content="Core Precisor, servo kontrollü otomatik lazer konumlandırma sistemi. Reçete tabanlı kontrol, bağımsız ve simetrik hareket seçenekleriyle endüstriyel hizalama."><link rel="canonical" href="https://www.servomotion.com.tr/core-precisor.html"><link rel="alternate" hreflang="tr" href="https://www.servomotion.com.tr/core-precisor.html"><link rel="alternate" hreflang="en" href="https://www.servomotion.com.tr/en/core-precisor.html"><meta property="og:type" content="website"><meta property="og:site_name" content="ServoMotion"><meta property="og:locale" content="tr_TR"><meta property="og:title" content="CORE PRECISOR — Servo Kontrollü Otomatik Lazer Hizalama | ServoMotion"><meta property="og:description" content="Core Precisor, servo kontrollü otomatik lazer konumlandırma sistemi. Reçete tabanlı kontrol, bağımsız ve simetrik hareket seçenekleriyle endüstriyel hizalama."><meta property="og:url" content="https://www.servomotion.com.tr/core-precisor.html"><meta property="og:image" content="https://www.servomotion.com.tr/og/core-precisor.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="CORE PRECISOR — Servo Kontrollü Otomatik Lazer Hizalama | ServoMotion"><meta name="twitter:description" content="Core Precisor, servo kontrollü otomatik lazer konumlandırma sistemi. Reçete tabanlı kontrol, bağımsız ve simetrik hareket seçenekleriyle endüstriyel hizalama."><meta name="twitter:image" content="https://www.servomotion.com.tr/og/core-precisor.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0B0F14;--ink2:#121A22;--panel:#151E28;--line:#22303F;
+  --edge:#2B3B4C;--steel:#D6DEE7;--alu:#93A4B7;--muted:#6C7E92;
+  --yellow:#FFD400;--laser:#FF2D20;--green:#21A65A;--ok:#33D183;--warn:#F5A623;--bad:#FF5A4E;--cyan:#5FD3D0;--blue:#4FA3E3;
+  --paper:#F4F6F9;--white:#fff;
+  --disp:'Barlow Condensed','Arial Narrow',system-ui,sans-serif;
+  --body:'Barlow',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,'Courier New',monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{margin:0;padding:0}body{background:var(--paper);color:#0F1720;font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+.wrap{max-width:1220px;margin:0 auto;padding:0 22px}
+h1,h2,h3,h4{font-family:var(--disp);text-transform:uppercase;letter-spacing:.015em;margin:0;line-height:1.05;font-weight:700}
+a{color:inherit}
+
+.nav{position:sticky;top:0;z-index:50;background:rgba(11,15,20,.96);backdrop-filter:blur(8px);border-bottom:1px solid #1D2833}
+.nav-in{display:flex;align-items:center;gap:26px;height:62px}
+.brand{display:flex;align-items:baseline;gap:9px;text-decoration:none;color:var(--white)}
+.brand b{font-family:var(--disp);font-size:23px;letter-spacing:.05em;text-transform:uppercase}
+.brand span{font-family:var(--mono);font-size:10px;letter-spacing:.22em;color:var(--muted);text-transform:uppercase}
+.tabs{display:flex;gap:4px;margin-left:auto}
+.tab{font-family:var(--disp);text-transform:uppercase;letter-spacing:.09em;font-size:14.5px;font-weight:600;
+  padding:8px 15px;border:1px solid #253242;border-radius:2px;color:var(--alu);text-decoration:none;white-space:nowrap}
+.tab:hover{border-color:var(--yellow);color:var(--white)}
+.tab[aria-current="page"]{background:var(--yellow);border-color:var(--yellow);color:#0B0F14}
+@media(max-width:720px){.nav-in{height:auto;padding:12px 0;flex-wrap:wrap;gap:12px}.tabs{margin-left:0;width:100%;flex-wrap:wrap}.tab{flex:1 1 28%;min-width:0;text-align:center;padding:8px 6px;font-size:13px;white-space:normal}}
+
+.hero{background:var(--ink);color:var(--steel);padding:40px 0 0;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0;
+  background-image:linear-gradient(#0E1720 1px,transparent 1px),linear-gradient(90deg,#0E1720 1px,transparent 1px);
+  background-size:46px 46px;opacity:.65}
+.hero-in{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:44px;align-items:center}
+@media(max-width:980px){.hero-in{grid-template-columns:1fr;gap:30px}}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--yellow);margin:0 0 14px}
+.hero h1{font-size:clamp(40px,6.4vw,74px);color:var(--white)}
+.hero h1 em{font-style:normal;color:var(--yellow)}
+.lead{font-size:17.5px;color:#AEBCCB;max-width:56ch;margin:18px 0 0}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#1E2A36;margin:32px 0 0;border:1px solid #1E2A36}
+.kpi{background:#0E151D;padding:15px 16px}
+.kpi .k{font-family:var(--mono);font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+.kpi .v{font-family:var(--disp);font-size:31px;font-weight:600;color:var(--white);line-height:1.1;margin-top:5px}
+.kpi .v small{font-size:14px;color:var(--alu);margin-left:4px;font-weight:500}
+.btns{display:flex;gap:11px;flex-wrap:wrap;margin:28px 0 0}
+.btn{display:inline-block;font-family:var(--disp);text-transform:uppercase;letter-spacing:.1em;font-size:15px;font-weight:600;
+  padding:13px 24px;border-radius:2px;text-decoration:none;border:1px solid transparent;cursor:pointer}
+.btn-y{background:var(--yellow);color:#0B0F14;border-color:var(--yellow)}
+.btn-y:hover{background:#FFE04D}
+.btn-o{border-color:#33465A;color:var(--steel)}
+.btn-o:hover{border-color:var(--yellow);color:var(--white)}
+.hero-fig{background:#0E151D;border:1px solid #22303F;border-radius:3px;padding:18px 14px 12px}
+.hero-cap{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-top:10px;text-align:center;letter-spacing:.06em}
+.hero-strip{position:relative;margin-top:52px;border-top:1px solid #1D2833;background:#0E151D}
+.strip-in{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#1D2833}
+@media(max-width:820px){.strip-in{grid-template-columns:repeat(2,1fr)}}
+.strip-i{background:#0E151D;padding:16px 18px;font-size:13.5px;color:#9FB0C1}
+.strip-i b{display:block;font-family:var(--disp);font-size:16px;letter-spacing:.06em;text-transform:uppercase;color:var(--white);margin-bottom:3px}
+
+section{padding:74px 0}
+section.card{padding:0}
+.sec-hd{max-width:74ch;margin-bottom:34px}
+.sec-hd .tagline{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#8494A6;margin:0 0 11px}
+.sec-hd h2{font-size:clamp(29px,4vw,42px)}
+.sec-hd p{font-size:16.5px;color:#42536A;margin:14px 0 0}
+.rule{height:4px;width:62px;background:var(--yellow);margin-bottom:20px}
+
+/* rails */
+.rails{background:var(--white);border-top:1px solid #E2E7EE;border-bottom:1px solid #E2E7EE}
+.rail-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:860px){.rail-grid{grid-template-columns:1fr}}
+.rail{border:1px solid #E2E7EE;padding:22px 20px;border-radius:2px;background:#FBFCFD;border-left:4px solid var(--blue)}
+.rail:nth-child(2){border-left-color:#7A8694}
+.rail:nth-child(3){border-left-color:var(--warn)}
+.rail .n{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:#8494A6}
+.rail h3{font-size:20px;margin:8px 0 9px}
+.rail p{margin:0;font-size:14.5px;color:#4A5B70}
+.cycle{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:34px}
+@media(max-width:900px){.cycle{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.cycle{grid-template-columns:1fr}}
+.cy{border:1px solid #E2E7EE;border-top:3px solid var(--yellow);padding:16px 15px;background:var(--white);border-radius:2px}
+.cy .n{font-family:var(--disp);font-size:26px;font-weight:700;color:#C9D2DC;line-height:1}
+.cy h4{font-size:16.5px;margin:6px 0 6px}
+.cy p{margin:0;font-size:13.5px;color:#4A5B70}
+.rowlab{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#8494A6;margin:34px 0 14px;display:flex;align-items:center;gap:12px}
+.rowlab:after{content:"";flex:1;height:1px;background:#E2E7EE}
+
+/* video */
+.video{background:var(--ink);color:var(--steel)}
+.video .sec-hd h2{color:var(--white)}
+.video .sec-hd p{color:#9FB0C1}
+.video .sec-hd .tagline{color:var(--yellow)}
+.vbox{position:relative;width:100%;aspect-ratio:16/9;background:#0E151D;border:1px solid var(--line);border-radius:3px;
+  display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+.vbox video,.vbox iframe{width:100%;height:100%;border:0;display:block}
+.vph{padding:30px}
+.vph .ico{width:66px;height:66px;border-radius:50%;border:2px solid var(--yellow);margin:0 auto 16px;display:flex;align-items:center;justify-content:center}
+.vph .ico:after{content:"";border-left:19px solid var(--yellow);border-top:12px solid transparent;border-bottom:12px solid transparent;margin-left:5px}
+.vph h3{font-size:21px;color:var(--white)}
+.vph p{font-size:14px;color:var(--muted);margin:9px 0 0;font-family:var(--mono)}
+
+/* configurator */
+.cfgsec{background:var(--ink2);color:var(--steel);border-top:1px solid #1D2833}
+.cfgsec .sec-hd h2{color:var(--white)}
+.cfgsec .sec-hd p{color:#9FB0C1}
+.cfgsec .sec-hd .tagline{color:var(--yellow)}
+.cgrid{display:grid;grid-template-columns:340px minmax(0,1fr);gap:18px;align-items:start}
+@media(max-width:1040px){.cgrid{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:3px}
+.card+.card{margin-top:14px}
+.card-hd{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px;border-bottom:1px solid var(--line);background:#0E151D}
+.card-hd h3{font-size:15px;letter-spacing:.11em;color:var(--alu);font-weight:600}
+.card-hd .hint{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+.card-bd{padding:16px}
+.modes{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--edge);border-radius:2px;overflow:hidden}
+.modes button{border:0;background:#0E151D;color:var(--muted);padding:11px 6px;cursor:pointer;
+  font-family:var(--disp);font-size:14px;letter-spacing:.08em;text-transform:uppercase;font-weight:600}
+.modes button+button{border-left:1px solid var(--edge)}
+.modes button[aria-pressed="true"]{background:var(--yellow);color:#0B0F14}
+.mnote{font-size:13px;color:var(--muted);margin:10px 0 0;line-height:1.45}
+.mnote code{font-family:var(--mono);font-size:12px;color:var(--alu)}
+.fld{margin-top:17px}
+.fld-hd{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:7px}
+.fld-hd label{font-family:var(--disp);text-transform:uppercase;letter-spacing:.1em;font-size:13.5px;font-weight:600;color:var(--alu)}
+.badge{font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;padding:2px 6px;border-radius:2px;border:1px solid var(--edge);color:var(--muted)}
+.badge[data-role="in"]{border-color:var(--yellow);color:var(--yellow)}
+.ctrl{display:grid;grid-template-columns:1fr 92px;gap:10px;align-items:center}
+input[type=number]{width:100%;background:#0E151D;border:1px solid var(--edge);color:var(--steel);
+  font-family:var(--mono);font-size:14px;padding:8px;border-radius:2px;text-align:right}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:22px;background:transparent;cursor:pointer}
+input[type=range]::-webkit-slider-runnable-track{height:2px;background:var(--edge)}
+input[type=range]::-moz-range-track{height:2px;background:var(--edge)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;margin-top:-6px;background:var(--yellow);border-radius:50%;border:0}
+input[type=range]::-moz-range-thumb{width:14px;height:14px;background:var(--yellow);border-radius:50%;border:0}
+.calc input[type=number]{color:var(--alu);background:#0A1017}
+.calc input[type=range]::-webkit-slider-thumb{background:var(--alu)}
+.calc input[type=range]::-moz-range-thumb{background:var(--alu)}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.mini label{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+.chips{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:12px}
+.chip{background:#0E151D;border:1px solid var(--edge);border-radius:2px;padding:9px 11px;cursor:pointer;text-align:left;color:var(--steel);font-family:var(--body)}
+.chip:hover{border-color:var(--yellow)}
+.chip .t{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.chip .b{font-family:var(--disp);font-size:19px;font-weight:600;margin-top:3px}
+.chip .b small{font-family:var(--mono);font-size:11px;color:var(--alu);font-weight:400;margin-left:6px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line)}
+@media(max-width:820px){.stats{grid-template-columns:repeat(2,1fr)}}
+.st{background:var(--panel);padding:14px 15px}
+.st .k{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.st .v{font-family:var(--disp);font-size:27px;font-weight:600;line-height:1;color:var(--white)}
+.st .v small{font-size:12.5px;color:var(--muted);margin-left:4px;font-weight:500}
+.st.hero2{background:#1A1710}.st.hero2 .v{color:var(--yellow)}
+.status{display:flex;align-items:center;gap:11px;padding:13px 16px;border-top:1px solid var(--line);
+  font-family:var(--disp);text-transform:uppercase;letter-spacing:.1em;font-size:15px;font-weight:600}
+.status .dot{width:9px;height:9px;border-radius:50%;flex:none}
+.status .detail{font-family:var(--body);text-transform:none;letter-spacing:0;font-size:13px;font-weight:400;color:var(--muted);margin-left:auto;text-align:right}
+.s-ok{color:var(--ok)}.s-ok .dot{background:var(--ok)}
+.s-warn{color:var(--warn)}.s-warn .dot{background:var(--warn)}
+.s-bad{color:var(--bad)}.s-bad .dot{background:var(--bad)}
+.stage-wrap{padding:14px 14px 2px;overflow-x:auto}
+.stage-wrap svg{display:block;width:100%;height:auto}
+.legend{display:flex;gap:15px;flex-wrap:wrap;padding:4px 16px 13px;font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+.legend i{display:inline-block;width:9px;height:9px;margin-right:6px;vertical-align:-1px;border-radius:2px}
+.bar{display:flex;align-items:center;gap:11px;flex-wrap:wrap;padding:12px 16px;border-top:1px solid var(--line)}
+.prog{flex:1;min-width:120px;height:6px;background:#0E151D;border:1px solid var(--line);border-radius:3px;overflow:hidden}
+.prog i{display:block;height:100%;background:var(--yellow);width:0}
+.now{display:flex;align-items:center;gap:11px;padding:12px 16px;border-top:1px solid var(--line);
+  font-family:var(--disp);text-transform:uppercase;letter-spacing:.09em;font-size:14.5px;font-weight:600;color:var(--warn)}
+.now .dot{width:9px;height:9px;border-radius:50%;background:var(--warn);flex:none}
+.now .d{font-family:var(--body);text-transform:none;letter-spacing:0;font-size:13px;font-weight:400;color:var(--muted);margin-left:auto;text-align:right}
+.formula{font-family:var(--mono);font-size:11.5px;color:var(--muted);padding:12px 16px;border-top:1px solid var(--line);line-height:1.9}
+.formula b{color:var(--alu);font-weight:500}
+.note{font-family:var(--mono);font-size:11.5px;color:var(--muted);border-left:2px solid var(--yellow);padding:2px 0 2px 11px;margin-top:14px;line-height:1.6}
+
+.cmp{background:var(--white);border-top:1px solid #E2E7EE}
+
+.cross{background:var(--yellow);color:#0B0F14}
+.cross-in{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:30px;align-items:center}
+@media(max-width:820px){.cross-in{grid-template-columns:1fr}}
+.cross h2{font-size:clamp(27px,3.6vw,38px)}
+.cross p{font-size:16.5px;margin:12px 0 0;max-width:62ch}
+.btn-k{background:#0B0F14;color:var(--yellow);border-color:#0B0F14}
+.btn-k:hover{background:#1B2430}
+
+.cta{background:var(--ink2);color:var(--steel);text-align:center}
+.cta h2{font-size:clamp(28px,4vw,40px);color:var(--white)}
+.cta p{color:#9FB0C1;max-width:60ch;margin:14px auto 0}
+.foot{background:#0B0F14;color:var(--muted);font-size:13.5px;padding:26px 0}
+.foot-in{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between;align-items:center}
+.foot a{color:var(--alu);text-decoration:none}
+.foot a:hover{color:var(--yellow)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* ---- Core Precisor: konfigürasyon matrisi ---- */
+.cfgbar{display:flex;align-items:center;gap:11px;flex-wrap:wrap;margin-bottom:20px}
+.cfgwrap{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:1040px){.cfgwrap{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.cfgwrap{grid-template-columns:1fr}}
+.cfgcard{background:var(--panel);border:1px solid var(--line);border-radius:3px;overflow:hidden;
+  cursor:pointer;text-align:left;color:inherit;font-family:inherit;padding:0;display:flex;flex-direction:column}
+.cfgcard:hover{border-color:var(--yellow)}
+.cfgcard[aria-pressed="true"]{border-color:var(--yellow);box-shadow:0 0 0 1px var(--yellow) inset}
+.cfgcard .hd{display:flex;align-items:flex-start;gap:10px;padding:13px 15px 11px;border-bottom:1px solid var(--line);background:#0E151D}
+.cfgcard .code{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:#0B0F14;background:var(--alu);
+  padding:3px 7px;border-radius:2px;flex:none;margin-top:2px}
+.cfgcard[aria-pressed="true"] .code{background:var(--yellow)}
+.cfgcard .tt{font-family:var(--disp);text-transform:uppercase;letter-spacing:.08em;font-size:15.5px;font-weight:600;color:var(--white);line-height:1.15}
+.cfgcard .dd{font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--muted);margin-top:5px;text-transform:uppercase}
+.cfgcard .bd{padding:14px 15px 15px}
+
+.trk{position:relative;height:78px;background:#0A1017;border:1px solid #1D2833;border-radius:3px;overflow:hidden}
+.trk .grid-bg{position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 1px,transparent 1px 40px)}
+.trk .divider{position:absolute;left:0;right:0;top:50%;border-top:1px dashed #2B3B4C}
+.trk .ctr{position:absolute;top:0;bottom:0;left:50%;width:1px;background:rgba(255,255,255,.14)}
+.trk .gbar{position:absolute;left:0;right:0;top:0;height:7px;background:linear-gradient(180deg,#FFE04D,#FFD400 55%,#C9A700)}
+.lz{position:absolute;width:4px;margin-left:-2px;border-radius:2px}
+.lz.mv{background:#FF4133;box-shadow:0 0 10px 3px rgba(255,45,32,.55)}
+.lz.fx{background:#2FE05C;box-shadow:0 0 8px 2px rgba(47,224,92,.7)}
+.lz.full{top:12px;bottom:8px}
+.lz.top{top:12px;height:26px}
+.lz.bot{top:44px;height:26px}
+.trk .chlab{position:absolute;right:7px;font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:#5B6C7E}
+.trk .chlab.a{top:14px}.trk .chlab.b{top:46px}
+.cfglegend{display:flex;gap:18px;flex-wrap:wrap;font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-top:16px}
+.cfglegend i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+
+/* ---- büyük simülasyon paneli ---- */
+.sim{background:var(--panel);border:1px solid var(--line);border-radius:3px;margin-top:24px;overflow:hidden}
+.sim-hd{display:flex;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid var(--line);background:#0E151D;flex-wrap:wrap}
+.sim-hd .code{font-family:var(--mono);font-size:10px;letter-spacing:.13em;color:#0B0F14;background:var(--yellow);padding:3px 8px;border-radius:2px;flex:none}
+.sim-hd h3{font-size:17.5px;color:var(--white)}
+.sim-hd .w{margin-left:auto;font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--yellow)}
+.scene{padding:16px 16px 4px;background:#0A1017;overflow-x:auto}
+.scene svg{display:block;width:100%;min-width:520px;height:auto}
+.simlegend{display:flex;gap:16px;flex-wrap:wrap;padding:8px 18px 14px;background:#0A1017;
+  font-family:var(--mono);font-size:10.5px;color:var(--muted);border-bottom:1px solid var(--line)}
+.simlegend i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.simbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:13px 18px;border-bottom:1px solid var(--line)}
+.prog{flex:1;min-width:140px;height:6px;background:#0E151D;border:1px solid var(--line);border-radius:3px;overflow:hidden}
+.prog i{display:block;height:100%;background:var(--yellow);width:0}
+.simstat{display:flex;align-items:center;gap:11px;padding:13px 18px;border-bottom:1px solid var(--line);
+  font-family:var(--disp);text-transform:uppercase;letter-spacing:.1em;font-size:15px;font-weight:600;color:var(--ok)}
+.simstat .dot{width:9px;height:9px;border-radius:50%;background:var(--ok);flex:none}
+.simstat .d{font-family:var(--body);text-transform:none;letter-spacing:0;font-size:13px;font-weight:400;color:var(--muted);margin-left:auto;text-align:right}
+.simstat.run{color:var(--warn)}
+.simstat.run .dot{background:var(--warn)}
+.simstat.idle{color:var(--alu)}
+.simstat.idle .dot{background:var(--alu)}
+.simstats{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line)}
+@media(max-width:1040px){.simstats{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:640px){.simstats{grid-template-columns:repeat(2,1fr)}}
+.ss{background:var(--panel);padding:15px 17px}
+.ss .k{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.ss .v{font-family:var(--disp);font-size:27px;font-weight:600;line-height:1;color:var(--white)}
+.ss .v small{font-size:12.5px;color:var(--muted);margin-left:4px;font-weight:500}
+.simnote{font-family:var(--mono);font-size:11.5px;color:var(--muted);padding:13px 18px;line-height:1.8;border-top:1px solid var(--line)}
+.simdesc{padding:18px 18px 20px;border-top:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:28px}
+@media(max-width:860px){.simdesc{grid-template-columns:1fr;gap:16px}}
+.simdesc p{margin:0;font-size:14.5px;color:#9FB0C1;line-height:1.6}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;font-size:13.5px;align-content:start}
+.kv dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.kv dd{margin:0;color:var(--steel)}
+
+/* özellik kutuları */
+.fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:900px){.fgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.fgrid{grid-template-columns:1fr}}
+.fbox{border:1px solid #E2E7EE;border-top:3px solid var(--yellow);background:var(--white);padding:18px 17px 19px;border-radius:2px}
+.fbox .t{font-family:var(--mono);font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:#8494A6}
+.fbox .v{font-family:var(--disp);font-size:25px;font-weight:700;margin:7px 0 7px;color:#0B0F14}
+.fbox p{margin:0;font-size:14px;color:#4A5B70}
+
+/* bileşenler */
+.cgrid2{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:1000px){.cgrid2{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.cgrid2{grid-template-columns:1fr}}
+.cbox{border:1px solid #E2E7EE;background:#FBFCFD;padding:18px 17px;border-radius:2px;border-left:4px solid var(--blue)}
+.cbox:nth-child(2){border-left-color:#7A8694}
+.cbox:nth-child(3){border-left-color:var(--warn)}
+.cbox:nth-child(4){border-left-color:var(--green)}
+.cbox .r{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#8494A6}
+.cbox h3{font-size:18px;margin:7px 0 10px}
+.cbox ul{margin:0;padding-left:1.05em;color:#4A5B70;font-size:13.5px}
+.cbox li{margin-bottom:5px}
+.cbox .pn{display:inline-block;font-family:var(--mono);font-size:11.5px;background:#0B0F14;color:var(--yellow);padding:3px 8px;border-radius:2px;margin-top:11px}
+
+.spec-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
+@media(max-width:860px){.spec-grid{grid-template-columns:1fr}}
+.spec h3{font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+  color:#0B0F14;padding-bottom:9px;border-bottom:3px solid var(--yellow);margin-bottom:2px}
+.spec table{width:100%;border-collapse:collapse;font-size:14px}
+.spec th,.spec td{text-align:left;padding:10px 0;border-bottom:1px solid #E2E7EE;vertical-align:top}
+.spec th{font-weight:400;color:#6C7E92;width:52%}
+.spec td{font-family:var(--mono);font-size:13px;color:#0F1720}
+
+.badges{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+.bdg{font-family:var(--disp);text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:13.5px;
+  border:1px solid #C9D2DC;padding:8px 14px;border-radius:2px;color:#0B0F14}
+.bdg.ce{border-color:var(--green);color:#127A45}
+
+/* ---- gövde ölçülendirme (housing) ---- */
+.hsg{background:var(--panel);border:1px solid var(--line);border-radius:3px;overflow:hidden}
+.hsg-hd{display:flex;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid var(--line);background:#0E151D;flex-wrap:wrap}
+.hsg-hd .code{font-family:var(--mono);font-size:10px;letter-spacing:.13em;color:#0B0F14;background:var(--yellow);padding:3px 8px;border-radius:2px;flex:none}
+.hsg-hd h3{font-size:17.5px;color:var(--white)}
+.hsg-hd .w{margin-left:auto;font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--yellow)}
+
+.hstage{background:#0A1017;padding:26px 26px 18px;border-bottom:1px solid var(--line)}
+.prof{position:relative;height:92px;margin:0 0 6px}
+.pbody{position:absolute;left:0;top:18px;height:46px;border-radius:3px;
+  background:linear-gradient(180deg,#FFE873 0%,var(--yellow) 42%,#C9A700 100%);
+  box-shadow:0 0 30px rgba(255,212,0,.18);
+  transition:width .55s cubic-bezier(.4,0,.2,1)}
+.pcap{position:absolute;top:-4px;bottom:-4px;width:11px;border-radius:3px;
+  background:linear-gradient(180deg,#5A6675,#2B3540)}
+.pcap.l{left:-5px}.pcap.r{right:-5px}
+.prail{position:absolute;left:14px;right:14px;top:50%;height:6px;margin-top:-3px;border-radius:3px;
+  background:#FFFCE8;opacity:.65}
+.pcart{position:absolute;top:6px;height:34px;width:26px;margin-left:-13px;border-radius:3px;
+  background:#2B0F0C;border:1.5px solid #FF4133;
+  transition:left .55s cubic-bezier(.4,0,.2,1)}
+.pcart:after{content:"";position:absolute;left:50%;top:50%;width:6px;height:6px;margin:-3px 0 0 -3px;
+  border-radius:50%;background:#FF4133;box-shadow:0 0 8px 2px rgba(255,65,51,.7)}
+.pzone{position:absolute;top:0;bottom:0;background:rgba(255,255,255,.06);
+  border-left:1px dashed #4A5B70;border-right:1px dashed #4A5B70;
+  transition:left .55s cubic-bezier(.4,0,.2,1),width .55s cubic-bezier(.4,0,.2,1)}
+
+.dims{position:relative;height:62px;margin-top:4px}
+.dline{position:absolute;height:1px;background:#33465A;transition:left .55s cubic-bezier(.4,0,.2,1),width .55s cubic-bezier(.4,0,.2,1)}
+.dline:before,.dline:after{content:"";position:absolute;top:-4px;width:1px;height:9px;background:#33465A}
+.dline:before{left:0}.dline:after{right:0}
+.dlab{position:absolute;transform:translateX(-50%);font-family:var(--mono);font-size:10.5px;
+  color:#9FB0C1;background:#0A1017;padding:0 7px;white-space:nowrap;
+  transition:left .55s cubic-bezier(.4,0,.2,1)}
+.dlab.sm{font-size:9.5px;color:#6C7E92}
+
+.hbar{display:flex;align-items:center;gap:11px;flex-wrap:wrap;padding:13px 18px;border-bottom:1px solid var(--line)}
+.hbar .btn{padding:9px 16px;font-size:13.5px}
+.hstep{font-family:var(--mono);font-size:11px;color:var(--muted);margin-left:auto}
+
+.ladder{padding:18px 26px 22px;border-bottom:1px solid var(--line);background:#0E151D}
+.lrow{display:grid;grid-template-columns:78px minmax(0,1fr);gap:14px;align-items:center;
+  padding:5px 0;cursor:pointer;background:none;border:0;width:100%;text-align:left;font-family:inherit}
+.lrow .ll{font-family:var(--mono);font-size:11px;color:#6C7E92;text-align:right;transition:color .2s}
+.lrow:hover .ll{color:var(--steel)}
+.lrow[aria-pressed="true"] .ll{color:var(--yellow)}
+.ltrack{position:relative;height:20px}
+.lbar{position:absolute;left:0;top:0;bottom:0;border-radius:2px;
+  background:linear-gradient(180deg,#FFE873,#FFD400 55%,#C9A700);opacity:.42;transition:opacity .2s}
+.lrow:hover .lbar{opacity:.7}
+.lrow[aria-pressed="true"] .lbar{opacity:1;box-shadow:0 0 18px rgba(255,212,0,.3)}
+.lin{position:absolute;top:50%;height:5px;margin-top:-2.5px;border-radius:2px;background:#FFFCE8;opacity:.75}
+.lscale{display:flex;justify-content:space-between;margin:10px 0 0 92px;
+  font-family:var(--mono);font-size:10px;color:#5B6C7E}
+
+.hparams{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;padding:16px 18px;border-bottom:1px solid var(--line)}
+@media(max-width:620px){.hparams{grid-template-columns:1fr}}
+.hp label{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:6px}
+.hp .row{display:flex;align-items:center;gap:9px}
+.hp input{width:92px;background:#0E151D;border:1px solid var(--edge);color:var(--steel);
+  font-family:var(--mono);font-size:14px;padding:8px;border-radius:2px;text-align:right}
+.hp .u{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.hp .h{font-size:12.5px;color:var(--muted);margin:7px 0 0}
+@media(max-width:720px){.tabs{flex-wrap:wrap}.tab{flex:1 1 28%}.hero-in>*{min-width:0}.kpis{grid-template-columns:repeat(3,minmax(0,1fr))}.kpi{padding:12px 8px}.kpi .k{overflow-wrap:anywhere}.kpi .v{font-size:26px}.sim-hd,.hsg-hd{flex-wrap:wrap}.simstat{flex-wrap:wrap}.simstat .d{margin-left:0;text-align:left}.hbar{flex-wrap:wrap}}
+.hero-in{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:38px}.hero-product{padding:0;background:#0B0F14;overflow:hidden;border-radius:4px;border:0}.hero-product img{display:block;width:100%;height:auto;max-height:560px;object-fit:contain;background:#000}.hero h1{font-size:clamp(38px,5.1vw,64px);overflow-wrap:anywhere}@media(max-width:980px){.hero-in{grid-template-columns:minmax(0,1fr)}}
+
+bdi[lang="en"]{font:inherit;color:inherit;letter-spacing:inherit;text-transform:inherit;background:inherit;unicode-bidi:normal}
+
+/* bülten üyeliği */
+.news{background:#121a22;color:#e1e7ed;padding:56px 0;border-top:1px solid rgba(255,255,255,.10)}
+.news .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:44px;align-items:center}
+@media(max-width:860px){.news .wrap{grid-template-columns:1fr;gap:26px}}
+.news h2{font-family:'Barlow Condensed',Barlow,sans-serif;font-weight:700;text-transform:uppercase;
+  letter-spacing:.015em;line-height:1.04;margin:0;font-size:clamp(26px,3.2vw,36px);color:#fff}
+.news p{margin:16px 0 0;color:#b4c2d1;font-size:15.5px;line-height:1.65}
+.newsform{display:flex;gap:10px;flex-wrap:wrap}
+.newsform input{flex:1;min-width:200px;background:#0b0f14;border:1px solid #33465a;color:#e1e7ed;
+  font:16px Barlow,sans-serif;padding:15px 16px;border-radius:0}
+.newsform input::placeholder{color:#6c7e92}
+.newsbtn{background:#ffd400;color:#0b0f14;border:0;cursor:pointer;padding:15px 26px;
+  font-family:'Barlow Condensed',Barlow,sans-serif;font-weight:700;font-size:16px;
+  text-transform:uppercase;letter-spacing:.06em;line-height:1.1}
+.newsbtn:hover{background:#ffe04d}
+.newsnote{font:12px/1.6 'IBM Plex Mono',monospace;color:#8fa0b3;margin:12px 0 0}
+.newsnote a{color:#ffd400;text-decoration:none}
+
+/* açılır menü */
+.navdrop{position:relative;display:inline-flex;align-items:center}
+.navtop{background:none;border:0;color:inherit;font:inherit;cursor:pointer;padding:0;display:inline-flex;align-items:center;gap:6px}
+.navtop .car{font-size:9px;line-height:1;opacity:.75}
+.navsub{position:absolute;top:100%;left:0;min-width:248px;background:#11171e;border:1px solid #293542;
+  display:none;z-index:80;padding:6px 0;margin-top:12px;box-shadow:0 14px 34px rgba(0,0,0,.34)}
+.navdrop:hover .navsub,.navdrop.open .navsub{display:block}
+.navsub a{display:block;padding:11px 17px;font-size:13.5px;font-weight:600;letter-spacing:.05em;
+  white-space:nowrap;text-decoration:none;color:#cfd9e4;text-transform:none}
+.navsub a:hover{background:#1a2430;color:#ffd400}
+.navsub .sep{border-top:1px solid #253242;margin:6px 0}
+@media(max-width:900px){
+  .navdrop{display:block;width:100%}
+  .navsub{position:static;display:block;border:0;background:transparent;padding:0;margin:8px 0 4px 14px;box-shadow:none;min-width:0}
+  .navsub a{padding:5px 0;color:#9badc1;font-weight:500}
+}
+
+.tabs .navtop{border:1px solid #253242;border-radius:2px;padding:8px 15px;color:#93a4b7;
+  font-family:'Barlow Condensed','Arial Narrow',sans-serif;text-transform:uppercase;
+  letter-spacing:.09em;font-size:14.5px;font-weight:600;white-space:nowrap}
+.tabs .navtop:hover{border-color:#ffd400;color:#fff}
+.tabs .navdrop .navsub{margin-top:8px}
+@media(max-width:720px){.tabs .navdrop{flex:1 1 28%;min-width:0;display:block}
+  .tabs .navtop{width:100%;justify-content:center;padding:8px 6px;font-size:13px;white-space:normal}
+  .tabs .navsub{position:static;display:block;border:0;background:transparent;box-shadow:none;margin:6px 0 0;padding:0;min-width:0}
+  .tabs .navsub a{padding:5px 0;text-align:center;color:#9badc1;font-weight:500}}
+
+.nav-in{flex-wrap:nowrap}
+@media(max-width:760px){.nav-in{flex-wrap:wrap}}
+.tabs{flex-wrap:wrap;justify-content:flex-end;row-gap:6px}
+@media(max-width:1180px){.tabs .tab,.tabs .navtop{padding:8px 11px;font-size:13.5px;letter-spacing:.06em}}
+
+@media(max-width:900px){.navsub a{white-space:normal}.navsub{max-width:100%}}
+@media(max-width:720px){.tabs .navsub a{white-space:normal}.tabs .navsub{max-width:100%}}
+
+@media(max-width:420px){.tabs .tab,.tabs .navtop{font-size:12px;padding:7px 5px;letter-spacing:.04em}
+  .nav-in{gap:10px}.brand b{font-size:20px}.brand span{font-size:9px}}
+
+@media(max-width:430px){h1,h2,h3,h4{overflow-wrap:anywhere}
+  .atable,.ctable{display:block;overflow-x:auto;max-width:100%}
+  .strip-i,.strip-i b,.kpi .v,.kpi .v small{overflow-wrap:anywhere}}
+
+@media(max-width:1320px){.nav nav{gap:17px}.nav nav a,.nav .navtop{font-size:13px;letter-spacing:.045em}}
+@media(max-width:1120px){.nav nav{gap:13px}.nav nav a,.nav .navtop{font-size:12.5px;letter-spacing:.03em}}
+
+@media(max-width:1340px){.nav-in{gap:14px}.tabs{gap:3px}
+  .tabs .tab,.tabs .navtop{padding:8px 9px;font-size:13px;letter-spacing:.045em}
+  .brand b{font-size:20px}.brand span{font-size:9px;letter-spacing:.16em}}
+
+.brand span{display:none}
+.tabs .tab,.tabs .navtop{padding:8px 8px;font-size:12.5px;letter-spacing:.03em}
+.tabs{gap:3px}
+
+.langlink{border:1px solid #33465a;padding:4px 9px;font-size:12px;letter-spacing:.12em}
+.langlink:hover{border-color:var(--yellow);color:var(--yellow)}
+.tabs .langlink{padding:7px 11px}
+
+footer .wrap,.foot .wrap{display:block}
+.fcols{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;padding-bottom:24px;border-bottom:1px solid #22303e}
+.fcol b{display:block;font-family:Barlow,Arial,sans-serif;font-size:12px;font-weight:600;letter-spacing:.13em;color:#fff;margin-bottom:13px}
+.fcol a{display:block;text-decoration:none;color:#aebdcd;font-size:14.5px;line-height:1.45;margin-bottom:8px}
+.fcol a:hover{color:#ffd400}
+.fbase{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;padding-top:20px;font-size:13.5px;color:#8ea0b4}
+.fbase a{color:#aebdcd;text-decoration:none}
+.fbase a:hover{color:#ffd400}
+@media(max-width:860px){.fcols{grid-template-columns:1fr 1fr;gap:22px}}
+@media(max-width:520px){.fcols{grid-template-columns:1fr;gap:18px}.fcol a{margin-bottom:7px}}
+
+@font-face{font-family:'Poppins';src:url('fonts/poppins-Regular.woff2') format('woff2');font-style:normal;font-weight:400;font-display:swap}@font-face{font-family:'Poppins';src:url('fonts/poppins-Bold.woff2') format('woff2');font-style:normal;font-weight:700;font-display:swap}.brand,.brand b{font-family:'Poppins','Segoe UI',Arial,sans-serif;font-weight:400;letter-spacing:.005em;text-transform:none}.brand .lo1,.brand .lo2{display:inline;font-style:normal;font-family:inherit;font-size:inherit;letter-spacing:inherit;color:inherit;text-transform:inherit}.brand .lo1{font-weight:400}.brand .lo2{font-weight:700}.nav .brand,.nav .brand b,.foot .brand{font-family:'Poppins','Segoe UI',Arial,sans-serif;text-transform:none;font-style:normal;font-weight:400;letter-spacing:.005em}.nav .brand .lo2{font-weight:700}.brand{display:inline-flex;align-items:center;gap:.40em;text-decoration:none;white-space:nowrap}.brand .smk{height:.80em;width:auto;flex:none;display:block;color:#ffd400}.brand bdi{display:inline-block}.brand b{display:inline-flex;align-items:center;gap:.40em}.nav .brand:hover .smk{color:#fff}@media(max-width:600px){.brand .smk{height:.74em}}
+
+.fotobox{margin:0;border-top:1px solid #d9e0e8;background:#0A1017}
+.fotobox img{display:block;width:100%;height:auto;aspect-ratio:1.6;object-fit:cover}
+.fotobox figcaption{font:11px/1.6 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#7a8a9b;background:#fbfcfd;border-top:1px solid #d9e0e8;padding:11px 16px}
+.fotorow{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:30px}
+.fotorow .fotobox{border:1px solid #d9e0e8}
+@media(max-width:760px){.fotorow{grid-template-columns:1fr;gap:14px}}
+</style>
+</head>
+<body>
+
+<nav class="nav"><div class="wrap nav-in"><a class="brand" href="index.html"><b><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1726.7 800.0" fill="currentColor" aria-hidden="true" focusable="false" class="smk"><g transform="translate(276.56 0) skewX(-19.07)"><path d="M 72.00 0.00 H 670.04 V 228.00 H 0.00 V 72.00 A 72.00 72.00 0 0 1 72.00 0.00 Z"/><path d="M 72.00 0.00 H 280.00 V 468.00 H 0.00 V 72.00 A 72.00 72.00 0 0 1 72.00 0.00 Z"/><path d="M 0.00 332.00 H 670.04 V 468.00 H 0.00 V 332.00 Z"/><path d="M 0.00 572.00 H 280.00 V 800.00 H 72.00 A 72.00 72.00 0 0 1 0.00 728.00 V 572.00 Z"/><path d="M 390.04 332.00 H 670.04 V 800.00 H 390.04 V 332.00 Z"/><path d="M 780.08 0.00 H 1060.08 V 800.00 H 780.08 V 0.00 Z"/><path d="M 1170.12 0.00 H 1378.12 A 72.00 72.00 0 0 1 1450.12 72.00 V 728.00 A 72.00 72.00 0 0 1 1378.12 800.00 H 1170.12 V 0.00 Z"/></g></svg><bdi lang="en"><i class="lo1">Servo</i><i class="lo2">Motion</i></bdi></b><span>Lazer Konumlandırma</span></a><div class="tabs"><a class="tab" href="index.html">Ana Sayfa</a><a class="tab" href="core-precisor.html" aria-current="page">Core Precisor</a><a class="tab" href="shuttle-precisor.html">Shuttle Precisor</a><a class="tab" href="referanslar.html">Vaka Çalışmaları</a><a class="tab" href="servis.html">Servis</a><a class="tab" href="kurumsal.html">Kurumsal</a><a class="tab" href="rehber.html">Rehber</a><a class="tab" href="iletisim.html">İletişim</a></div></div></nav><header class="hero" id="top">
+  <div class="wrap hero-in">
+    <div>
+      <p class="eyebrow" style="font-size:14px;letter-spacing:.16em;color:var(--yellow)"><bdi lang="en">ServoMotion</bdi> · Sıralı Lazer Konumlandırma</p>
+      <h1>CORE <em>PRECISOR</em></h1>
+      <p class="lead">Core <span lang="en"><bdi lang="en">Precisor</bdi></span>, lazer çizgilerini <b>servo kontrol ile tanımlanan hedef konumlara otomatik olarak taşır.</b> Bağımsız veya simetrik hareket seçenekleriyle farklı hizalama ihtiyaçlarına uyarlanır. Reçete tabanlı kontrol yapısı, üretim boyunca tekrarlanabilir konum referansları sağlar.</p>
+      <div class="kpis">
+        <div class="kpi"><div class="k">Projeksiyon hassasiyeti</div><div class="v">±1,00<small>mm</small></div></div>
+        <div class="kpi"><div class="k">Konumlandırma hızı</div><div class="v">1000<small>mm/s</small></div></div>
+        <div class="kpi"><div class="k">Gövde uzunluğu</div><div class="v">4000<small>mm'ye kadar</small></div></div>
+      </div>
+      <div class="btns">
+        <a class="btn btn-y" href="#calisma">Sistem Yapısı</a>
+        <a class="btn btn-o" href="#teknik">Teknik Özellikler</a>
+        <a class="btn btn-o" href="#iletisim">Teklif İsteyin</a>
+      </div>
+    </div>
+    <div>
+      <div class="hero-fig hero-product"><img src="assets/core-precisor.jpg" alt="ServoMotion Core Precisor — kapalı gövde, iki kırmızı ve merkezde bir yeşil referans lazer çizgisi" width="1000" height="915" loading="eager"></div>
+    </div>
+  </div>
+  <div class="hero-strip">
+    <div class="wrap strip-in">
+      <div class="strip-i"><b>Reçete Tabanlı Kontrol</b>Tanımlı hedeflere otomatik lazer konumlandırma</div>
+      <div class="strip-i"><b>PLC Kontrol</b>Servo eksenlerin koordineli kontrolü</div>
+      <div class="strip-i"><b><span lang="en"><bdi lang="en">ProfiNet</bdi></span> · EtherNet/IP™</b>Hat kontrolüne uygun haberleşme seçenekleri</div>
+      <div class="strip-i"><b>Endüstriyel Panel PC</b>Reçete girişi ve operatör arayüzü</div>
+    </div>
+  </div>
+</header>
+
+<section class="rails" id="uygulama">
+<div class="wrap">
+<div class="sec-hd"><div class="rule"></div><p class="tagline">Uygulama Alanları</p><h2>Yerleştirme ve hizalama için lazer referansı</h2><p>Core <span lang="en"><bdi lang="en">Precisor</bdi></span>, reçetede tanımlanan konumları çalışma yüzeyine lazer çizgileri olarak yansıtır. Malzeme kenarlarını, merkez eksenini ve ayar noktalarını görünür hale getirerek farklı üretim süreçlerinde operatöre hizalama referansı sağlar.</p></div>
+<div class="rail-grid">
+<article class="rail"><span class="n">01 · MALZEME YERLEŞTIRME</span><h3>Katman ve kenar hizalama</h3><p>Malzeme ve parçaların yerleştirilmesinde hedef kenar konumlarını lazer çizgileriyle gösterir. Operatör, yerleşimi bu referanslara göre yapar. Projeksiyon düzeni, çalışma yüzeyine ve uygulamanın geometrisine göre belirlenir.</p></article>
+<article class="rail"><span class="n">02 · MAKINE AYARI</span><h3>Reçeteye göre konumlandırma</h3><p>Ürün ölçüsü değiştiğinde lazerler yeni hedef konumlara taşınır. Kılavuz, dayama veya kesim elemanlarının ayarında, ölçünün çalışma alanına aktarılması için görsel referans sunar.</p></article>
+<article class="rail"><span class="n">03 · MERKEZ VE SIMETRI</span><h3>Eksen ve genişlik referansı</h3><p>Sabit lazer merkez eksenini gösterirken hareketli lazerler iki yandaki hedef konumları işaretler. Merkezleme, genişlik ayarı ve simetrik malzeme yerleşimi için ortak bir referans sağlar.</p></article>
+</div></div></section>
+<section class="rails" id="faydalar"><div class="wrap">
+<div class="sec-hd"><div class="rule"></div><p class="tagline">Üretime Katkısı</p><h2>Tanımlı konumlar, tekrarlanabilir ayar</h2><p>Reçete ölçülerinin doğrudan çalışma alanında gösterilmesi, malzeme yerleştirme ve makine ayarının ortak referanslarla yürütülmesini destekler.</p></div>
+<div class="rail-grid">
+<article class="rail"><h3>Ölçüyü sahaya aktarır</h3><p>Lazer çizgileri hedef konumları yüzey üzerinde görünür kılar. Elle ölçü aktarma ihtiyacını azaltmaya ve yerleştirme sırasında referansın takip edilmesine yardımcı olur.</p></article>
+<article class="rail"><h3>Ürün geçişini kolaylaştırır</h3><p>Yeni reçeteye ait konumlar servo kontrollü hareketle gösterilir. Hazırlık süresine katkı, uygulamanın düzenine ve operatörün yaptığı işlemlere bağlıdır.</p></article>
+<article class="rail"><h3>Ayar yöntemini standartlaştırır</h3><p>Aynı ürün için tanımlanan referanslar tekrar kullanılabilir. Farklı operatörlerin yerleştirme ve hizalama işlemlerini aynı hedefler üzerinden yapmasını destekler.</p></article>
+</div></div></section>
+<section class="rails" id="calisma"><div class="wrap">
+<div class="sec-hd"><div class="rule"></div><p class="tagline">Çalışma Prensibi</p><h2>Reçeteden otomatik lazer konumlandırmaya</h2><p>PLC kontrollü servo eksenler, lazer modüllerini tanımlanan hedeflere taşır. Yansıtılan çizgiler malzeme yerleştirme veya makine ayarı için referans olur; fiziksel hizalama işlemi operatör tarafından yapılır. Konum burada kurulumda bir kez yapılan bir ayar değil, reçetenin verisidir: ürün değiştiğinde hedefler değişir, aynı reçete çağrıldığında çizgiler aynı yerlere döner.</p></div>
+<h3 class="rowlab">Çalışma Döngüsü</h3>
+<div class="cycle">
+<div class="cy"><div class="n">01</div><h4>Reçete tanımlanır</h4><p>Ürüne ait konum ve genişlik değerleri kontrol arayüzünden girilir.</p></div>
+<div class="cy"><div class="n">02</div><h4>Hedefler aktarılır</h4><p>PLC, seçilen hareket düzenine göre servo eksenlere konum komutlarını iletir.</p></div>
+<div class="cy"><div class="n">03</div><h4>Lazerler konumlanır</h4><p>Modüller bağımsız veya simetrik hareket ederek hedef çizgileri gösterir.</p></div>
+<div class="cy"><div class="n">04</div><h4>Hizalama yapılır</h4><p>Operatör malzemeyi veya ayar elemanını lazer referansına göre konumlandırır.</p></div>
+<div class="cy"><div class="n">05</div><h4>Sıra ilerler</h4><p>İşlem, reçetedeki sonraki hedef konumlarla devam eder.</p></div>
+</div>
+
+<h3 class="rowlab">Bu Mimarinin Getirisi</h3>
+<div class="cycle">
+<div class="cy"><h4>Korumalı Gövde</h4><p>Lazer modülleri, servo eksenler ve kablolama kapalı gövde içindedir. Hattın tozu, elyafı ve nemi hareketli parçalara ulaşmaz; temizlik dış yüzey ve lazer penceresiyle sınırlı kalır.</p></div>
+<div class="cy"><h4>Kalıcı Merkez Referansı</h4><p>Merkezdeki sabit lazer hiç hareket etmez. Simetrik reçeteler bu çizgiye göre kurulur; makine merkezi, ölçüm yapmadan her an doğrulanabilir.</p></div>
+<div class="cy"><h4>Simetrik Hareket</h4><p>Çift kanallı ve simetrik konfigürasyonlarda iki lazer aynı anda hareket eder; aynı adım sayısında iki kat çizgi konumu gösterilir.</p></div>
+<div class="cy"><h4>Kompakt Montaj</h4><p>Sistem tek gövde hâlinde hattın üzerine montelenir. Makine boyunca ray, araba park alanı veya ek şase gerekmez.</p></div>
+<div class="cy"><h4>Ölçülü Yatırım</h4><p>Az çizgili hatlarda bir veya iki eksen yeterlidir. Maliyet makine genişliğine değil, gerçekten ihtiyaç duyulan çizgi sayısına göre belirlenir.</p></div>
+</div></div></section>
+
+<section class="cfgsec" id="konfigurasyonlar">
+  <div class="wrap">
+    <div class="sec-hd">
+      <div class="rule"></div>
+      <p class="tagline">Hareket Konfigürasyonları</p>
+      <h2>Uygulamanıza uygun hareket konfigürasyonu</h2>
+      <p>Core <span lang="en"><bdi lang="en">Precisor</bdi></span>, tek veya çift kanallı eksen düzeninde bağımsız ve simetrik lazer hareketi seçenekleri sunar. İhtiyaca göre sabit bir merkez referans lazeri eklenebilir. Hareket konfigürasyonu seçin; lazer modüllerinin 1.200 mm çalışma genişliğindeki konumlandırma düzenini inceleyin. Gösterim şematiktir; hareket sınırları ve modül yerleşimi uygulama gereksinimlerine göre belirlenir.</p>
+    </div>
+
+    <div class="cfgbar">
+      <button class="btn btn-y" id="play" style="padding:9px 18px;font-size:14px">Durdur</button>
+      <div class="modes" id="segSpeed" style="width:180px;flex:none;grid-template-columns:repeat(3,1fr)" role="group" aria-label="Animasyon hızı">
+        <button type="button" data-sp="0.5" aria-pressed="false">0,5×</button>
+        <button type="button" data-sp="1" aria-pressed="true">1×</button>
+        <button type="button" data-sp="2" aria-pressed="false">2×</button>
+      </div>
+    </div>
+
+    <div class="cfgwrap" id="cfgwrap"></div>
+
+    <div class="cfglegend">
+      <span><i style="background:#FF2D20"></i>Hareketli lazer</span>
+      <span><i style="background:#2FE05C"></i>Sabit referans lazeri</span>
+      <span><i style="background:#FFD400"></i>Gövde / lineer eksen</span>
+    </div>
+
+    <div class="sim" id="sim">
+      <div class="sim-hd">
+        <span class="code" id="dCode">K1</span>
+        <h3 id="dTitle">Tek Kanal · 1 Hareketli Lazer</h3>
+        <span class="w" id="dW">1.200 mm çalışma genişliği</span>
+      </div>
+
+      <div class="scene"><svg id="svg" viewBox="0 0 1000 324" role="img" aria-label="Konfigürasyon simülasyonu"></svg></div>
+
+      <div class="simlegend">
+        <span><i style="background:#FFD400"></i>Servo gövde · kanal</span>
+        <span><i style="background:#FF2D20"></i>Hareketli lazer arabası</span>
+        <span><i style="background:#2FE05C"></i>Sabit lazer (ayrı braket)</span>
+        <span><i style="background:#FF2D20;opacity:.55"></i>Lazer çizgisi</span>
+        <span><i style="background:#C9D2DC"></i>Hizalanmış bıçak</span>
+      </div>
+
+      <div class="simbar">
+        <button class="btn btn-y" id="rep" style="padding:9px 18px;font-size:14px">Tekrar Oynat</button>
+        <button class="btn btn-o" id="rst" style="padding:9px 18px;font-size:14px;background:transparent;border-color:#33465A;color:#D6DEE7">Sıfırla</button>
+        <div class="prog"><i id="pi"></i></div>
+      </div>
+
+      <div class="simstat idle" id="stat">
+        <span class="dot"></span><span id="statT">Hazır</span>
+        <span class="d" id="statD">Kurulumu başlatmak için Tekrar Oynat'a basın</span>
+      </div>
+
+      <div class="simstats">
+        <div class="ss"><div class="k">Lazer adedi</div><div class="v" id="oN">1<small>adet</small></div></div>
+        <div class="ss"><div class="k">Kanal</div><div class="v" id="oCh">1<small>hat</small></div></div>
+        <div class="ss"><div class="k">Dilim sayısı</div><div class="v" id="oSl">4<small>dilim</small></div></div>
+        <div class="ss"><div class="k">Konumlanma adımı</div><div class="v" id="oStep">3<small>adım</small></div></div>
+        <div class="ss"><div class="k">Örnek hareket süresi</div><div class="v" id="oT">1,8<small>sn</small></div></div>
+      </div>
+
+      <p class="simnote">Gösterim şematiktir. Süre, 1.000 mm/s varsayımı ve adım başına 0,25 saniye bekleme ile hesaplanır; gerçek ivmelenme profili, modüller arası mesafe ve operatörün ayar süresi modellenmez. Toplam kurulum süresini göstermez.</p>
+
+      <div class="simdesc">
+        <p id="dDesc"></p>
+        <dl class="kv">
+          <dt>Kanal</dt><dd id="dCh"></dd>
+          <dt>Lazer</dt><dd id="dLz"></dd>
+          <dt>Hareket</dt><dd id="dMv"></dd>
+          <dt>Tipik kullanım</dt><dd id="dUse"></dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-hd">
+      <div class="rule"></div>
+      <p class="tagline">Özellikler</p>
+      <h2>Uygulama seçimini belirleyen özellikler</h2>
+      <p>Hareket mesafesi, projeksiyon koşulları ve kontrol altyapısı birlikte değerlendirilir. Böylece lazer referansı, hattın ayar yöntemi ve çalışma alanına uygun olarak yapılandırılır.</p>
+    </div>
+    <div class="fgrid">
+      <div class="fbox"><div class="t">Hassas konumlandırma</div><div class="v">± 1,00 mm</div><p>Hedef çizginin konum doğruluğunu ifade eder. Uygulama mesafesi ve montaj koşulları seçim sırasında değerlendirilir.</p></div>
+      <div class="fbox"><div class="t">Hızlı pozisyonlama</div><div class="v">1000 mm/s</div><p>Reçete konumları arasındaki geçiş süresini kısaltan yüksek dinamik hareket.</p></div>
+      <div class="fbox"><div class="t">Net görünürlük</div><div class="v">Kırmızı ve Yeşil Lazer</div><p>Sabit ve hareketli modüllerde kırmızı veya yeşil lazer seçenekleri. Renk seçimi, çalışma yüzeyi ve ortam aydınlatmasına göre belirlenir.</p></div>
+      <div class="fbox"><div class="t">Haberleşme</div><div class="v"><span lang="en"><bdi lang="en">ProfiNet</bdi></span> · EtherNet/IP™</div><p>Hat kontrol sistemiyle haberleşme için seçenekler. Protokol ve bağlantı kapsamı proje aşamasında belirlenir.</p></div>
+      <div class="fbox"><div class="t">Gövde Uzunluğu Seçenekleri</div><div class="v">600–4.000 mm</div><p>600–4.000 mm aralığında gövde seçenekleri; daha uzun hatlar için talebe göre tasarlanır. Kullanılabilir hareket mesafesi ve montaj düzeni, uygulamanın ölçülerine göre belirlenir.</p></div>
+      <div class="fbox"><div class="t">Servis</div><div class="v">Amortisörlü gövde</div><p>Lazer değişimi ve kalibrasyon için kolayca açılıp kapanan kapak mekanizması.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cfgsec" id="govde">
+  <div class="wrap">
+    <div class="sec-hd">
+      <div class="rule"></div>
+      <p class="tagline">Makinenize Özel Mekanik Tasarım</p>
+      <h2>Hattınızın Ölçülerine Uygun Tasarım</h2>
+      <p>Core <span lang="en"><bdi lang="en">Precisor</bdi></span>'un sistem gövdesi, hattınızın çalışma genişliğine ve montaj koşullarına göre
+        boyutlandırılır. Gövde uzunluğu, kullanılabilir hareket mesafesi ve bağlantı noktaları
+        makinenizin teknik ölçülerine göre belirlenir. Aşağıdaki şemada farklı gövde uzunlukları ile kullanılabilir hareket alanı arasındaki ilişkiyi inceleyebilirsiniz. Gövde uzunluğu ile lazerin hareket mesafesi aynı değildir.</p>
+    </div>
+
+    <div class="hsg">
+      <div class="hsg-hd">
+        <span class="code" id="hCode">L4</span>
+        <h3>Sistem Gövdesi</h3>
+        <span class="w" id="hW">2.600 mm</span>
+      </div>
+
+      <div class="hstage">
+        <div class="prof">
+          <div class="pbody" id="pbody">
+            <span class="pcap l"></span><span class="pcap r"></span>
+            <span class="prail"></span>
+            <span class="pzone" id="pzone"></span>
+            <span class="pcart" id="pcart"></span>
+          </div>
+        </div>
+        <div class="dims" id="dims">
+          <span class="dline" id="dTot" style="top:16px"></span>
+          <span class="dlab" id="lTot" style="top:24px"></span>
+          <span class="dline" id="dStr" style="top:0"></span>
+          <span class="dlab sm" id="lStr" style="top:-14px"></span>
+          <span class="dlab sm" id="lMl" style="top:-14px"></span>
+          <span class="dlab sm" id="lMr" style="top:-14px"></span>
+        </div>
+      </div>
+
+      <div class="hbar">
+        <button class="btn btn-o" id="hPrev" style="background:transparent;border-color:#33465A;color:#D6DEE7">‹ Önceki</button>
+        <button class="btn btn-y" id="hAuto">Adım Adım Göster</button>
+        <button class="btn btn-o" id="hNext" style="background:transparent;border-color:#33465A;color:#D6DEE7">Sonraki ›</button>
+        <span class="hstep" id="hStep">4 / 6</span>
+      </div>
+
+      <div class="ladder" id="ladder"></div><p class="simnote">Ölçü gösterimi, her uçta 80 mm pay kabul edilen örnek bir yerleşimdir. Kullanılabilir hareket mesafesi; lazer modülü boyutu, uç sınırları ve seçilen konfigürasyona göre projede kesinleştirilir.</p>
+
+    </div>
+  </div>
+</section>
+
+<section class="cmp"><div class="wrap">
+<div class="sec-hd"><div class="rule"></div><p class="tagline">Sistem Bileşenleri</p><h2>Kontrol ve Hareket Altyapısı</h2><p>Lazer modülleri, PLC ve servo eksenler birlikte çalışarak hedef konumları çalışma yüzeyine aktarır. Operatör arayüzü, reçete ve ayar işlemlerine erişim sağlar.</p></div>
+<div class="cgrid2">
+<div class="cbox"><div class="r">Lazer modülleri</div><h3>Kırmızı ve Yeşil Seçenekler</h3><ul><li>Kırmızı ve yeşil lazer seçenekleri</li><li>Sabit referans veya hareketli modül kullanımı</li><li>Çalışma mesafesine göre ayarlanabilir odak</li><li>12–24 VDC besleme</li><li>Standart M12 konnektör bağlantısı</li></ul></div>
+<div class="cbox"><div class="r">Kontrol sistemi</div><h3>PLC Tabanlı Kontrol</h3><ul><li>Entegre hareket kontrol fonksiyonları</li><li>Birden fazla eksenin koordineli yönetimi</li><li>PROFINET üzerinden sürücü haberleşmesi</li><li>Reçete ve sıralı işlem yönetimi</li><li>Çalışma durumu ve arıza tanılama</li></ul></div>
+<div class="cbox"><div class="r">Hareket sistemi</div><h3>Kapalı Çevrim Servo Kontrol</h3><ul><li>Enkoder geri beslemeli konum kontrolü</li><li>Konum, hız ve tork kontrol fonksiyonları</li><li>PROFINET üzerinden senkron haberleşme</li><li>Düşük rotor ataleti ile dinamik tepki</li><li>Makine yerleşimine uygun kompakt motor yapısı</li></ul></div>
+<div class="cbox"><div class="r">Operatör arayüzü</div><h3>Endüstriyel Panel PC</h3><ul><li>Çoklu dokunmatik operatör arayüzü</li><li>Reçete seçimi ve konum parametrelerine erişim</li><li>Hızlı veri erişimi için katı hal depolama</li><li>PLC ile veri alışverişi</li><li>Çevre birimleri için bağlantı seçenekleri</li></ul></div>
+</div></div></section>
+
+<section id="teknik">
+  <div class="wrap">
+    <div class="sec-hd">
+      <div class="rule"></div>
+      <p class="tagline">Teknik Özellikler</p>
+      <h2><bdi lang="en">ServoMotion</bdi> Core <span lang="en"><bdi lang="en">Precisor</bdi></span></h2>
+    </div>
+    <div class="spec-grid">
+      <div class="spec">
+        <h3>Lazer</h3>
+        <table><tbody>
+          <tr><th>Lazer rengi</th><td>Kırmızı veya yeşil</td></tr>
+          
+          <tr><th>Çizgi inceliği</th><td>1 mm</td></tr>
+          <tr><th>Odak</th><td>Ayarlanabilir</td></tr>
+          
+          
+        <tr><th>Lazer besleme</th><td>12–24 VDC</td></tr>
+          <tr><th>Lazer koruma sınıfı</th><td>IP54</td></tr><tr><th>Lazer sınıfı</th><td>IEC 60825-1 kapsamında sınıflandırılır · seçilen optik güce göre Sınıf 2M veya 3R; kesin sınıf ürün etiketinde ve kullanım kılavuzunda belirtilir</td></tr><tr><th>Dalga boyu</th><td>Kırmızı 635–660 nm · yeşil 515–532 nm · modüle göre</td></tr>
+          <tr><th>Lazer konnektör</th><td>M12, 4 pin</td></tr></tbody></table>
+      </div>
+      <div class="spec">
+        <h3>Mekanik &amp; Hareket</h3>
+        <table><tbody>
+          <tr><th>Projeksiyon hassasiyeti</th><td>± 1,00 mm</td></tr>
+          <tr><th>Konumlandırma hızı</th><td>1000 mm/s'ye kadar</td></tr>
+          <tr><th>Gövde uzunluğu</th><td>4.000 mm'ye kadar · daha uzunu talebe göre</td></tr>
+          <tr><th>Hareket konfigürasyonu</th><td>6 model (K1–K6)</td></tr>
+          <tr><th>Hareket mesafesi</th><td>Makineye göre özelleştirilir</td></tr>
+          <tr><th>Servis erişimi</th><td>Amortisörlü açılır kapak</td></tr>
+        <tr><th>Gövde koruma sınıfı</th><td>IP54 · daha yüksek koruma talebe göre</td></tr><tr><th>Sistem ağırlığı</th><td>Uygulamaya ve gövde boyuna göre değişir · teklifte belirtilir</td></tr><tr><th>Montaj arayüzü</th><td>Uygulamaya göre belirlenir · bağlantı plakası mevcut şaseye veya yeni taşıyıcıya</td></tr></tbody></table>
+      </div>
+      <div class="spec">
+        <h3>Kontrol &amp; Haberleşme</h3>
+        <table><tbody>
+          <tr><th>PLC</th><td>Endüstriyel PLC</td></tr>
+          <tr><th>Servo sürücü</th><td>Servo sürücü</td></tr>
+          <tr><th>Protokol</th><td><span lang="en"><bdi lang="en">ProfiNet</bdi></span> · EtherNet/IP™</td></tr>
+          <tr><th>Eksen yönetimi</th><td>Bağımsız ve simetrik hareket kontrolü</td></tr>
+          <tr><th>Konum geri beslemesi</th><td>Enkoder ile kapalı çevrim kontrol</td></tr>
+          <tr><th>Tanılama</th><td>Çalışma durumu ve arıza izleme</td></tr>
+        <tr><th>Besleme</th><td>220 V AC 50 Hz · pano üzerinden</td></tr><tr><th>Güç tüketimi</th><td>Lazer sayısı ve konfigürasyona göre değişir · proje dosyasında verilir</td></tr><tr><th>Çalışma ortamı</th><td>Kapalı üretim ortamı · +10 … +40 °C · %10–90 bağıl nem, yoğuşmasız</td></tr></tbody></table>
+      </div>
+      <div class="spec">
+        <h3>Operatör Paneli</h3>
+        <table><tbody>
+          <tr><th>Ekran</th><td>PCAP dokunmatik ekran</td></tr>
+          <tr><th>İşlemci / bellek</th><td>Endüstriyel işlem altyapısı · katı hal depolama</td></tr>
+          <tr><th>Arabirimler</th><td>Endüstriyel ve çevresel bağlantı seçenekleri</td></tr>
+          <tr><th>Ağ</th><td>Ethernet ve kablosuz bağlantı seçenekleri</td></tr>
+          <tr><th>Görüntü çıkışı</th><td>Harici ekran bağlantısı</td></tr>
+          <tr><th>Besleme</th><td>DC besleme</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section" style="background:#fff"><div class="wrap">
+<div class="section-head"><p class="label">GÜVENLİK</p><h2>LAZER GÜVENLİĞİ VE UYGUNLUK</h2></div>
+<div class="symlist">
+  <div class="sym"><b>Lazer sınıfı ve etiketleme</b><p>Sistemde kullanılan çizgi lazer modülünün sınıfı,
+    ürün etiketinde ve birlikte teslim edilen kullanım kılavuzunda belirtilir. Modüller kılavuzda tanımlanan
+    koşullarda çalıştırılmalıdır.</p></div>
+  <div class="sym"><b>Kullanım sırasında</b><p>Doğrudan ışına bakılmamalı, yansıtıcı yüzeylerde
+    yansıma açısı montajda birlikte değerlendirilmelidir. Operatörün çalışma pozisyonu devreye almada
+    gözden geçirilir.</p></div>
+  <div class="sym"><b>Bakımda</b><p>Optik temizliği ve mekanik kontrol öncesinde sistemin enerjisi kesilmeli,
+    hat güvenli duruma alınmalıdır.</p></div>
+  <div class="sym"><b>Uygunluk sertifikası</b><p>Sistemde kullanılan endüstriyel konumlandırma lazeri modülleri, <bdi lang="en">TÜV Rheinland LGA Products GmbH</bdi> tarafından EN 55011 ve EN 55032 elektromanyetik uyumluluk deneylerine göre değerlendirilmiş ve uygunluk sertifikasına bağlanmıştır (Sert. No. AK 50498967 0001). <a href="dokumanlar.html#veri-sayfalari" style="font-weight:600;color:#0b0f14">Sertifikayı indirin</a>.</p></div>
+<div class="sym"><b>Uygunluk dokümantasyonu</b><p>Sisteme ait uygunluk beyanı ve teknik dosya, teslim
+    paketinde projeye özel olarak sunulur.</p></div>
+</div>
+</div></section><section class="cross">
+  <div class="wrap cross-in">
+    <div>
+      <p class="eyebrow" style="color:#0B0F14;opacity:.6">Aynı Marka · Farklı Mimari</p>
+      <h2>Tüm Çizgilerin Aynı Anda Görünmesi mi Gerekiyor?</h2>
+      <p>Kesim çizgisi sayısı altıyı aşıyorsa ve çizgilerin üretim boyunca aynı anda açık kalması gerekiyorsa,
+        tek servo mekikle onlarca lazer arabasını konumlandıran Shuttle <span lang="en"><bdi lang="en">Precisor</bdi></span> bu iş için tasarlandı.</p>
+    </div>
+    <a class="btn btn-k" href="shuttle-precisor.html">Shuttle <span lang="en"><bdi lang="en">Precisor</bdi></span>'u İnceleyin</a>
+  </div>
+</section>
+
+<section class="cta" id="iletisim">
+  <div class="wrap">
+    <h2>Uygulamanız için doğru sistemi belirleyelim</h2>
+    <p>Hattınızın hizalama gereksinimlerini iletin; optimize edilmiş lazer yerleşimi, hassas hareket kontrolü ve PLC/otomasyon entegrasyonunu sisteminize özel olarak tasarlayalım.</p>
+    <div class="btns" style="justify-content:center">
+      <a class="btn btn-y" href="mailto:info@servomotion.com.tr?subject=ServoMotion%20Core%20Precisor%20Talebi">INFO@SERVOMOTION.COM.TR</a>
+      <a class="btn btn-o" href="tel:+902125772567">+90 212 577 25 67</a>
+      <a class="btn btn-o" href="servis.html">MONTAJ VE DEVREYE ALMA</a>
+      <a class="btn btn-o" href="dokumanlar.html">VERİ SAYFASI (PDF)</a>
+    </div>
+  </div>
+</section>
+
+
+<section class="news" id="bulten"><div class="wrap"><div>
+<h2>ÖNCE BİLGİ, SONRA YATIRIM</h2>
+<p>Sistem seçimi ve yatırım kararlarını kolaylaştıran teknik yazıları, uygulama örneklerini ve ürün güncellemelerini yayımlandıkça e-posta ile paylaşıyoruz.</p>
+</div><div>
+<form class="newsform" id="nf"><input type="email" id="nmail" placeholder="E-posta adresiniz" aria-label="E-posta adresiniz" required>
+<button class="newsbtn" type="submit">KAYDOLUN</button></form>
+<p class="newsnote" id="nnote">Sorularınız için: <a href="mailto:info@servomotion.com.tr">info@servomotion.com.tr</a></p>
+</div></div></section>
+<footer class="foot"><div class="wrap"><div class="fcols"><div class="fcol"><b>SİSTEMLER</b><a href="core-precisor.html">Core Precisor</a><a href="shuttle-precisor.html">Shuttle Precisor</a><a href="dokumanlar.html">Teknik dokümanlar</a></div><div class="fcol"><b>UYGULAMA ALANLARI</b><a href="uygulama-lastik.html">Lastik ve kompozit</a><a href="uygulama-nonwoven.html">Hijyenik ürünler ve nonwoven</a><a href="uygulama-ambalaj.html">Ambalaj ve kağıt</a></div><div class="fcol"><b>VAKA ÇALIŞMALARI</b><a href="referanslar.html">Sahadan dört kurulum</a><a href="servis.html">Servis ve devreye alma</a><a href="rehber.html">Rehber yazıları</a></div><div class="fcol"><b>KURUMSAL</b><a href="kurumsal.html">Hakkımızda</a><a href="iletisim.html">İletişim</a><a href="sss.html">Sıkça sorulan sorular</a><a href="sozluk.html">Sözlük</a><a href="kvkk.html">KVKK ve çerezler</a></div></div><div class="fbase"><span><bdi lang="en">ServoMotion</bdi>, Oktay Otomasyon Elektronik Mühendislik San. ve Tic. A.Ş. (<a href="https://o-em.com.tr" target="_blank" rel="noopener">OEM Lazer</a>) markasıdır.</span><span><a href="mailto:info@servomotion.com.tr">info@servomotion.com.tr</a> · <a href="tel:+902125772567">+90 212 577 25 67</a></span></div></div></footer>
+
+<script>
+(function(){
+"use strict";
+var $=function(id){return document.getElementById(id)};
+var NS='http://www.w3.org/2000/svg';
+var fmt=function(v,d){return v.toLocaleString('tr-TR',{minimumFractionDigits:d||0,maximumFractionDigits:d||0})};
+
+/* ================= konfigürasyon tanımları =================
+   mv : hareketli lazerler { ch:'full'|'top'|'bot', dir:'fwd'|'rev'|'symL'|'symR' }
+   fx : merkezde sabit referans lazerleri
+   plan: büyük simülasyonun adımları — her adım { pos:[mm|null,...], cut:[mm,...] }
+=========================================================== */
+var W=1200;                     /* örnek hat çalışma genişliği (mm) */
+var VMAX=1000;                  /* mm/s */
+var TSET=0.25;                  /* adım başı oturma payı (sn) */
+
+var CFG=[
+ {code:'K1', kind:'Tek Kanal', name:'Tek Kanal · 1 Hareketli Lazer',
+  short:'1 kanalda 1 hareketli lazer', dual:false,
+  fx:[], mv:[{ch:'full',dir:'fwd'}],
+  chCount:1, fxPos:[], start:[40],
+  plan:[{pos:[300],cut:[300]},{pos:[600],cut:[600]},{pos:[900],cut:[900]}],
+  ch:'Tek kanal — gövde boyunca kesintisiz tek hareket bölgesi.',
+  lz:'1 hareketli lazer (kırmızı).',
+  mvTxt:'Lazer soldan sağa, reçetedeki konumlara sırayla gider.',
+  use:'Tek kesim çizgisinin sırayla gösterildiği, az dilimli hatlar.',
+  desc:'En yalın konfigürasyon. Tek lazer gövde boyunca soldan sağa ilerler ve reçetedeki her kesim konumunda durur. Dört dilim için üç ayrı adım gerekir; operatör her adımda bıçağı gösterilen çizgiye göre hizalar.'},
+
+ {code:'K2', kind:'Tek Kanal', name:'Tek Kanal · 1 Sabit + 1 Hareketli',
+  short:'1 kanalda 1 sabit + 1 hareketli lazer', dual:false,
+  fx:[{ch:'full',pos:50}], mv:[{ch:'full',dir:'fwd'}],
+  chCount:1, fxPos:[600], start:[40],
+  plan:[{pos:[300],cut:[300]},{pos:[600],cut:[600]},{pos:[900],cut:[900]}],
+  ch:'Tek kanal — sabit referans ayrı brakette, hareketli lazer ray boyunca serbest.',
+  lz:'1 sabit referans lazeri + 1 hareketli lazer (kırmızı).',
+  mvTxt:'Sabit lazer ayrı brakette merkezi sürekli gösterir; hareketli lazer merkez dahil her kademede durarak soldan sağa ilerler.',
+  use:'Ortalama/merkez referansının sürekli görünmesi gereken hatlar.',
+  desc:'Ayrı braketteki sabit lazer makine ortasını kalıcı olarak işaretler ve reçete boyunca hiç sönmez. Hareketli lazer merkez dahil her kesim konumuna sırayla uğrar; operatör her ölçüyü sabit referansa göre anında karşılaştırabildiği için simetri kayması daha kurulum sırasında yakalanır.'},
+
+ {code:'K3', kind:'Çift Kanal', name:'Çift Kanal · 2 Hareketli Lazer',
+  short:'2 kanalda 2 hareketli lazer', dual:true,
+  fx:[], mv:[{ch:'top',dir:'fwd'},{ch:'bot',dir:'rev'}],
+  chCount:2, fxPos:[], start:[40,1160],
+  plan:[{pos:[200,1000],cut:[]},
+        {pos:[400,800],cut:[]},
+        {pos:[600,600],cut:[600]},
+        {pos:[800,400],cut:[400,800]},
+        {pos:[1000,200],cut:[200,1000]}],
+  ch:'İki bağımsız kanal — üst ve alt hareket bölgeleri ayrıdır.',
+  lz:'Her kanalda 1 hareketli lazer (kırmızı).',
+  mvTxt:'Kanal 1 sol uçtan sağ uca, Kanal 2 sağ uçtan sol uca geçer; yollar ortada kesişir.',
+  use:'Kesme ve geri sarma taraflarının aynı anda işaretlendiği, çok dilimli hatlar.',
+  desc:'İki lazer zıt uçlardan başlar ve karşı uca kadar gider; yolları merkezde kesişir. Kanal 1 kesme tarafındaki bıçağı, Kanal 2 geri sarma tarafındaki bobin kenarını işaretler — bir kesim çizgisi ancak iki taraftan da işaretlendiğinde tamamlanmış sayılır. Merkez dahil altı dilimlik reçete beş adımda kurulur.'},
+
+ {code:'K4', kind:'Çift Kanal', name:'Çift Kanal · 1 Sabit + 2 Hareketli',
+  short:'2 kanalda 1 sabit + 2 hareketli lazer', dual:true,
+  fx:[{ch:'top',pos:50}], mv:[{ch:'top',dir:'fwd'},{ch:'bot',dir:'rev'}],
+  chCount:2, fxPos:[600], start:[40,1160],
+  plan:[{pos:[200,1000],cut:[]},
+        {pos:[400,800],cut:[]},
+        {pos:[600,600],cut:[600]},
+        {pos:[800,400],cut:[400,800]},
+        {pos:[1000,200],cut:[200,1000]}],
+  ch:'İki bağımsız kanal; merkez referansı ayrı brakette, rayları engellemez.',
+  lz:'1 sabit referans lazeri + 2 hareketli lazer (kırmızı).',
+  mvTxt:'Kanal 1 sol uçtan sağ uca, Kanal 2 sağ uçtan sol uca geçer; ayrı braketteki sabit lazer merkezi sürekli işaretler ve rayları engellemez.',
+  use:'Çift taraflı işaretleme ile merkez referansının birlikte istendiği hatlar.',
+  desc:'K3 ile aynı hareket, üstüne kalıcı merkez referansı. Hareketli lazerler zıt uçlardan başlayıp merkez dahil her kademede durarak karşı uca geçer; ayrı braketteki sabit lazer ise tüm döngü boyunca simetri eksenini gösterir. Merkez referansı, her ayar adımında karşılaştırma yapılmasını sağlar.'},
+
+ {code:'K5', kind:'Simetrik', name:'Simetrik · 2 Hareketli Lazer',
+  short:'1 kanalda simetrik hareketli 2 lazer', dual:false, sym:true,
+  fx:[], mv:[{ch:'full',dir:'symL'},{ch:'full',dir:'symR'}],
+  chCount:1, fxPos:[], start:[600,600],
+  plan:[{pos:[480,720],cut:[480,720]},
+        {pos:[240,960],cut:[240,960]}],
+  ch:'Tek kanal — iki lazer aynı bölgede, merkeze göre eşlenik.',
+  lz:'2 hareketli lazer (kırmızı), merkeze göre simetrik.',
+  mvTxt:'Lazerler tam merkezde park hâlindedir; oradan eşit mesafede dışa doğru açılır.',
+  use:'Merkeze göre simetrik dilim genişliklerinin ayarlandığı hatlar.',
+  desc:'İki lazer merkezde bekler ve reçeteye göre içten dışa doğru, merkeze eşit mesafede açılır. Her adımda simetrik bir kesim çifti işaretlenir; iki kenarın hedef konumu aynı anda gösterilir.'},
+
+ {code:'K6', kind:'Simetrik', name:'Simetrik · 1 Sabit + 2 Hareketli',
+  short:'1 kanalda 1 sabit + 2 simetrik hareketli lazer', dual:false, sym:true,
+  fx:[{ch:'full',pos:50}], mv:[{ch:'full',dir:'symL'},{ch:'full',dir:'symR'}],
+  chCount:1, fxPos:[600], start:[600,600],
+  plan:[{pos:[400,800],cut:[400,800]},
+        {pos:[200,1000],cut:[200,1000]}],
+  ch:'Tek kanal — merkezde sabit referans, iki yanda simetrik hareket.',
+  lz:'1 sabit referans lazeri + 2 simetrik hareketli lazer (kırmızı).',
+  mvTxt:'Sabit lazer merkezi işaretler; hareketli çift tam merkezden başlayıp dışa doğru eşlenik açılır.',
+  use:'Merkez referansının sürekli görünmesi gereken simetrik dilimleme uygulamaları.',
+  desc:'Merkezde sabit duran referans lazeri simetri eksenini kalıcı gösterir; iki hareketli lazer bu eksenin iki yanından içten dışa açılır. Operatör hem simetri eksenini hem kesim çiftlerini aynı anda görür — örnekteki hedef konumlar iki hareket adımında gösterilir.'}
+];
+
+/* ============ küçük kart animasyonu (3×2 matris) ============ */
+var MINX=6, MAXX=94, CENTER=50, SYM=40;
+
+function trackHTML(c){
+  var h='<div class="grid-bg"></div><div class="gbar"></div><div class="ctr"></div>';
+  if(c.dual){ h+='<div class="divider"></div><span class="chlab a">KANAL 1</span><span class="chlab b">KANAL 2</span>'; }
+  c.fx.forEach(function(f){ h+='<span class="lz fx '+f.ch+'" style="left:'+f.pos+'%"></span>'; });
+  c.mv.forEach(function(m){ h+='<span class="lz mv '+m.ch+'" data-dir="'+m.dir+'"></span>'; });
+  return h;
+}
+function pct(dir,p){
+  switch(dir){
+    case 'fwd':  return MINX + p*(MAXX-MINX);
+    case 'rev':  return MINX + (1-p)*(MAXX-MINX);
+    case 'symL': return CENTER - p*SYM;
+    case 'symR': return CENTER + p*SYM;
+  }
+  return CENTER;
+}
+
+var wrap=$('cfgwrap'), html='';
+CFG.forEach(function(c,i){
+  html+='<button class="cfgcard" type="button" data-i="'+i+'" aria-pressed="'+(i===0)+'">'+
+        '<div class="hd"><span class="code">'+c.code+'</span><div><div class="tt">'+c.kind+'</div>'+
+        '<div class="dd">'+c.short+'</div></div></div>'+
+        '<div class="bd"><div class="trk">'+trackHTML(c)+'</div></div></button>';
+});
+wrap.innerHTML=html;
+
+var t=0, cardPlay=true, speed=1, lastCard=0;
+function cardFrame(ts){
+  if(!lastCard) lastCard=ts;
+  var dt=(ts-lastCard)/1000; lastCard=ts;
+  if(cardPlay) t += dt*speed*0.9;
+  var p=Math.abs(Math.sin(t));
+  var els=document.querySelectorAll('.cfgcard .lz.mv[data-dir]');
+  for(var i=0;i<els.length;i++){ els[i].style.left = pct(els[i].getAttribute('data-dir'),p).toFixed(2)+'%'; }
+  requestAnimationFrame(cardFrame);
+}
+requestAnimationFrame(cardFrame);
+
+$('play').addEventListener('click',function(){
+  cardPlay=!cardPlay;
+  this.textContent = cardPlay ? 'Durdur' : 'Oynat';
+});
+Array.prototype.forEach.call($('segSpeed').children,function(b){
+  b.addEventListener('click',function(){
+    speed=parseFloat(b.getAttribute('data-sp'));
+    Array.prototype.forEach.call($('segSpeed').children,function(x){ x.setAttribute('aria-pressed', x===b); });
+  });
+});
+
+/* ================= büyük simülasyon sahnesi ================= */
+var svg=$('svg');
+var L=58, R=42, SPAN=1000-L-R;
+var X=function(mm){ return L + mm/W*SPAN; };
+
+var RAIL1_Y=58, RAIL2_Y=94, RAIL_H=17;     /* dual: iki ray */
+var RAIL_Y=66;                              /* tek kanal */
+var BRK_H=9;                                /* sabit lazer braketi */
+var WEB_Y=194, WEB_H=36;
+var RULER_Y=252, TOTAL_Y=308;
+
+function el(tag,attrs,txt){
+  var e=document.createElementNS(NS,tag);
+  for(var k in attrs) e.setAttribute(k,attrs[k]);
+  if(txt!=null) e.textContent=txt;
+  return e;
+}
+
+var cur=null, carts=[], beams=[], labels=[], blades={}, plan=[], timeline=[], totalT=0;
+
+function buildScene(c){
+  while(svg.firstChild) svg.removeChild(svg.firstChild);
+  carts=[]; beams=[]; labels=[]; blades={};
+
+  var defs=el('defs');
+  var g=el('linearGradient',{id:'railg',x1:'0',y1:'0',x2:'0',y2:'1'});
+  g.appendChild(el('stop',{offset:'0','stop-color':'#FFE873'}));
+  g.appendChild(el('stop',{offset:'0.55','stop-color':'#FFD400'}));
+  g.appendChild(el('stop',{offset:'1','stop-color':'#C9A700'}));
+  defs.appendChild(g); svg.appendChild(defs);
+
+  /* simetri ekseni */
+  if(c.sym || c.fxPos.length){
+    svg.appendChild(el('line',{x1:X(W/2),y1:16,x2:X(W/2),y2:WEB_Y+WEB_H,
+      stroke:'#5B6C7E','stroke-width':1,'stroke-dasharray':'3 4'}));
+    svg.appendChild(el('text',{x:X(W/2),y:10,'text-anchor':'middle',
+      'font-family':'IBM Plex Mono, monospace','font-size':10,'letter-spacing':'1.4',
+      fill:'#C9A700'}, c.sym?'SIMETRI EKSENI':'MERKEZ REFERANSI'));
+  }
+
+  /* sabit lazerler — ayrı braket, rayın arkasındaki düzlemde (raylardan önce çizilir) */
+  var BRK_Y = ((c.chCount===2)? RAIL1_Y : RAIL_Y) - 30;
+  c.fxPos.forEach(function(mm){
+    svg.appendChild(el('rect',{x:X(0)+SPAN*0.02,y:BRK_Y,width:SPAN*0.96,height:BRK_H,rx:2,
+      fill:'#16221B',stroke:'#2C4436','stroke-width':1}));
+    svg.appendChild(el('text',{x:X(0)+SPAN*0.02,y:BRK_Y-6,'font-family':'IBM Plex Mono, monospace',
+      'font-size':9,'letter-spacing':'1.2',fill:'#4E7A5C'},'SABIT LAZER BRAKETI'));
+    svg.appendChild(el('line',{x1:X(mm),y1:BRK_Y+BRK_H,x2:X(mm),y2:WEB_Y,stroke:'#2FE05C','stroke-width':11,opacity:.14,'stroke-linecap':'round'}));
+    svg.appendChild(el('line',{x1:X(mm),y1:BRK_Y+BRK_H,x2:X(mm),y2:WEB_Y,stroke:'#2FE05C','stroke-width':3.2}));
+    svg.appendChild(el('rect',{x:X(mm)-10,y:BRK_Y-4,width:20,height:BRK_H+8,rx:3,fill:'#0B2415',stroke:'#2FE05C','stroke-width':1.5}));
+    svg.appendChild(el('circle',{cx:X(mm),cy:BRK_Y+BRK_H/2,r:3,fill:'#2FE05C'}));
+    svg.appendChild(el('text',{x:X(mm)+14,y:BRK_Y+BRK_H-1,'font-family':'IBM Plex Mono, monospace',
+      'font-size':10,fill:'#2FE05C'}, fmt(mm)));
+  });
+  /* raylar */
+  var rails=[];
+  if(c.chCount===2){
+    rails=[{y:RAIL1_Y,label:'KANAL 1'},{y:RAIL2_Y,label:'KANAL 2'}];
+  } else {
+    rails=[{y:RAIL_Y,label:'KANAL 1'}];
+  }
+  rails.forEach(function(r){
+    svg.appendChild(el('rect',{x:X(0),y:r.y,width:SPAN,height:RAIL_H,rx:3,fill:'url(#railg)'}));
+    svg.appendChild(el('rect',{x:X(0)+6,y:r.y+RAIL_H/2-2.5,width:SPAN-12,height:5,rx:2,fill:'#FFFCE8',opacity:.5}));
+    svg.appendChild(el('text',{x:X(0),y:r.y-6,'font-family':'IBM Plex Mono, monospace','font-size':9,
+      'letter-spacing':'1.2',fill:'#6C7E92'}, r.label));
+  });
+
+  /* malzeme (web) */
+  svg.appendChild(el('rect',{x:X(0),y:WEB_Y,width:SPAN,height:WEB_H,fill:'#232E3A',stroke:'#31404F','stroke-width':1}));
+  svg.appendChild(el('text',{x:X(0),y:WEB_Y+WEB_H+14,'text-anchor':'start',
+    'font-family':'IBM Plex Mono, monospace','font-size':9,'letter-spacing':'1',fill:'#5B6C7E'},'ÇALIŞMA YÜZEYİ'));
+
+  /* hareketli lazerler: ışın + araba + etiket */
+  var n=c.mv.length;
+  for(var i=0;i<n;i++){
+    var ry = (c.chCount===2) ? (i===0?RAIL1_Y:RAIL2_Y) : RAIL_Y;
+    var halo=el('line',{x1:0,y1:ry+RAIL_H,x2:0,y2:WEB_Y,stroke:'#FF2D20','stroke-width':10,opacity:.18,'stroke-linecap':'round'});
+    var beam=el('line',{x1:0,y1:ry+RAIL_H,x2:0,y2:WEB_Y,stroke:'#FF4133','stroke-width':3.2});
+    var cart=el('rect',{x:0,y:ry-4,width:22,height:RAIL_H+8,rx:3,fill:'#2B0F0C',stroke:'#FF2D20','stroke-width':1.5});
+    var dot =el('circle',{cx:0,cy:ry+RAIL_H/2,r:3.5,fill:'#FF2D20'});
+    var low = (c.chCount===2 && i===1);
+    var lab =el('text',{x:0,y: low ? ry+RAIL_H+14 : ry-12,
+      'text-anchor': low ? 'start' : 'middle',
+      'font-family':'IBM Plex Mono, monospace','font-size':10,fill:'#FF6B5F'},'');
+    lab.setAttribute('data-low', low?'1':'0');
+    svg.appendChild(halo); svg.appendChild(beam); svg.appendChild(cart); svg.appendChild(dot); svg.appendChild(lab);
+    beams.push([halo,beam]); carts.push({cart:cart,dot:dot,ry:ry}); labels.push(lab);
+  }
+
+  /* bıçak üçgenleri (tüm kesim konumları, başta soluk) */
+  var allCuts=[];
+  c.fxPos.forEach(function(m){ allCuts.push(m); });
+  c.plan.forEach(function(s){ s.cut.forEach(function(m){ allCuts.push(m); }); });
+  allCuts.forEach(function(mm){
+    var x=X(mm), y=WEB_Y-3;
+    var tri=el('path',{d:'M '+(x-7)+' '+(y-12)+' L '+(x+7)+' '+(y-12)+' L '+x+' '+y+' Z',
+      fill:'none',stroke:'#4A5B70','stroke-width':1.5,'stroke-dasharray':'2 2'});
+    svg.appendChild(tri);
+    blades[mm]=tri;
+  });
+
+  /* ölçü cetveli */
+  var edges=[0].concat(allCuts.slice().sort(function(a,b){return a-b;})).concat([W]);
+  var uniq=[]; edges.forEach(function(v){ if(uniq.indexOf(v)<0) uniq.push(v); });
+  uniq.sort(function(a,b){return a-b;});
+  svg.appendChild(el('line',{x1:X(0),y1:RULER_Y,x2:X(W),y2:RULER_Y,stroke:'#33465A','stroke-width':1}));
+  uniq.forEach(function(mm){
+    svg.appendChild(el('line',{x1:X(mm),y1:RULER_Y-5,x2:X(mm),y2:RULER_Y+5,stroke:'#5B6C7E','stroke-width':1}));
+  });
+  for(var k=0;k<uniq.length-1;k++){
+    var mid=(uniq[k]+uniq[k+1])/2, wdt=uniq[k+1]-uniq[k];
+    svg.appendChild(el('text',{x:X(mid),y:RULER_Y+17,'text-anchor':'middle',
+      'font-family':'IBM Plex Mono, monospace','font-size':10,fill:'#8494A6'}, fmt(wdt)+' mm'));
+  }
+
+  /* toplam genişlik */
+  svg.appendChild(el('line',{x1:X(0),y1:TOTAL_Y,x2:X(W),y2:TOTAL_Y,stroke:'#33465A','stroke-width':1}));
+  svg.appendChild(el('line',{x1:X(0),y1:TOTAL_Y-5,x2:X(0),y2:TOTAL_Y+5,stroke:'#33465A','stroke-width':1}));
+  svg.appendChild(el('line',{x1:X(W),y1:TOTAL_Y-5,x2:X(W),y2:TOTAL_Y+5,stroke:'#33465A','stroke-width':1}));
+  var tw=el('text',{x:X(W/2),y:TOTAL_Y-8,'text-anchor':'middle','font-family':'IBM Plex Mono, monospace',
+    'font-size':10,'letter-spacing':'1.2',fill:'#6C7E92'},'ÇALIŞMA GENİŞLİĞİ '+fmt(W)+' MM');
+  tw.setAttribute('style','paint-order:stroke');
+  svg.appendChild(tw);
+}
+
+/* zaman çizelgesi kurulumu */
+function buildTimeline(c){
+  timeline=[]; totalT=0;
+  var pos=c.start.slice();
+  c.plan.forEach(function(step){
+    var dist=0;
+    step.pos.forEach(function(target,i){
+      if(target==null) return;
+      dist=Math.max(dist, Math.abs(target-pos[i]));
+    });
+    var moveT=dist/VMAX;
+    timeline.push({type:'move', from:pos.slice(), to:step.pos.slice(), dur:moveT, cut:step.cut});
+    timeline.push({type:'settle', dur:TSET, cut:step.cut});
+    totalT += moveT + TSET;
+    step.pos.forEach(function(target,i){ if(target!=null) pos[i]=target; });
+  });
+}
+
+/* durum */
+var simT=0, running=false, lastSim=0, done=false;
+
+function setBlade(mm,on){
+  var tri=blades[mm]; if(!tri) return;
+  if(on){ tri.setAttribute('fill','#C9D2DC'); tri.setAttribute('stroke','#C9D2DC');
+          tri.setAttribute('stroke-dasharray','none'); }
+  else  { tri.setAttribute('fill','none'); tri.setAttribute('stroke','#4A5B70');
+          tri.setAttribute('stroke-dasharray','2 2'); }
+}
+
+function applyState(tt){
+  var c=cur, pos=c.start.slice(), acc=0, i;
+  /* sabit lazer bıçakları hep yerinde */
+  c.fxPos.forEach(function(mm){ setBlade(mm,true); });
+  /* tüm hareketli bıçakları sıfırla */
+  c.plan.forEach(function(s){ s.cut.forEach(function(mm){ setBlade(mm,false); }); });
+
+  for(var k=0;k<timeline.length;k++){
+    var seg=timeline[k];
+    if(tt >= acc+seg.dur){
+      if(seg.type==='move'){ seg.to.forEach(function(v,i){ if(v!=null) pos[i]=v; }); }
+      if(seg.type==='settle'){ seg.cut.forEach(function(mm){ setBlade(mm,true); }); }
+      acc += seg.dur;
+      continue;
+    }
+    if(seg.type==='move'){
+      var f=seg.dur>0 ? (tt-acc)/seg.dur : 1;
+      f = f<0?0 : f>1?1 : f;
+      var e = f<0.5 ? 2*f*f : 1-Math.pow(-2*f+2,2)/2;   /* easeInOutQuad */
+      seg.to.forEach(function(v,i){ if(v!=null) pos[i]=seg.from[i]+(v-seg.from[i])*e; });
+    }
+    break;
+  }
+
+  for(i=0;i<carts.length;i++){
+    var x=X(pos[i]);
+    carts[i].cart.setAttribute('x', x-11);
+    carts[i].dot.setAttribute('cx', x);
+    beams[i][0].setAttribute('x1', x); beams[i][0].setAttribute('x2', x);
+    beams[i][1].setAttribute('x1', x); beams[i][1].setAttribute('x2', x);
+    labels[i].setAttribute('x', labels[i].getAttribute('data-low')==='1' ? x+15 : x);
+    labels[i].textContent = fmt(Math.round(pos[i]));
+  }
+}
+
+function updateStatus(){
+  var st=$('stat'), T=$('statT'), D=$('statD');
+  st.className='simstat'+(running?' run':(done?'':' idle'));
+  if(running){ T.textContent='Lazer hareket ediyor'; D.textContent='Lazerler reçete konumlarına gidiyor'; }
+  else if(done){ T.textContent='Döngü tamamlandı'; D.textContent='Örnek lazer hareketi tamamlandı; bıçak ayarı operatöre aittir'; }
+  else { T.textContent='Hazır'; D.textContent="Kurulumu başlatmak için Tekrar Oynat'a basın"; }
+}
+
+function simFrame(ts){
+  if(!lastSim) lastSim=ts;
+  var dt=(ts-lastSim)/1000; lastSim=ts;
+  if(running){
+    simT += dt*speed;
+    if(simT>=totalT){ simT=totalT; running=false; done=true; updateStatus(); }
+    applyState(simT);
+    $('pi').style.width = (totalT? simT/totalT*100 : 100).toFixed(1)+'%';
+  }
+  requestAnimationFrame(simFrame);
+}
+requestAnimationFrame(simFrame);
+
+function select(i){
+  cur=CFG[i];
+  Array.prototype.forEach.call(wrap.children,function(b,k){ b.setAttribute('aria-pressed', k===i); });
+  $('dCode').textContent=cur.code;
+  $('dTitle').textContent=cur.name;
+  $('dW').textContent=fmt(W)+' mm çalışma genişliği';
+  $('dDesc').textContent=cur.desc;
+  $('dCh').textContent=cur.ch;
+  $('dLz').textContent=cur.lz;
+  $('dMv').textContent=cur.mvTxt;
+  $('dUse').textContent=cur.use;
+
+  buildScene(cur);
+  buildTimeline(cur);
+
+  $('oN').innerHTML=(cur.mv.length+cur.fxPos.length)+'<small>adet</small>';
+  $('oCh').innerHTML=cur.chCount+'<small>hat</small>';
+  var cuts=[]; cur.fxPos.forEach(function(m){ if(cuts.indexOf(m)<0) cuts.push(m); });
+  cur.plan.forEach(function(st){ st.cut.forEach(function(m){ if(cuts.indexOf(m)<0) cuts.push(m); }); });
+  $('oSl').innerHTML=(cuts.length+1)+'<small>dilim</small>';
+  $('oStep').innerHTML=cur.plan.length+'<small>adım</small>';
+  $('oT').innerHTML=fmt(totalT,1)+'<small>sn</small>';
+
+  reset(); play();
+}
+function reset(){ simT=0; running=false; done=false; applyState(0); $('pi').style.width='0%'; updateStatus(); }
+function play(){ if(simT>=totalT) simT=0; running=true; done=false; updateStatus(); }
+
+wrap.addEventListener('click',function(e){
+  var b=e.target.closest('.cfgcard'); if(b) select(+b.getAttribute('data-i'));
+});
+$('rep').addEventListener('click',function(){ simT=0; done=false; play(); });
+$('rst').addEventListener('click',reset);
+
+select(0);
+})();
+</script>
+<script>
+(function(){
+"use strict";
+var $=function(id){return document.getElementById(id)};
+var fmt=function(v){return Math.round(v).toLocaleString('tr-TR')};
+
+var SIZES=[600,1200,1800,2600,3300,4000];
+var LMAX=SIZES[SIZES.length-1];
+var idx=3, auto=null;
+
+/* merdiven */
+var lad=$('ladder'), h='';
+SIZES.forEach(function(L,i){
+  h+='<button class="lrow" type="button" data-i="'+i+'" aria-pressed="'+(i===idx)+'">'+
+     '<span class="ll">'+fmt(L)+' mm</span>'+
+     '<span class="ltrack"><span class="lbar" style="width:'+(L/LMAX*100).toFixed(2)+'%">'+
+     '<span class="lin" data-i="'+i+'"></span></span></span></button>';
+});
+h+='<div class="lscale"><span>'+fmt(SIZES[0])+' mm</span><span>'+fmt(LMAX/2)+' mm</span><span>'+fmt(LMAX)+' mm</span></div>';
+lad.innerHTML=h;
+
+var EM=80;   /* uç emniyet payı, mm (her iki uçta) */
+var AP=45;   /* montaj aparatı genişliği, mm */
+function em(){ return EM; }
+function ap(){ return AP; }
+
+function paint(){
+  var L=SIZES[idx], E=em();
+  var stroke=Math.max(0,L-2*E);
+
+  /* merdiven */
+  Array.prototype.forEach.call(lad.querySelectorAll('.lrow'),function(b,i){
+    b.setAttribute('aria-pressed', i===idx);
+    var Li=SIZES[i], si=Math.max(0,Li-2*E);
+    var inb=b.querySelector('.lin');
+    inb.style.left=(E/Li*100).toFixed(2)+'%';
+    inb.style.width=(si/Li*100).toFixed(2)+'%';
+  });
+
+  /* profil */
+  var wPct=L/LMAX*100;
+  $('pbody').style.width=wPct.toFixed(2)+'%';
+  $('pzone').style.left=(E/L*100).toFixed(2)+'%';
+  $('pzone').style.width=(stroke/L*100).toFixed(2)+'%';
+  $('pcart').style.left=(E/L*100+ (stroke/L*100)*0.5).toFixed(2)+'%';
+
+  /* ölçü çizgileri (yüzde, sahne genişliğine göre) */
+  $('dTot').style.left='0%'; $('dTot').style.width=wPct.toFixed(2)+'%';
+  $('lTot').style.left=(wPct/2).toFixed(2)+'%';
+  $('lTot').textContent='GÖVDE '+fmt(L)+' mm';
+
+  var sL=wPct*(E/L), sW=wPct*(stroke/L);
+  $('dStr').style.left=sL.toFixed(2)+'%'; $('dStr').style.width=sW.toFixed(2)+'%';
+  $('lStr').style.left=(sL+sW/2).toFixed(2)+'%';
+  var tight = wPct < 34;
+  $('lMl').style.left=(sL/2).toFixed(2)+'%'; $('lMl').textContent=fmt(E);
+  $('lMr').style.left=(sL+sW+sL/2).toFixed(2)+'%'; $('lMr').textContent=fmt(E);
+  $('lMl').style.opacity = tight ? 0 : 1;
+  $('lMr').style.opacity = tight ? 0 : 1;
+  $('lStr').textContent = tight ? ('STROK '+fmt(stroke)+' mm') : ('FAYDALI STROK '+fmt(stroke)+' mm · UÇ PAYI '+fmt(E)+' mm');
+
+  /* başlık */
+  $('hCode').textContent='L'+(idx+1);
+  $('hW').textContent=fmt(L)+' mm';
+  $('hStep').textContent=(idx+1)+' / '+SIZES.length;
+}
+
+function go(i){ idx=(i+SIZES.length)%SIZES.length; paint(); }
+lad.addEventListener('click',function(e){
+  var b=e.target.closest('.lrow'); if(b){ stopAuto(); go(+b.getAttribute('data-i')); }
+});
+$('hPrev').addEventListener('click',function(){ stopAuto(); go(idx-1); });
+$('hNext').addEventListener('click',function(){ stopAuto(); go(idx+1); });
+
+function stopAuto(){ if(auto){ clearInterval(auto); auto=null; $('hAuto').textContent='Adım Adım Göster'; } }
+$('hAuto').addEventListener('click',function(){
+  if(auto){ stopAuto(); return; }
+  go(0); this.textContent='Durdur';
+  auto=setInterval(function(){
+    if(idx>=SIZES.length-1){ go(0); } else { go(idx+1); }
+  },1500);
+});
+
+paint();
+})();
+</script>
+
+<script>
+(function(){"use strict";
+ var f=document.getElementById('nf'); if(!f) return;
+ f.addEventListener('submit',function(e){e.preventDefault();
+  var m=document.getElementById('nmail').value;
+  document.getElementById('nnote').innerHTML='Form henüz bir listeye bağlı değil. Şimdilik '+
+   '<a href="mailto:info@servomotion.com.tr?subject=B%C3%BClten%20%C3%BCyeli%C4%9Fi&body='+encodeURIComponent(m)+
+   '">e-posta ile</a> yazabilirsiniz.';});
+})();
+</script>
+<script>
+(function(){"use strict";
+ var drops=[].slice.call(document.querySelectorAll('.navdrop'));
+ drops.forEach(function(d){
+   var btn=d.querySelector('.navtop');
+   if(!btn) return;
+   btn.addEventListener('click',function(e){
+     e.preventDefault();
+     var open=d.classList.contains('open');
+     drops.forEach(function(x){x.classList.remove('open');x.querySelector('.navtop').setAttribute('aria-expanded','false');});
+     if(!open){ d.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+   });
+ });
+ document.addEventListener('click',function(e){
+   if(e.target.closest('.navdrop')) return;
+   drops.forEach(function(x){x.classList.remove('open');x.querySelector('.navtop').setAttribute('aria-expanded','false');});
+ });
+ document.addEventListener('keydown',function(e){ if(e.key==='Escape')
+   drops.forEach(function(x){x.classList.remove('open');x.querySelector('.navtop').setAttribute('aria-expanded','false');}); });
+})();
+</script></body>
+</html>

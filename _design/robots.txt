@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Yönetim veya geçici dizin yok
+
+Sitemap: https://www.servomotion.com.tr/sitemap.xml

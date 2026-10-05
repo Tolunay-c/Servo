@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>ServoMotion sitesi — kurulum notları ve tamamlanacaklar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{--yellow:#ffd400;--ink:#0b0f14;--line:#293542;--muted:#afbdcd;--rule:#d9e0e8;--soft:#506275}
+*{box-sizing:border-box}
+body{margin:0;font:17px/1.6 Barlow,Arial,Helvetica,sans-serif;color:#17212d;background:#f4f6f9}
+h1,h2,h3,.brand{font-family:'Barlow Condensed','Arial Narrow',sans-serif;line-height:1.06;margin:0}
+h1{font-size:clamp(38px,5vw,60px);letter-spacing:-.01em;color:#fff}
+h2{font-size:clamp(28px,3.2vw,40px)}
+h3{font-size:23px}
+p{margin:0}
+code{font-family:'IBM Plex Mono',ui-monospace,Consolas,monospace;font-size:.87em;background:#e7ecf2;padding:2px 6px;border:1px solid var(--rule);white-space:nowrap}
+.wrap{max-width:1100px;margin:auto;padding:0 28px}
+.top{background:#11171e;color:#fff;border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:16px;padding-bottom:16px}
+.brand{font-size:25px;font-weight:700;letter-spacing:.035em;display:inline-flex;align-items:center;gap:.38em}.brand .smk{height:.82em;width:auto;flex:none;display:block;color:#ffd400}
+.brand span{color:var(--yellow)}
+.top .meta{font:12px/1.5 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#8ea0b4;text-align:right}
+.hero{background-color:var(--ink);background-image:linear-gradient(#18232d55 1px,transparent 1px),linear-gradient(90deg,#18232d55 1px,transparent 1px);background-size:48px 48px;color:var(--muted);padding:58px 0 52px}
+.label{font:12px/1.5 'IBM Plex Mono',monospace;letter-spacing:.16em;color:var(--yellow);margin-bottom:18px}
+.hero p{margin-top:22px;max-width:64ch;font-size:19px}
+.counts{display:flex;flex-wrap:wrap;gap:0;margin-top:34px;border:1px solid var(--line)}
+.counts div{flex:1 1 140px;padding:16px 20px;border-right:1px solid var(--line)}
+.counts div:last-child{border-right:0}
+.counts b{display:block;font-family:'Barlow Condensed','Arial Narrow',sans-serif;font-size:34px;color:#fff;line-height:1}
+.counts span{font-size:13px;letter-spacing:.06em;display:block;margin-top:6px}
+.section{padding:56px 0;border-bottom:1px solid var(--rule)}
+.section:last-of-type{border-bottom:0}
+.shead{max-width:760px;margin-bottom:28px}
+.shead:before{content:'';display:block;background:var(--yellow);width:56px;height:4px;margin-bottom:18px}
+.shead p{margin-top:14px;color:var(--soft)}
+pre.tree{background:#0b0f14;color:#cbd6e2;font:13px/1.75 'IBM Plex Mono',ui-monospace,Consolas,monospace;padding:24px;overflow-x:auto;margin:0;border-left:3px solid var(--yellow)}
+.step{background:#fff;border:1px solid var(--rule);border-left:3px solid var(--yellow);padding:20px 22px;margin-bottom:12px;display:grid;grid-template-columns:32px 1fr;gap:0 16px;align-items:start}
+.step input{width:19px;height:19px;margin:3px 0 0;accent-color:#0b0f14;cursor:pointer}
+.step .no{grid-column:2;font:12px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#8493a5;margin-bottom:6px}
+.step h3{grid-column:2}
+.step p{grid-column:2;margin-top:10px;color:var(--soft);font-size:16px}
+.step .who{grid-column:2;margin-top:12px;font-size:13px;letter-spacing:.06em;color:#8493a5;text-transform:uppercase}
+.step.done{opacity:.55}
+.step.done h3{text-decoration:line-through}
+.opt{font-family:Barlow,Arial,sans-serif;font-size:12px;letter-spacing:.08em;background:#e7ecf2;border:1px solid var(--rule);color:#5d6e80;padding:3px 8px;vertical-align:middle;text-transform:uppercase}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.filters button{font:600 13px/1 Barlow,Arial,sans-serif;letter-spacing:.06em;padding:11px 15px;background:#fff;border:1px solid var(--rule);color:#17212d;cursor:pointer}
+.filters button[aria-pressed=true]{background:#0b0f14;border-color:#0b0f14;color:#fff}
+.tablewrap{overflow-x:auto;border:1px solid var(--rule);background:#fff}
+table{border-collapse:collapse;width:100%;font-size:16px;min-width:840px}
+th,td{text-align:left;padding:15px 16px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{background:#121a22;color:#fff;font:600 13px/1.3 Barlow,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;position:sticky;top:0}
+tbody tr:nth-child(even){background:#f7f9fb}
+tbody tr.done{opacity:.5}
+tbody tr.done .item{text-decoration:line-through}
+td.chk{width:44px}
+td.chk input{width:19px;height:19px;accent-color:#0b0f14;cursor:pointer}
+.item{font-weight:600}
+.where{display:block;margin-top:5px;font-size:14px;color:var(--soft)}
+.tag{display:inline-block;font:600 12px/1 Barlow,Arial,sans-serif;letter-spacing:.07em;padding:6px 9px;border:1px solid var(--rule);background:#eef2f6;color:#41546a;text-transform:uppercase;white-space:nowrap}
+.p-yuksek{background:var(--yellow);border-color:#e0bb00;color:#1b1500}
+.p-orta{background:#e7ecf2;color:#41546a}
+.p-dusuk{background:#f4f6f9;color:#7b8b9d}
+.s-tamamlandi{background:#e6f4ec;border-color:#bcdfcb;color:#15683c}
+.s-devam-ediyor{background:#fff4d6;border-color:#e8d79a;color:#6b5200}
+.s-bekliyor{background:#fdecea;border-color:#f0c6c0;color:#8c2f22}
+.s-gerekmiyor{background:#f4f6f9;color:#7b8b9d}
+td .tag+.where{margin-top:6px}
+.note{font-size:14px;color:#64758a;margin-top:14px}
+.callout{background:#fff;border:1px solid var(--rule);border-top:3px solid #0b0f14;padding:22px 24px;margin-top:18px}
+.callout h3{margin-bottom:10px}
+.callout p+p{margin-top:12px}
+.callout p{color:var(--soft);font-size:16px}
+pre.code{background:#0b0f14;color:#cbd6e2;font:13px/1.7 'IBM Plex Mono',ui-monospace,Consolas,monospace;padding:16px 18px;overflow-x:auto;margin:14px 0 0}
+pre.code b{color:var(--yellow);font-weight:400}
+footer{background:#0b0f14;color:#aebdcd;font-size:14px;padding:26px 0}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+@media(max-width:720px){
+ .top .wrap{flex-direction:column;align-items:flex-start}
+ .top .meta{text-align:left}
+ .counts div{flex:1 1 50%;border-bottom:1px solid var(--line)}
+ h1,h2,h3{overflow-wrap:anywhere}
+ code{white-space:normal;overflow-wrap:anywhere}
+}
+@media print{
+ body{background:#fff;font-size:12pt}
+ .top,.hero{background:#fff!important;color:#0b0f14!important;border-bottom:2px solid #0b0f14}
+ .hero{background-image:none!important;padding:20px 0}
+ h1,.counts b{color:#0b0f14!important}
+ .label,.brand span{color:#6b6000!important}
+ .counts{border-color:#bbb}.counts div{border-color:#bbb}
+ .filters,.noprint{display:none!important}
+ .step,.callout,.tablewrap,table{break-inside:avoid}
+ .step{border-color:#bbb}
+ th{background:#0b0f14!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .tag,.p-yuksek{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ pre.tree,pre.code{background:#f2f4f7;color:#17212d;border:1px solid #bbb}
+ footer{background:#fff;color:#333;border-top:1px solid #bbb}
+ tbody tr[hidden]{display:table-row!important}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1726.7 800.0" fill="currentColor" aria-hidden="true" focusable="false" class="smk"><g transform="translate(276.56 0) skewX(-19.07)"><path d="M 72.00 0.00 H 670.04 V 228.00 H 0.00 V 72.00 A 72.00 72.00 0 0 1 72.00 0.00 Z"/><path d="M 72.00 0.00 H 280.00 V 468.00 H 0.00 V 72.00 A 72.00 72.00 0 0 1 72.00 0.00 Z"/><path d="M 0.00 332.00 H 670.04 V 468.00 H 0.00 V 332.00 Z"/><path d="M 0.00 572.00 H 280.00 V 800.00 H 72.00 A 72.00 72.00 0 0 1 0.00 728.00 V 572.00 Z"/><path d="M 390.04 332.00 H 670.04 V 800.00 H 390.04 V 332.00 Z"/><path d="M 780.08 0.00 H 1060.08 V 800.00 H 780.08 V 0.00 Z"/><path d="M 1170.12 0.00 H 1378.12 A 72.00 72.00 0 0 1 1450.12 72.00 V 728.00 A 72.00 72.00 0 0 1 1378.12 800.00 H 1170.12 V 0.00 Z"/></g></svg>SERVO<span>MOTION</span></div>
+    <div class="meta">İÇ KULLANIM · TESLİM NOTU<br>13.09.2026</div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="label">SİTE TESLİMİ · KURULUM VE TAMAMLANACAKLAR</div>
+    <h1>KURULUM NOTLARI</h1>
+    <p>Bu sayfa yayına alma adımlarını ve sizden gelmesi gereken teknik/kurumsal bilgileri bir arada tutar.
+    Kutucukları işaretledikçe sayaçlar güncellenir; sayfayı yazdırdığınızda tüm satırlar dökümde kalır.</p>
+    <div class="counts">
+      <div><b id="cSteps">0/7</b><span>YÜKLEME ADIMI</span></div>
+      <div><b id="cGaps">0/17</b><span>EKSİK BİLGİ</span></div>
+      <div><b id="cHigh">0/7</b><span>YÜKSEK ÖNCELİKLİ</span></div>
+      <div><b>5</b><span>BAŞLIK</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="shead">
+      <h2>DOSYA YAPISI</h2>
+      <p>Paketteki tüm dosyalar aynı köke açılır. <code>assets/</code>, <code>og/</code>, <code>video/</code> ve
+      <code>en/</code> klasörlerinin göreli konumu değişmemelidir.</p>
+    </div>
+    <pre class="tree">index.html                 core-precisor.html        shuttle-precisor.html
+uygulama-lastik.html       uygulama-nonwoven.html    uygulama-ambalaj.html
+referanslar.html           servis.html               dokumanlar.html
+sss.html                   sozluk.html               kurumsal.html
+iletisim.html              kvkk.html                 404.html
+rehber.html + 11 adet rehber-*.html
+
+en/                        → İngilizce sürüm (9 sayfa · glossary, faq dahil)
+assets/                    → base.css · rehber.css · brandfont.css · core-precisor.jpg
+fonts/                     → poppins-Regular.woff2 · poppins-Bold.woff2 (kelime markası)
+foto/                      → saha fotoğrafı alanları (aynı adla değiştirin)
+og/                        → 15 paylaşım görseli (1200×630)
+video/                     → Shuttle senaryo videosu ve poster görseli
+favicon.svg   sitemap.xml   robots.txt   .htaccess
+servomotion-core-precisor-veri-sayfasi.pdf     · TR
+servomotion-shuttle-precisor-veri-sayfasi.pdf  · TR
+servomotion-core-precisor-datasheet.pdf        · EN
+servomotion-shuttle-precisor-datasheet.pdf     · EN
+servomotion-tuv-uygunluk-sertifikasi.pdf       · TÜV Rheinland sertifikası</pre>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="shead">
+      <h2>YÜKLEMEDEN ÖNCE</h2>
+      <p>Yedi adım. Beşi teknik, ikisi karar gerektiriyor.</p>
+    </div>
+    <div class="step"><input type="checkbox" class="stp" id="s1" aria-label="Adım 1 tamamlandı"><div class="no">ADIM 1</div><h3>Alan adı kontrolü</h3><p>sitemap.xml, robots.txt ve tüm sayfalardaki <code>canonical</code> / <code>og:url</code> etiketleri <code>https://www.servomotion.com.tr/</code> adresine göre yazıldı. Pakette hazır bir <code>.htaccess</code> var: https zorunlu, www’suz adres www’ya yönleniyor, eski <code>blog-*.html</code> adresleri <code>rehber-*.html</code>’e taşınıyor.</p><div class="who">Sorumlu · Web yöneticisi</div></div><div class="step"><input type="checkbox" class="stp" id="s2" aria-label="Adım 2 tamamlandı"><div class="no">ADIM 2</div><h3>404 ve sunucu kuralları</h3><p>Paketteki <code>.htaccess</code> dosyasını da site köküne kopyalayın; 404 sayfası, yönlendirmeler, sıkıştırma ve önbellek ayarları içinde. Sunucunuz Nginx ise aynı kuralların Nginx karşılığı tanımlanmalıdır.</p><div class="who">Sorumlu · Web yöneticisi</div></div><div class="step"><input type="checkbox" class="stp" id="s3" aria-label="Adım 3 tamamlandı"><div class="no">ADIM 3</div><h3>Eski blog dosyaları (rehber olarak yeniden adlandırıldı)</h3><p>Sunucuda önceki adlandırmayla yüklenmiş <code>blog*.html</code> dosyaları varsa silin; yazılar artık <code>rehber-*.html</code> adlarıyla geliyor.</p><div class="who">Sorumlu · Web yöneticisi</div></div><div class="step"><input type="checkbox" class="stp" id="s4" aria-label="Adım 4 tamamlandı"><div class="no">ADIM 4</div><h3>PDF dosyalarının yeri</h3><p>Veri sayfası PDF’leri HTML dosyalarıyla aynı klasörde olmalı; <code>dokumanlar.html</code> oradan bağlanıyor.</p><div class="who">Sorumlu · Web yöneticisi</div></div><div class="step"><input type="checkbox" class="stp" id="s5" aria-label="Adım 5 tamamlandı"><div class="no">ADIM 5</div><h3>Form ucu <span class="opt">isteğe bağlı</span></h3><p><code>iletisim.html</code> içindeki <code>window.SERVOMOTION_FORM_ENDPOINT</code> alanına bir form servisi adresi yazıldığında “E-POSTA İLE GÖNDER” butonu “GÖNDER” olur ve özet doğrudan size ulaşır. Boş bırakılırsa mevcut e-posta / WhatsApp akışı çalışmaya devam eder. Bağlarsanız KVKK metnindeki “sunucuya veri gönderen form bulunmuyor” cümlesi güncellenmelidir.</p><div class="who">Sorumlu · Web yöneticisi + hukuk</div></div><div class="step"><input type="checkbox" class="stp" id="s6" aria-label="Adım 6 tamamlandı"><div class="no">ADIM 6</div><h3>Yazı tipleri</h3><p>Sayfalar Barlow, Barlow Condensed ve IBM Plex Mono yazı tiplerini Google Fonts üzerinden çekiyor. Gizlilik ve hız için bu dosyaları kendi sunucunuza alıp <code>assets/</code> altından servis etmek daha temiz olur; bu durumda <code>assets/base.css</code> içindeki font tanımını güncelleyin ve KVKK metnindeki font servisi paragrafını kaldırın.</p><div class="who">Sorumlu · Web yöneticisi</div></div><div class="step"><input type="checkbox" class="stp" id="s7" aria-label="Adım 7 tamamlandı"><div class="no">ADIM 7</div><h3>Arama motoruna bildirim</h3><p>Yayına aldıktan sonra <code>sitemap.xml</code> adresini Google Search Console’a tanıtın.</p><div class="who">Sorumlu · Pazarlama</div></div>
+
+    <div class="callout" style="border-top-color:#ffd400">
+      <h3>WORDPRESS KURULU BİR SUNUCUYA YÜKLERKEN</h3>
+      <p>Bu site düz HTML’dir; WordPress, PHP veya veritabanı gerektirmez. Ancak alan adının kökünde
+      WordPress duruyorsa iki <code>index</code> dosyası yan yana gelir ve ana sayfayı WordPress açmaya
+      devam eder. Üç yoldan biri seçilmelidir:</p>
+      <pre class="code"><b>1</b>  Statik siteye geçiş  → WordPress dosyaları yedeklenip kökten kaldırılır,
+                          paket <b>public_html</b> içine açılır. En hızlı ve en güvenli seçenek;
+                          eklenti, güncelleme ve veritabanı yükü kalmaz.
+
+<b>2</b>  Önce alt klasörde deneme → paket <b>/yeni/</b> gibi bir klasöre açılır,
+                          www.servomotion.com.tr/yeni/ adresinden kontrol edilir,
+                          sonra köke taşınır.
+
+<b>3</b>  WordPress’te kalmak      → sayfaların Elementor ile yeniden kurulması gerekir.
+                          Konfigüratör ve simülasyon ancak “özel HTML” bileşenine
+                          gömülerek çalışır; bakımı en zor seçenek budur.</pre>
+      <p>Tavsiyem 1 veya 2. Yükleme FTP/SFTP ya da barındırma panelindeki dosya yöneticisi ile yapılabilir;
+      zip’i sunucuda açmak en pratiği. Klasör izinleri 755, dosya izinleri 644 olmalı.</p>
+    </div>
+
+    <div class="callout">
+      <h3>FORM UCUNU BAĞLAMAK</h3>
+      <p><code>iletisim.html</code> dosyasının sonunda şu satır bulunur:</p>
+      <pre class="code">window.SERVOMOTION_FORM_ENDPOINT = <b>""</b>;</pre>
+      <p>Tırnakların arasına bir form servisi adresi yazdığınızda (kendi PHP betiğiniz ya da bir form servisi),
+      sayfadaki “uygulama özeti” aracı doğrudan sunucuya gönderim yapar. Boş bırakılırsa özet, hazır e-posta veya
+      WhatsApp mesajı olarak açılır — yani site bu alan boşken de eksiksiz çalışır.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="shead">
+      <h2>SİZDEN GELMESİ GEREKEN BİLGİLER</h2>
+      <p>Aşağıdakiler uydurulamayacak teknik ve kurumsal verilerdir; bu yüzden sayfalarda
+      “konfigürasyona bağlı” ifadesiyle bırakıldı. Hazır olduklarında ilgili sayfalara işlenir.</p>
+    </div>
+    <div class="filters noprint"><button type="button" data-f="all" aria-pressed="true">TÜMÜ</button><button type="button" data-f="teknik" aria-pressed="false">TEKNİK</button><button type="button" data-f="kurumsal" aria-pressed="false">KURUMSAL</button><button type="button" data-f="hukuk" aria-pressed="false">HUKUK</button><button type="button" data-f="icerik" aria-pressed="false">İÇERİK</button><button type="button" data-f="ingilizce" aria-pressed="false">İNGİLİZCE</button><button type="button" data-f="yuksek" aria-pressed="false">YÜKSEK ÖNCELİKLİ</button></div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th><span class="noprint">✓</span></th><th>Başlık</th><th>Madde ve işleneceği yer</th><th>Kimden</th><th>Öncelik</th><th>Durum ve not</th></tr></thead>
+        <tbody id="gapbody"><tr data-kat="teknik" data-onc="yuksek" data-durum="tamamlandi" class="done"><td class="chk"><input type="checkbox" class="gap" id="g0" checked aria-label="Lazer sınıfı ve dalga boyu — tamamlandı"></td><td><span class="tag">Teknik</span></td><td><label for="g0" class="item">Lazer sınıfı ve dalga boyu</label><span class="where">Ürün sayfaları → Teknik Özellikler · veri sayfası PDF’leri</span></td><td>Teknik ekip</td><td><span class="tag p-yuksek">Yüksek</span></td><td><span class="tag s-tamamlandi">Tamamlandı</span><span class="where">IEC 60825-1 · Sınıf 2M/3R</span></td></tr><tr data-kat="teknik" data-onc="yuksek" data-durum="tamamlandi" class="done"><td class="chk"><input type="checkbox" class="gap" id="g1" checked aria-label="Gövde koruma sınıfı (IP) — tamamlandı"></td><td><span class="tag">Teknik</span></td><td><label for="g1" class="item">Gövde koruma sınıfı (IP)</label><span class="where">Ürün sayfaları → Mekanik &amp; Hareket</span></td><td>Teknik ekip</td><td><span class="tag p-yuksek">Yüksek</span></td><td><span class="tag s-tamamlandi">Tamamlandı</span><span class="where">IP54</span></td></tr><tr data-kat="teknik" data-onc="orta" data-durum="tamamlandi" class="done"><td class="chk"><input type="checkbox" class="gap" id="g2" checked aria-label="Çalışma sıcaklığı ve nem aralığı — tamamlandı"></td><td><span class="tag">Teknik</span></td><td><label for="g2" class="item">Çalışma sıcaklığı ve nem aralığı</label><span class="where">Ürün sayfaları → Kontrol &amp; Haberleşme</span></td><td>Teknik ekip</td><td><span class="tag p-orta">Orta</span></td><td><span class="tag s-tamamlandi">Tamamlandı</span><span class="where">+10 … +40 °C</span></td></tr><tr data-kat="teknik" data-onc="orta" data-durum="tamamlandi" class="done"><td class="chk"><input type="checkbox" class="gap" id="g3" checked aria-label="Besleme ve güç tüketimi — tamamlandı"></td><td><span class="tag">Teknik</span></td><td><label for="g3" class="item">Besleme ve güç tüketimi</label><span class="where">Ürün sayfaları → Kontrol &amp; Haberleşme</span></td><td>Teknik ekip</td><td><span class="tag p-orta">Orta</span></td><td><span class="tag s-tamamlandi">Tamamlandı</span><span class="where">220 V AC 50 Hz</span></td></tr><tr data-kat="teknik" data-onc="orta" data-durum="tamamlandi" class="done"><td class="chk"><input type="checkbox" class="gap" id="g4" checked aria-label="Sistem ağırlığı — tamamlandı"></td><td><span class="tag">Teknik</span></td><td><label for="g4" class="item">Sistem ağırlığı</label><span class="where">Ürün sayfaları → Mekanik &amp; Hareket</span></td><td>Teknik ekip</td><td><span class="tag p-orta">Orta</span></td><td><span class="tag s-tamamlandi">Tamamlandı</span><span class="where">Uygulamaya göre</span></td></tr><tr data-kat="teknik" data-onc="orta" data-durum="tamamlandi" class="done"><td class="chk"><input type="checkbox" class="gap" id="g5" checked aria-label="Montaj arayüzü — tamamlandı"></td><td><span class="tag">Teknik</span></td><td><label for="g5" class="item">Montaj arayüzü</label><span class="where">Ürün sayfaları → Mekanik &amp; Hareket</span></td><td>Teknik ekip</td><td><span class="tag p-orta">Orta</span></td><td><span class="tag s-tamamlandi">Tamamlandı</span><span class="where">Uygulamaya göre</span></td></tr><tr data-kat="teknik" data-onc="yuksek" data-durum="tamamlandi" class="done"><td class="chk"><input type="checkbox" class="gap" id="g6" checked aria-label="CE / uygunluk sertifikası — tamamlandı"></td><td><span class="tag">Teknik</span></td><td><label for="g6" class="item">CE / uygunluk sertifikası</label><span class="where">dokumanlar.html · TR ve EN ürün sayfaları</span></td><td>Mahmut</td><td><span class="tag p-yuksek">Yüksek</span></td><td><span class="tag s-tamamlandi">Tamamlandı</span><span class="where">TÜV Rheinland · AK 50498967 0001</span></td></tr><tr data-kat="kurumsal" data-onc="yuksek" data-durum="devam ediyor" class=""><td class="chk"><input type="checkbox" class="gap" id="g7"  aria-label="Saha fotoğrafları — tamamlandı"></td><td><span class="tag">Kurumsal</span></td><td><label for="g7" class="item">Saha fotoğrafları</label><span class="where">foto/ klasörü · aynı adla değiştirin</span></td><td>Mahmut</td><td><span class="tag p-yuksek">Yüksek</span></td><td><span class="tag s-devam ediyor">Devam ediyor</span><span class="where">Alanlar açıldı, görseller bekleniyor</span></td></tr><tr data-kat="kurumsal" data-onc="dusuk" data-durum="tamamlandi" class="done"><td class="chk"><input type="checkbox" class="gap" id="g8" checked aria-label="Referans müşteri adı izni — tamamlandı"></td><td><span class="tag">Kurumsal</span></td><td><label for="g8" class="item">Referans müşteri adı izni</label><span class="where">referanslar.html</span></td><td>Mahmut</td><td><span class="tag p-dusuk">Düşük</span></td><td><span class="tag s-tamamlandi">Tamamlandı</span><span class="where">Anonim kalıyor</span></td></tr><tr data-kat="kurumsal" data-onc="yuksek" data-durum="tamamlandi" class="done"><td class="chk"><input type="checkbox" class="gap" id="g9" checked aria-label="Logo — tamamlandı"></td><td><span class="tag">Kurumsal</span></td><td><label for="g9" class="item">Logo</label><span class="where">Tüm sayfaların menüsü</span></td><td>Mahmut</td><td><span class="tag p-yuksek">Yüksek</span></td><td><span class="tag s-tamamlandi">Tamamlandı</span><span class="where">Poppins kelime markası</span></td></tr><tr data-kat="kurumsal" data-onc="dusuk" data-durum="gerekmiyor" class="done"><td class="chk"><input type="checkbox" class="gap" id="g10" checked aria-label="Ekip görünürlüğü — tamamlandı"></td><td><span class="tag">Kurumsal</span></td><td><label for="g10" class="item">Ekip görünürlüğü</label><span class="where">kurumsal.html</span></td><td>Mahmut</td><td><span class="tag p-dusuk">Düşük</span></td><td><span class="tag s-gerekmiyor">Gerekmiyor</span><span class="where">—</span></td></tr><tr data-kat="hukuk" data-onc="yuksek" data-durum="tamamlandi" class="done"><td class="chk"><input type="checkbox" class="gap" id="g11" checked aria-label="KVKK metni — tamamlandı"></td><td><span class="tag">Hukuk</span></td><td><label for="g11" class="item">KVKK metni</label><span class="where">kvkk.html</span></td><td>Hukuk danışmanı</td><td><span class="tag p-yuksek">Yüksek</span></td><td><span class="tag s-tamamlandi">Tamamlandı</span><span class="where">Mevcut metin korunuyor</span></td></tr><tr data-kat="icerik" data-onc="orta" data-durum="tamamlandi" class="done"><td class="chk"><input type="checkbox" class="gap" id="g12" checked aria-label="Rehber yayın tarihleri — tamamlandı"></td><td><span class="tag">İçerik</span></td><td><label for="g12" class="item">Rehber yayın tarihleri</label><span class="where">rehber.html + 11 yazı</span></td><td>Mahmut</td><td><span class="tag p-orta">Orta</span></td><td><span class="tag s-tamamlandi">Tamamlandı</span><span class="where">16.09.2026</span></td></tr><tr data-kat="icerik" data-onc="yuksek" data-durum="devam ediyor" class=""><td class="chk"><input type="checkbox" class="gap" id="g13"  aria-label="Tomruk dilimleme (ağaç) vaka çalışması — tamamlandı"></td><td><span class="tag">İçerik</span></td><td><label for="g13" class="item">Tomruk dilimleme (ağaç) vaka çalışması</label><span class="where">referanslar.html</span></td><td>Mahmut</td><td><span class="tag p-yuksek">Yüksek</span></td><td><span class="tag s-devam ediyor">Devam ediyor</span><span class="where">Kart eklendi (Core Precisor K3) · strok değeri bekleniyor</span></td></tr><tr data-kat="ingilizce" data-onc="orta" data-durum="tamamlandi" class="done"><td class="chk"><input type="checkbox" class="gap" id="g14" checked aria-label="EN veri sayfası PDF’leri — tamamlandı"></td><td><span class="tag">İngilizce</span></td><td><label for="g14" class="item">EN veri sayfası PDF’leri</label><span class="where">en/ ürün sayfaları</span></td><td>Claude</td><td><span class="tag p-orta">Orta</span></td><td><span class="tag s-tamamlandi">Tamamlandı</span><span class="where">datasheet.pdf</span></td></tr><tr data-kat="ingilizce" data-onc="dusuk" data-durum="tamamlandi" class="done"><td class="chk"><input type="checkbox" class="gap" id="g15" checked aria-label="EN sözlük ve SSS — tamamlandı"></td><td><span class="tag">İngilizce</span></td><td><label for="g15" class="item">EN sözlük ve SSS</label><span class="where">en/glossary.html · en/faq.html</span></td><td>Claude</td><td><span class="tag p-dusuk">Düşük</span></td><td><span class="tag s-tamamlandi">Tamamlandı</span><span class="where">24 terim · 18 soru</span></td></tr><tr data-kat="ingilizce" data-onc="dusuk" data-durum="tamamlandi" class="done"><td class="chk"><input type="checkbox" class="gap" id="g16" checked aria-label="İnteraktif araçların çevirisi — tamamlandı"></td><td><span class="tag">İngilizce</span></td><td><label for="g16" class="item">İnteraktif araçların çevirisi</label><span class="where">en/ ürün sayfaları</span></td><td>Claude</td><td><span class="tag p-dusuk">Düşük</span></td><td><span class="tag s-tamamlandi">Tamamlandı</span><span class="where">Core simülasyonu + Shuttle konfigüratörü</span></td></tr></tbody>
+      </table>
+    </div>
+    <p class="note">İşaretlemeler yalnızca bu sekmede tutulur; sayfayı kapatırsanız sıfırlanır.
+    Kalıcı takip için aynı listenin Excel sürümünü kullanın.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>ServoMotion · Oktay Otomasyon Elektronik Mühendislik San. ve Tic. A.Ş.</div>
+    <div>Kurulum notu · iç kullanım</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var stp=[].slice.call(document.querySelectorAll('.stp'));
+  var gap=[].slice.call(document.querySelectorAll('.gap'));
+  var rows=[].slice.call(document.querySelectorAll('#gapbody tr'));
+  var cS=document.getElementById('cSteps'),cG=document.getElementById('cGaps'),cH=document.getElementById('cHigh');
+  var highTotal=rows.filter(function(r){return r.dataset.onc==='yuksek';}).length;
+  function upd(){
+    cS.textContent=stp.filter(function(c){return c.checked;}).length+'/'+stp.length;
+    cG.textContent=gap.filter(function(c){return c.checked;}).length+'/'+gap.length;
+    var h=rows.filter(function(r){return r.dataset.onc==='yuksek' && r.querySelector('.gap').checked;}).length;
+    cH.textContent=h+'/'+highTotal;
+  }
+  stp.forEach(function(c){c.addEventListener('change',function(){
+    c.closest('.step').classList.toggle('done',c.checked); upd();
+  });});
+  gap.forEach(function(c){c.addEventListener('change',function(){
+    c.closest('tr').classList.toggle('done',c.checked); upd();
+  });});
+  var btns=[].slice.call(document.querySelectorAll('.filters button'));
+  btns.forEach(function(b){b.addEventListener('click',function(){
+    btns.forEach(function(x){x.setAttribute('aria-pressed', x===b?'true':'false');});
+    var f=b.dataset.f;
+    rows.forEach(function(r){
+      var show = f==='all' || r.dataset.kat===f || (f==='yuksek' && r.dataset.onc==='yuksek');
+      r.hidden=!show;
+    });
+  });});
+  upd();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+# İşletim sistemi / editör
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# Bağımlılıklar ve ortam
+node_modules/
+vendor/
+.env
+.env.*
+
+# WordPress
+wp-config.php
+wp-content/uploads/
+*.log
