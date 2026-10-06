@@ -86,6 +86,32 @@ function servo_is_product_layout() {
 }
 
 /**
+ * Slug'ı verilen sayfanın veya kaydın adresini döndürür.
+ *
+ * Tasarımdaki sabit .html bağlantılarının WordPress karşılığıdır. Kayıt henüz
+ * yoksa beklenen kalıcı bağlantı döndürülür (ör. /uygulama/lastik/).
+ *
+ * @param string $slug      Slug (sayfalarda tam yol, ör. 'core-precisor').
+ * @param string $post_type 'page', 'post' (rehber) veya 'uygulama'.
+ * @return string
+ */
+function servo_post_url( $slug, $post_type = 'page' ) {
+	$post = get_page_by_path( $slug, OBJECT, $post_type );
+
+	if ( $post && 'publish' === get_post_status( $post ) ) {
+		return get_permalink( $post );
+	}
+
+	$bases = array(
+		'post'     => 'rehber/',
+		'uygulama' => 'uygulama/',
+	);
+	$base  = isset( $bases[ $post_type ] ) ? $bases[ $post_type ] : '';
+
+	return home_url( '/' . $base . $slug . '/' );
+}
+
+/**
  * Belirli bir sayfa şablonunu kullanan ilk yayımlanmış sayfanın ID'sini döndürür.
  *
  * @param string $template Şablon yolu (ör. 'page-templates/referanslar.php').
