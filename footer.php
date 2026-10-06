@@ -1,14 +1,19 @@
 <?php
 /**
- * Site altlığı.
+ * Site altlığı: bülten bandı ve footer.
  *
- * Bülten bandı ve footer markup'ı 4. adımda tasarımdan taşınacak.
+ * Şablonlar kendi <main> etiketlerini kapatır; bülten bandı ve footer
+ * bunun ardından gelir.
  *
  * @package ServoMotion
  */
 
 defined( 'ABSPATH' ) || exit;
+
+get_template_part( 'template-parts/site/bulten' );
+get_template_part( 'template-parts/site/footer-kolonlar' );
+
+wp_footer();
 ?>
-<?php wp_footer(); ?>
 </body>
 </html>

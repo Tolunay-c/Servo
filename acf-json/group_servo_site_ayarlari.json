@@ -1,0 +1,127 @@
+{
+    "key": "group_servo_site_ayarlari",
+    "title": "Site Ayarları",
+    "fields": [
+        {
+            "key": "field_servo_tab_genel",
+            "label": "Genel",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_servo_logo_alt_yazi",
+            "label": "Logo alt yazısı",
+            "name": "logo_alt_yazi",
+            "type": "text",
+            "instructions": "Ürün sayfalarının menüsünde logonun yanında görünür (ör. Lazer Konumlandırma).",
+            "required": 0,
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_servo_firma_unvani",
+            "label": "Firma unvanı",
+            "name": "firma_unvani",
+            "type": "text",
+            "instructions": "Footer alt satırında \"ServoMotion, … markasıdır.\" cümlesinde kullanılır.",
+            "required": 0,
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_servo_marka_adi",
+            "label": "Kardeş marka adı",
+            "name": "marka_adi",
+            "type": "text",
+            "instructions": "Firma unvanından sonra parantez içinde görünür (ör. OEM Lazer).",
+            "required": 0,
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_servo_marka_url",
+            "label": "Kardeş marka adresi",
+            "name": "marka_url",
+            "type": "url",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "https://"
+        },
+        {
+            "key": "field_servo_tab_iletisim",
+            "label": "İletişim",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_servo_telefon",
+            "label": "Telefon",
+            "name": "telefon",
+            "type": "text",
+            "instructions": "Görüneceği biçimde yazın (ör. +90 212 577 25 67). Arama bağlantısı otomatik üretilir.",
+            "required": 0,
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_servo_eposta",
+            "label": "E-posta",
+            "name": "eposta",
+            "type": "email",
+            "required": 0,
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_servo_tab_bulten",
+            "label": "Bülten",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_servo_bulten_baslik",
+            "label": "Bülten başlığı",
+            "name": "bulten_baslik",
+            "type": "text",
+            "required": 0,
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_servo_bulten_metin",
+            "label": "Bülten metni",
+            "name": "bulten_metin",
+            "type": "textarea",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "",
+            "rows": 3,
+            "new_lines": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "servo-site-ayarlari"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Logo, iletişim, footer ve bülten metinleri.",
+    "show_in_rest": 0,
+    "modified": 1791302400
+}

@@ -67,6 +67,25 @@ function servo_option( $name, $default = null ) {
 }
 
 /**
+ * Görünen telefon numarasından tel: bağlantısı üretir.
+ *
+ * @param string $phone Görünen numara (ör. '+90 212 577 25 67').
+ * @return string Ör. 'tel:+902125772567'.
+ */
+function servo_tel_href( $phone ) {
+	return 'tel:' . preg_replace( '/[^0-9+]/', '', (string) $phone );
+}
+
+/**
+ * Geçerli sayfanın ürün sayfası header'ını (.tabs) kullanıp kullanmadığını döndürür.
+ *
+ * @return bool
+ */
+function servo_is_product_layout() {
+	return in_array( servo_asset_group(), array( 'core', 'shuttle' ), true );
+}
+
+/**
  * Belirli bir sayfa şablonunu kullanan ilk yayımlanmış sayfanın ID'sini döndürür.
  *
  * @param string $template Şablon yolu (ör. 'page-templates/referanslar.php').
@@ -164,5 +183,5 @@ function servo_get_svg( $name ) {
 		return '';
 	}
 
-	return (string) file_get_contents( $file ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+	return trim( (string) file_get_contents( $file ) ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
 }

@@ -36,6 +36,26 @@ function servo_setup() {
 add_action( 'after_setup_theme', 'servo_setup' );
 
 /**
+ * Tasarımın favicon'larını ve theme-color etiketini basar.
+ *
+ * Özelleştir > Site Kimliği'nden site simgesi yüklenmişse WordPress'in
+ * kendi çıktısı kullanılır, tema favicon basmaz.
+ */
+function servo_favicons() {
+	if ( ! has_site_icon() ) {
+		$dir = 'assets/img/favicon/';
+
+		printf( '<link rel="icon" href="%s" type="image/svg+xml">' . "\n", esc_url( servo_asset_uri( $dir . 'favicon.svg' ) ) );
+		printf( '<link rel="mask-icon" href="%s" color="#FFD400">' . "\n", esc_url( servo_asset_uri( $dir . 'favicon.svg' ) ) );
+		printf( '<link rel="apple-touch-icon" href="%s">' . "\n", esc_url( servo_asset_uri( $dir . 'apple-touch-icon.png' ) ) );
+		printf( '<link rel="icon" type="image/png" sizes="32x32" href="%s">' . "\n", esc_url( servo_asset_uri( $dir . 'favicon-32.png' ) ) );
+	}
+
+	echo '<meta name="theme-color" content="#0B0F14">' . "\n";
+}
+add_action( 'wp_head', 'servo_favicons', 5 );
+
+/**
  * Yeni görsel boyutlarını medya ekleme ekranında seçilebilir yapar.
  *
  * @param array $sizes Mevcut boyutlar.
