@@ -111,6 +111,9 @@ Analiz (`docs/ANALIZ.md`) sonrası onaylanan kararlar:
 15. **CPT ve taxonomy'ler:**
     - Rehber yazıları yerleşik `post` tipindedir: kategori + `urun_alani` taxonomy'si.
     - `uygulama` (tekil sayfalı), `vaka`, `dokuman`, `sss` (+ `sss_grup` taxonomy'si), `terim` CPT'leri kullanılır.
+    - `uygulama` tekil adresi `/uygulama/{slug}/` olur. `has_archive` false'tur, `/uygulama/` arşiv üretmez.
+    - `urun_alani` ve `sss_grup` ön yüzde arşiv üretmez. `vaka`, `dokuman`, `sss` ve `terim` tekil sayfasızdır ve aramada çıkmaz.
+    - Referanslar sayfasında her vakanın `id`'si post slug'ından üretilir (`servo_vaka_anchor()`). Uygulama sayfalarındaki vaka linkleri vakayı relationship alanından alır ve `servo_vaka_url()` ile basar. Böylece başlık değişse de çapa kırılmaz.
     - Ürünler CPT değil, 2 ayrı sayfa şablonudur.
     - Kurumsal ve servis listeleri ACF repeater ile yapılır.
 

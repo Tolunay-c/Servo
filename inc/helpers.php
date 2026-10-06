@@ -67,6 +67,66 @@ function servo_option( $name, $default = null ) {
 }
 
 /**
+ * Belirli bir sayfa şablonunu kullanan ilk yayımlanmış sayfanın ID'sini döndürür.
+ *
+ * @param string $template Şablon yolu (ör. 'page-templates/referanslar.php').
+ * @return int Bulunamazsa 0.
+ */
+function servo_template_page_id( $template ) {
+	$pages = get_posts(
+		array(
+			'post_type'      => 'page',
+			'post_status'    => 'publish',
+			'posts_per_page' => 1,
+			'fields'         => 'ids',
+			'meta_key'       => '_wp_page_template', // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
+			'meta_value'     => $template, // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_value
+		)
+	);
+
+	return $pages ? (int) $pages[0] : 0;
+}
+
+/**
+ * Bir vakanın referanslar sayfasındaki çapa (id) değerini döndürür.
+ *
+ * Çapa başlıktan değil post slug'ından üretilir; başlık değişse de linkler
+ * kırılmaz. Slug'lar ASCII tutulmalıdır (ör. "lastik").
+ *
+ * @param int|WP_Post $vaka Vaka ID'si veya nesnesi.
+ * @return string
+ */
+function servo_vaka_anchor( $vaka ) {
+	$vaka = get_post( $vaka );
+
+	if ( ! $vaka || 'vaka' !== $vaka->post_type ) {
+		return '';
+	}
+
+	return sanitize_html_class( rawurldecode( $vaka->post_name ) );
+}
+
+/**
+ * Bir vakanın referanslar sayfasındaki adresini (#çapa ile) döndürür.
+ *
+ * Uygulama sayfalarındaki "örnek kurulum" linkleri, relationship alanından
+ * gelen vaka ile bu fonksiyonu kullanır.
+ *
+ * @param int|WP_Post $vaka Vaka ID'si veya nesnesi.
+ * @return string Referanslar sayfası veya vaka yoksa boş metin.
+ */
+function servo_vaka_url( $vaka ) {
+	$anchor  = servo_vaka_anchor( $vaka );
+	$page_id = servo_template_page_id( 'page-templates/referanslar.php' );
+
+	if ( '' === $anchor || ! $page_id ) {
+		return '';
+	}
+
+	return get_permalink( $page_id ) . '#' . $anchor;
+}
+
+/**
  * Tema içindeki bir dosyanın URL'sini döndürür.
  *
  * @param string $path Tema köküne göre yol (ör. 'assets/img/logo.svg').
