@@ -1,0 +1,90 @@
+/* Kaynak: _design/iletisim.html <style> (içerik değiştirilmeden taşındı; sadece yol düzeltmeleri) */
+/* ---- iletişim sayfası ---- */
+.ch{background:var(--ink);color:var(--muted);padding:70px 0 0;position:relative;
+  background-image:linear-gradient(#18232d55 1px,transparent 1px),linear-gradient(90deg,#18232d55 1px,transparent 1px);
+  background-size:48px 48px}
+.ch .wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:60px;align-items:start}
+@media(max-width:900px){.ch .wrap{grid-template-columns:minmax(0,1fr);gap:34px}}
+.ch h1{font-size:clamp(38px,4.6vw,62px)}
+.ch .intro{max-width:56ch}
+.chan{display:grid;gap:12px}
+.chan a{display:grid;grid-template-columns:44px minmax(0,1fr) auto;align-items:center;gap:16px;
+  background:#0f1720;border:1px solid var(--line);padding:18px 20px;text-decoration:none;color:#e1e7ed}
+.chan a:hover{border-color:var(--yellow)}
+.chan .ic{width:44px;height:44px;border:1px solid #33465a;display:flex;align-items:center;justify-content:center;color:var(--yellow)}
+.chan a:hover .ic{border-color:var(--yellow)}
+.chan a>span{min-width:0}
+.chan .k,.chan .v{display:block}
+.chan .k{font:10.5px/1.5 'IBM Plex Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:#7f90a3}
+.chan .v{font-family:'Barlow Condensed','Arial Narrow',sans-serif;font-size:22px;overflow-wrap:anywhere;font-weight:600;letter-spacing:.02em;color:#fff;margin-top:2px}
+.chan .go{font:18px 'IBM Plex Mono',monospace;color:#4d5f74}
+.chan a:hover .go{color:var(--yellow)}
+@media(max-width:520px){.chan a{grid-template-columns:38px minmax(0,1fr) auto;gap:12px;padding:15px 16px}
+.chan .ic{width:38px;height:38px}
+.chan .v{font-size:18px;letter-spacing:.01em}}
+.chstrip{margin-top:56px;border-top:1px solid var(--line);background:#101720}
+.chstrip .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);padding:0}
+@media(max-width:760px){.chstrip .wrap{grid-template-columns:1fr}}
+.chstrip .wrap>div{background:#101720;padding:20px 24px;font-size:14.5px;color:#9badc1}
+.chstrip .wrap>div b{display:block;font-family:'Barlow Condensed','Arial Narrow',sans-serif;font-size:18px;color:#fff;letter-spacing:.04em;margin-bottom:5px}
+
+/* uygulama özeti aracı */
+.brief{background:#eef1f5;border-top:1px solid #d9e0e8}
+.bgrid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+@media(max-width:960px){.bgrid{grid-template-columns:1fr}}
+.bcard{background:#fff;border:1px solid #d9e0e8}
+.bcard .hd{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:15px 22px;border-bottom:1px solid #d9e0e8;background:#fbfcfd}
+.bcard .hd h3{font-size:19px;letter-spacing:.05em}
+.bcard .hd .n{font:10.5px/1.5 'IBM Plex Mono',monospace;letter-spacing:.15em;color:#7a8a9b}
+.bcard .bd{padding:22px}
+.fld{margin-bottom:18px}
+.fld:last-child{margin-bottom:0}
+.fld label{display:block;font:10.5px/1.5 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#7a8a9b;margin-bottom:7px}
+.fld input,.fld select{width:100%;font:16px Barlow,Arial,sans-serif;color:#17212d;background:#fff;
+  border:1px solid #c9d2dc;padding:12px 13px;border-radius:0;appearance:none}
+.fld select{background-image:linear-gradient(45deg,transparent 50%,#7a8a9b 50%),linear-gradient(135deg,#7a8a9b 50%,transparent 50%);
+  background-position:calc(100% - 19px) 21px,calc(100% - 13px) 21px;background-size:6px 6px,6px 6px;background-repeat:no-repeat}
+.fld input:focus,.fld select:focus{outline:0;border-color:var(--yellow);box-shadow:0 0 0 3px rgba(255,212,0,.28)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:480px){.two{grid-template-columns:1fr}}
+.chk{display:grid;gap:9px;margin-top:4px}
+.chk label{display:flex;gap:10px;align-items:flex-start;font:15px/1.5 Barlow,Arial,sans-serif;
+  letter-spacing:0;text-transform:none;color:#42536a;cursor:pointer;margin:0}
+.chk input{width:17px;height:17px;flex:none;margin-top:2px;accent-color:#0b0f14}
+.verdict{border:1px solid #d9e0e8;border-left:4px solid var(--yellow);background:#fbfcfd;padding:18px 20px}
+.verdict .k{font:10.5px/1.5 'IBM Plex Mono',monospace;letter-spacing:.15em;text-transform:uppercase;color:#7a8a9b}
+.verdict .v{font-family:'Barlow Condensed','Arial Narrow',sans-serif;text-transform:uppercase;
+  font-size:27px;font-weight:700;line-height:1.1;margin:6px 0 8px;color:#0b0f14}
+.verdict p{font-size:15px;color:#506275;margin:0;line-height:1.6}
+.summary{margin-top:18px;background:#0b0f14;color:#cfd9e4;border:1px solid #0b0f14;padding:18px 20px;
+  font:13px/1.85 'IBM Plex Mono',monospace;white-space:pre-wrap;overflow-wrap:anywhere;max-height:330px;overflow:auto}
+.acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.acts .btn{font-size:15px;padding:13px 20px;cursor:pointer;border:1px solid #667384;background:none}
+.acts .btn.primary{border-color:var(--yellow)}
+.acts .btn.dark{background:#121a22;border-color:#121a22;color:#fff}
+.acts .btn.dark:hover{color:var(--yellow)}
+.hint{font-size:13.5px;color:#64758a;margin-top:14px;line-height:1.6}
+
+/* süreç */
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:0}
+@media(max-width:1000px){.flow{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.flow{grid-template-columns:1fr}}
+.fstep{border-top:3px solid var(--yellow);padding:22px 24px 26px 0}
+.fstep .n{font:11px/1.5 'IBM Plex Mono',monospace;letter-spacing:.18em;color:#7a8a9b}
+.fstep h3{font-size:21px;margin:9px 0 10px}
+.fstep p{font-size:15px;color:#506275;margin:0;line-height:1.6}
+.fstep .t{display:inline-block;margin-top:12px;font:10.5px/1.5 'IBM Plex Mono',monospace;
+  letter-spacing:.12em;text-transform:uppercase;color:#0b0f14;background:#f0f3f7;border:1px solid #d9e0e8;padding:4px 9px}
+
+/* künye */
+.info{background:#fff;border-top:1px solid #d9e0e8}
+.igrid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+@media(max-width:1000px){.igrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.igrid{grid-template-columns:1fr}}
+.ibox{border-top:3px solid var(--yellow);padding:22px 0 0}
+.ibox h3{font-size:20px;margin-bottom:12px}
+.ibox p,.ibox address{font-style:normal;font-size:16px;color:#506275;line-height:1.7;margin:0;overflow-wrap:anywhere}
+.ibox a{font-weight:600;color:#17212d;display:inline-block}
+.ibox .lbl{font:10.5px/1.5 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#7a8a9b;margin-top:12px}
+.maplink{display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-weight:600;font-size:15px;color:#17212d}
+.maplink:hover{color:#0b0f14;text-decoration:underline}
