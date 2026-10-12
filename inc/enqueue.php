@@ -48,59 +48,45 @@ function servo_enqueue_script( $handle, $path, $deps = array() ) {
 /**
  * Geçerli sayfanın hangi tasarım asset grubunu kullandığını döndürür.
  *
- * Gruplar tasarımdaki sayfaların <head> yapısına karşılık gelir:
- * - home     : index.html (kendi gömülü stilleri, base.css yok)
- * - core     : core-precisor.html
- * - shuttle  : shuttle-precisor.html
- * - iletisim : iletisim.html
- * - kurumsal : kurumsal.html
- * - rehber   : rehber.html ve rehber-*.html (rehber.css)
- * - ic-sayfa : diğer tüm iç sayfalar (base.css + ortak gömülü stil)
+ * - core    : Core Precisor şablonu (core.css)
+ * - shuttle : Shuttle Precisor şablonu (shuttle.css)
+ * - rehber  : rehber listesi, rehber yazıları ve yazı arşivleri (rehber.css)
+ * - bloklar : diğer her şey; flexible content sayfaları, 404 ve arama
+ *             (base.css + brandfont.css + bloklar.css)
  *
  * @return string
  */
 function servo_asset_group() {
-	if ( is_front_page() ) {
-		return 'home';
+	if ( is_page_template( 'page-templates/core-precisor.php' ) ) {
+		return 'core';
 	}
 
-	$templates = array(
-		'page-templates/core-precisor.php'    => 'core',
-		'page-templates/shuttle-precisor.php' => 'shuttle',
-		'page-templates/iletisim.php'         => 'iletisim',
-		'page-templates/kurumsal.php'         => 'kurumsal',
-	);
-
-	foreach ( $templates as $template => $group ) {
-		if ( is_page_template( $template ) ) {
-			return $group;
-		}
+	if ( is_page_template( 'page-templates/shuttle-precisor.php' ) ) {
+		return 'shuttle';
 	}
 
 	if ( is_home() || is_singular( 'post' ) || is_category() || is_tag() || is_author() || is_date() ) {
 		return 'rehber';
 	}
 
-	return 'ic-sayfa';
+	return 'bloklar';
 }
 
 /**
  * Ön yüz asset'lerini yükler.
  *
  * Yükleme sırası tasarımdaki sırayla aynıdır: fontlar (Google Fonts <link>
- * yerine), harici CSS dosyaları, ardından sayfanın gömülü stili. JS'ler
- * tasarımdaki <script> sırasıyla footer'da yüklenir.
+ * yerine), harici CSS dosyaları, ardından sayfanın stilleri. JS'ler
+ * tasarımdaki <script> sırasıyla footer'da yüklenir. Sözlük ve uygulama
+ * özeti script'leri sadece ilgili blok sayfadaysa yüklenir.
  */
 function servo_enqueue_assets() {
 	$group = servo_asset_group();
+	$ozet  = 'bloklar' === $group && servo_page_has_block( 'uygulama_ozeti' );
 
 	servo_enqueue_style( 'servo-fonts', 'assets/css/fonts.css' );
 
 	switch ( $group ) {
-		case 'home':
-			servo_enqueue_style( 'servo-home', 'assets/css/home.css', array( 'servo-fonts' ) );
-			break;
-
 		case 'core':
 			servo_enqueue_style( 'servo-core', 'assets/css/core.css', array( 'servo-fonts' ) );
 			servo_enqueue_script( 'servo-core-sim', 'assets/js/core-sim.js' );
@@ -115,14 +101,24 @@ function servo_enqueue_assets() {
 		case 'rehber':
 			servo_enqueue_style( 'servo-rehber', 'assets/css/rehber.css', array( 'servo-fonts' ) );
 			servo_enqueue_style( 'servo-brandfont', 'assets/css/brandfont.css', array( 'servo-rehber' ) );
+
+			// rehber.html'in <style id="servomotion-brand-font"> bloğunda brandfont.css'te
+			// olmayan tek kural; tasarımda sadece liste sayfasında var.
+			if ( ! is_singular() ) {
+				wp_add_inline_style( 'servo-brandfont', '.nav .brand:hover .smk{color:#fff}' );
+			}
 			break;
 
-		default: // ic-sayfa, iletisim, kurumsal.
+		default:
 			servo_enqueue_style( 'servo-base', 'assets/css/base.css', array( 'servo-fonts' ) );
 			servo_enqueue_style( 'servo-brandfont', 'assets/css/brandfont.css', array( 'servo-base' ) );
-			servo_enqueue_style( 'servo-' . $group, 'assets/css/' . $group . '.css', array( 'servo-brandfont' ) );
+			servo_enqueue_style( 'servo-bloklar', 'assets/css/bloklar.css', array( 'servo-brandfont' ) );
 
-			if ( is_page_template( 'page-templates/sozluk.php' ) ) {
+			if ( is_singular() && servo_field( 'iki_yana_yasla', get_queried_object_id(), false ) ) {
+				servo_enqueue_style( 'servo-hizalama', 'assets/css/hizalama.css', array( 'servo-bloklar' ) );
+			}
+
+			if ( servo_page_has_block( 'sozluk' ) ) {
 				servo_enqueue_script( 'servo-sozluk', 'assets/js/sozluk.js' );
 			}
 			break;
@@ -139,15 +135,20 @@ function servo_enqueue_assets() {
 		servo_enqueue_script( 'servo-bulten', 'assets/js/bulten.js' );
 	}
 
-	if ( 'iletisim' === $group ) {
+	if ( $ozet ) {
 		servo_enqueue_script( 'servo-iletisim-ozet', 'assets/js/iletisim-ozet.js' );
 	}
 
 	servo_enqueue_script( 'servo-nav', 'assets/js/nav.js' );
 
-	if ( 'iletisim' === $group ) {
-		// Form uç noktası 9. adımda wp_add_inline_script ile bu dosyadan önce verilecek.
+	if ( $ozet ) {
 		servo_enqueue_script( 'servo-iletisim-gonder', 'assets/js/iletisim-gonder.js' );
+
+		// Form uç noktası (inc/formlar.php); alıcı adresi yoksa verilmez.
+		$form = servo_form_script();
+		if ( '' !== $form ) {
+			wp_add_inline_script( 'servo-iletisim-gonder', $form, 'before' );
+		}
 	}
 }
 add_action( 'wp_enqueue_scripts', 'servo_enqueue_assets' );

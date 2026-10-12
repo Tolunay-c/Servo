@@ -71,3 +71,17 @@ function servo_image_size_names( $sizes ) {
 	);
 }
 add_filter( 'image_size_names_choose', 'servo_image_size_names' );
+
+/**
+ * Tasarım ve doküman klasörlerini WordPress'in tema dosyası taramasından çıkarır.
+ *
+ * _design/ ve docs/ canlıya deploy edilmez; sayfa şablonu aranırken
+ * taranmaları gereksizdir (yerelde _design/ okuma izni de vermeyebilir).
+ *
+ * @param string[] $exclusions Taranmayacak klasörler.
+ * @return string[]
+ */
+function servo_scandir_exclusions( $exclusions ) {
+	return array_merge( $exclusions, array( '_design', 'docs' ) );
+}
+add_filter( 'theme_scandir_exclusions', 'servo_scandir_exclusions' );

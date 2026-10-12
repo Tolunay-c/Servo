@@ -1,0 +1,94 @@
+{
+    "key": "group_servo_uygulama_kart",
+    "title": "Ana sayfa kartı ve ayarlar",
+    "fields": [
+        {
+            "key": "field_servo_uyg_detay_sayfasi",
+            "label": "Kendi sayfası var",
+            "name": "detay_sayfasi",
+            "type": "true_false",
+            "instructions": "Kapalıysa bu uygulama sadece ana sayfadaki \"diğer uygulamalar\" kartında görünür; kendi sayfası açılmaz.",
+            "default_value": 1,
+            "ui": 1
+        },
+        {
+            "key": "field_servo_uyg_kart_baslik",
+            "label": "Kart başlığı",
+            "name": "kart_baslik",
+            "type": "text",
+            "instructions": "Ana sayfadaki kartta görünen başlık (ör. LASTİK VE KOMPOZİT MALZEMELER)."
+        },
+        {
+            "key": "field_servo_uyg_kart_svg",
+            "label": "Kart şeması",
+            "name": "kart_svg",
+            "type": "select",
+            "instructions": "Kartın üstündeki koyu görsel. Görsel yüklenmezse bu şema gösterilir.",
+            "choices": {},
+            "default_value": "",
+            "allow_null": 1,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "wrapper": {
+                "width": "",
+                "class": "servo-svg-gorsel",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_servo_uyg_kart_gorsel",
+            "label": "Kart görseli",
+            "name": "kart_gorsel",
+            "type": "image",
+            "instructions": "İsteğe bağlı. Yüklenirse şemanın yerine gösterilir.",
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all"
+        },
+        {
+            "key": "field_servo_uyg_kart_metin",
+            "label": "Kart metni",
+            "name": "kart_metin",
+            "type": "textarea",
+            "instructions": "",
+            "rows": 3,
+            "new_lines": ""
+        },
+        {
+            "key": "field_servo_uyg_kart_belirleyici",
+            "label": "\"Belirleyici olan\" metni",
+            "name": "kart_belirleyici",
+            "type": "text",
+            "instructions": "Kartta \"Belirleyici olan\" başlığıyla gösterilir."
+        },
+        {
+            "key": "field_servo_uyg_kart_ornek",
+            "label": "Örnek kurulum",
+            "name": "kart_ornek",
+            "type": "textarea",
+            "instructions": "Sadece öne çıkan kartlarda gösterilir. Kalın yazı için <b>metin</b>, satır atlamak için Enter.",
+            "rows": 2,
+            "new_lines": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "uygulama"
+            }
+        ]
+    ],
+    "menu_order": 1,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1791400000
+}

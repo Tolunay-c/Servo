@@ -1,0 +1,36 @@
+{
+    "key": "group_servo_sss_grup",
+    "title": "SSS grubu",
+    "fields": [
+        {
+            "key": "field_servo_sssg_sira",
+            "label": "Sıra",
+            "name": "sira",
+            "type": "number",
+            "instructions": "Gruplar SSS sayfasında küçük numaradan büyüğe sıralanır.",
+            "default_value": 0,
+            "min": "",
+            "max": "",
+            "step": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "sss_grup"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1791400000
+}

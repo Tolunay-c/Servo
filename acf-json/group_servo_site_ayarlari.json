@@ -77,6 +77,123 @@
             "placeholder": ""
         },
         {
+            "key": "field_servo_whatsapp",
+            "label": "WhatsApp numarası",
+            "name": "whatsapp",
+            "type": "text",
+            "required": 0,
+            "instructions": "Görüneceği biçimde yazın (ör. +90 544 636 12 00). WhatsApp bağlantısı otomatik üretilir.",
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_servo_faks",
+            "label": "Faks",
+            "name": "faks",
+            "type": "text",
+            "required": 0,
+            "instructions": "Boş bırakılırsa gösterilmez.",
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_servo_eposta_etiket",
+            "label": "E-posta başlığı",
+            "name": "eposta_etiket",
+            "type": "text",
+            "required": 0,
+            "instructions": "İletişim sayfasında e-postanın üstündeki küçük yazı (ör. SİSTEM VE TEKLİF).",
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_servo_eposta_2",
+            "label": "İkinci e-posta",
+            "name": "eposta_2",
+            "type": "email",
+            "required": 0,
+            "instructions": "İsteğe bağlı (ör. kardeş markanın adresi).",
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_servo_eposta_2_etiket",
+            "label": "İkinci e-posta başlığı",
+            "name": "eposta_2_etiket",
+            "type": "text",
+            "required": 0,
+            "instructions": "Ör. OEM LAZER.",
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_servo_adres",
+            "label": "Adres",
+            "name": "adres",
+            "type": "textarea",
+            "required": 0,
+            "instructions": "Satır atlamak için Enter'a basın.",
+            "rows": 3,
+            "new_lines": ""
+        },
+        {
+            "key": "field_servo_harita_url",
+            "label": "Harita bağlantısı",
+            "name": "harita_url",
+            "type": "url",
+            "required": 0,
+            "instructions": "\"Yol tarifi alın\" bağlantısının açacağı adres (ör. Google Haritalar linki)."
+        },
+        {
+            "key": "field_servo_vergi",
+            "label": "Vergi dairesi / no",
+            "name": "vergi",
+            "type": "text",
+            "required": 0,
+            "instructions": "Ör. İkitelli V.D. · 6380558353"
+        },
+        {
+            "key": "field_servo_markalar",
+            "label": "Markalar",
+            "name": "markalar",
+            "type": "repeater",
+            "instructions": "İletişim sayfasındaki \"Markalar\" satırında gösterilir.",
+            "layout": "table",
+            "button_label": "Marka ekle",
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "sub_fields": [
+                {
+                    "key": "field_servo_markalar__ad",
+                    "label": "Ad",
+                    "name": "ad",
+                    "type": "text"
+                },
+                {
+                    "key": "field_servo_markalar__url",
+                    "label": "Adres",
+                    "name": "url",
+                    "type": "url"
+                }
+            ]
+        },
+        {
             "key": "field_servo_tab_bulten",
             "label": "Bülten",
             "name": "",
@@ -103,6 +220,369 @@
             "placeholder": "",
             "rows": 3,
             "new_lines": ""
+        },
+        {
+            "key": "field_servo_tab_formlar",
+            "label": "Formlar",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_servo_form_eposta",
+            "label": "Uygulama özeti gönderim adresi",
+            "name": "form_eposta",
+            "type": "email",
+            "required": 0,
+            "instructions": "İletişim sayfasındaki uygulama özeti aracından gönderilen özetler bu adrese gelir. Boş bırakılırsa İletişim sekmesindeki e-posta kullanılır. İkisi de boşsa \"Gönder\" düğmesi görünmez, ziyaretçi özeti e-posta veya WhatsApp ile iletir.",
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_servo_tab_sayfalar",
+            "label": "Sayfalar",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_servo_vaka_sayfasi",
+            "label": "Vaka çalışmaları sayfası",
+            "name": "vaka_sayfasi",
+            "type": "post_object",
+            "required": 0,
+            "instructions": "Vaka çalışmalarının listelendiği sayfa. Diğer sayfalardaki vaka bağlantıları bu sayfaya yönlenir.",
+            "post_type": [
+                "page"
+            ],
+            "return_format": "id",
+            "allow_null": 1,
+            "multiple": 0,
+            "ui": 1
+        },
+        {
+            "key": "field_servo_tab_rehber",
+            "label": "Rehber",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_servo_rehber_ayar_bilgi",
+            "label": "Rehber sayfası ve yazıları",
+            "name": "",
+            "type": "message",
+            "message": "Rehber listesinin başlığı ile her yazının sonunda aynı görünen kutu ve not burada düzenlenir.",
+            "new_lines": "",
+            "esc_html": 0
+        },
+        {
+            "key": "field_servo_rehber_etiket",
+            "label": "Liste: üst etiket",
+            "name": "rehber_etiket",
+            "type": "text",
+            "instructions": "Rehber listesinin en üstündeki küçük yazı.",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "",
+            "wrapper": {
+                "width": "40",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_servo_rehber_baslik",
+            "label": "Liste: başlık",
+            "name": "rehber_baslik",
+            "type": "textarea",
+            "instructions": "Satır atlamak için Enter'a basın.",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "",
+            "rows": 2,
+            "new_lines": ""
+        },
+        {
+            "key": "field_servo_rehber_aciklama",
+            "label": "Liste: açıklama",
+            "name": "rehber_aciklama",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "",
+            "rows": 3,
+            "new_lines": ""
+        },
+        {
+            "key": "field_servo_rehber_yazar",
+            "label": "Varsayılan yazar",
+            "name": "rehber_yazar",
+            "type": "text",
+            "instructions": "Yazıda yazar girilmemişse kullanılır.",
+            "required": 0,
+            "default_value": "ServoMotion Mühendislik Ekibi",
+            "placeholder": "",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_servo_rehber_son_baslik",
+            "label": "Yazı sonu kutusu: başlık",
+            "name": "rehber_son_baslik",
+            "type": "text",
+            "instructions": "Her yazının sonundaki sarı çizgili kutu.",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "",
+            "wrapper": {
+                "width": "40",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_servo_rehber_son_metin",
+            "label": "Yazı sonu kutusu: metin",
+            "name": "rehber_son_metin",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "",
+            "rows": 2,
+            "new_lines": ""
+        },
+        {
+            "key": "field_servo_rehber_son_buton",
+            "label": "Yazı sonu kutusu: buton",
+            "name": "rehber_son_buton",
+            "type": "link",
+            "instructions": "",
+            "return_format": "array"
+        },
+        {
+            "key": "field_servo_rehber_not",
+            "label": "Yazı altı notu",
+            "name": "rehber_not",
+            "type": "textarea",
+            "instructions": "İlgili yazıların üstündeki, solunda sarı çizgi olan not. Bağlantı için <a href=\"adres\">metin</a> biçimini kullanabilirsiniz.",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "",
+            "rows": 2,
+            "new_lines": ""
+        },
+        {
+            "key": "field_servo_tab_guvenlik",
+            "label": "Ürün güvenliği",
+            "name": "tab_guvenlik",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_servo_guvenlik_bilgi",
+            "label": "Lazer güvenliği ve uygunluk",
+            "name": "guvenlik_bilgi",
+            "type": "message",
+            "message": "Bu bölüm Core Precisor ve Shuttle Precisor sayfalarında, teknik özelliklerin altında aynı içerikle gösterilir.",
+            "new_lines": "",
+            "esc_html": 0
+        },
+        {
+            "key": "field_servo_guvenlik_etiket",
+            "label": "Bölüm etiketi",
+            "name": "guvenlik_etiket",
+            "type": "text",
+            "instructions": "Başlığın üstündeki küçük yazı (ör. GÜVENLİK).",
+            "wrapper": {
+                "width": "40",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_servo_guvenlik_baslik",
+            "label": "Bölüm başlığı",
+            "name": "guvenlik_baslik",
+            "type": "text",
+            "instructions": "",
+            "wrapper": {
+                "width": "60",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_servo_guvenlik_maddeler",
+            "label": "Maddeler",
+            "name": "guvenlik_maddeler",
+            "type": "repeater",
+            "instructions": "İki sütunda dizilen maddeler.",
+            "layout": "table",
+            "button_label": "Madde ekle",
+            "sub_fields": [
+                {
+                    "key": "field_servo___guvenlik_maddeler_baslik",
+                    "label": "Başlık",
+                    "name": "baslik",
+                    "type": "text",
+                    "instructions": "",
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_servo___guvenlik_maddeler_metin",
+                    "label": "Metin",
+                    "name": "metin",
+                    "type": "textarea",
+                    "instructions": "Bağlantı için <a href=\"adres\">metin</a> biçimini kullanabilirsiniz.",
+                    "rows": 3,
+                    "new_lines": "",
+                    "wrapper": {
+                        "width": "70",
+                        "class": "",
+                        "id": ""
+                    }
+                }
+            ],
+            "min": 0,
+            "max": 0,
+            "collapsed": "field_servo___guvenlik_maddeler_baslik"
+        },
+        {
+            "key": "field_servo_tab_404",
+            "label": "404 sayfası",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_servo_hata_bilgi",
+            "label": "Bulunamayan sayfa",
+            "name": "",
+            "type": "message",
+            "message": "Ziyaretçi olmayan bir adrese gittiğinde gösterilen sayfanın metinleri. Boş bırakılan alanlarda tasarımdaki varsayılan metin ve bağlantılar kullanılır.",
+            "new_lines": "",
+            "esc_html": 0
+        },
+        {
+            "key": "field_servo_hata_etiket",
+            "label": "Üst etiket",
+            "name": "hata_etiket",
+            "type": "text",
+            "instructions": "Başlığın üstündeki küçük sarı yazı.",
+            "required": 0,
+            "default_value": "HATA 404",
+            "placeholder": ""
+        },
+        {
+            "key": "field_servo_hata_baslik",
+            "label": "Başlık (1. satır)",
+            "name": "hata_baslik",
+            "type": "text",
+            "instructions": "Beyaz yazılan ilk satır.",
+            "required": 0,
+            "default_value": "BU KONUMDA",
+            "placeholder": ""
+        },
+        {
+            "key": "field_servo_hata_vurgu",
+            "label": "Başlık (2. satır, sarı)",
+            "name": "hata_vurgu",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "default_value": "BİR ÇİZGİ YOK",
+            "placeholder": ""
+        },
+        {
+            "key": "field_servo_hata_giris",
+            "label": "Giriş metni",
+            "name": "hata_giris",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "default_value": "Aradığınız sayfa taşınmış veya adresi değişmiş olabilir. Aşağıdan devam edebilirsiniz.",
+            "placeholder": "",
+            "rows": 2,
+            "new_lines": ""
+        },
+        {
+            "key": "field_servo_hata_butonlar",
+            "label": "Butonlar",
+            "name": "hata_butonlar",
+            "type": "repeater",
+            "instructions": "Boş bırakılırsa tasarımdaki varsayılan kullanılır. İlk buton sarı gösterilir.",
+            "layout": "table",
+            "button_label": "Buton ekle",
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "sub_fields": [
+                {
+                    "key": "field_servo_hata_butonlar__link",
+                    "label": "Bağlantı",
+                    "name": "link",
+                    "type": "link",
+                    "instructions": "",
+                    "return_format": "array"
+                }
+            ]
+        },
+        {
+            "key": "field_servo_hata_liste_etiket",
+            "label": "Bağlantı listesi: üst etiket",
+            "name": "hata_liste_etiket",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "default_value": "SIK KULLANILANLAR",
+            "placeholder": ""
+        },
+        {
+            "key": "field_servo_hata_liste_baslik",
+            "label": "Bağlantı listesi: başlık",
+            "name": "hata_liste_baslik",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "default_value": "BELKİ BUNLARI ARIYORDUNUZ",
+            "placeholder": ""
+        },
+        {
+            "key": "field_servo_hata_baglantilar",
+            "label": "Bağlantılar",
+            "name": "hata_baglantilar",
+            "type": "repeater",
+            "instructions": "Boş bırakılırsa tasarımdaki varsayılan kullanılır.",
+            "layout": "table",
+            "button_label": "Bağlantı ekle",
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "sub_fields": [
+                {
+                    "key": "field_servo_hata_baglantilar__link",
+                    "label": "Bağlantı",
+                    "name": "link",
+                    "type": "link",
+                    "instructions": "",
+                    "return_format": "array"
+                }
+            ]
         }
     ],
     "location": [
@@ -121,7 +601,7 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "Logo, iletişim, footer ve bülten metinleri.",
+    "description": "Logo, iletişim, footer, bülten, form, rehber, ürün güvenliği ve 404 sayfası metinleri.",
     "show_in_rest": 0,
-    "modified": 1791302400
+    "modified": 1791674527
 }

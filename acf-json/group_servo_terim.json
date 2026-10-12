@@ -1,0 +1,41 @@
+{
+    "key": "group_servo_terim",
+    "title": "Terim bilgileri",
+    "fields": [
+        {
+            "key": "field_servo_terim_terim_bilgi",
+            "label": "Bilgi",
+            "name": "terim_bilgi",
+            "type": "message",
+            "new_lines": "",
+            "esc_html": 0,
+            "message": "Terim adı yukarıdaki başlık alanıdır; açıklama metin kutusuna yazılır. Sözlükteki sıra, sağdaki \"Yazı öznitelikleri\" kutusunun \"Sıralama\" alanıdır (küçük numara önce)."
+        },
+        {
+            "key": "field_servo_terim_alternatif",
+            "label": "Alternatif adlar",
+            "name": "alternatif",
+            "type": "text",
+            "instructions": "Terimin başka adları; sözlük aramasında da bulunur. Birden fazlaysa \" · \" ile ayırın (ör. hareket alanı · çalışma genişliği)."
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "terim"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1791400000
+}

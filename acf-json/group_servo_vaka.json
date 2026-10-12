@@ -1,0 +1,148 @@
+{
+    "key": "group_servo_vaka",
+    "title": "Vaka bilgileri",
+    "fields": [
+        {
+            "key": "field_servo_vaka_vaka_bilgi",
+            "label": "Bilgi",
+            "name": "vaka_bilgi",
+            "type": "message",
+            "new_lines": "",
+            "esc_html": 0,
+            "message": "Vaka başlığı yukarıdaki başlık alanıdır. Kalıcı bağlantıdaki kısa ad (ör. lastik), vaka çalışmaları sayfasında bu vakaya gitmek için kullanılır; Türkçe karakter içermemelidir."
+        },
+        {
+            "key": "field_servo_vaka_etiket",
+            "label": "Üst etiket",
+            "name": "etiket",
+            "type": "text",
+            "instructions": "Ör. LASTİK VE KOMPOZİT · TAKVİYE SERİMİ."
+        },
+        {
+            "key": "field_servo_vaka_giris",
+            "label": "Giriş",
+            "name": "giris",
+            "type": "textarea",
+            "instructions": "",
+            "rows": 2,
+            "new_lines": ""
+        },
+        {
+            "key": "field_servo_vaka_svg",
+            "label": "Şema",
+            "name": "svg",
+            "type": "select",
+            "instructions": "Sol üstteki koyu görsel.",
+            "choices": {},
+            "default_value": "",
+            "allow_null": 1,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "wrapper": {
+                "width": "",
+                "class": "servo-svg-gorsel",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_servo_vaka_gorsel",
+            "label": "Şema yerine görsel",
+            "name": "gorsel",
+            "type": "image",
+            "instructions": "İsteğe bağlı.",
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all"
+        },
+        {
+            "key": "field_servo_vaka_bilgiler",
+            "label": "Sistem bilgileri",
+            "name": "bilgiler",
+            "type": "repeater",
+            "instructions": "4 kutu önerilir.",
+            "layout": "table",
+            "button_label": "Bilgi ekle",
+            "sub_fields": [
+                {
+                    "key": "field_servo_vaka__bilgiler_deger",
+                    "label": "Değer",
+                    "name": "deger",
+                    "type": "text",
+                    "instructions": ""
+                },
+                {
+                    "key": "field_servo_vaka__bilgiler_birim",
+                    "label": "Birim",
+                    "name": "birim",
+                    "type": "text",
+                    "instructions": "Boş bırakılabilir."
+                },
+                {
+                    "key": "field_servo_vaka__bilgiler_aciklama",
+                    "label": "Açıklama",
+                    "name": "aciklama",
+                    "type": "text",
+                    "instructions": ""
+                }
+            ],
+            "min": 0,
+            "max": 0,
+            "collapsed": "field_servo_vaka__bilgiler_deger"
+        },
+        {
+            "key": "field_servo_vaka_baslangic",
+            "label": "Başlangıç durumu",
+            "name": "baslangic",
+            "type": "textarea",
+            "instructions": "",
+            "rows": 3,
+            "new_lines": ""
+        },
+        {
+            "key": "field_servo_vaka_kurulan",
+            "label": "Kurulan yapı",
+            "name": "kurulan",
+            "type": "textarea",
+            "instructions": "",
+            "rows": 3,
+            "new_lines": ""
+        },
+        {
+            "key": "field_servo_vaka_foto",
+            "label": "Saha fotoğrafı",
+            "name": "foto",
+            "type": "image",
+            "instructions": "Önerilen: 1600×1000 piksel, yatay.",
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all"
+        },
+        {
+            "key": "field_servo_vaka_foto_aciklama",
+            "label": "Fotoğraf alt yazısı",
+            "name": "foto_aciklama",
+            "type": "text",
+            "instructions": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "vaka"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1791400000
+}

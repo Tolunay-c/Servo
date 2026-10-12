@@ -1,0 +1,1043 @@
+{
+    "key": "group_servo_shuttle",
+    "title": "Shuttle Precisor içeriği",
+    "fields": [
+        {
+            "key": "field_servo_shuttle_tab_hero",
+            "label": "Üst bölüm (hero)",
+            "name": "tab_hero",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_servo_shuttle_hero_ust",
+            "label": "Üst yazı",
+            "name": "hero_ust",
+            "type": "text",
+            "instructions": "Başlığın üstündeki küçük sarı yazı."
+        },
+        {
+            "key": "field_servo_shuttle_hero_baslik",
+            "label": "Başlık",
+            "name": "hero_baslik",
+            "type": "text",
+            "instructions": "Beyaz yazılan kısım.",
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_servo_shuttle_hero_vurgu",
+            "label": "Başlık (sarı kısım)",
+            "name": "hero_vurgu",
+            "type": "text",
+            "instructions": "Başlığın sarı yazılan devamı.",
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_servo_shuttle_hero_giris_tipi",
+            "label": "Giriş metninin biçimi",
+            "name": "hero_giris_tipi",
+            "type": "select",
+            "instructions": "Başlığın altındaki metnin görünümü.",
+            "choices": {
+                "paragraf": "Tek paragraf",
+                "liste": "Kalın giriş cümlesi + madde listesi"
+            },
+            "default_value": "liste",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value"
+        },
+        {
+            "key": "field_servo_shuttle_hero_giris",
+            "label": "Giriş metni",
+            "name": "hero_giris",
+            "type": "textarea",
+            "instructions": "Kalın yazı için <b>metin</b> yazın.",
+            "rows": 4,
+            "new_lines": "",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_servo_shuttle_hero_giris_tipi",
+                        "operator": "==",
+                        "value": "paragraf"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "field_servo_shuttle_hero_liste_baslik",
+            "label": "Giriş cümlesi",
+            "name": "hero_liste_baslik",
+            "type": "textarea",
+            "instructions": "Maddelerin üstündeki beyaz, kalın cümle. Kalın yazı için <b>metin</b> yazın.",
+            "rows": 2,
+            "new_lines": "",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_servo_shuttle_hero_giris_tipi",
+                        "operator": "==",
+                        "value": "liste"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "field_servo_shuttle_hero_maddeler",
+            "label": "Maddeler",
+            "name": "hero_maddeler",
+            "type": "repeater",
+            "instructions": "Kare işaretli madde listesi. Maddenin başındaki kalın kısım için <b>…</b> kullanın.",
+            "layout": "table",
+            "button_label": "Madde ekle",
+            "sub_fields": [
+                {
+                    "key": "field_servo_shuttle__hero_maddeler_metin",
+                    "label": "Madde",
+                    "name": "metin",
+                    "type": "textarea",
+                    "instructions": "Kalın yazı için <b>metin</b> yazın.",
+                    "rows": 2,
+                    "new_lines": ""
+                }
+            ],
+            "min": 0,
+            "max": 0,
+            "collapsed": "field_servo_shuttle__hero_maddeler_metin",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_servo_shuttle_hero_giris_tipi",
+                        "operator": "==",
+                        "value": "liste"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "field_servo_shuttle_hero_kpi",
+            "label": "Öne çıkan değerler",
+            "name": "hero_kpi",
+            "type": "repeater",
+            "instructions": "3 kutu önerilir.",
+            "layout": "table",
+            "button_label": "Değer ekle",
+            "sub_fields": [
+                {
+                    "key": "field_servo_shuttle__hero_kpi_etiket",
+                    "label": "Açıklama",
+                    "name": "etiket",
+                    "type": "text",
+                    "instructions": "",
+                    "wrapper": {
+                        "width": "45",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_servo_shuttle__hero_kpi_deger",
+                    "label": "Değer",
+                    "name": "deger",
+                    "type": "text",
+                    "instructions": "Büyük yazılan değer (ör. ±1,00).",
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_servo_shuttle__hero_kpi_birim",
+                    "label": "Birim",
+                    "name": "birim",
+                    "type": "text",
+                    "instructions": "Küçük yazı (ör. mm).",
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    }
+                }
+            ],
+            "min": 0,
+            "max": 0,
+            "collapsed": "field_servo_shuttle__hero_kpi_etiket"
+        },
+        {
+            "key": "field_servo_shuttle_hero_butonlar",
+            "label": "Butonlar",
+            "name": "hero_butonlar",
+            "type": "repeater",
+            "instructions": "",
+            "layout": "table",
+            "button_label": "Buton ekle",
+            "sub_fields": [
+                {
+                    "key": "field_servo_shuttle__hero_butonlar_link",
+                    "label": "Bağlantı",
+                    "name": "link",
+                    "type": "link",
+                    "instructions": "Sayfa içi bölümlere #teknik, #iletisim gibi bağlantı verilebilir.",
+                    "return_format": "array"
+                },
+                {
+                    "key": "field_servo_shuttle__hero_butonlar_sari",
+                    "label": "Sarı buton",
+                    "name": "sari",
+                    "type": "true_false",
+                    "instructions": "Genellikle sadece ilk buton sarıdır.",
+                    "default_value": 0,
+                    "ui": 1
+                }
+            ],
+            "min": 0,
+            "max": 0,
+            "collapsed": "field_servo_shuttle__hero_butonlar_link"
+        },
+        {
+            "key": "field_servo_shuttle_hero_gorsel_tipi",
+            "label": "Sağ taraf",
+            "name": "hero_gorsel_tipi",
+            "type": "select",
+            "instructions": "Başlığın sağında gösterilecek görsel.",
+            "choices": {
+                "foto": "Ürün fotoğrafı",
+                "sema": "Hazır şema ve alt yazı"
+            },
+            "default_value": "sema",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value"
+        },
+        {
+            "key": "field_servo_shuttle_hero_gorsel",
+            "label": "Ürün fotoğrafı",
+            "name": "hero_gorsel",
+            "type": "image",
+            "instructions": "Önerilen: 1000×915 piksel, koyu zeminli. Açıklama (alt metin) Medya Kütüphanesi'nden gelir.",
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_servo_shuttle_hero_gorsel_tipi",
+                        "operator": "==",
+                        "value": "foto"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "field_servo_shuttle_hero_sema",
+            "label": "Hazır şema",
+            "name": "hero_sema",
+            "type": "select",
+            "instructions": "",
+            "choices": {},
+            "default_value": "",
+            "allow_null": 1,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "wrapper": {
+                "width": "",
+                "class": "servo-svg-gorsel",
+                "id": ""
+            },
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_servo_shuttle_hero_gorsel_tipi",
+                        "operator": "==",
+                        "value": "sema"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "field_servo_shuttle_hero_sema_yazi",
+            "label": "Şema alt yazısı",
+            "name": "hero_sema_yazi",
+            "type": "text",
+            "instructions": "",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_servo_shuttle_hero_gorsel_tipi",
+                        "operator": "==",
+                        "value": "sema"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "field_servo_shuttle_hero_serit",
+            "label": "Alt şerit",
+            "name": "hero_serit",
+            "type": "repeater",
+            "instructions": "Üst bölümün altındaki koyu şerit. 4 kutu önerilir.",
+            "layout": "table",
+            "button_label": "Kutu ekle",
+            "sub_fields": [
+                {
+                    "key": "field_servo_shuttle__hero_serit_baslik",
+                    "label": "Başlık",
+                    "name": "baslik",
+                    "type": "text",
+                    "instructions": "",
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_servo_shuttle__hero_serit_metin",
+                    "label": "Metin",
+                    "name": "metin",
+                    "type": "textarea",
+                    "instructions": "",
+                    "rows": 2,
+                    "new_lines": "",
+                    "wrapper": {
+                        "width": "60",
+                        "class": "",
+                        "id": ""
+                    }
+                }
+            ],
+            "min": 0,
+            "max": 0,
+            "collapsed": "field_servo_shuttle__hero_serit_baslik"
+        },
+        {
+            "key": "field_servo_shuttle_tab_mimari",
+            "label": "Mimari",
+            "name": "tab_mimari",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_servo_shuttle_mimari_etiket",
+            "label": "Bölüm etiketi",
+            "name": "mimari_etiket",
+            "type": "text",
+            "instructions": "Başlığın üstündeki, solunda sarı çizgi olan küçük gri yazı.",
+            "wrapper": {
+                "width": "40",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_servo_shuttle_mimari_baslik",
+            "label": "Bölüm başlığı",
+            "name": "mimari_baslik",
+            "type": "textarea",
+            "instructions": "",
+            "rows": 1,
+            "new_lines": "",
+            "wrapper": {
+                "width": "60",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_servo_shuttle_mimari_aciklama",
+            "label": "Bölüm açıklaması",
+            "name": "mimari_aciklama",
+            "type": "textarea",
+            "instructions": "Yeni paragraf için bir satır boş bırakın. Kalın yazı için <b>metin</b> yazın.",
+            "rows": 4,
+            "new_lines": ""
+        },
+        {
+            "key": "field_servo_shuttle_mimari_kartlar",
+            "label": "Kartlar",
+            "name": "mimari_kartlar",
+            "type": "repeater",
+            "instructions": "Yan yana dizilen kartlar. 3 kart önerilir.",
+            "layout": "block",
+            "button_label": "Kart ekle",
+            "sub_fields": [
+                {
+                    "key": "field_servo_shuttle__mimari_kartlar_numara",
+                    "label": "Üst yazı",
+                    "name": "numara",
+                    "type": "text",
+                    "instructions": "Kartın üstündeki küçük sarı yazı (ör. 01 · MALZEME YERLEŞTİRME). Boş bırakılabilir."
+                },
+                {
+                    "key": "field_servo_shuttle__mimari_kartlar_baslik",
+                    "label": "Başlık",
+                    "name": "baslik",
+                    "type": "text",
+                    "instructions": ""
+                },
+                {
+                    "key": "field_servo_shuttle__mimari_kartlar_metin",
+                    "label": "Metin",
+                    "name": "metin",
+                    "type": "textarea",
+                    "instructions": "Kalın yazı için <b>metin</b> yazın.",
+                    "rows": 3,
+                    "new_lines": ""
+                }
+            ],
+            "min": 0,
+            "max": 0,
+            "collapsed": "field_servo_shuttle__mimari_kartlar_numara"
+        },
+        {
+            "key": "field_servo_shuttle_mimari_satirlar",
+            "label": "Adım satırları",
+            "name": "mimari_satirlar",
+            "type": "repeater",
+            "instructions": "Başlık altında yan yana dizilen adım kutuları. Her satır ayrı bir başlıkla gösterilir.",
+            "layout": "block",
+            "button_label": "Satır ekle",
+            "sub_fields": [
+                {
+                    "key": "field_servo_shuttle__mimari_satirlar_baslik",
+                    "label": "Satır başlığı",
+                    "name": "baslik",
+                    "type": "text",
+                    "instructions": "Satırın üstündeki küçük başlık (ör. Çalışma Döngüsü)."
+                },
+                {
+                    "key": "field_servo_shuttle__mimari_satirlar_adimlar",
+                    "label": "Adımlar",
+                    "name": "adimlar",
+                    "type": "repeater",
+                    "instructions": "5 adım önerilir.",
+                    "layout": "table",
+                    "button_label": "Adım ekle",
+                    "sub_fields": [
+                        {
+                            "key": "field_servo_shuttle__mimari_satirlar__adimlar_numara",
+                            "label": "Numara",
+                            "name": "numara",
+                            "type": "text",
+                            "instructions": "Ör. 01. Boş bırakılırsa numara gösterilmez.",
+                            "wrapper": {
+                                "width": "15",
+                                "class": "",
+                                "id": ""
+                            }
+                        },
+                        {
+                            "key": "field_servo_shuttle__mimari_satirlar__adimlar_baslik",
+                            "label": "Başlık",
+                            "name": "baslik",
+                            "type": "text",
+                            "instructions": "",
+                            "wrapper": {
+                                "width": "35",
+                                "class": "",
+                                "id": ""
+                            }
+                        },
+                        {
+                            "key": "field_servo_shuttle__mimari_satirlar__adimlar_metin",
+                            "label": "Metin",
+                            "name": "metin",
+                            "type": "textarea",
+                            "instructions": "",
+                            "rows": 2,
+                            "new_lines": "",
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            }
+                        }
+                    ],
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "field_servo_shuttle__mimari_satirlar__adimlar_numara"
+                }
+            ],
+            "min": 0,
+            "max": 0,
+            "collapsed": "field_servo_shuttle__mimari_satirlar_baslik"
+        },
+        {
+            "key": "field_servo_shuttle_tab_video",
+            "label": "Hareket videosu",
+            "name": "tab_video",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_servo_shuttle_video_goster",
+            "label": "Bölümü göster",
+            "name": "video_goster",
+            "type": "true_false",
+            "instructions": "Kapalıysa video bölümü sayfada gösterilmez.",
+            "default_value": 1,
+            "ui": 1
+        },
+        {
+            "key": "field_servo_shuttle_video_etiket",
+            "label": "Bölüm etiketi",
+            "name": "video_etiket",
+            "type": "text",
+            "instructions": "Başlığın üstündeki, solunda sarı çizgi olan küçük gri yazı.",
+            "wrapper": {
+                "width": "40",
+                "class": "",
+                "id": ""
+            },
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_servo_shuttle_video_goster",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "field_servo_shuttle_video_baslik",
+            "label": "Bölüm başlığı",
+            "name": "video_baslik",
+            "type": "textarea",
+            "instructions": "",
+            "rows": 1,
+            "new_lines": "",
+            "wrapper": {
+                "width": "60",
+                "class": "",
+                "id": ""
+            },
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_servo_shuttle_video_goster",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "field_servo_shuttle_video_aciklama",
+            "label": "Bölüm açıklaması",
+            "name": "video_aciklama",
+            "type": "textarea",
+            "instructions": "Yeni paragraf için bir satır boş bırakın. Kalın yazı için <b>metin</b> yazın.",
+            "rows": 4,
+            "new_lines": "",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_servo_shuttle_video_goster",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "field_servo_shuttle_video_dosya",
+            "label": "Video dosyası",
+            "name": "video_dosya",
+            "type": "file",
+            "instructions": "MP4 (H.264) önerilir. Dosya yüklenmezse bölüm gösterilmez.",
+            "return_format": "id",
+            "library": "all",
+            "mime_types": "mp4",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_servo_shuttle_video_goster",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "field_servo_shuttle_video_kapak",
+            "label": "Kapak görseli",
+            "name": "video_kapak",
+            "type": "image",
+            "instructions": "Video oynatılmadan önce görünen görsel. 1280×720 önerilir.",
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_servo_shuttle_video_goster",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "field_servo_shuttle_video_alt_yazi",
+            "label": "Alt yazı",
+            "name": "video_alt_yazi",
+            "type": "textarea",
+            "instructions": "Videonun altındaki küçük teknik bilgi satırı.",
+            "rows": 2,
+            "new_lines": "",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_servo_shuttle_video_goster",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "field_servo_shuttle_tab_konfig",
+            "label": "Konfigüratör",
+            "name": "tab_konfig",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_servo_shuttle_konfig_bilgi",
+            "label": "Konfigüratör",
+            "name": "konfig_bilgi",
+            "type": "message",
+            "message": "Bu bölümdeki hesaplayıcı, alanlar ve simülasyon sabittir; burada sadece bölümün başlığı ve açıklaması değiştirilir.",
+            "new_lines": "",
+            "esc_html": 0
+        },
+        {
+            "key": "field_servo_shuttle_konfig_etiket",
+            "label": "Bölüm etiketi",
+            "name": "konfig_etiket",
+            "type": "text",
+            "instructions": "Başlığın üstündeki, solunda sarı çizgi olan küçük gri yazı.",
+            "wrapper": {
+                "width": "40",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_servo_shuttle_konfig_baslik",
+            "label": "Bölüm başlığı",
+            "name": "konfig_baslik",
+            "type": "textarea",
+            "instructions": "",
+            "rows": 1,
+            "new_lines": "",
+            "wrapper": {
+                "width": "60",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_servo_shuttle_konfig_aciklama",
+            "label": "Bölüm açıklaması",
+            "name": "konfig_aciklama",
+            "type": "textarea",
+            "instructions": "Yeni paragraf için bir satır boş bırakın. Kalın yazı için <b>metin</b> yazın.",
+            "rows": 4,
+            "new_lines": ""
+        },
+        {
+            "key": "field_servo_shuttle_tab_altyapi",
+            "label": "Sistem bileşenleri",
+            "name": "tab_altyapi",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_servo_shuttle_altyapi_etiket",
+            "label": "Bölüm etiketi",
+            "name": "altyapi_etiket",
+            "type": "text",
+            "instructions": "Başlığın üstündeki, solunda sarı çizgi olan küçük gri yazı.",
+            "wrapper": {
+                "width": "40",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_servo_shuttle_altyapi_baslik",
+            "label": "Bölüm başlığı",
+            "name": "altyapi_baslik",
+            "type": "textarea",
+            "instructions": "",
+            "rows": 1,
+            "new_lines": "",
+            "wrapper": {
+                "width": "60",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_servo_shuttle_altyapi_aciklama",
+            "label": "Bölüm açıklaması",
+            "name": "altyapi_aciklama",
+            "type": "textarea",
+            "instructions": "Yeni paragraf için bir satır boş bırakın. Kalın yazı için <b>metin</b> yazın.",
+            "rows": 4,
+            "new_lines": ""
+        },
+        {
+            "key": "field_servo_shuttle_altyapi_kutular",
+            "label": "Bileşen kutuları",
+            "name": "altyapi_kutular",
+            "type": "repeater",
+            "instructions": "4 kutu önerilir.",
+            "layout": "block",
+            "button_label": "Kutu ekle",
+            "sub_fields": [
+                {
+                    "key": "field_servo_shuttle__altyapi_kutular_ust",
+                    "label": "Üst yazı",
+                    "name": "ust",
+                    "type": "text",
+                    "instructions": "Ör. Lazer modülleri.",
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_servo_shuttle__altyapi_kutular_baslik",
+                    "label": "Başlık",
+                    "name": "baslik",
+                    "type": "text",
+                    "instructions": "",
+                    "wrapper": {
+                        "width": "60",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_servo_shuttle__altyapi_kutular_maddeler",
+                    "label": "Maddeler",
+                    "name": "maddeler",
+                    "type": "textarea",
+                    "instructions": "Her satır bir madde olur.",
+                    "rows": 5,
+                    "new_lines": ""
+                }
+            ],
+            "min": 0,
+            "max": 0,
+            "collapsed": "field_servo_shuttle__altyapi_kutular_ust"
+        },
+        {
+            "key": "field_servo_shuttle_tab_foto",
+            "label": "Saha fotoğrafı",
+            "name": "tab_foto",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_servo_shuttle_foto_goster",
+            "label": "Bölümü göster",
+            "name": "foto_goster",
+            "type": "true_false",
+            "instructions": "Kapalıysa fotoğraf bölümü sayfada gösterilmez.",
+            "default_value": 1,
+            "ui": 1
+        },
+        {
+            "key": "field_servo_shuttle_foto_gorsel",
+            "label": "Fotoğraf",
+            "name": "foto_gorsel",
+            "type": "image",
+            "instructions": "Önerilen: 1600×1000 piksel, yatay. Fotoğraf yüklenmezse bölüm gösterilmez.",
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_servo_shuttle_foto_goster",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "field_servo_shuttle_foto_aciklama",
+            "label": "Alt yazı",
+            "name": "foto_aciklama",
+            "type": "text",
+            "instructions": "",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_servo_shuttle_foto_goster",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "field_servo_shuttle_tab_teknik",
+            "label": "Teknik özellikler",
+            "name": "tab_teknik",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_servo_shuttle_teknik_etiket",
+            "label": "Bölüm etiketi",
+            "name": "teknik_etiket",
+            "type": "text",
+            "instructions": "",
+            "wrapper": {
+                "width": "40",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_servo_shuttle_teknik_baslik",
+            "label": "Bölüm başlığı",
+            "name": "teknik_baslik",
+            "type": "textarea",
+            "instructions": "",
+            "rows": 1,
+            "new_lines": "",
+            "wrapper": {
+                "width": "60",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_servo_shuttle_teknik_tablolar",
+            "label": "Tablolar",
+            "name": "teknik_tablolar",
+            "type": "repeater",
+            "instructions": "Teknik özellik tabloları; 2 sütunda dizilir. 4 tablo önerilir.",
+            "layout": "block",
+            "button_label": "Tablo ekle",
+            "sub_fields": [
+                {
+                    "key": "field_servo_shuttle__teknik_tablolar_baslik",
+                    "label": "Tablo başlığı",
+                    "name": "baslik",
+                    "type": "text",
+                    "instructions": "Ör. Lazer."
+                },
+                {
+                    "key": "field_servo_shuttle__teknik_tablolar_satirlar",
+                    "label": "Satırlar",
+                    "name": "satirlar",
+                    "type": "repeater",
+                    "instructions": "",
+                    "layout": "table",
+                    "button_label": "Satır ekle",
+                    "sub_fields": [
+                        {
+                            "key": "field_servo_shuttle__teknik_tablolar__satirlar_ozellik",
+                            "label": "Özellik",
+                            "name": "ozellik",
+                            "type": "text",
+                            "instructions": "",
+                            "wrapper": {
+                                "width": "35",
+                                "class": "",
+                                "id": ""
+                            }
+                        },
+                        {
+                            "key": "field_servo_shuttle__teknik_tablolar__satirlar_deger",
+                            "label": "Değer",
+                            "name": "deger",
+                            "type": "textarea",
+                            "instructions": "",
+                            "rows": 1,
+                            "new_lines": "",
+                            "wrapper": {
+                                "width": "65",
+                                "class": "",
+                                "id": ""
+                            }
+                        }
+                    ],
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "field_servo_shuttle__teknik_tablolar__satirlar_ozellik"
+                }
+            ],
+            "min": 0,
+            "max": 0,
+            "collapsed": "field_servo_shuttle__teknik_tablolar_baslik"
+        },
+        {
+            "key": "field_servo_shuttle_tab_gecis",
+            "label": "Diğer ürüne geçiş",
+            "name": "tab_gecis",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_servo_shuttle_gecis_bilgi",
+            "label": "Sarı geçiş bandı",
+            "name": "gecis_bilgi",
+            "type": "message",
+            "message": "Sayfanın sonundaki sarı bant, ziyaretçiyi Core Precisor sayfasına yönlendirir.",
+            "new_lines": "",
+            "esc_html": 0
+        },
+        {
+            "key": "field_servo_shuttle_gecis_ust",
+            "label": "Üst yazı",
+            "name": "gecis_ust",
+            "type": "text",
+            "instructions": ""
+        },
+        {
+            "key": "field_servo_shuttle_gecis_baslik",
+            "label": "Başlık",
+            "name": "gecis_baslik",
+            "type": "text",
+            "instructions": ""
+        },
+        {
+            "key": "field_servo_shuttle_gecis_metin",
+            "label": "Metin",
+            "name": "gecis_metin",
+            "type": "textarea",
+            "instructions": "Kalın yazı için <b>metin</b> yazın.",
+            "rows": 3,
+            "new_lines": ""
+        },
+        {
+            "key": "field_servo_shuttle_gecis_buton",
+            "label": "Buton",
+            "name": "gecis_buton",
+            "type": "link",
+            "instructions": "Buton yazısı \"Bağlantı metni\" alanından gelir.",
+            "return_format": "array"
+        },
+        {
+            "key": "field_servo_shuttle_tab_cta",
+            "label": "İletişim bandı",
+            "name": "tab_cta",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_servo_shuttle_cta_bilgi",
+            "label": "İletişim bandı",
+            "name": "cta_bilgi",
+            "type": "message",
+            "message": "E-posta ve telefon butonları <b>Site Ayarları</b>'ndan otomatik gelir. Burada başlık, metin, e-posta konusu ve ek butonlar değiştirilir.",
+            "new_lines": "",
+            "esc_html": 0
+        },
+        {
+            "key": "field_servo_shuttle_cta_baslik",
+            "label": "Başlık",
+            "name": "cta_baslik",
+            "type": "text",
+            "instructions": ""
+        },
+        {
+            "key": "field_servo_shuttle_cta_metin",
+            "label": "Metin",
+            "name": "cta_metin",
+            "type": "textarea",
+            "instructions": "",
+            "rows": 3,
+            "new_lines": ""
+        },
+        {
+            "key": "field_servo_shuttle_cta_konu",
+            "label": "E-posta konusu",
+            "name": "cta_konu",
+            "type": "text",
+            "instructions": "E-posta butonuna tıklandığında konu satırına yazılacak metin."
+        },
+        {
+            "key": "field_servo_shuttle_cta_butonlar",
+            "label": "Ek butonlar",
+            "name": "cta_butonlar",
+            "type": "repeater",
+            "instructions": "E-posta ve telefon butonlarından sonra gösterilir.",
+            "layout": "table",
+            "button_label": "Buton ekle",
+            "sub_fields": [
+                {
+                    "key": "field_servo_shuttle__cta_butonlar_link",
+                    "label": "Bağlantı",
+                    "name": "link",
+                    "type": "link",
+                    "instructions": "",
+                    "return_format": "array"
+                }
+            ],
+            "min": 0,
+            "max": 0,
+            "collapsed": "field_servo_shuttle__cta_butonlar_link"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-templates/shuttle-precisor.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content",
+        "excerpt",
+        "discussion",
+        "comments",
+        "format",
+        "categories",
+        "tags",
+        "send-trackbacks"
+    ],
+    "active": true,
+    "description": "Shuttle Precisor ürün sayfasının metinleri, görselleri ve teknik tabloları.",
+    "show_in_rest": 0,
+    "modified": 1791400000
+}

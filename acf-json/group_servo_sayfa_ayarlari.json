@@ -1,0 +1,41 @@
+{
+    "key": "group_servo_sayfa_ayarlari",
+    "title": "Sayfa ayarları",
+    "fields": [
+        {
+            "key": "field_servo_sayfa_iki_yana_yasla",
+            "label": "Bölüm açıklamalarını iki yana yasla",
+            "name": "iki_yana_yasla",
+            "type": "true_false",
+            "instructions": "Açıksa bu sayfadaki bölüm başlıklarının altındaki açıklama metinleri iki yana yaslanır (Kurumsal sayfasındaki gibi).",
+            "default_value": 0,
+            "ui": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "uygulama"
+            }
+        ]
+    ],
+    "menu_order": 10,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Sayfa genelindeki görünüm seçenekleri.",
+    "show_in_rest": 0,
+    "modified": 1791400000
+}

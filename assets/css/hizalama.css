@@ -1,0 +1,4 @@
+/* Kaynak: _design/kurumsal.html <style id="corporate-description-alignment">.
+ * Bölüm başlığı açıklamalarını iki yana yaslar. Tüm sayfayı etkilediği için sadece
+ * "Bölüm açıklamalarını iki yana yasla" seçeneği açık sayfalarda yüklenir. */
+.section-head p:not(.label){text-align:justify;text-align-last:left;text-justify:inter-word}

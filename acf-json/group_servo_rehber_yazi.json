@@ -1,0 +1,117 @@
+{
+    "key": "group_servo_rehber_yazi",
+    "title": "Rehber yazısı bilgileri",
+    "fields": [
+        {
+            "key": "field_servo_rehber_rehber_bilgi",
+            "label": "Bilgi",
+            "name": "rehber_bilgi",
+            "type": "message",
+            "new_lines": "",
+            "esc_html": 0,
+            "message": "Yazı metni yukarıdaki editöre yazılır. Bilgi kutusu, değer kutuları, tablo ve numaralı adımlar için editördeki \"+\" düğmesinden <b>Desenler &gt; ServoMotion rehber</b> bölümünü kullanın. Listede ve kartlarda görünen kısa özet, sağdaki \"Özet\" alanıdır. İçindekiler, metindeki ara başlıklardan (H2) otomatik oluşur."
+        },
+        {
+            "key": "field_servo_rehber_kirinti",
+            "label": "Konu etiketi",
+            "name": "kirinti",
+            "type": "text",
+            "instructions": "Başlığın üstündeki \"REHBER · …\" satırında görünen kısa konu (ör. HASSASİYET).",
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_servo_rehber_yazar",
+            "label": "Yazar",
+            "name": "yazar",
+            "type": "text",
+            "instructions": "Boş bırakılırsa Site Ayarları > Rehber'deki varsayılan yazar kullanılır.",
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_servo_rehber_giris",
+            "label": "Giriş metni",
+            "name": "giris",
+            "type": "textarea",
+            "instructions": "Başlığın altındaki, öne çıkan paragraf. Liste aramasında da kullanılır.",
+            "rows": 3,
+            "new_lines": ""
+        },
+        {
+            "key": "field_servo_rehber_okuma_suresi",
+            "label": "Okuma süresi (dakika)",
+            "name": "okuma_suresi",
+            "type": "number",
+            "instructions": "Boş bırakılırsa metnin uzunluğundan hesaplanır.",
+            "min": 1,
+            "max": "",
+            "step": 1,
+            "default_value": "",
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_servo_rehber_kart_svg",
+            "label": "Kart şeması",
+            "name": "kart_svg",
+            "type": "select",
+            "instructions": "Kartta ve yazının başında gösterilen şema. \"Öne çıkan görsel\" yüklenirse şemanın yerine o gösterilir.",
+            "choices": {},
+            "default_value": "",
+            "allow_null": 1,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "wrapper": {
+                "width": "50",
+                "class": "servo-svg-rehber",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_servo_rehber_ilgili",
+            "label": "İlgili yazılar",
+            "name": "ilgili",
+            "type": "relationship",
+            "instructions": "Yazının altında gösterilecek 3 yazı. Boş bırakılırsa en yeni yazılar gösterilir.",
+            "post_type": [
+                "post"
+            ],
+            "filters": [
+                "search"
+            ],
+            "return_format": "id",
+            "min": 0,
+            "max": 3
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1791400000
+}

@@ -1,0 +1,71 @@
+{
+    "key": "group_servo_dokuman",
+    "title": "Doküman bilgileri",
+    "fields": [
+        {
+            "key": "field_servo_dok_dok_bilgi",
+            "label": "Bilgi",
+            "name": "dok_bilgi",
+            "type": "message",
+            "new_lines": "",
+            "esc_html": 0,
+            "message": "Doküman, Sayfalar'daki \"Doküman listesi\" bloğunda seçildiğinde kart olarak gösterilir. Kayıt başlığı sadece panelde listeleme içindir; kartta \"Kart başlığı\" kullanılır."
+        },
+        {
+            "key": "field_servo_dok_dosya",
+            "label": "Dosya",
+            "name": "dosya",
+            "type": "file",
+            "instructions": "İndirilecek dosya (genellikle PDF). Kartın sol üstündeki etiket dosya türünden otomatik oluşur.",
+            "return_format": "id",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_servo_dok_kart_baslik",
+            "label": "Kart başlığı",
+            "name": "kart_baslik",
+            "type": "textarea",
+            "instructions": "Boş bırakılırsa kayıt başlığı kullanılır. Satır atlamak için Enter'a basın. Sarı vurgu yoktur; tasarımdaki satır kırılımını korur.",
+            "rows": 2,
+            "new_lines": ""
+        },
+        {
+            "key": "field_servo_dok_aciklama",
+            "label": "Açıklama",
+            "name": "aciklama",
+            "type": "textarea",
+            "instructions": "",
+            "rows": 3,
+            "new_lines": ""
+        },
+        {
+            "key": "field_servo_dok_meta",
+            "label": "Alt bilgi satırı",
+            "name": "meta",
+            "type": "text",
+            "instructions": "Açıklamanın altındaki küçük gri satır (ör. PDF · 2 SAYFA · REV. 09/2026 · TÜRKÇE)."
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "dokuman"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1791400000
+}
