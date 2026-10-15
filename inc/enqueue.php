@@ -141,6 +141,7 @@ function servo_enqueue_assets() {
 	}
 
 	servo_enqueue_style( 'servo-navfit', 'assets/css/navfit.css', array( $son ) );
+	servo_enqueue_style( 'servo-nav-mobil', 'assets/css/nav-mobil.css', array( 'servo-navfit' ) );
 
 	// Bülten: rehber sayfalarında bülten kodu sayfa script'inin içindedir.
 	if ( 'rehber' === $group ) {
@@ -162,6 +163,7 @@ function servo_enqueue_assets() {
 	}
 
 	servo_enqueue_script( 'servo-nav', 'assets/js/nav.js' );
+	servo_enqueue_script( 'servo-nav-mobil', 'assets/js/nav-mobil.js' );
 
 	if ( $ozet ) {
 		servo_enqueue_script( 'servo-iletisim-gonder', 'assets/js/iletisim-gonder.js' );

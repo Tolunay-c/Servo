@@ -196,6 +196,22 @@ function servo_dil_dugmesi() {
 }
 
 /**
+ * TR/EN düğmesinin <a> çıktısı.
+ *
+ * @param string $class Ek class (ör. hamburger yanındaki kopya için 'langlink-mobil').
+ * @return string Düğme yoksa boş.
+ */
+function servo_dil_dugmesi_html( $class = '' ) {
+	$d = servo_dil_dugmesi();
+
+	if ( ! $d ) {
+		return '';
+	}
+
+	return '<a class="' . esc_attr( trim( 'langlink ' . $class ) ) . '" href="' . esc_url( $d[0] ) . '" hreflang="' . esc_attr( strtolower( $d[1] ) ) . '" lang="' . esc_attr( strtolower( $d[1] ) ) . '" title="' . esc_attr( $d[2] ) . '">' . esc_html( $d[1] ) . '</a>';
+}
+
+/**
  * Ana menünün sonuna TR/EN düğmesini ekler (tasarımdaki <a class="langlink">).
  *
  * @param string   $items Menü öğeleri.
@@ -207,13 +223,7 @@ function servo_dil_dugmesi_ekle( $items, $args ) {
 		return $items;
 	}
 
-	$d = servo_dil_dugmesi();
-
-	if ( ! $d ) {
-		return $items;
-	}
-
-	return $items . '<a class="langlink" href="' . esc_url( $d[0] ) . '" hreflang="' . esc_attr( strtolower( $d[1] ) ) . '" lang="' . esc_attr( strtolower( $d[1] ) ) . '" title="' . esc_attr( $d[2] ) . '">' . esc_html( $d[1] ) . '</a>';
+	return $items . servo_dil_dugmesi_html();
 }
 add_filter( 'wp_nav_menu_items', 'servo_dil_dugmesi_ekle', 10, 2 );
 

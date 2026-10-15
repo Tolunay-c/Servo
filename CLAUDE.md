@@ -2,14 +2,17 @@
 
 Bu repo, bir müşteri için hazırlanmış **statik HTML/CSS/JS tasarımın özel bir WordPress temasına dönüştürülmesi** projesidir. Repo kökü temanın kendisidir ve lokal ortamda `wp-content/themes/` altına clone'lanmış olarak çalışır.
 
+Tamamlanmış fazların ayrıntıları, uygulama notları ve karar gerekçeleri `docs/faz0-analiz.md` sonundaki "CLAUDE.md'den taşınan ayrıntılar" bölümündedir.
+
 ## Temel kurallar
 
 1. **`_design/` klasörüne asla dokunma.** Orijinal tasarım orada referans olarak durur. Okuyabilirsin, düzenleyemez, taşıyamaz, silemezsin.
-2. **Tasarıma sadık kal.** HTML yapısı, class isimleri, ID'ler, animasyonlar ve responsive davranış birebir korunmalı. Tema çıktısı **`servomotion-site-tum131026/`** içindeki sayfalarla görsel olarak aynı görünmeli. Bu klasör son teslim paketidir (revizyonlar uygulanmış) ve yeni referans tasarımdır; `_design/` revizyonlardan önceki eski sürümdür ve artık referans alınmaz. Tasarım sadakati kuralı bu klasör için geçerlidir. Bu klasör de `_design/` gibi salt okunurdur: hiçbir dosyasına dokunma.
+2. **Tasarıma sadık kal.** HTML yapısı, class isimleri, ID'ler, animasyonlar ve responsive davranış birebir korunmalı. Tema çıktısı **`servomotion-site-tum131026/`** içindeki sayfalarla görsel olarak aynı görünmeli. Bu klasör son teslim paketidir (revizyonlar uygulanmış) ve yeni referans tasarımdır; `_design/` revizyonlardan önceki eski sürümdür ve artık referans alınmaz. Bu klasör de `_design/` gibi salt okunurdur: hiçbir dosyasına dokunma.
 3. **CSS ve JS'i yeniden yazma.** Tasarımın kendi dosyalarını `assets/` altına kopyala ve olduğu gibi kullan. Sadece yol (path) düzeltmeleri ve WordPress uyumu için gereken minimum değişiklikleri yap.
-4. **Page builder kullanma** (Elementor, WPBakery vb.). Düzenlenebilir içerik ACF ile sağlanır.
+4. **Page builder kullanma** (Elementor, WPBakery vb.). Düzenlenebilir içerik ACF (SCF) ile sağlanır.
 5. Emin olmadığın bir yapısal kararda (yeni CPT, alan yapısı, sayfa şablonu) önce bana sor, sonra uygula.
 6. **Asla commit veya push yapma; değişiklikleri sadece çalışma ağacında bırak.** Commit'leri proje sahibi atar.
+7. Her iş adımını ayrı tamamla ve sonunda dur.
 
 ## Klasör yapısı
 
@@ -20,11 +23,8 @@ Bu repo, bir müşteri için hazırlanmış **statik HTML/CSS/JS tasarımın öz
 ├── docs/                 # Proje dokümanları (analiz, kılavuz, yönlendirmeler, canlı kurulum; deploy edilmez)
 ├── bin/                  # Geliştirme betikleri (paket.sh: canlı tema paketi; deploy edilmez)
 ├── acf-json/             # ACF Local JSON (alan grupları burada versiyonlanır)
-├── assets/
-│   ├── css/
-│   ├── js/
-│   ├── img/
-│   └── fonts/
+├── assets/               # css, js, img, fonts
+├── languages/            # servomotion.pot, servomotion-en_GB.po/.mo
 ├── inc/
 │   ├── setup.php         # theme supports, menüler, image sizes
 │   ├── enqueue.php       # CSS/JS yükleme
@@ -33,70 +33,42 @@ Bu repo, bir müşteri için hazırlanmış **statik HTML/CSS/JS tasarımın öz
 │   ├── bloklar.php       # Flexible content altyapısı (blok döngüsü, bölüm ID'leri, panel filtreleri)
 │   ├── urun.php          # Ürün sayfaları (Core, Shuttle): bölüm sırası ve alan çıktı yardımcıları
 │   ├── rehber.php        # Rehber: block style/desenler, blok çıktı dönüşümleri, yazı yardımcıları
-│   ├── cli.php           # WP-CLI komutları (wp servo rehber-aktar)
-│   ├── cli-faz1.php      # WP-CLI: canlı denetim FAZ 1 içerik betiği (wp servo faz1)
-│   ├── cli-faz2.php      # WP-CLI: canlı denetim FAZ 2 (dokümanlar, formlar; wp servo faz2)
+│   ├── cli*.php          # WP-CLI: rehber-aktar, faz1, faz2, faz3, faz4 içerik betikleri
 │   ├── talep.php         # Talep formları: REST /talep, korumalı doküman dizini, süreli indirme bağlantısı
 │   ├── arama.php         # Site içi arama (blok metinlerinin dizinlenmesi)
 │   ├── formlar.php       # REST uç noktaları (uygulama özeti, bülten), geliştirme modu mail kaydı
+│   ├── seo.php           # og:type, Article şeması, generator etiketi
+│   ├── dil.php           # Polylang yardımcıları, EN adres ön ekleri
 │   ├── walkers.php       # Menü walker'ları
 │   └── helpers.php       # Yardımcı fonksiyonlar
-├── template-parts/       # Tekrar eden bölümler (hero, kart, CTA vb.)
-│   ├── blocks/           # Flexible content blokları (bkz. docs/BLOKLAR.md)
-│   ├── urun/             # Ürün sayfalarının ortak bölümleri (hero, teknik, güvenlik, geçiş, CTA)
-│   ├── core/, shuttle/   # Ürüne özel bölümler
-│   ├── rehber/           # Rehber listesi ve yazı kartı
-│   ├── site/             # Header, footer, bülten, logo
+├── template-parts/       # blocks/ (flexible content, bkz. docs/BLOKLAR.md), urun/, core/, shuttle/, rehber/, site/
 ├── page-templates/       # Özel sayfa şablonları
 ├── functions.php         # Sadece inc/ dosyalarını require eder
-├── header.php
-├── footer.php
-├── front-page.php
-├── page.php
-├── home.php            # Rehber listesi (yazılar sayfası)
-├── single.php
-├── single-uygulama.php
-├── archive.php
-├── index.php
-├── 404.php
-├── search.php
+├── header.php, footer.php, front-page.php, page.php, home.php (rehber listesi),
+│   single.php, single-uygulama.php, archive.php, index.php, 404.php, search.php
 ├── screenshot.png
 └── style.css             # Tema başlığı (Theme Name, Text Domain vb.)
 ```
 
-## Dönüşüm iş akışı
-
-Her adımı ayrı tamamla ve sonunda dur; commit'i proje sahibi atar (bkz. Temel kurallar 6).
-
-1. **Analiz:** `_design/` içindeki tüm sayfaları incele. Hangi bölümlerin ortak (header, footer, CTA), hangilerinin sayfaya özel olduğunu, hangi içeriklerin tekrar eden yapı olduğunu (hizmetler, projeler, ekip, referanslar vb.) çıkar ve bana kısa bir özet sun. Onayımdan sonra devam et.
-2. **İskelet:** `style.css`, `functions.php`, `inc/` dosyaları ve boş şablonları oluştur.
-3. **Asset'ler:** CSS, JS, görsel ve fontları `assets/` altına kopyala, `inc/enqueue.php` ile yükle.
-4. **Header / Footer:** Ortak bölümleri `header.php` ve `footer.php`'ye taşı. `wp_head()`, `wp_body_open()`, `wp_footer()` çağrılarını unutma. Menüleri `wp_nav_menu` ile dinamik yap; tasarımın menü markup'ını korumak gerekirse custom walker yaz.
-5. **Ana sayfa:** `front-page.php`'yi oluştur, her bölümü `template-parts/` altına ayır.
-6. **Diğer sayfalar:** Her tasarım sayfası için uygun şablonu oluştur (`page-templates/` veya `page-{slug}.php`).
-7. **Dinamik içerik:** Sabit metin ve görselleri ACF alanlarına bağla. Tekrar eden içerikler için CPT tanımla.
-8. **Blog / arşiv / tekil:** Tasarımda varsa `archive.php`, `single.php`; yoksa tasarımın genel stiline uygun sade versiyonlarını üret.
-9. **Formlar:** İletişim formlarını çalışır hale getir (Contact Form 7 markup'ı tasarıma uyarlanır veya `admin-post.php` ile özel handler yazılır, karar için bana sor).
-10. **Kontrol:** Aşağıdaki kontrol listesini uygula.
-
 ## Kod standartları
 
 - **Fonksiyon öneki:** Tüm tema fonksiyonları `servo_` önekiyle başlar. Global namespace'i kirletme.
-- **Text domain:** Kullanıcıya görünen sabit metinler `__()`, `esc_html_e()` vb. ile çeviriye hazır olmalı.
+- **Text domain:** `servomotion`. Kullanıcıya görünen sabit metinler `__()`, `esc_html_e()` vb. ile çeviriye hazır olmalı.
 - **Escape:** Her çıktı escape edilir: `esc_html()`, `esc_attr()`, `esc_url()`, zengin metin için `wp_kses_post()`.
 - **Yollar:** Asset yolları için her zaman `get_template_directory_uri()` kullan, asla hardcoded URL yazma.
-- **Görseller:** İçerik görselleri `wp_get_attachment_image()` ile basılsın (srcset ve lazy loading için). Gerekirse `add_image_size()` ile boyut tanımla.
-- **Enqueue:** CSS/JS sadece `wp_enqueue_style` / `wp_enqueue_script` ile yüklenir, versiyon olarak `filemtime()` kullanılır. Şablonlara doğrudan `<link>` veya `<script>` yazma.
-- **jQuery:** Tasarım jQuery kullanmıyorsa ekleme. Kullanıyorsa WordPress'in kendi jQuery'sini dependency olarak tanımla.
+- **Görseller:** İçerik görselleri `wp_get_attachment_image()` ile basılsın (srcset ve lazy loading). Gerekirse `add_image_size()`.
+- **Enqueue:** CSS/JS sadece `wp_enqueue_style` / `wp_enqueue_script` ile yüklenir, versiyon `filemtime()`. Şablonlara doğrudan `<link>` veya `<script>` yazma.
+- **jQuery:** Tasarım jQuery kullanmıyorsa ekleme.
 - **WordPress Coding Standards**'a uy (girinti tab, Yoda conditions zorunlu değil ama tutarlı ol).
 
 ## ACF kuralları
 
-- Alan grupları ACF arayüzünden oluşturulur ve **Local JSON** ile `acf-json/` klasörüne kaydedilir (`inc/acf.php` içinde save/load point ayarlı olmalı).
-- Genel site ayarları (logo, telefon, adres, sosyal medya linkleri, footer metinleri) için bir **Options Page** kullan.
+- Alan grupları arayüzden oluşturulur ve **Local JSON** ile `acf-json/` klasörüne kaydedilir.
+- Genel site ayarları (logo, telefon, adres, sosyal medya, footer metinleri) **Options Page**'dedir. Options alanları şablonlarda doğrudan `get_field( 'x', 'option' )` ile değil, her zaman `servo_option()` helper'ıyla okunur.
 - Alan isimleri `snake_case` ve anlamlı olsun (`hero_baslik`, `hero_gorsel`).
-- ACF eklentisi devre dışıyken site fatal error vermemeli: `get_field()` çağrılarını `function_exists()` kontrolü ile sar veya helper fonksiyon kullan.
+- Eklenti devre dışıyken site fatal error vermemeli: `get_field()` çağrılarını `function_exists()` ile sar veya helper kullan.
 - Boş alanlar için markup basılmamalı (boş başlık etiketi, boş görsel vb.).
+- Alan eklentisi ACF Pro değil, **Secure Custom Fields (SCF)**; API aynıdır.
 
 ## Repoya girmeyecekler
 
@@ -106,89 +78,43 @@ WordPress core dosyaları, `wp-config.php`, `wp-content/uploads`, `node_modules`
 
 `_design/`, `servomotion-site-tum131026/`, `docs/` ve `bin/` repoda tutulur ama canlıya deploy edilmez. Canlı paket `bin/paket.sh` ile üretilir (`dist/servo-<sürüm>.zip`; `dist/` repoya girmez); paket bu klasörleri, `CLAUDE.md`, `README.md` ve git dosyalarını içermez.
 
-## Proje kararları
+## Mimari kararlar
 
-Analiz (`docs/ANALIZ.md`) sonrası onaylanan kararlar:
-
-1. **Çok dillilik:** Polylang kullanılacak. 1. fazda sadece TR yapılır, EN şablonları 2. fazda gelir. Mimari Polylang'e uygun kurulur:
-   - Tüm sabit metinler çeviriye hazırdır.
-   - Options alanları şablonlarda doğrudan `get_field( 'x', 'option' )` ile değil, her zaman `servo_option()` helper'ıyla okunur. 2. fazda dile göre ayrım (`options_tr` / `options_en`) sadece bu helper değiştirilerek eklenir.
-2. **CSS:** Tasarımdaki `<style>` blokları içerik değiştirilmeden `assets/css/` altında dosyalara taşınır. Ürün sayfaları ve rehber kendi dosyalarını yükler; flexible content kullanan tüm sayfalar ortak `bloklar.css`'i yükler (bkz. madde 16).
-3. **Header:** İki header yapısı (standart ve ürün sayfası) var. Aynı WP menüsü iki ayrı walker ile basılır. Walker'lar alt menüyü (tasarımdaki `navdrop` yapısı) destekler.
-4. **Inline SVG'ler:** Temada `assets/img/svg/` altında dosya olarak tutulur. ACF'de "görsel" alanı açılır: görsel yüklenirse fotoğraf, boşsa varsayılan SVG basılır.
-5. **Ürün sayfaları:** Konfigüratör ve simülasyondaki sabitler ve metinler (`CFG` dizileri vb.) JS'te kalır. Hero, KPI, metin bölümleri, teknik tablolar ve CTA ACF'ye bağlanır.
-   - Her ürünün kendi alan grubu vardır (`group_servo_core`, `group_servo_shuttle`); her bölüm bir sekmedir. Ortak bölümler iki grupta aynı alan adlarıyla tanımlanır; şablon parçaları `inc/urun.php` yardımcılarıyla okur.
-   - Simülasyon (Core), gövde şeması (Core) ve konfigüratör (Shuttle) bölümlerinin JS'e bağlı markup'ı sabittir; panelden sadece bölüm başlığı ve açıklaması değişir.
-   - Panelde yardım metinleri ve conditional logic kullanılır: hero giriş biçimi (paragraf / madde listesi), hero görseli (fotoğraf / şema), video ve saha fotoğrafı bölümleri için "Bölümü göster".
-   - Lazer güvenliği bölümü iki üründe aynıdır; içeriği Site Ayarları > Ürün güvenliği sekmesinden tek yerden yönetilir. Geçiş bandı ve iletişim bandı ürün başınadır.
-6. **Bülten:** Ön yüz şimdilik mevcut davranışla ("e-posta ile yazın") kalır. `servomotion/v1/bulten` REST endpoint'i kayıtlıdır ve şimdilik "bağlı değil" yanıtı (501) döner; servis bağlandığında sadece `servo_bulten_kayit()` (`inc/formlar.php`) değişir.
-7. **Rehber içeriği:** Gutenberg kullanılır (`inc/rehber.php`).
-   - Tasarım bileşenleri çekirdek bloklara block style ve desen (editörde Modeller > ServoMotion rehber) olarak eklenir: Bilgi kutusu (grup + "Bilgi kutusu başlığı" paragrafı), Değer kutuları (tablo: açıklama | değer | birim), tablo, Numaralı adımlar / Numaralı liste (liste).
-   - Ön yüzde `render_block` filtresi bu blokları tasarım markup'ına çevirir (`div.callout > div.t`, `div.keyval`, `div.ascroll > table.atable`, `ol.steps`, `ol.alist`); WordPress'in blok sınıfları kalkar, `<strong>` → `<b>`. `rehber.css` değişmez. Yazı metninde `wptexturize` kapalıdır (tırnaklar tasarımdaki gibi kalır).
-   - İçindekiler metindeki H2'lerden üretilir; iki H2'den azsa gösterilmez ve metin tek sütundur (`.pbody.solo`). İlgili yazılar alandan seçilir, boşsa en yeni 3 yazı gelir.
-   - Liste filtresi ve araması tarayıcıda çalışır (`rehber-liste.js`); bu yüzden liste ve arşivler tüm yazıları tek sayfada gösterir. Öne çıkan kart: sabitlenmiş yazı, yoksa en yeni yazı. Filtreler kategorilerden ve `urun_alani` terimlerinden üretilir.
-   - Liste başlığı, yazı sonu kutusu, yazı altı notu ve varsayılan yazar Site Ayarları > Rehber sekmesindedir. Kart şemaları `assets/img/svg/rehber-*.svg`; yazıda öne çıkan görsel yüklenirse şemanın yerine o gösterilir.
-   - Tasarımdaki yazılar `wp servo rehber-aktar [--kaynak=<dizin>] [--dry-run]` komutuyla aktarılır (`inc/cli.php`). Yazılar kaynak dosya adıyla (`_servo_kaynak`) eşleşir; komut tekrar çalıştırılınca kopya oluşmaz, yazılar güncellenir. Site Ayarları > Rehber'deki sadece boş alanlar doldurulur.
-8. **URL ve yönlendirmeler:**
-   - Rehber yazılarının adresi `/rehber/yazi-adi/` olur. Bu yapı Ayarlar > Kalıcı bağlantılar'da `/rehber/%postname%/`, kategori temeli `rehber/kategori` olarak ayarlanır (kategori adresi `/rehber/kategori/secim/`; tema bunu zorlamaz, bkz. `docs/CANLI-KURULUM.md`). Bu yüzden tüm CPT ve taxonomy'ler `with_front => false` ile kaydedilir.
-   - Eski `*.html` adresleri `.htaccess` içinde 301 ile yönlendirilir. Eşleşme listesi ve kural bloğu: `docs/YONLENDIRMELER.md` (tasarımın `blog-*` kuralları dahil; EN adresleri 2. faza kadar 302). Canlı kurulum ayarları: `docs/CANLI-KURULUM.md`. Müşteri kılavuzu: `docs/KULLANIM-KILAVUZU.md`.
-9. **SEO:** Rank Math kullanılır. Tema description, OG, canonical ve hreflang basmaz. Organization şemasını Rank Math verir. Tema sadece SSS sayfasında, SSS CPT'sinden FAQPage JSON-LD üretir (Rank Math FAQ bloğu kullanılmaz, çift şema olmaz).
-   - Rank Math ayarları, sayfa bazlı başlık/açıklama ve paylaşım görselleri (`og/` → Medya, 1200×630) `wp servo faz3` ile kurulur (`inc/cli-faz3.php`). Rank Math'in ön yüzü hesap bağlantısı olmadan çalışsın diye kayıt "atla" olarak işaretlenir.
-   - `inc/seo.php`: sayfaların `og:type` değeri `website`, rehber yazılarınınki `article`; rehber yazılarının Article şemasında yazar olarak kurum yer alır (kullanıcı adı çıkmaz). Tema WordPress `generator` etiketini basmaz.
-   - Host www'suzdur (`https://servomotion.com.tr`); canonical, site haritası ve (FAZ 4'te) hreflang buna göre üretilir.
-10. **Fontlar:** Barlow, Barlow Condensed, IBM Plex Mono ve Poppins `assets/fonts/` altında self-host edilir. Google Fonts CDN kullanılmaz.
-11. **Kapsam dışı:** `kurulum-notlari.html`, `KURULUM-NOTLARI.md`, `.htaccess`, `robots.txt`, `sitemap.xml` temaya dönüştürülmez. PDF, video ve xlsx dosyaları Media Library'ye yüklenir.
-12. **Önek ve text domain:** Fonksiyon öneki `servo_`, text domain `servomotion`.
-13. **Alan eklentisi:** ACF Pro yerine Secure Custom Fields (SCF) kullanılır. API aynıdır (repeater, options page, relationship dahil).
-14. **Formlar:** Uygulama özeti aracı `servomotion/v1/uygulama-ozeti` uç noktasına gönderir ve özet `wp_mail` ile gider (`inc/formlar.php`). Endpoint adresi `wp_add_inline_script` ile tasarımın `window.SERVOMOTION_FORM_ENDPOINT` kancasına verilir, tasarımın JS'i değişmez.
-    - Alıcı Site Ayarları > Formlar'dadır; boşsa İletişim e-postası kullanılır. İkisi de boşsa adres verilmez ve tasarımın e-posta/WhatsApp akışı çalışır.
-    - Koruma: adresteki `wp_rest` nonce'u, ekran dışı honeypot alanı (`#f-web`; değeri adres nesnesinin `toString`'i ile gönderim anında sorguya eklenir) ve IP başına rate-limit (15 dakikada 5, `servo_form_sinir` filtresi). İlgili kişi alanı zorunludur; içinde e-posta varsa `Reply-To` olur.
-    - **Geliştirme modu:** `WP_ENVIRONMENT_TYPE` `local` veya `development` iken tüm site mailleri gönderilmez, veritabanına kaydedilir (son 50) ve Araçlar > Mail kayıtları'nda görünür. Canlıda (`production`) kapalıdır; `SERVO_MAIL_LOG` sabitiyle elle açılıp kapatılabilir.
-15. **CPT ve taxonomy'ler:**
-    - Rehber yazıları yerleşik `post` tipindedir: kategori + `urun_alani` taxonomy'si.
-    - `uygulama` (tekil sayfalı), `vaka`, `dokuman`, `sss` (+ `sss_grup` taxonomy'si), `terim` CPT'leri kullanılır.
-    - `uygulama` tekil adresi `/uygulama/{slug}/` olur. `has_archive` false'tur, `/uygulama/` arşiv üretmez.
-    - `urun_alani` ve `sss_grup` ön yüzde arşiv üretmez. `vaka`, `dokuman`, `sss` ve `terim` tekil sayfasızdır ve aramada çıkmaz.
-    - Referanslar sayfasında her vakanın `id`'si post slug'ından üretilir (`servo_vaka_anchor()`). Uygulama sayfalarındaki vaka linkleri vakayı relationship alanından alır ve `servo_vaka_url()` ile basar. Böylece başlık değişse de çapa kırılmaz.
-    - Ürünler CPT değil, 2 ayrı sayfa şablonudur.
-    - Kurumsal ve servis listeleri flexible content blokları içinde repeater ile yapılır.
-16. **Flexible content (sayfa blokları):** Müşterinin içerik değişiklikleri için geliştiriciye dönmemesi hedeflenir.
-    - Ana sayfa, `uygulama` CPT'si ve `page.php` kullanan tüm sayfalar (referanslar, servis, kurumsal, iletişim, dokümanlar, SSS, sözlük, KVKK) SCF flexible content (`bloklar` alanı) ile kurulur. Ayrı sayfa şablonları (kurumsal, iletişim, referanslar, sözlük) kullanılmaz.
-    - Core Precisor ve Shuttle Precisor sabit şablon kalır; içerikleri 7. adımda SCF alanlarına bağlanır. Rehber yazıları Gutenberg ile kalır. 404, arama ve rehber listesi sabit şablondur.
-    - Her layout `template-parts/blocks/` altında bir dosyadır ve tasarımdaki bir `<section>`'a karşılık gelir; markup birebir korunur. Bloklar geneldir, birden fazla sayfada kullanılabilir. Birbirine çok benzeyen bölümler tek blokta "görünüm" seçeneğiyle birleştirilir (onaylı blok listesi ve sayfa eşleşmesi: `docs/BLOKLAR.md`).
-    - Ortak blok seçenekleri: arka plan (varsayılan / beyaz / koyu), bölüm başlığı (standart `.section-head` / çizgili `.sec-hd`).
-    - **CSS:** `home.css`'in `base.css` tekrarı dışındaki kuralları, `ic-sayfa.css`, `iletisim.css` ve `kurumsal.css` değerleri değiştirilmeden bu sırayla tek `bloklar.css` dosyasında birleştirilir ve tüm flexible sayfalarda (`base.css` + `brandfont.css` ardından) yüklenir. JS koşullu kalır: `sozluk.js` ve iletişim aracı script'leri sadece ilgili blok sayfadaysa yüklenir.
-    - **Panel:** Çok görünümlü bloklarda SCF conditional logic kullanılır; her görünümde sadece ilgili alanlar görünür. Kapalı layout'ların başlığında bloğun başlık alanı gösterilir (`acf/fields/flexible_content/layout_title`).
-    - **Bölüm ID'leri:** Stile bağlı ID'ler (ör. `#sistemler`) panelde düzenlenemez, blok varsayılanıyla sabit basılır. Serbest çapa alanı ayrıdır. Aynı sayfada tekrar eden ID oluşmaz; çakışmada sonraki bloğun ID'sine sıra eki verilir.
-    - **Yardım metinleri:** Her bloğa ve kafa karıştırabilecek alanlara teknik bilgi gerektirmeyen kısa Türkçe yardım metni (instructions) eklenir.
-    - Vaka çalışmaları sayfası Site Ayarları'ndan seçilir; `servo_vaka_url()` bu sayfayı kullanır.
-17. **Ürün ve marka adlarının işaretlenmesi:** Panelde metinler `<bdi>` gibi etiketler olmadan düz yazılır. Ürün sayfalarında, sayfa bloklarında ve rehber yazılarında (liste, kart, yazı metni) bilinen ürün/marka adları çıktıda `servo_bdi()` ile otomatik olarak `<bdi lang="en">` içine alınır. SVG, script ve form seçeneklerinin içine dokunulmaz.
-    - Terim listesi tek yerdedir: `servo_marka_adlari()` (`inc/helpers.php`, `servo_marka_adlari` filtresiyle genişletilebilir). Biçim tasarımı izler: "Precisor" ve "ProfiNet" `<span lang="en"><bdi lang="en">…</bdi></span>`, diğerleri `<bdi lang="en">…</bdi>`. "Core" ve "Shuttle" işaretin dışında kalır.
-    - Tasarım aynı terimi her yerde aynı biçimde işaretlemediği için tasarımdan görünmez markup farkları vardır ve kabul edilmiştir: ürün sayfalarında 3, blok sayfalarında 32 fazladan / 2 eksik, rehberde 66 fazladan / 7 eksik `<bdi>`. Tasarım CSS'i `bdi[lang="en"]` stilini sıfırladığı için görünüm değişmez.
-18. **Talep formları ve korumalı dokümanlar:**
-    - Dokümanlar sayfası ve servis alt sayfalarındaki (destek, iade, kılavuz) formlar `talep_formu` bloğuyla kurulur ve `servomotion/v1/talep` uç noktasına gider (nonce, honeypot, IP başına rate-limit, geliştirme modu mail kaydı). JS kapalıysa ya da alıcı adresi yoksa tasarımdaki `mailto:` yedeği çalışır. Form stilleri `servis.css` içinde `.talep-formu` altına kapsanır (iletişim sayfasının `.fld`/`.two` kurallarıyla çakışmaz).
-    - Veri sayfaları ve uygunluk sertifikası "Talep formuyla" erişimlidir: dosyaları `uploads/servo-korumali/` dizininde durur (doğrudan erişim ve arama motorları kapalı) ve yalnızca imzalı, 7 gün geçerli `?servo-indir=` bağlantısıyla verilir. Kurulum notları ve uygulama notları doğrudan indirilebilir (Medya).
-    - Site Ayarları > Formlar > "Doküman talebi: gönderim": "otomatik gönder" (varsayılan) ziyaretçiye indirme bağlantılarını e-postalar; "sadece ekibe bildir" yalnızca ekibe bildirim yollar. Ekibe bildirim her zaman gider.
+1. **Çok dillilik:** Polylang. Sabit metinler çeviriye hazır; dile göre options ayrımı yalnızca `servo_option()` içindedir.
+2. **CSS:** Tasarımın `<style>` blokları içerik değiştirilmeden `assets/css/` altında dosyalara taşınır. Ürün sayfaları ve rehber kendi dosyalarını yükler; flexible content kullanan tüm sayfalar ortak `bloklar.css`'i (`base.css` + `brandfont.css` ardından) yükler. `sozluk.js` ve iletişim aracı script'leri yalnızca ilgili blok sayfadaysa yüklenir.
+3. **Header:** İki yapı (standart ve ürün sayfası); aynı WP menüsü iki ayrı walker ile basılır, walker'lar alt menüyü (`navdrop`) destekler.
+4. **Inline SVG'ler:** `assets/img/svg/` altında dosya. ACF'de "görsel" alanı: yüklenirse fotoğraf, boşsa varsayılan SVG.
+5. **Ürün sayfaları (Core, Shuttle):** Ürüne özel iki sayfa şablonu (CPT değil). Konfigüratör/simülasyon sabitleri (`CFG` dizileri) JS'te kalır; bunlara bağlı markup sabittir, panelden yalnızca bölüm başlığı/açıklaması değişir. Her ürünün alan grubu vardır (`group_servo_core`, `group_servo_shuttle`), her bölüm bir sekmedir; ortak bölümler aynı alan adlarıyla tanımlanır ve `inc/urun.php` yardımcılarıyla okunur. Lazer güvenliği bölümü Site Ayarları > Ürün güvenliği'nden tek yerden yönetilir.
+6. **Bülten:** `servomotion/v1/bulten` uç noktası şimdilik 501 döner; servis bağlandığında yalnızca `servo_bulten_kayit()` (`inc/formlar.php`) değişir.
+7. **Rehber:** Gutenberg (`inc/rehber.php`). Tasarım bileşenleri block style/desen olarak eklenir; `render_block` filtresi bunları tasarım markup'ına çevirir, `rehber.css` değişmez; `wptexturize` kapalı. İçindekiler H2'lerden üretilir (2'den azsa gösterilmez). Liste filtresi/araması tarayıcıda çalışır, bu yüzden liste ve arşivler tüm yazıları tek sayfada gösterir. Ayarlar Site Ayarları > Rehber'dedir. Tasarımdaki yazılar `wp servo rehber-aktar` ile aktarılır (kaynak dosya adıyla eşleşir, tekrar çalıştırılınca kopya oluşmaz).
+8. **URL:** Rehber yazıları `/rehber/yazi-adi/`; bu yüzden tüm CPT ve taxonomy'ler `with_front => false` kaydedilir. Eski `*.html` adresleri `.htaccess` ile 301 yönlenir (`docs/YONLENDIRMELER.md`). Canlı kurulum: `docs/CANLI-KURULUM.md`. Müşteri kılavuzu: `docs/KULLANIM-KILAVUZU.md`.
+9. **SEO:** Rank Math. Tema description, OG, canonical ve hreflang basmaz; Organization şemasını Rank Math verir. Tema yalnızca SSS sayfasında SSS CPT'sinden FAQPage JSON-LD üretir (Rank Math FAQ bloğu kullanılmaz). Ayarlar `wp servo faz3` ile kurulur. Host www'suzdur (`https://servomotion.com.tr`).
+10. **Fontlar:** Barlow, Barlow Condensed, IBM Plex Mono ve Poppins `assets/fonts/` altında self-host; Google Fonts CDN kullanılmaz.
+11. **Kapsam dışı:** `kurulum-notlari.html`, `KURULUM-NOTLARI.md`, `.htaccess`, `robots.txt`, `sitemap.xml` temaya dönüştürülmez. PDF, video, xlsx dosyaları Media Library'ye yüklenir.
+12. **Formlar:** Uygulama özeti `servomotion/v1/uygulama-ozeti` ile `wp_mail`'e gider; endpoint tasarımın `window.SERVOMOTION_FORM_ENDPOINT` kancasına `wp_add_inline_script` ile verilir, tasarımın JS'i değişmez. Koruma: `wp_rest` nonce, honeypot, IP başına rate-limit (`servo_form_sinir`). Alıcı Site Ayarları > Formlar'dadır. **Geliştirme modu:** `WP_ENVIRONMENT_TYPE` `local`/`development` iken mailler gönderilmez, Araçlar > Mail kayıtları'na yazılır (`SERVO_MAIL_LOG` ile değiştirilebilir).
+13. **CPT ve taxonomy'ler:** Rehber yazıları yerleşik `post` (kategori + `urun_alani`). `uygulama` (tekil sayfalı, `/uygulama/{slug}/`, arşivsiz), `vaka`, `dokuman`, `sss` (+ `sss_grup`), `terim`. `vaka`, `dokuman`, `sss`, `terim` tekil sayfasızdır ve aramada çıkmaz; `urun_alani` ve `sss_grup` arşiv üretmez. Vaka çapaları slug'dan üretilir (`servo_vaka_anchor()`), linkler `servo_vaka_url()` ile basılır.
+14. **Flexible content:** Ana sayfa, `uygulama` ve `page.php` kullanan tüm sayfalar `bloklar` alanıyla kurulur; ayrı sayfa şablonları kullanılmaz. Core/Shuttle sabit şablon, rehber Gutenberg, 404/arama/rehber listesi sabit şablondur.
+    - Her layout `template-parts/blocks/` altında bir dosyadır ve tasarımdaki bir `<section>`'a karşılık gelir; markup birebir korunur. Onaylı blok listesi: `docs/BLOKLAR.md`.
+    - Ortak seçenekler: arka plan, bölüm başlığı (`.section-head` / `.sec-hd`). Çok görünümlü bloklarda conditional logic.
+    - Stile bağlı bölüm ID'leri (ör. `#sistemler`) panelde düzenlenemez; serbest çapa alanı ayrıdır; aynı sayfada tekrar eden ID oluşmaz.
+    - Her bloğa ve kafa karıştırabilecek alana kısa Türkçe yardım metni (instructions) eklenir.
+15. **Marka adı işaretleme:** Panelde metinler düz yazılır; ürün sayfaları, bloklar ve rehberde bilinen ürün/marka adları çıktıda `servo_bdi()` ile `<bdi lang="en">` içine alınır. Terim listesi tek yerde: `servo_marka_adlari()` (`inc/helpers.php`). Tasarımdan görünmez `<bdi>` farkları kabul edilmiştir.
+16. **Talep formları ve korumalı dokümanlar:** Dokümanlar ve servis alt sayfalarındaki formlar `talep_formu` bloğuyla kurulur ve `servomotion/v1/talep` uç noktasına gider (`inc/talep.php`); JS kapalıysa `mailto:` yedeği çalışır; stiller `servis.css` içinde `.talep-formu` altına kapsanır. "Talep formuyla" erişimli dosyalar `uploads/servo-korumali/` dizininde durur ve yalnızca imzalı, 7 gün geçerli `?servo-indir=` bağlantısıyla verilir. Site Ayarları > Formlar'daki gönderim ayarı: "otomatik gönder" (varsayılan) / "sadece ekibe bildir"; ekibe bildirim her zaman gider.
 
 ## İngilizce sürüm (Polylang)
 
-- **Diller:** `tr` (varsayılan, ön eksiz) ve `en` (`/en/`). Ayarlar: adresteki dil ön eki, varsayılan dil ön eksiz. Çevrilebilir türler: sayfa, yazı, `uygulama`, `vaka`, `sss`, `terim`; taxonomy'ler: `urun_alani`, `sss_grup`. Ücretsiz Polylang kullanılır.
-- **Dil yardımcıları (`inc/dil.php`):** `servo_dil()`, `servo_en()`, `servo_kayit_bul( $slug, $tur, $dil )` (kaydı dil filtresiyle slug'dan bulur; `get_page_by_path` yerine bu kullanılır), `servo_js_yolu()` (EN'de `assets/js/en/` varsa o script), `<html lang>` (`tr` / `en-GB`), menüdeki TR/EN düğmesi (`a.langlink`).
-- **Site Ayarları:** dile göre iki options kaydı: `options_tr`, `options_en` (EN'e "Site Settings (EN)" alt sayfasından girilir). `servo_option()` EN alanı boşsa TR değerine düşer; yine de form aydınlatma notu gibi dile özgü metinler EN'de TR'ye düşmez (`servo_kvkk_notu()`).
-- **Aynı slug iki dilde:** ücretsiz Polylang buna izin vermez; `servo_slug_paylas` (`wp_unique_post_slug`) kaydın dilinden farklı dillerdeki çakışmalarda özgün slug'ı korur, `servo_ana_sorgu_dil_filtresi` (`the_posts`) aynı slug'lı kayıtlardan yalnızca geçerli dilin kaydını bırakır.
-- **EN adres ön ekleri (dar kapsamlı):** yalnızca `/en/` adreslerinde `rehber → guide`, `rehber/kategori → guide/category`, `uygulama → application` olur; TR adreslere dokunulmaz.
-  - *Gelen istek:* `rewrite_rules_array` filtresi (öncelik 999) `servo_en_kurallar()` ile yalnızca `en/` (Polylang anahtarlarında `(en)/`) ile başlayan kural anahtarlarındaki ön eki değiştirir. Kurallar kalıcı bağlantı kaydıyla ve Polylang'in dil ekleme/silme işlemleriyle yeniden üretilirken de bu filtre çalışır; ayrı bir kayıt gerekmez.
-  - *Giden adres:* `post_link`, `post_type_link` ve `term_link` filtreleri `servo_en_adres()` ile üretilen adresin başındaki eski ön eki yeni ön ekle değiştirir. Site kökü `home_url()` ile değil `get_option( 'home' )` ile alınır (ön yüzde `home_url()` dil öneki alır).
-  - Eşleme tek yerde: `servo_en_onekler()`. Yeni ön ek gerekirse buraya eklenir ve `wp rewrite flush` çalıştırılır.
-- **EN ana sayfa adresi:** Polylang EN ön sayfayı `/en/home/` olarak sunar; `/en/` buraya yönlenir. `applications` sayfası yalnızca EN'dedir; dil düğmesi TR ana sayfadaki `#uygulama-alanlari`'na gider.
-- **Çeviri dosyaları:** tema metinleri `languages/servomotion.pot` / `servomotion-en_GB.po/.mo`; ziyaretçi dilinde `servo_ceviri_yukle()` yükler. Yönetim paneli dizgeleri Türkçe kalır. Paketten çıkarılamayan çeviriler `docs/EN-CEVIRI-LISTESI.md`'dedir (müşteri onayı için).
-- **İçerik betiği:** `wp servo faz4 [adım…] [--dry-run]` (`inc/cli-faz4.php`; adımlar: dil, ayarlar, js, medya, vakalar, uygulamalar, sayfalar, rehber, ayar_metinleri, tani, menuler, arama). TR içerikle bağlar, tekrar çalıştırılınca kopya üretmez. EN menüler "Main menu EN" / "Footer menu EN"dir ve Polylang menü eşlemesine yazılır.
-- **Formlar:** `servomotion/v1/talep` isteği `lang` alır; ziyaretçiye giden mesaj ve e-posta onun dilindedir, ekibe bildirim her zaman TR'dir. Doküman CPT'sinde `dil` (`tr` / `en` / `ortak`) ve `talep_etiketi_en` alanları vardır.
-- **EN sayfalar:** Core Precisor, Shuttle Precisor, iletişim, SSS, sözlük ve KVKK paketin EN sürümünde TR'den farklı yapıdadır (yeni sayfa şablonu / blok gerektirir); karar bekleyene kadar taslaktır.
+- **Diller:** `tr` (varsayılan, ön eksiz) ve `en` (`/en/`). Çevrilebilir türler: sayfa, yazı, `uygulama`, `vaka`, `sss`, `terim`; taxonomy'ler: `urun_alani`, `sss_grup`. Ücretsiz Polylang.
+- **Yardımcılar (`inc/dil.php`):** `servo_dil()`, `servo_en()`, `servo_kayit_bul( $slug, $tur, $dil )` (`get_page_by_path` yerine bu kullanılır), `servo_js_yolu()`.
+- **Site Ayarları:** `options_tr` ve `options_en`; `servo_option()` EN boşsa TR'ye düşer (dile özgü metinler, ör. `servo_kvkk_notu()`, düşmez).
+- **EN adres ön ekleri:** yalnızca `/en/` adreslerinde `rehber → guide`, `rehber/kategori → guide/category`, `uygulama → application`; TR adreslere dokunulmaz. Eşleme tek yerde: `servo_en_onekler()`; yeni ön ek eklenirse `wp rewrite flush` çalıştırılır. Site kökü `get_option( 'home' )` ile alınır.
+- **Çeviri:** `languages/servomotion.pot` / `servomotion-en_GB.po/.mo`; yönetim paneli dizgeleri Türkçe kalır. Onay bekleyen çeviriler: `docs/EN-CEVIRI-LISTESI.md`.
+- **İçerik betiği:** `wp servo faz4 [adım…] [--dry-run]` (`inc/cli-faz4.php`), tekrar çalıştırılınca kopya üretmez.
+- **Formlar:** `servomotion/v1/talep` isteği `lang` alır; ziyaretçiye giden mesaj onun dilindedir, ekibe bildirim her zaman TR'dir.
+- Core/Shuttle Precisor, iletişim, SSS, sözlük ve KVKK'nın EN sürümleri paketin EN sürümünde TR'den farklıdır; karar bekleyene kadar taslaktır.
 
 ## Kontrol listesi
 
-- [ ] Tüm sayfalar `_design/` ile görsel olarak birebir aynı
+- [ ] Tüm sayfalar referans tasarımla görsel olarak birebir aynı
 - [ ] Mobil, tablet ve masaüstünde responsive davranış korunmuş
 - [ ] Konsolda JS hatası yok, 404 veren asset yok
 - [ ] Menüler panelden düzenlenebiliyor

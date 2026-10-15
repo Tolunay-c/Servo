@@ -1277,3 +1277,11 @@ msgstr ""
 msgctxt "aria-label"
 msgid "Simülasyon hızı"
 msgstr ""
+
+#: template-parts/site/nav-aksiyon.php
+msgid "Menüyü aç"
+msgstr ""
+
+#: template-parts/site/nav-aksiyon.php
+msgid "Menüyü kapat"
+msgstr ""

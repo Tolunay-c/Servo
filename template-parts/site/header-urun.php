@@ -9,7 +9,7 @@
 
 defined( 'ABSPATH' ) || exit;
 ?>
-<nav class="nav"><div class="wrap nav-in"><?php get_template_part( 'template-parts/site/logo', null, array( 'variant' => 'urun' ) ); ?><div class="tabs">
+<nav class="nav"><div class="wrap nav-in"><?php get_template_part( 'template-parts/site/logo', null, array( 'variant' => 'urun' ) ); ?><?php get_template_part( 'template-parts/site/nav-aksiyon', null, array( 'panel' => 'ana-menu' ) ); ?><div class="tabs" id="ana-menu">
 <?php
 wp_nav_menu(
 	array(

@@ -830,3 +830,11 @@ msgstr "Line spacing"
 msgctxt "aria-label"
 msgid "Simülasyon hızı"
 msgstr "Simulation speed"
+
+#: template-parts/site/nav-aksiyon.php
+msgid "Menüyü aç"
+msgstr "Open menu"
+
+#: template-parts/site/nav-aksiyon.php
+msgid "Menüyü kapat"
+msgstr "Close menu"

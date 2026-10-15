@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 ?>
-<header class="nav"><div class="wrap"><?php get_template_part( 'template-parts/site/logo' ); ?><nav aria-label="<?php esc_attr_e( 'Ana menü', 'servomotion' ); ?>">
+<header class="nav"><div class="wrap"><?php get_template_part( 'template-parts/site/logo' ); ?><?php get_template_part( 'template-parts/site/nav-aksiyon', null, array( 'panel' => 'ana-menu' ) ); ?><nav id="ana-menu" aria-label="<?php esc_attr_e( 'Ana menü', 'servomotion' ); ?>">
 <?php
 wp_nav_menu(
 	array(
