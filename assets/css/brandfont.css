@@ -1,4 +1,4 @@
-/* Kaynak: _design/assets/brandfont.css (içerik değiştirilmeden taşındı; sadece yol düzeltmeleri) */
+/* Kaynak: servomotion-site-tum131026/assets/brandfont.css (içerik değiştirilmeden taşındı; sadece yol düzeltmeleri) */
 @font-face{font-family:'Poppins';src:url('../fonts/poppins-Regular.woff2') format('woff2');font-style:normal;font-weight:400;font-display:swap}@font-face{font-family:'Poppins';src:url('../fonts/poppins-Bold.woff2') format('woff2');font-style:normal;font-weight:700;font-display:swap}.brand,.brand b{font-family:'Poppins','Segoe UI',Arial,sans-serif;font-weight:400;letter-spacing:.005em;text-transform:none}.brand .lo1,.brand .lo2{display:inline;font-style:normal;font-family:inherit;font-size:inherit;letter-spacing:inherit;color:inherit;text-transform:inherit}.brand .lo1{font-weight:400}.brand .lo2{font-weight:700}.nav .brand,.nav .brand b,.foot .brand{font-family:'Poppins','Segoe UI',Arial,sans-serif;text-transform:none;font-style:normal;font-weight:400;letter-spacing:.005em}.nav .brand .lo2{font-weight:700}
 /* açılır menü */
 .navdrop{position:relative;display:inline-flex;align-items:center}
@@ -56,3 +56,4 @@
 .nav .brand:hover .smk,.nav .brand:focus-visible .smk{color:#fff}
 @media(max-width:600px){.brand .smk{height:.74em}}
 @media print{.brand .smk{color:#0b0f14}}
+/* menü logosu — sayfa açılışında bir kez oynar */@keyframes smkPerde{from{clip-path:polygon(-600px 0,159px 0,-118px 800px,-600px 800px)}to{clip-path:polygon(-600px 0,1845px 0,1568px 800px,-600px 800px)}}@keyframes smkIsin{0%{transform:translateX(0);opacity:0}14%{opacity:1}82%{opacity:1}100%{transform:translateX(1686px);opacity:0}}@keyframes smkKw{from{opacity:0;transform:translateX(-.3em)}to{opacity:1;transform:translateX(0)}}.brand .smk-m{animation:smkPerde .82s cubic-bezier(.62,.03,.30,1) both}.brand .smk-b{opacity:0;fill:#fff;animation:smkIsin .82s cubic-bezier(.62,.03,.30,1) both}.brand bdi{animation:smkKw .42s cubic-bezier(.22,.9,.28,1) .40s both}@media(prefers-reduced-motion:reduce){.brand .smk-m,.brand .smk-b,.brand bdi{animation:none}.brand .smk-m{clip-path:none}.brand .smk-b{opacity:0}}

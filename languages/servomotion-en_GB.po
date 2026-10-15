@@ -1,0 +1,832 @@
+# ServoMotion tema çevirisi: English (UK)
+msgid ""
+msgstr ""
+"Project-Id-Version: ServoMotion\n"
+"Language: en_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: 404.php
+msgid "ANA SAYFA"
+msgstr "HOME"
+
+#: 404.php
+msgid "SİSTEMLER"
+msgstr "SYSTEMS"
+
+#: 404.php
+msgid "İLETİŞİM"
+msgstr "CONTACT"
+
+#: 404.php
+msgid "Başarı hikayeleri →"
+msgstr "Success stories →"
+
+#: 404.php
+msgid "Veri sayfaları →"
+msgstr "Data sheets →"
+
+#: 404.php
+msgid "Sıkça sorulan sorular →"
+msgstr "Frequently asked questions →"
+
+#: 404.php
+msgid "Sözlük →"
+msgstr "Glossary →"
+
+#: 404.php
+msgid "Rehber →"
+msgstr "Guide →"
+
+#: 404.php
+msgid "HATA 404"
+msgstr "404"
+
+#: 404.php
+msgid "BU KONUMDA"
+msgstr "THIS PAGE"
+
+#: 404.php
+msgid "BİR ÇİZGİ YOK"
+msgstr "IS NOT HERE"
+
+#: 404.php
+msgid "Aradığınız sayfa taşınmış veya adresi değişmiş olabilir. Aşağıdan devam edebilirsiniz."
+msgstr "The address may have changed, or the link may be out of date. The pages below cover most of what visitors are looking for."
+
+#: 404.php
+msgid "SIK KULLANILANLAR"
+msgstr "WHERE TO GO"
+
+#: 404.php
+msgid "BELKİ BUNLARI ARIYORDUNUZ"
+msgstr "MOST VISITED PAGES"
+
+#: inc/formlar.php, template-parts/blocks/talep-formu.php
+msgid "Web sitesi"
+msgstr "Website"
+
+#: inc/formlar.php
+msgid "Oturum süresi doldu. Sayfayı yenileyip tekrar deneyin."
+msgstr "Your session has expired. Reload the page and try again."
+
+#: inc/formlar.php, inc/talep.php
+msgid "Çok fazla deneme yapıldı. Lütfen biraz sonra tekrar deneyin."
+msgstr "Too many attempts. Please try again in a little while."
+
+#: inc/formlar.php, inc/talep.php
+msgid "Form henüz bir adrese bağlı değil."
+msgstr "The form is not connected to an address yet."
+
+#: inc/formlar.php
+msgid "İlgili kişi ve iletişim bilgisi gerekli."
+msgstr "Contact person and contact details are required."
+
+#: inc/formlar.php
+msgid "Uygulama özeti — %s"
+msgstr "Application summary — %s"
+
+#: inc/formlar.php, inc/talep.php
+msgid "Gönderilen sayfa"
+msgstr "Page submitted from"
+
+#: inc/formlar.php, inc/talep.php
+msgid "Tarih"
+msgstr "Date"
+
+#: inc/formlar.php, inc/talep.php
+msgid "Mail gönderilemedi."
+msgstr "The email could not be sent."
+
+#: inc/formlar.php
+msgid "Bülten henüz bir listeye bağlı değil."
+msgstr "The newsletter is not connected to a list yet."
+
+#: inc/rehber.php
+msgid "ServoMotion Mühendislik Ekibi"
+msgstr "ServoMotion"
+
+#: inc/setup.php, template-parts/site/header-standart.php
+msgid "Ana menü"
+msgstr "Main menu"
+
+#: inc/talep.php
+msgid "Dokümanı yeniden talep edin"
+msgstr "Request the document again"
+
+#: inc/talep.php
+msgid "Bağlantının süresi doldu"
+msgstr "The link has expired"
+
+#: inc/talep.php
+msgid "Geçersiz bağlantı"
+msgstr "Invalid link"
+
+#: inc/talep.php
+msgid "Bu indirme bağlantısı yalnızca 7 gün geçerlidir ve süresi dolmuştur."
+msgstr "This download link is valid for 7 days only and has expired."
+
+#: inc/talep.php
+msgid "Bu indirme bağlantısı geçerli değil."
+msgstr "This download link is not valid."
+
+#: inc/talep.php
+msgid "Doküman bulunamadı."
+msgstr "Document not found."
+
+#: inc/talep.php
+msgid "Doküman bulunamadı"
+msgstr "Document not found"
+
+#: inc/talep.php, template-parts/blocks/uygulama-ozeti.php
+msgid "Firma"
+msgstr "Company"
+
+#: inc/talep.php
+msgid "İlgili kişi"
+msgstr "Contact person"
+
+#: inc/talep.php
+msgid "E-posta"
+msgstr "Email"
+
+#: inc/talep.php
+msgid "Telefon"
+msgstr "Phone"
+
+#: inc/talep.php
+msgid "Uygulama / hat"
+msgstr "Application / line"
+
+#: inc/talep.php
+msgid "örn. bobin dilimleme, nonwoven kesim"
+msgstr "e.g. slitting line, nonwoven cutting"
+
+#: inc/talep.php
+msgid "Sistem"
+msgstr "System"
+
+#: inc/talep.php
+msgid "Bilmiyorum"
+msgstr "Not sure"
+
+#: inc/talep.php
+msgid "Seri numarası"
+msgstr "Serial number"
+
+#: inc/talep.php
+msgid "gövde etiketinde"
+msgstr "on the body label"
+
+#: inc/talep.php
+msgid "Öncelik"
+msgstr "Priority"
+
+#: inc/talep.php
+msgid "Hat duruyor"
+msgstr "Line is stopped"
+
+#: inc/talep.php
+msgid "Hat çalışıyor, performans etkileniyor"
+msgstr "Line running, performance affected"
+
+#: inc/talep.php
+msgid "Bilgi / soru"
+msgstr "Information / question"
+
+#: inc/talep.php
+msgid "Belirti"
+msgstr "Symptom"
+
+#: inc/talep.php
+msgid "Ne zaman başladı, hangi reçetede görülüyor, panelde ne yazıyor"
+msgstr "Symptom, when it started, in which recipe it appears"
+
+#: inc/talep.php
+msgid "Gönderilecek bileşen"
+msgstr "Component to be sent"
+
+#: inc/talep.php
+msgid "örn. lazer modülü, araba, tahrik bileşeni"
+msgstr "e.g. laser module, carriage, drive component"
+
+#: inc/talep.php
+msgid "Arıza notu"
+msgstr "Fault note"
+
+#: inc/talep.php
+msgid "Belirti, ne zaman başladı, hangi reçetede görülüyor"
+msgstr "When it started, in which recipe it appears, what the panel shows"
+
+#: inc/talep.php
+msgid "İhtiyaç duyulan doküman"
+msgstr "Document needed"
+
+#: inc/talep.php
+msgid "Kullanım kılavuzu"
+msgstr "Operating manual"
+
+#: inc/talep.php
+msgid "Elektrik ve bağlantı şeması"
+msgstr "Wiring and interface diagram"
+
+#: inc/talep.php
+msgid "Montaj çizimi"
+msgstr "Mounting drawing"
+
+#: inc/talep.php
+msgid "Kalibrasyon ve doğrulama kaydı"
+msgstr "Calibration and verification record"
+
+#: inc/talep.php, template-parts/rehber/liste.php
+msgid "Tümü"
+msgstr "All"
+
+#: inc/talep.php
+msgid "Not"
+msgstr "Note"
+
+#: inc/talep.php
+msgid "Hangi sistem, hangi hat, özel bir ihtiyaç var mı"
+msgstr "Which system, which line, any particular requirement"
+
+#: inc/talep.php
+msgid "Geçersiz form."
+msgstr "Invalid form."
+
+#: inc/talep.php
+msgid "Geçerli bir e-posta adresi girin."
+msgstr "Enter a valid email address."
+
+#: inc/talep.php
+msgid "En az bir doküman seçin."
+msgstr "Select at least one document."
+
+#: inc/talep.php, template-parts/blocks/talep-formu.php
+msgid "İstenen dokümanlar"
+msgstr "Documents requested"
+
+#: inc/talep.php
+msgid "Gönderim: otomatik. Dokümanların 7 gün geçerli indirme bağlantıları ziyaretçinin e-posta adresine gönderildi."
+msgstr "Delivery: automatic. The 7-day download links were sent to the visitor’s email address."
+
+#: inc/talep.php
+msgid "Gönderim: ziyaretçiye otomatik gönderilmedi. Aşağıdaki 7 gün geçerli bağlantıları ziyaretçiye iletebilirsiniz."
+msgstr "Delivery: not sent to the visitor automatically. You can forward the 7-day links below to the visitor."
+
+#: inc/talep.php
+msgid "Merhaba,"
+msgstr "Hello,"
+
+#: inc/talep.php
+msgid "Talep ettiğiniz dokümanların indirme bağlantıları aşağıdadır:"
+msgstr "The download links for the documents you requested are below:"
+
+#: inc/talep.php
+msgid "Bağlantılar %s tarihine kadar geçerlidir. Süre dolduktan sonra dokümanı yeniden talep edebilirsiniz."
+msgstr "The links are valid until %s. After they expire you can request the documents again."
+
+#: inc/talep.php
+msgid "Sorularınız için bu e-postayı yanıtlayabilirsiniz."
+msgstr "If you have any questions, simply reply to this email."
+
+#: inc/talep.php
+msgid "talep ettiğiniz dokümanlar"
+msgstr "the documents you requested"
+
+#: inc/talep.php
+msgid "Talebiniz alındı. Dokümanların indirme bağlantıları e-posta adresinize gönderildi; bağlantılar 7 gün geçerlidir."
+msgstr "Your request has been received. The download links have been sent to your email address and are valid for 7 days."
+
+#: inc/talep.php
+msgid "Talebiniz alındı. İstediğiniz dokümanları en kısa sürede e-posta ile ileteceğiz."
+msgstr "Your request has been received. We will email the documents you asked for as soon as possible."
+
+#: inc/talep.php, template-parts/blocks/talep-formu.php
+msgid "Talebiniz alındı. En kısa sürede size dönüş yapacağız."
+msgstr "Your request has been received. We will get back to you as soon as possible."
+
+#: search.php
+msgid "ARAMA"
+msgstr "SEARCH"
+
+#: search.php
+msgid "SONUÇLARI"
+msgstr "RESULTS"
+
+#: search.php
+msgid "Aramak istediğiniz kelimeyi aşağıdaki kutuya yazın."
+msgstr "Type the word you are looking for in the box below."
+
+#: search.php
+msgid "“%1$s” için %2$d sonuç bulundu."
+msgstr "%2$d results found for “%1$s”."
+
+#: search.php
+msgid "“%s” için sonuç bulunamadı."
+msgstr "No results found for “%s”."
+
+#: search.php
+msgid "Sitede arayın"
+msgstr "Search the site"
+
+#: search.php
+msgid "örn. strok, reçete, montaj"
+msgstr "e.g. travel, recipe, installation"
+
+#: search.php
+msgid "Sayfaya gidin →"
+msgstr "Go to the page →"
+
+#: search.php
+msgid "← ÖNCEKİ SONUÇLAR"
+msgstr "← PREVIOUS RESULTS"
+
+#: search.php
+msgid "SONRAKİ SONUÇLAR →"
+msgstr "NEXT RESULTS →"
+
+#: search.php
+msgid "Farklı bir kelimeyle tekrar deneyebilir ya da sorunuzu doğrudan bize iletebilirsiniz."
+msgstr "Try a different word, or send your question directly to us."
+
+#: search.php
+msgid "İletişime geçin →"
+msgstr "Get in touch →"
+
+#: single.php
+msgid "%d DK OKUMA"
+msgstr "%d MIN READ"
+
+#: single.php
+msgid "REHBER"
+msgstr "GUIDE"
+
+#: single.php
+msgid "İçindekiler"
+msgstr "Contents"
+
+#: single.php
+msgid "İÇİNDEKİLER"
+msgstr "CONTENTS"
+
+#: single.php
+msgid "DEVAMI"
+msgstr "MORE"
+
+#: single.php
+msgid "İLGİLİ YAZILAR"
+msgstr "RELATED ARTICLES"
+
+#: template-parts/blocks/dokuman-listesi.php
+msgid "TALEP EDİN"
+msgstr "REQUEST"
+
+#: template-parts/blocks/dokuman-listesi.php
+msgid "İNDİRİN (%s)"
+msgstr "DOWNLOAD (%s)"
+
+#: template-parts/blocks/iletisim-bilgileri.php
+msgid "MERKEZ"
+msgstr "HEAD OFFICE"
+
+#: template-parts/blocks/iletisim-bilgileri.php
+msgid "Yol tarifi alın →"
+msgstr "Get directions →"
+
+#: template-parts/blocks/iletisim-bilgileri.php
+msgid "TELEFON"
+msgstr "PHONE"
+
+#: template-parts/blocks/iletisim-bilgileri.php
+msgid "· WhatsApp"
+msgstr "· WhatsApp"
+
+#: template-parts/blocks/iletisim-bilgileri.php
+msgid "FAKS"
+msgstr "FAX"
+
+#: template-parts/blocks/iletisim-bilgileri.php
+msgid "E-POSTA"
+msgstr "EMAIL"
+
+#: template-parts/blocks/iletisim-bilgileri.php
+msgid "KURUMSAL"
+msgstr "COMPANY"
+
+#: template-parts/blocks/iletisim-bilgileri.php
+msgid "VERGİ DAİRESİ / NO"
+msgstr "TAX OFFICE / NO"
+
+#: template-parts/blocks/iletisim-bilgileri.php
+msgid "MARKALAR"
+msgstr "BRANDS"
+
+#: template-parts/blocks/sozluk.php
+msgid "%d terim"
+msgstr "%d terms"
+
+#: template-parts/blocks/sozluk.php
+msgid "Terimler"
+msgstr "Terms"
+
+#: template-parts/blocks/talep-formu.php
+msgid "TALEBİ GÖNDERİN"
+msgstr "SEND REQUEST"
+
+#: template-parts/blocks/talep-formu.php
+msgid "Talep gönderilemedi. Lütfen tekrar deneyin veya e-posta ile yazın."
+msgstr "The request could not be sent. Please try again or write to us by email."
+
+#: template-parts/blocks/talep-formu.php, template-parts/blocks/uygulama-ozeti.php
+msgid "seçin"
+msgstr "select"
+
+#: template-parts/blocks/uygulama-alanlari.php
+msgid "Belirleyici olan"
+msgstr "Decisive factors"
+
+#: template-parts/blocks/uygulama-alanlari.php
+msgid "Uygulama sayfasını görün →"
+msgstr "See the application →"
+
+#: template-parts/blocks/uygulama-alanlari.php
+msgid "Belirleyici olan: %s"
+msgstr "Decisive factors: %s"
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "UYGULAMA BİLGİLERİ"
+msgstr "APPLICATION DETAILS"
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "01 / GİRDİ"
+msgstr "01 / INPUT"
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "Hat / uygulama"
+msgstr "Line / application"
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "Aynı anda görünmesi gereken çizgi"
+msgstr "Simultaneous reference lines required"
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "Çalışma genişliği / strok"
+msgstr "Working width / travel"
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "Çalışma mesafesi"
+msgstr "Working distance"
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "Reçete değişim sıklığı"
+msgstr "Recipe change frequency"
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "Günde birkaç kez"
+msgstr "Several times a day"
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "Günde bir"
+msgstr "Once a day"
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "Haftada birkaç kez"
+msgstr "A few times a week"
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "Daha seyrek"
+msgstr "Less often"
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "Montaj yapısı"
+msgstr "Mounting structure"
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "Mevcut şaseye monte edilecek"
+msgstr "Mounting on the existing frame"
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "Yeni taşıyıcı / traversi gerekiyor"
+msgstr "A new support or gantry is required"
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "Henüz belirlenmedi"
+msgstr "Not yet determined"
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "Hazırda olan bilgiler"
+msgstr "Information already available"
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "İlgili kişi ve iletişim"
+msgstr "Contact person"
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "ÖN DEĞERLENDİRME"
+msgstr "FIRST ASSESSMENT"
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "02 / ÇIKTI"
+msgstr "02 / OUTPUT"
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "SİSTEM YÖNÜ"
+msgstr "SYSTEM DIRECTION"
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "ÇİZGİ SAYISINI GİRİN"
+msgstr "ENTER THE NUMBER OF LASER LINES"
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "Aynı anda kaç kesim çizgisinin görünmesi gerektiği, iki sistem arasındaki en belirleyici ayrımdır. Bu alanı doldurduğunuzda yönü burada göreceksiniz."
+msgstr "The number of simultaneous laser reference lines is the key difference between the two systems. Enter the required number of simultaneous laser lines to see the recommended system architecture."
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "Özet, alanları doldurdukça burada oluşur."
+msgstr "The summary is built here as you fill in the fields."
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "E-POSTA İLE GÖNDER"
+msgstr "SEND BY EMAIL"
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "ÖZETİ KOPYALA"
+msgstr "COPY SUMMARY"
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "Ön değerlendirme bağlayıcı değildir; nihai sistem seçimi keşifte alınan ölçülerle birlikte yapılır. Lazerler hizalama referansı oluşturur; malzeme ve makine elemanlarının ayarı operatör tarafından yapılır."
+msgstr "This first assessment is not binding; the final system choice is made together, using the measurements taken during the site survey. The lasers provide an alignment reference; adjustment of material and machine elements remains with the operator."
+
+#: template-parts/blocks/vaka-listesi.php
+msgid "Başlangıç durumu"
+msgstr "Starting point"
+
+#: template-parts/blocks/vaka-listesi.php
+msgid "Kurulan yapı"
+msgstr "What was installed"
+
+#: template-parts/rehber/kart.php
+msgid "%d dk okuma"
+msgstr "%d min read"
+
+#: template-parts/rehber/kart.php
+msgid "YAZIYI OKUYUN"
+msgstr "READ THE ARTICLE"
+
+#: template-parts/rehber/kart.php
+msgid "Yazıyı okuyun →"
+msgstr "Read the article →"
+
+#: template-parts/rehber/liste.php
+msgid "Yazılarda arayın"
+msgstr "Search the articles"
+
+#: template-parts/rehber/liste.php
+msgid "KATEGORİ"
+msgstr "CATEGORY"
+
+#: template-parts/rehber/liste.php
+msgid "Kategori"
+msgstr "Category"
+
+#: template-parts/rehber/liste.php
+msgid "ÜRÜN ALANI"
+msgstr "PRODUCT AREA"
+
+#: template-parts/rehber/liste.php
+msgid "<b>%d</b> yazı listeleniyor"
+msgstr "<b>%d</b> articles listed"
+
+#: template-parts/rehber/liste.php
+msgid "Bu seçimle eşleşen yazı bulunamadı. Filtreleri sıfırlamayı deneyin."
+msgstr "No articles match this selection. Try resetting the filters."
+
+#: template-parts/shuttle/video.php
+msgid "Tarayıcınız video etiketini desteklemiyor."
+msgstr "Your browser does not support the video tag."
+
+#: template-parts/shuttle/video.php
+msgid "Videoyu indirin"
+msgstr "Download the video"
+
+#: template-parts/site/bulten.php
+msgid "E-posta adresiniz"
+msgstr "Your email address"
+
+#: template-parts/site/bulten.php
+msgid "KAYDOLUN"
+msgstr "SUBSCRIBE"
+
+#: template-parts/site/bulten.php
+msgid "Sorularınız için:"
+msgstr "Questions:"
+
+#: template-parts/site/footer-kolonlar.php
+msgid "%1$s, %2$s markasıdır."
+msgstr "%1$s is a brand of %2$s."
+
+#: template-parts/blocks/talep-formu.php
+msgid "Türkçe sürümler"
+msgstr "Turkish versions"
+
+
+msgid "Durdur"
+msgstr "Pause"
+
+msgid "0,5×"
+msgstr "0.5×"
+
+msgid "Hareketli lazer"
+msgstr "Moving laser"
+
+msgid "Sabit referans lazeri"
+msgstr "Fixed reference laser"
+
+msgid "Gövde / lineer eksen"
+msgstr "Housing / linear axis"
+
+msgid "Tek Kanal · 1 Hareketli Lazer"
+msgstr "Single channel · 1 moving laser"
+
+msgid "1.200 mm çalışma genişliği"
+msgstr "1,200 mm working width"
+
+msgid "Servo gövde · kanal"
+msgstr "Servo housing · channel"
+
+msgid "Hareketli lazer arabası"
+msgstr "Moving laser carriage"
+
+msgid "Sabit lazer (ayrı braket)"
+msgstr "Fixed laser (separate bracket)"
+
+msgid "Lazer çizgisi"
+msgstr "Laser line"
+
+msgid "Hizalanmış bıçak"
+msgstr "Aligned blade"
+
+msgid "Tekrar Oynat"
+msgstr "Play again"
+
+msgid "Sıfırla"
+msgstr "Reset"
+
+msgid "Hazır"
+msgstr "Ready"
+
+msgid "Kurulumu başlatmak için Tekrar Oynat'a basın"
+msgstr "Press Play again to start the setup"
+
+msgid "Lazer adedi"
+msgstr "Number of laser lines"
+
+msgid "adet"
+msgstr "pcs"
+
+msgid "Kanal"
+msgstr "Channels"
+
+msgid "hat"
+msgstr "path"
+
+msgid "Dilim sayısı"
+msgstr "Slices"
+
+msgid "dilim"
+msgstr "slices"
+
+msgid "Konumlanma adımı"
+msgstr "Positioning steps"
+
+msgid "adım"
+msgstr "steps"
+
+msgid "Örnek hareket süresi"
+msgstr "Example travel time"
+
+msgid "sn"
+msgstr "s"
+
+msgid "Gösterim şematiktir. Süre, 1.000 mm/s varsayımı ve adım başına 0,25 saniye bekleme ile hesaplanır; gerçek ivmelenme profili, modüller arası mesafe ve operatörün ayar süresi modellenmez. Toplam kurulum süresini göstermez."
+msgstr "The view is schematic. The time assumes 1,000 mm/s and a 0.25 s dwell per step; the actual acceleration profile, the spacing between modules and the operator’s own setting time are not modelled, so it is not the total setup time."
+
+msgid "Lazer"
+msgstr "Lasers"
+
+msgid "Hareket"
+msgstr "Motion"
+
+msgid "Tipik kullanım"
+msgstr "Typical use"
+
+msgid "Sistem Gövdesi"
+msgstr "System housing"
+
+msgid "2.600 mm"
+msgstr "2,600 mm"
+
+msgid "‹ Önceki"
+msgstr "‹ Previous"
+
+msgid "Adım Adım Göster"
+msgstr "Step through"
+
+msgid "Sonraki ›"
+msgstr "Next ›"
+
+msgid "Ölçü gösterimi, her uçta 80 mm pay kabul edilen örnek bir yerleşimdir. Kullanılabilir hareket mesafesi; lazer modülü boyutu, uç sınırları ve seçilen konfigürasyona göre projede kesinleştirilir."
+msgstr "The drawing assumes an example layout with 80 mm clearance at each end. Usable travel is confirmed per project from the laser module size, the end limits and the chosen configuration."
+
+msgid "Senaryo"
+msgstr "Scenario"
+
+msgid "A · Adet girdi"
+msgstr "A · Laser lines as input"
+
+msgid "B · Aralık girdi"
+msgstr "B · Spacing as input"
+
+msgid "Parametreler"
+msgstr "Parameters"
+
+msgid "mm cinsinden"
+msgstr "in mm"
+
+msgid "Strok mesafesi · L"
+msgstr "Travel · L"
+
+msgid "girdi · mm"
+msgstr "input · mm"
+
+msgid "Gövdedeki lazer · n"
+msgstr "Lasers in the rail assembly · n"
+
+msgid "girdi · adet"
+msgstr "input · pcs"
+
+msgid "Çizgiler arası · p"
+msgstr "Line spacing · p"
+
+msgid "hesaplanan · mm"
+msgstr "calculated · mm"
+
+msgid "Aktif / rezerve"
+msgstr "Active / reserve"
+
+msgid "Arabalar arası boşluk"
+msgstr "Gap between carriages"
+
+msgid "Gereken ray boyu"
+msgstr "Rail length required"
+
+msgid "Güç barası"
+msgstr "Power bus"
+
+msgid "Lazer arabası"
+msgstr "Laser carriage"
+
+msgid "Fren kilitli"
+msgstr "Brake locked"
+
+msgid "Fren açık · mekikte"
+msgstr "Brake released · on the shuttle"
+
+msgid "Rezerve · lazer kapalı"
+msgstr "Reserve · laser off"
+
+msgid "Kurulumu Oynat"
+msgstr "Play setup"
+
+msgid "Parametreleri girip kurulumu oynatın"
+msgstr "Enter the parameters and play the setup"
+
+msgid "Hesap, eşit aralıklı yerleşim varsayar. Değişken dilim genişlikli reçeteler de desteklenir; bu durumda sınır, en dar iki çizgi arasındaki mesafedir."
+msgstr "The calculation assumes equally spaced lines. Recipes with variable slice widths are also supported; in that case the limiting factor is the distance between the two closest lines."
+
+msgctxt "aria-label"
+msgid "Animasyon hızı"
+msgstr "Animation speed"
+
+msgctxt "aria-label"
+msgid "Konfigürasyon simülasyonu"
+msgstr "Configuration simulation"
+
+msgctxt "aria-label"
+msgid "Strok mesafesi"
+msgstr "Travel"
+
+msgctxt "aria-label"
+msgid "Lazer adedi"
+msgstr "Laser count"
+
+msgctxt "aria-label"
+msgid "Çizgiler arası mesafe"
+msgstr "Line spacing"
+
+msgctxt "aria-label"
+msgid "Simülasyon hızı"
+msgstr "Simulation speed"

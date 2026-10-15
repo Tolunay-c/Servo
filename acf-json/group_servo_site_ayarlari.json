@@ -231,13 +231,42 @@
         },
         {
             "key": "field_servo_form_eposta",
-            "label": "Uygulama özeti gönderim adresi",
+            "label": "Form alıcı adresi",
             "name": "form_eposta",
             "type": "email",
             "required": 0,
-            "instructions": "İletişim sayfasındaki uygulama özeti aracından gönderilen özetler bu adrese gelir. Boş bırakılırsa İletişim sekmesindeki e-posta kullanılır. İkisi de boşsa \"Gönder\" düğmesi görünmez, ziyaretçi özeti e-posta veya WhatsApp ile iletir.",
+            "instructions": "Uygulama özeti, doküman talebi ve servis formlarından (destek, iade, kılavuz) gönderilen talepler bu adrese gelir. Boş bırakılırsa İletişim sekmesindeki e-posta kullanılır. İkisi de boşsa \"Gönder\" düğmesi görünmez; formlar ziyaretçinin e-posta uygulamasını açar.",
             "default_value": "",
             "placeholder": ""
+        },
+        {
+            "key": "field_servo_talep_gonderim",
+            "label": "Doküman talebi: gönderim",
+            "name": "talep_gonderim",
+            "type": "radio",
+            "instructions": "Doküman talep formu doldurulduğunda ne olacağı. Her iki durumda da ekibe bildirim düşer.",
+            "choices": {
+                "otomatik": "Otomatik gönder: ziyaretçiye 7 gün geçerli indirme bağlantıları e-postayla gider",
+                "ekip": "Sadece ekibe bildir: dokümanı ekip kendisi gönderir (bildirim e-postasında bağlantılar da bulunur)"
+            },
+            "default_value": "otomatik",
+            "layout": "vertical",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_servo_form_kvkk_notu",
+            "label": "Formların altındaki aydınlatma notu",
+            "name": "form_kvkk_notu",
+            "type": "textarea",
+            "instructions": "Tüm formların (talep formları ve uygulama özeti) gönder düğmesinin altında görünen kısa not. KVKK sayfasının adresi için {kvkk_adresi} yazın; bağlantı <a href=\"{kvkk_adresi}\">metin</a> biçimindedir. Boş bırakılırsa varsayılan not gösterilir.",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "",
+            "rows": 3,
+            "new_lines": ""
         },
         {
             "key": "field_servo_tab_sayfalar",
@@ -317,6 +346,56 @@
             "placeholder": "",
             "rows": 3,
             "new_lines": ""
+        },
+        {
+            "key": "field_servo_rehber_kutu_etiket",
+            "label": "Liste: bilgi kutusu üst etiketi",
+            "name": "rehber_kutu_etiket",
+            "type": "text",
+            "instructions": "Yazı listesinin üstündeki kutunun küçük etiketi. Kutu, başlık ve metin boşsa gösterilmez.",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "",
+            "wrapper": {
+                "width": "40",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_servo_rehber_kutu_baslik",
+            "label": "Liste: bilgi kutusu başlığı",
+            "name": "rehber_kutu_baslik",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "",
+            "wrapper": {
+                "width": "60",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_servo_rehber_kutu_metin",
+            "label": "Liste: bilgi kutusu metni",
+            "name": "rehber_kutu_metin",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "",
+            "rows": 3,
+            "new_lines": ""
+        },
+        {
+            "key": "field_servo_rehber_kutu_buton",
+            "label": "Liste: bilgi kutusu butonu",
+            "name": "rehber_kutu_buton",
+            "type": "link",
+            "instructions": "",
+            "return_format": "array"
         },
         {
             "key": "field_servo_rehber_yazar",
@@ -591,6 +670,13 @@
                 "param": "options_page",
                 "operator": "==",
                 "value": "servo-site-ayarlari"
+            }
+        ],
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "servo-site-settings-en"
             }
         ]
     ],

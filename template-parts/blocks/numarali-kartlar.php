@@ -2,7 +2,7 @@
 /**
  * Blok: Numaralı kartlar.
  *
- * Görünümler: kazanim (.benefits), adim (.steps2), akis (.flow),
+ * Görünümler: kazanim (.benefits), adim (.steps2), paket (.pack), akis (.flow),
  * zaman (.milestones).
  *
  * @package ServoMotion
@@ -15,6 +15,7 @@ $servo_ogeler  = (array) servo_sub( 'ogeler', array() );
 $servo_kapsar  = array(
 	'kazanim' => 'benefits',
 	'adim'    => 'steps2',
+	'paket'   => 'pack',
 	'akis'    => 'flow',
 	'zaman'   => 'milestones',
 );

@@ -42,7 +42,7 @@ while ( have_posts() ) :
 	?>
 <section class="pdoc"><div class="wrap">
 <p class="crumb"><a href="<?php echo esc_url( $servo_rehber_id ? get_permalink( $servo_rehber_id ) : home_url( '/' ) ); ?>"><?php esc_html_e( 'REHBER', 'servomotion' ); ?></a><?php echo $servo_kirinti ? ' · ' . esc_html( $servo_kirinti ) : ''; ?></p>
-<p class="topmeta"><span><b><?php echo esc_html( get_the_date( 'j F Y' ) ); ?></b></span><span><?php echo servo_bdi( esc_html( servo_rehber_yazar( get_post() ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span><span><?php echo esc_html( $servo_okuma ); ?></span></p>
+<p class="topmeta"><span><b><?php echo esc_html( get_the_date( 'j F Y' ) ); ?></b></span><span><?php echo esc_html( $servo_okuma ); ?></span></p>
 <h1><?php echo servo_bdi( esc_html( get_post()->post_title ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h1>
 	<?php if ( $servo_giris ) : ?>
 <p class="intro"><?php echo servo_bdi( servo_text( $servo_giris ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>

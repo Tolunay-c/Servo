@@ -5,7 +5,7 @@ Bu repo, bir müşteri için hazırlanmış **statik HTML/CSS/JS tasarımın öz
 ## Temel kurallar
 
 1. **`_design/` klasörüne asla dokunma.** Orijinal tasarım orada referans olarak durur. Okuyabilirsin, düzenleyemez, taşıyamaz, silemezsin.
-2. **Tasarıma sadık kal.** HTML yapısı, class isimleri, ID'ler, animasyonlar ve responsive davranış birebir korunmalı. Tema çıktısı `_design/` içindeki sayfalarla görsel olarak aynı görünmeli.
+2. **Tasarıma sadık kal.** HTML yapısı, class isimleri, ID'ler, animasyonlar ve responsive davranış birebir korunmalı. Tema çıktısı **`servomotion-site-tum131026/`** içindeki sayfalarla görsel olarak aynı görünmeli. Bu klasör son teslim paketidir (revizyonlar uygulanmış) ve yeni referans tasarımdır; `_design/` revizyonlardan önceki eski sürümdür ve artık referans alınmaz. Tasarım sadakati kuralı bu klasör için geçerlidir. Bu klasör de `_design/` gibi salt okunurdur: hiçbir dosyasına dokunma.
 3. **CSS ve JS'i yeniden yazma.** Tasarımın kendi dosyalarını `assets/` altına kopyala ve olduğu gibi kullan. Sadece yol (path) düzeltmeleri ve WordPress uyumu için gereken minimum değişiklikleri yap.
 4. **Page builder kullanma** (Elementor, WPBakery vb.). Düzenlenebilir içerik ACF ile sağlanır.
 5. Emin olmadığın bir yapısal kararda (yeni CPT, alan yapısı, sayfa şablonu) önce bana sor, sonra uygula.
@@ -15,7 +15,8 @@ Bu repo, bir müşteri için hazırlanmış **statik HTML/CSS/JS tasarımın öz
 
 ```
 /
-├── _design/              # Orijinal tasarım (salt okunur, deploy edilmez)
+├── _design/              # Eski tasarım, revizyon öncesi (salt okunur, deploy edilmez)
+├── servomotion-site-tum131026/  # Yeni referans tasarım, son teslim paketi (salt okunur, deploy edilmez)
 ├── docs/                 # Proje dokümanları (analiz, kılavuz, yönlendirmeler, canlı kurulum; deploy edilmez)
 ├── bin/                  # Geliştirme betikleri (paket.sh: canlı tema paketi; deploy edilmez)
 ├── acf-json/             # ACF Local JSON (alan grupları burada versiyonlanır)
@@ -33,6 +34,9 @@ Bu repo, bir müşteri için hazırlanmış **statik HTML/CSS/JS tasarımın öz
 │   ├── urun.php          # Ürün sayfaları (Core, Shuttle): bölüm sırası ve alan çıktı yardımcıları
 │   ├── rehber.php        # Rehber: block style/desenler, blok çıktı dönüşümleri, yazı yardımcıları
 │   ├── cli.php           # WP-CLI komutları (wp servo rehber-aktar)
+│   ├── cli-faz1.php      # WP-CLI: canlı denetim FAZ 1 içerik betiği (wp servo faz1)
+│   ├── cli-faz2.php      # WP-CLI: canlı denetim FAZ 2 (dokümanlar, formlar; wp servo faz2)
+│   ├── talep.php         # Talep formları: REST /talep, korumalı doküman dizini, süreli indirme bağlantısı
 │   ├── arama.php         # Site içi arama (blok metinlerinin dizinlenmesi)
 │   ├── formlar.php       # REST uç noktaları (uygulama özeti, bülten), geliştirme modu mail kaydı
 │   ├── walkers.php       # Menü walker'ları
@@ -100,7 +104,7 @@ WordPress core dosyaları, `wp-config.php`, `wp-content/uploads`, `node_modules`
 
 ## Deploy edilmeyecekler
 
-`_design/`, `docs/` ve `bin/` repoda tutulur ama canlıya deploy edilmez. Canlı paket `bin/paket.sh` ile üretilir (`dist/servo-<sürüm>.zip`; `dist/` repoya girmez); paket bu klasörleri, `CLAUDE.md`, `README.md` ve git dosyalarını içermez.
+`_design/`, `servomotion-site-tum131026/`, `docs/` ve `bin/` repoda tutulur ama canlıya deploy edilmez. Canlı paket `bin/paket.sh` ile üretilir (`dist/servo-<sürüm>.zip`; `dist/` repoya girmez); paket bu klasörleri, `CLAUDE.md`, `README.md` ve git dosyalarını içermez.
 
 ## Proje kararları
 
@@ -129,6 +133,9 @@ Analiz (`docs/ANALIZ.md`) sonrası onaylanan kararlar:
    - Rehber yazılarının adresi `/rehber/yazi-adi/` olur. Bu yapı Ayarlar > Kalıcı bağlantılar'da `/rehber/%postname%/`, kategori temeli `rehber/kategori` olarak ayarlanır (kategori adresi `/rehber/kategori/secim/`; tema bunu zorlamaz, bkz. `docs/CANLI-KURULUM.md`). Bu yüzden tüm CPT ve taxonomy'ler `with_front => false` ile kaydedilir.
    - Eski `*.html` adresleri `.htaccess` içinde 301 ile yönlendirilir. Eşleşme listesi ve kural bloğu: `docs/YONLENDIRMELER.md` (tasarımın `blog-*` kuralları dahil; EN adresleri 2. faza kadar 302). Canlı kurulum ayarları: `docs/CANLI-KURULUM.md`. Müşteri kılavuzu: `docs/KULLANIM-KILAVUZU.md`.
 9. **SEO:** Rank Math kullanılır. Tema description, OG, canonical ve hreflang basmaz. Organization şemasını Rank Math verir. Tema sadece SSS sayfasında, SSS CPT'sinden FAQPage JSON-LD üretir (Rank Math FAQ bloğu kullanılmaz, çift şema olmaz).
+   - Rank Math ayarları, sayfa bazlı başlık/açıklama ve paylaşım görselleri (`og/` → Medya, 1200×630) `wp servo faz3` ile kurulur (`inc/cli-faz3.php`). Rank Math'in ön yüzü hesap bağlantısı olmadan çalışsın diye kayıt "atla" olarak işaretlenir.
+   - `inc/seo.php`: sayfaların `og:type` değeri `website`, rehber yazılarınınki `article`; rehber yazılarının Article şemasında yazar olarak kurum yer alır (kullanıcı adı çıkmaz). Tema WordPress `generator` etiketini basmaz.
+   - Host www'suzdur (`https://servomotion.com.tr`); canonical, site haritası ve (FAZ 4'te) hreflang buna göre üretilir.
 10. **Fontlar:** Barlow, Barlow Condensed, IBM Plex Mono ve Poppins `assets/fonts/` altında self-host edilir. Google Fonts CDN kullanılmaz.
 11. **Kapsam dışı:** `kurulum-notlari.html`, `KURULUM-NOTLARI.md`, `.htaccess`, `robots.txt`, `sitemap.xml` temaya dönüştürülmez. PDF, video ve xlsx dosyaları Media Library'ye yüklenir.
 12. **Önek ve text domain:** Fonksiyon öneki `servo_`, text domain `servomotion`.
@@ -158,6 +165,26 @@ Analiz (`docs/ANALIZ.md`) sonrası onaylanan kararlar:
 17. **Ürün ve marka adlarının işaretlenmesi:** Panelde metinler `<bdi>` gibi etiketler olmadan düz yazılır. Ürün sayfalarında, sayfa bloklarında ve rehber yazılarında (liste, kart, yazı metni) bilinen ürün/marka adları çıktıda `servo_bdi()` ile otomatik olarak `<bdi lang="en">` içine alınır. SVG, script ve form seçeneklerinin içine dokunulmaz.
     - Terim listesi tek yerdedir: `servo_marka_adlari()` (`inc/helpers.php`, `servo_marka_adlari` filtresiyle genişletilebilir). Biçim tasarımı izler: "Precisor" ve "ProfiNet" `<span lang="en"><bdi lang="en">…</bdi></span>`, diğerleri `<bdi lang="en">…</bdi>`. "Core" ve "Shuttle" işaretin dışında kalır.
     - Tasarım aynı terimi her yerde aynı biçimde işaretlemediği için tasarımdan görünmez markup farkları vardır ve kabul edilmiştir: ürün sayfalarında 3, blok sayfalarında 32 fazladan / 2 eksik, rehberde 66 fazladan / 7 eksik `<bdi>`. Tasarım CSS'i `bdi[lang="en"]` stilini sıfırladığı için görünüm değişmez.
+18. **Talep formları ve korumalı dokümanlar:**
+    - Dokümanlar sayfası ve servis alt sayfalarındaki (destek, iade, kılavuz) formlar `talep_formu` bloğuyla kurulur ve `servomotion/v1/talep` uç noktasına gider (nonce, honeypot, IP başına rate-limit, geliştirme modu mail kaydı). JS kapalıysa ya da alıcı adresi yoksa tasarımdaki `mailto:` yedeği çalışır. Form stilleri `servis.css` içinde `.talep-formu` altına kapsanır (iletişim sayfasının `.fld`/`.two` kurallarıyla çakışmaz).
+    - Veri sayfaları ve uygunluk sertifikası "Talep formuyla" erişimlidir: dosyaları `uploads/servo-korumali/` dizininde durur (doğrudan erişim ve arama motorları kapalı) ve yalnızca imzalı, 7 gün geçerli `?servo-indir=` bağlantısıyla verilir. Kurulum notları ve uygulama notları doğrudan indirilebilir (Medya).
+    - Site Ayarları > Formlar > "Doküman talebi: gönderim": "otomatik gönder" (varsayılan) ziyaretçiye indirme bağlantılarını e-postalar; "sadece ekibe bildir" yalnızca ekibe bildirim yollar. Ekibe bildirim her zaman gider.
+
+## İngilizce sürüm (Polylang)
+
+- **Diller:** `tr` (varsayılan, ön eksiz) ve `en` (`/en/`). Ayarlar: adresteki dil ön eki, varsayılan dil ön eksiz. Çevrilebilir türler: sayfa, yazı, `uygulama`, `vaka`, `sss`, `terim`; taxonomy'ler: `urun_alani`, `sss_grup`. Ücretsiz Polylang kullanılır.
+- **Dil yardımcıları (`inc/dil.php`):** `servo_dil()`, `servo_en()`, `servo_kayit_bul( $slug, $tur, $dil )` (kaydı dil filtresiyle slug'dan bulur; `get_page_by_path` yerine bu kullanılır), `servo_js_yolu()` (EN'de `assets/js/en/` varsa o script), `<html lang>` (`tr` / `en-GB`), menüdeki TR/EN düğmesi (`a.langlink`).
+- **Site Ayarları:** dile göre iki options kaydı: `options_tr`, `options_en` (EN'e "Site Settings (EN)" alt sayfasından girilir). `servo_option()` EN alanı boşsa TR değerine düşer; yine de form aydınlatma notu gibi dile özgü metinler EN'de TR'ye düşmez (`servo_kvkk_notu()`).
+- **Aynı slug iki dilde:** ücretsiz Polylang buna izin vermez; `servo_slug_paylas` (`wp_unique_post_slug`) kaydın dilinden farklı dillerdeki çakışmalarda özgün slug'ı korur, `servo_ana_sorgu_dil_filtresi` (`the_posts`) aynı slug'lı kayıtlardan yalnızca geçerli dilin kaydını bırakır.
+- **EN adres ön ekleri (dar kapsamlı):** yalnızca `/en/` adreslerinde `rehber → guide`, `rehber/kategori → guide/category`, `uygulama → application` olur; TR adreslere dokunulmaz.
+  - *Gelen istek:* `rewrite_rules_array` filtresi (öncelik 999) `servo_en_kurallar()` ile yalnızca `en/` (Polylang anahtarlarında `(en)/`) ile başlayan kural anahtarlarındaki ön eki değiştirir. Kurallar kalıcı bağlantı kaydıyla ve Polylang'in dil ekleme/silme işlemleriyle yeniden üretilirken de bu filtre çalışır; ayrı bir kayıt gerekmez.
+  - *Giden adres:* `post_link`, `post_type_link` ve `term_link` filtreleri `servo_en_adres()` ile üretilen adresin başındaki eski ön eki yeni ön ekle değiştirir. Site kökü `home_url()` ile değil `get_option( 'home' )` ile alınır (ön yüzde `home_url()` dil öneki alır).
+  - Eşleme tek yerde: `servo_en_onekler()`. Yeni ön ek gerekirse buraya eklenir ve `wp rewrite flush` çalıştırılır.
+- **EN ana sayfa adresi:** Polylang EN ön sayfayı `/en/home/` olarak sunar; `/en/` buraya yönlenir. `applications` sayfası yalnızca EN'dedir; dil düğmesi TR ana sayfadaki `#uygulama-alanlari`'na gider.
+- **Çeviri dosyaları:** tema metinleri `languages/servomotion.pot` / `servomotion-en_GB.po/.mo`; ziyaretçi dilinde `servo_ceviri_yukle()` yükler. Yönetim paneli dizgeleri Türkçe kalır. Paketten çıkarılamayan çeviriler `docs/EN-CEVIRI-LISTESI.md`'dedir (müşteri onayı için).
+- **İçerik betiği:** `wp servo faz4 [adım…] [--dry-run]` (`inc/cli-faz4.php`; adımlar: dil, ayarlar, js, medya, vakalar, uygulamalar, sayfalar, rehber, ayar_metinleri, tani, menuler, arama). TR içerikle bağlar, tekrar çalıştırılınca kopya üretmez. EN menüler "Main menu EN" / "Footer menu EN"dir ve Polylang menü eşlemesine yazılır.
+- **Formlar:** `servomotion/v1/talep` isteği `lang` alır; ziyaretçiye giden mesaj ve e-posta onun dilindedir, ekibe bildirim her zaman TR'dir. Doküman CPT'sinde `dil` (`tr` / `en` / `ortak`) ve `talep_etiketi_en` alanları vardır.
+- **EN sayfalar:** Core Precisor, Shuttle Precisor, iletişim, SSS, sözlük ve KVKK paketin EN sürümünde TR'den farklı yapıdadır (yeni sayfa şablonu / blok gerektirir); karar bekleyene kadar taslaktır.
 
 ## Kontrol listesi
 

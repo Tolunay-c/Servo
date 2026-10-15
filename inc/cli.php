@@ -9,10 +9,114 @@
 
 defined( 'ABSPATH' ) || exit;
 
+require_once __DIR__ . '/cli-faz1.php';
+require_once __DIR__ . '/cli-faz2.php';
+require_once __DIR__ . '/cli-faz3.php';
+require_once __DIR__ . '/cli-faz4.php';
+
 /**
  * ServoMotion tema komutları.
  */
 class Servo_CLI {
+
+	/**
+	 * Canlı site denetimi, FAZ 1: içeriği son teslim paketine (servomotion-site-tum131026/) getirir.
+	 *
+	 * Her adım tekrar çalıştırılabilir; kayıtlar slug veya kaynak dosya adıyla eşleşir, kopya oluşmaz.
+	 * Adımlar: temizlik, profinet, svg, rehber, kurumsal, shuttle, vakalar, uygulamalar, basari,
+	 * servis, anasayfa, metinler, menuler, arama. Adım verilmezse hepsi sırayla çalışır.
+	 *
+	 * ## OPTIONS
+	 *
+	 * [<adim>...]
+	 * : Çalıştırılacak adımlar.
+	 *
+	 * [--kaynak=<dizin>]
+	 * : Paket dizini. Varsayılan: temanın servomotion-site-tum131026/ klasörü.
+	 *
+	 * [--dry-run]
+	 * : Hiçbir şey yazmadan ne yapılacağını listeler.
+	 *
+	 * ## EXAMPLES
+	 *
+	 *     wp servo faz1 --dry-run
+	 *     wp servo faz1 rehber kurumsal
+	 *
+	 * @param array $args       Adımlar.
+	 * @param array $assoc_args Seçenekler.
+	 */
+	public function faz1( $args, $assoc_args ) {
+		Servo_Faz1::calistir( $args, $assoc_args );
+	}
+
+	/**
+	 * Canlı site denetimi, FAZ 2: dokümanlar, talep formları ve korumalı PDF dizini.
+	 *
+	 * Adımlar: koruma, notlar, dokumanlar, sayfalar, duymeler, arama. Adım verilmezse hepsi sırayla çalışır.
+	 *
+	 * ## OPTIONS
+	 *
+	 * [<adim>...]
+	 * : Çalıştırılacak adımlar.
+	 *
+	 * [--kaynak=<dizin>]
+	 * : Paket dizini. Varsayılan: temanın servomotion-site-tum131026/ klasörü.
+	 *
+	 * [--dry-run]
+	 * : Hiçbir şey yazmadan ne yapılacağını listeler.
+	 *
+	 * @param array $args       Adımlar.
+	 * @param array $assoc_args Seçenekler.
+	 */
+	public function faz2( $args, $assoc_args ) {
+		Servo_Faz2::calistir( $args, $assoc_args );
+	}
+
+	/**
+	 * Canlı site denetimi, FAZ 3: Rank Math kurulumu, sayfa bazlı başlık/açıklama/OG alanları.
+	 *
+	 * Adımlar: og, rankmath, seo, tarihler. Adım verilmezse hepsi sırayla çalışır.
+	 *
+	 * ## OPTIONS
+	 *
+	 * [<adim>...]
+	 * : Çalıştırılacak adımlar.
+	 *
+	 * [--kaynak=<dizin>]
+	 * : Paket dizini. Varsayılan: temanın servomotion-site-tum131026/ klasörü.
+	 *
+	 * [--dry-run]
+	 * : Hiçbir şey yazmadan ne yapılacağını listeler.
+	 *
+	 * @param array $args       Adımlar.
+	 * @param array $assoc_args Seçenekler.
+	 */
+	public function faz3( $args, $assoc_args ) {
+		Servo_Faz3::calistir( $args, $assoc_args );
+	}
+
+	/**
+	 * Canlı site denetimi, FAZ 4: İngilizce sürüm (Polylang, Site Ayarları, EN içerik).
+	 *
+	 * Adım verilmezse hepsi sırayla çalışır.
+	 *
+	 * ## OPTIONS
+	 *
+	 * [<adim>...]
+	 * : Çalıştırılacak adımlar (bkz. inc/cli-faz4.php).
+	 *
+	 * [--kaynak=<dizin>]
+	 * : Paket dizini. Varsayılan: temanın servomotion-site-tum131026/ klasörü.
+	 *
+	 * [--dry-run]
+	 * : Hiçbir şey yazmadan ne yapılacağını listeler.
+	 *
+	 * @param array $args       Adımlar.
+	 * @param array $assoc_args Seçenekler.
+	 */
+	public function faz4( $args, $assoc_args ) {
+		Servo_Faz4::calistir( $args, $assoc_args );
+	}
 
 	/**
 	 * Tasarımdaki rehber yazılarını (rehber-*.html) Gutenberg yazısı olarak içeri aktarır.
@@ -185,7 +289,7 @@ class Servo_CLI {
 	 * @param string $file Dosya yolu.
 	 * @return DOMDocument
 	 */
-	private function dom( $file ) {
+	protected function dom( $file ) {
 		$dom = new DOMDocument();
 		libxml_use_internal_errors( true );
 		$dom->loadHTML( '<?xml encoding="utf-8"?>' . file_get_contents( $file ) ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
@@ -200,7 +304,7 @@ class Servo_CLI {
 	 * @param DOMNode|null $node Düğüm.
 	 * @return string
 	 */
-	private function metin( $node ) {
+	protected function metin( $node ) {
 		return $node ? trim( (string) preg_replace( '/\s+/u', ' ', $node->textContent ) ) : '';
 	}
 
@@ -215,7 +319,7 @@ class Servo_CLI {
 	 * @param DOMNode $node Düğüm.
 	 * @return string
 	 */
-	private function ic( $node ) {
+	protected function ic( $node ) {
 		$html = '';
 		foreach ( $node->childNodes as $c ) {
 			$html .= $node->ownerDocument->saveHTML( $c );
@@ -242,7 +346,7 @@ class Servo_CLI {
 	 * @param string $href Bağlantı.
 	 * @return string
 	 */
-	private function adres( $href ) {
+	protected function adres( $href ) {
 		if ( '' === $href || preg_match( '#^(https?:|mailto:|tel:|\#)#', $href ) ) {
 			return $href;
 		}
@@ -276,7 +380,7 @@ class Servo_CLI {
 	 * @param DOMElement $prose Metin kapsayıcısı.
 	 * @return string
 	 */
-	private function bloklar( $prose ) {
+	protected function bloklar( $prose ) {
 		$out = array();
 
 		foreach ( $prose->childNodes as $el ) {
@@ -338,7 +442,7 @@ class Servo_CLI {
 	 * @param string $html  Blok HTML'i.
 	 * @return string
 	 */
-	private function blok( $ad, $attrs, $html ) {
+	protected function blok( $ad, $attrs, $html ) {
 		$json = $attrs ? ' ' . wp_json_encode( $attrs, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) : '';
 
 		return '<!-- wp:' . $ad . $json . " -->\n" . $html . "\n<!-- /wp:" . $ad . ' -->';
@@ -351,7 +455,7 @@ class Servo_CLI {
 	 * @param DOMElement $el Paragraf.
 	 * @return string
 	 */
-	private function paragraf( $el ) {
+	protected function paragraf( $el ) {
 		if ( preg_match( '/font-size:\s*([0-9.]+(?:px|rem|em))/', $el->getAttribute( 'style' ), $m ) ) {
 			return $this->blok( 'paragraph', array( 'style' => array( 'typography' => array( 'fontSize' => $m[1] ) ) ), '<p style="font-size:' . $m[1] . '">' . $this->ic( $el ) . '</p>' );
 		}
@@ -365,7 +469,7 @@ class Servo_CLI {
 	 * @param DOMElement $el Liste.
 	 * @return string
 	 */
-	private function liste( $el ) {
+	protected function liste( $el ) {
 		$attrs = array();
 		$cls   = array( 'wp-block-list' );
 
@@ -395,7 +499,7 @@ class Servo_CLI {
 	 * @param DOMElement $el Kutu.
 	 * @return string
 	 */
-	private function kutu( $el ) {
+	protected function kutu( $el ) {
 		$ic = array();
 
 		foreach ( $el->childNodes as $c ) {
@@ -420,7 +524,7 @@ class Servo_CLI {
 	 * @param DOMElement $el Kutular.
 	 * @return string
 	 */
-	private function degerler( $el ) {
+	protected function degerler( $el ) {
 		$satirlar = '';
 
 		foreach ( $el->childNodes as $kutu ) {
@@ -455,7 +559,7 @@ class Servo_CLI {
 	 * @param DOMElement $table Tablo.
 	 * @return string
 	 */
-	private function tablo( $table ) {
+	protected function tablo( $table ) {
 		$html = '';
 
 		foreach ( array( 'thead', 'tbody' ) as $bolum ) {
@@ -492,7 +596,7 @@ class Servo_CLI {
 	 * @param string $slug  Yazı slug'ı.
 	 * @return int Bulunamazsa 0.
 	 */
-	private function bul( $dosya, $slug ) {
+	protected function bul( $dosya, $slug ) {
 		$ids = get_posts(
 			array(
 				'post_type'      => 'post',
@@ -521,7 +625,7 @@ class Servo_CLI {
 	 * @param string $ad   Ad.
 	 * @return int Terim ID'si.
 	 */
-	private function terim( $tax, $slug, $ad ) {
+	protected function terim( $tax, $slug, $ad ) {
 		$t = get_term_by( 'slug', $slug, $tax );
 
 		if ( $t ) {
@@ -540,7 +644,7 @@ class Servo_CLI {
 	 * @param int    $sira  Listedeki sıra (her sıra 1 dakika geriye; liste sırası korunur).
 	 * @return string Y-m-d H:i:s
 	 */
-	private function tarih( $metin, $sira ) {
+	protected function tarih( $metin, $sira ) {
 		$aylar = array( 'ocak', 'şubat', 'mart', 'nisan', 'mayıs', 'haziran', 'temmuz', 'ağustos', 'eylül', 'ekim', 'kasım', 'aralık' );
 		$p     = preg_split( '/\s+/u', mb_strtolower( trim( $metin ), 'UTF-8' ) );
 		$ay    = isset( $p[1] ) ? array_search( $p[1], $aylar, true ) : false;
@@ -559,7 +663,7 @@ class Servo_CLI {
 	 * @param mixed      $value   Değer.
 	 * @param int|string $post_id Yazı ID'si veya 'option'.
 	 */
-	private function alan( $key, $value, $post_id ) {
+	protected function alan( $key, $value, $post_id ) {
 		if ( ! function_exists( 'update_field' ) ) {
 			WP_CLI::warning( 'Secure Custom Fields etkin değil; alan yazılamadı: ' . $key );
 			return;
@@ -574,7 +678,7 @@ class Servo_CLI {
 	 * @param DOMXPath $liste Rehber listesi (rehber.html).
 	 * @param DOMXPath $yazi  İlk yazı sayfası (ortak kutu ve not için).
 	 */
-	private function ayarlar( $liste, $yazi ) {
+	protected function ayarlar( $liste, $yazi ) {
 		if ( ! function_exists( 'get_field' ) ) {
 			return;
 		}

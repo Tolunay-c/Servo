@@ -37,7 +37,7 @@ $servo_kategoriler = get_terms(
 	array(
 		'taxonomy'   => 'category',
 		'hide_empty' => true,
-		'orderby'    => 'name',
+		'orderby'    => 'term_id',
 	)
 );
 $servo_alanlar     = get_terms(
@@ -47,6 +47,18 @@ $servo_alanlar     = get_terms(
 		'orderby'    => 'name',
 	)
 );
+// Ürün alanı filtreleri: "tüm sistemler" (genel) en sonda.
+if ( is_array( $servo_alanlar ) ) {
+	usort(
+		$servo_alanlar,
+		function ( $a, $b ) {
+			$ga = 0 === strpos( $a->slug, 'genel' );
+			$gb = 0 === strpos( $b->slug, 'genel' );
+
+			return $ga === $gb ? strcasecmp( $a->name, $b->name ) : ( $ga ? 1 : -1 );
+		}
+	);
+}
 $servo_toplam      = count( $wp_query->posts );
 ?>
 <section class="gh"><div class="wrap">
@@ -90,6 +102,30 @@ foreach (
 
 <section class="section" id="yazilar"><div class="wrap">
 <?php
+$servo_kutu_etiket = servo_option( 'rehber_kutu_etiket' );
+$servo_kutu_baslik = servo_option( 'rehber_kutu_baslik' );
+$servo_kutu_metin  = servo_option( 'rehber_kutu_metin' );
+$servo_kutu_buton  = servo_option( 'rehber_kutu_buton' );
+
+if ( $servo_kutu_baslik || $servo_kutu_metin ) :
+	?>
+<div class="editorial-note">
+	<?php if ( $servo_kutu_etiket ) : ?>
+<p class="eyebrow"><?php echo servo_bdi( esc_html( $servo_kutu_etiket ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
+<?php endif; ?>
+	<?php if ( $servo_kutu_baslik ) : ?>
+<h2><?php echo servo_bdi( esc_html( $servo_kutu_baslik ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
+<?php endif; ?>
+	<?php if ( $servo_kutu_metin ) : ?>
+<p><?php echo servo_bdi( esc_html( $servo_kutu_metin ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
+<?php endif; ?>
+	<?php if ( is_array( $servo_kutu_buton ) && ! empty( $servo_kutu_buton['url'] ) ) : ?>
+<p><a class="btn" href="<?php echo esc_url( $servo_kutu_buton['url'] ); ?>"><?php echo esc_html( $servo_kutu_buton['title'] ); ?></a></p>
+<?php endif; ?>
+</div>
+	<?php
+endif;
+
 if ( $servo_one ) {
 	get_template_part(
 		'template-parts/rehber/kart',

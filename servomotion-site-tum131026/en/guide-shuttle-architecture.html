@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="../favicon.svg?v=20260917" type="image/svg+xml"><link rel="mask-icon" href="../favicon.svg?v=20260917" color="#FFD400"><link rel="apple-touch-icon" href="../apple-touch-icon.png?v=20260917"><link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png?v=20260917"><link rel="manifest" href="../site.webmanifest?v=20260917"><meta name="theme-color" content="#0B0F14">
+<title>Shuttle Architecture: One Servo Axis, Dozens of Lasers | ServoMotion Guide</title>
+<meta name="description" content="How the three-rail shuttle structure works, why every laser does not need its own motor, and how the setup cycle, reserve area and rail assembly length are calculated."><link rel="canonical" href="https://www.servomotion.com.tr/en/guide-shuttle-architecture.html"><link rel="alternate" hreflang="tr" href="https://www.servomotion.com.tr/rehber-mekik-mimarisi.html"><link rel="alternate" hreflang="en" href="https://www.servomotion.com.tr/en/guide-shuttle-architecture.html"><meta property="og:type" content="article"><meta property="og:site_name" content="ServoMotion"><meta property="og:locale" content="en_GB"><meta property="og:title" content="Shuttle Architecture: One Servo Axis, Dozens of Lasers | ServoMotion Guide"><meta property="og:description" content="How the three-rail shuttle structure works, why every laser does not need its own motor, and how the setup cycle, reserve area and rail assembly length are calculated."><meta property="og:url" content="https://www.servomotion.com.tr/en/guide-shuttle-architecture.html"><meta property="og:image" content="https://www.servomotion.com.tr/og/rehber.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/rehber.css?v=20260917">
+<link rel="stylesheet" href="../assets/brandfont.css?v=20260917">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Shuttle Architecture: One Servo Axis, Dozens of Lasers","description":"How the three-rail shuttle structure works, why every laser does not need its own motor, and how the setup cycle, reserve area and rail assembly length are calculated.","image":"https://www.servomotion.com.tr/og/rehber.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.servomotion.com.tr/en/guide-shuttle-architecture.html"},"inLanguage":"en","datePublished":"2026-09-23","dateModified":"2026-09-23","author":{"@type":"Organization","name":"ServoMotion","url":"https://www.servomotion.com.tr/"},"publisher":{"@type":"Organization","name":"ServoMotion","logo":{"@type":"ImageObject","url":"https://www.servomotion.com.tr/favicon-512.png"}},"isPartOf":{"@type":"Blog","name":"ServoMotion Guide","url":"https://www.servomotion.com.tr/en/guide.html"}}</script><style id="navfit">.nav .tabs .langlink{color:#D6DEE7}.nav .tabs .langlink:hover{color:var(--yellow)}@media(min-width:901px){.nav nav a,.nav .tabs a,.nav .tabs .tab{white-space:nowrap}.nav nav{gap:16px;flex-wrap:wrap}.nav nav a{font-size:13.5px;letter-spacing:.04em}.nav .nav-in{gap:16px}.nav .brand span{display:none}.nav .tabs{gap:9px;flex-wrap:wrap}.nav .tabs .tab{font-size:12.2px;letter-spacing:0}}@media(min-width:901px) and (max-width:1220px){.nav nav{gap:10px}.nav nav a{font-size:12.2px;letter-spacing:.01em}.nav .tabs{gap:7px}.nav .tabs .tab{font-size:11.6px}}@media(min-width:901px) and (max-width:1120px){.nav nav{gap:8px}.nav nav a{font-size:11.4px;letter-spacing:0}.nav .tabs{gap:6px}.nav .tabs .tab{font-size:11px}}@media(min-width:901px) and (max-width:1120px){.nav .wrap,.nav .nav-in{flex-direction:column;align-items:flex-start;gap:10px}.nav nav,.nav .tabs{width:100%;justify-content:flex-start}}</style>
+</head>
+<body>
+<header class="nav"><div class="wrap"><a class="brand" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1726.7 800.0" fill="currentColor" aria-hidden="true" focusable="false" class="smk"><g class="smk-m"><g transform="translate(276.56 0) skewX(-19.07)"><path d="M 72.00 0.00 H 670.04 V 228.00 H 0.00 V 72.00 A 72.00 72.00 0 0 1 72.00 0.00 Z"/><path d="M 72.00 0.00 H 280.00 V 468.00 H 0.00 V 72.00 A 72.00 72.00 0 0 1 72.00 0.00 Z"/><path d="M 0.00 332.00 H 670.04 V 468.00 H 0.00 V 332.00 Z"/><path d="M 0.00 572.00 H 280.00 V 800.00 H 72.00 A 72.00 72.00 0 0 1 0.00 728.00 V 572.00 Z"/><path d="M 390.04 332.00 H 670.04 V 800.00 H 390.04 V 332.00 Z"/><path d="M 780.08 0.00 H 1060.08 V 800.00 H 780.08 V 0.00 Z"/><path d="M 1170.12 0.00 H 1378.12 A 72.00 72.00 0 0 1 1450.12 72.00 V 728.00 A 72.00 72.00 0 0 1 1378.12 800.00 H 1170.12 V 0.00 Z"/></g></g><g transform="skewX(-19.07)"><rect class="smk-b" y="-46" width="64" height="892" rx="32" x="126.6" fill="#FFD400" opacity="0"/></g></svg><bdi lang="en"><i class="lo1">Servo</i><i class="lo2">Motion</i></bdi></a><nav aria-label="Main menu"><a href="index.html">HOME</a><a href="core-precisor.html">CORE PRECISOR</a><a href="shuttle-precisor.html">SHUTTLE PRECISOR</a><a href="success-stories.html">SUCCESS STORIES</a><a href="service.html">SERVICE</a><a href="company.html">COMPANY</a><a href="guide.html">GUIDE</a><a href="contact.html">CONTACT</a><a class="langlink" href="../rehber-mekik-mimarisi.html" hreflang="tr" title="Türkçe">TR</a></nav></div></header>
+<main>
+<section class="pdoc"><div class="wrap">
+<p class="crumb"><a href="guide.html">GUIDE</a> · PRODUCT SELECTION</p>
+<p class="topmeta"><span><b>23 September 2026</b></span><span>7 MIN READ</span></p>
+<h1>Shuttle Architecture: One Servo Axis, Dozens of Lasers</h1>
+<p class="intro">Shuttle <span lang="en"><bdi lang="en">Precisor</bdi></span>: how the three-rail structure works, why every laser does not need its own motor, and how the setup cycle, reserve area and rail assembly length are calculated.</p>
+<div class="ptags"><div class="tagrow"><span class="ctag secim">Investment and selection</span><span class="atag">Shuttle Precisor</span></div></div>
+<div class="phero"><svg viewBox="0 0 320 150" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true"><rect width="320" height="150" fill="#0A1017"/><line x1="0" y1="0" x2="0" y2="150" stroke="#17242f" stroke-width="1"/><line x1="32" y1="0" x2="32" y2="150" stroke="#17242f" stroke-width="1"/><line x1="64" y1="0" x2="64" y2="150" stroke="#17242f" stroke-width="1"/><line x1="96" y1="0" x2="96" y2="150" stroke="#17242f" stroke-width="1"/><line x1="128" y1="0" x2="128" y2="150" stroke="#17242f" stroke-width="1"/><line x1="160" y1="0" x2="160" y2="150" stroke="#17242f" stroke-width="1"/><line x1="192" y1="0" x2="192" y2="150" stroke="#17242f" stroke-width="1"/><line x1="224" y1="0" x2="224" y2="150" stroke="#17242f" stroke-width="1"/><line x1="256" y1="0" x2="256" y2="150" stroke="#17242f" stroke-width="1"/><line x1="288" y1="0" x2="288" y2="150" stroke="#17242f" stroke-width="1"/><line x1="320" y1="0" x2="320" y2="150" stroke="#17242f" stroke-width="1"/><rect x="0" y="0" width="320" height="5" fill="#ffd400"/><rect x="24" y="26" width="272" height="9" rx="1" fill="none" stroke="#4FA3E3" stroke-width="1.4"/><rect x="34" y="44" width="26" height="18" rx="2" fill="#4A5A6B"/><rect x="45.5" y="62" width="3" height="42" rx="1.5" fill="#FF2D20"/><rect x="76" y="44" width="26" height="18" rx="2" fill="#4A5A6B"/><rect x="87.5" y="62" width="3" height="42" rx="1.5" fill="#FF2D20"/><rect x="118" y="44" width="26" height="18" rx="2" fill="#4A5A6B"/><rect x="129.5" y="62" width="3" height="42" rx="1.5" fill="#FF2D20"/><rect x="160" y="44" width="26" height="18" rx="2" fill="#4A5A6B"/><rect x="171.5" y="62" width="3" height="42" rx="1.5" fill="#FF2D20"/><rect x="202" y="44" width="26" height="18" rx="2" fill="#4A5A6B"/><rect x="213.5" y="62" width="3" height="42" rx="1.5" fill="#FF2D20"/><rect x="244" y="44" width="26" height="18" rx="2" fill="#4A5A6B"/><rect x="255.5" y="62" width="3" height="42" rx="1.5" fill="#FF2D20"/><rect x="24" y="110" width="272" height="10" rx="2" fill="#2B3B4C"/><rect x="130" y="106" width="28" height="18" rx="2" fill="#ffd400"/></svg></div>
+</div></section>
+
+<section class="pbody"><div class="wrap">
+<nav class="toc" aria-label="Contents"><div class="ttitle">CONTENTS</div><ol><li><a href="#cozulmesi-gereken-problem">The problem to solve</a></li><li><a href="#uc-ray-uc-gorev">Three rails, three jobs</a></li><li><a href="#kurulum-dongusu">The setup cycle</a></li><li><a href="#hiz-profili-neden-ikiye-ayrilir">Why the speed profile splits in two</a></li><li><a href="#rezerve-alani-nedir">What is the reserve area?</a></li><li><a href="#ray-boyu-nasil-cikar">How is rail assembly length derived?</a></li><li><a href="#ne-zaman-mekik-ne-zaman-degil">When a shuttle fits, and when it does not</a></li></ol></nav>
+<div class="prose">
+<div class="editorial-note engineering"><p class="eyebrow">Engineering assessment</p><h2>The shuttle architecture decouples the number of servo axes from the number of lasers</h2><ul><li>Size the system for the parking area, service clearance and safety allowance as well as the required travel range.</li><li>Calculate setup time from acceleration, pick-up, release and verification times, not from speed alone.</li><li>Include fault scenarios and the manual recovery procedure in the commissioning scope.</li></ul></div>
+
+
+<h2 id="cozulmesi-gereken-problem">The problem to solve</h2>
+<p>If twenty laser reference lines have to be visible <b>at the same time</b>  on a line, the obvious answer is twenty moving lasers — each with its own servo motor, drive, encoder and moving cable. Cost then rises linearly as the system grows, and cable complexity and maintenance load rise faster still.</p>
+<p>The shuttle architecture breaks that relationship: <b>the number of lasers grows, the number of moving axes does not.</b></p>
+
+<div class="keyval">
+  <div><div class="k">Servo axis</div><div class="v">1<small>shuttle</small></div></div>
+  <div><div class="k">Laser carriages</div><div class="v">5–40+</div></div>
+  <div><div class="k">Projection accuracy</div><div class="v">±1.00<small>mm</small></div></div>
+</div>
+
+<h2 id="uc-ray-uc-gorev">Three rails, three jobs</h2>
+<ul>
+  <li><b>Upper rail — power.</b> Carries the electrical supply to the carriages. Power remains connected while the carriages change position along the rail.</li>
+  <li><b>Middle rail — laser carriages.</b> Each carriage carries a single laser module. When a carriage reaches its position it is <b>mechanically locked on the rail</b>  and stays there independently of the shuttle.</li>
+  <li><b>Lower rail — the servo shuttle.</b> The only moving axis in the system. It takes each carriage in turn to its recipe position, then retracts to its home position.</li>
+</ul>
+
+<h2 id="kurulum-dongusu">The setup cycle</h2>
+<ol class="steps">
+  <li><b>Recipe</b>The operator enters the cutting dimensions on the panel; the system calculates each laser’s target position.</li>
+  <li><b>Approach</b>The shuttle moves along the lower rail to sit beneath the next laser carriage. It is unloaded at this stage.</li>
+  <li><b>Transport</b>It carries the carriage to its recipe position. The laser stays on during the move, so the reference line can be watched as it travels.</li>
+  <li><b>Release</b>The carriage locks in position and becomes independent of the shuttle.</li>
+  <li><b>Completion</b>The shuttle moves on to the next carriage. Once every reference line is set, it retracts to its home position.</li>
+</ol>
+<p>The critical point is the fifth step: <b>once the shuttle retracts, the reference lines stay where they are.</b> Every laser reference line stays on throughout production, and none of them moves.</p>
+
+<h2 id="hiz-profili-neden-ikiye-ayrilir">Why the speed profile splits in two</h2>
+<p>Unloaded, the shuttle approaches at up to <b>800 mm/s</b>, and loaded with a carriage at up to <b>500 mm/s</b>. The split is deliberate: a soft stop at the target position under load is part of holding the accuracy. Unloaded, braking distance is not a concern, so the shuttle travels faster.</p>
+<p>Setup time follows from those two speeds, so it grows with the number of lasers — but
+<b>not linearly</b> : the shuttle reuses part of the distance it has already covered for each carriage.</p>
+
+<div class="callout">
+  <div class="t">Example</div>
+  <p>2,400 mm travel, 20 lasers on the rail assembly, 200 mm between reference lines. This recipe holds <b>12 lasers</b>
+  ; the remaining <b>8 wait in the reserve area</b>. A full setup cycle takes about <b>118 seconds</b>
+   and the required rail assembly length comes out at <b>3,050 mm</b> .</p>
+  <p>A time-lapse of the same scenario is in the video on the
+  <a href="shuttle-precisor.html#video">Shuttle <span lang="en"><bdi lang="en">Precisor</bdi></span> product page</a> .</p>
+</div>
+
+<h2 id="rezerve-alani-nedir">What is the reserve area?</h2>
+<p>The rail assembly can hold more lasers than the current recipe requires. Carriages that fall outside the travel range wait parked in the <b>reserve area</b> . When a recipe calls for more reference lines, they come into use without new hardware.</p>
+<p>So size the rail assembly not on today’s recipe but on the <b>densest recipe you can foresee</b> . Carriages can be added later; the rail assembly length is fixed.</p>
+
+<h2 id="ray-boyu-nasil-cikar">How is rail assembly length derived?</h2>
+<p>Rail assembly length is the sum of three components:</p>
+<div class="ascroll"><table class="atable">
+  <thead><tr><th>Component</th><th>What determines it</th></tr></thead>
+  <tbody>
+    <tr><td>Travel range</td><td>The cutting width of the line — the range the reference lines travel</td></tr>
+    <tr><td>Reserve area</td><td>The number of carriages parked in reserve</td></tr>
+    <tr><td>Safety allowance</td><td>Clearance left at the ends for mechanical stops and service</td></tr>
+  </tbody>
+</table></div>
+<p>Run this calculation for your own line with the <a href="shuttle-precisor.html#konfigurator">live configurator on the product page</a> : enter the travel, the number of lasers on the rail assembly and the spacing between reference lines, and the active/reserve split and the required rail assembly length appear immediately.</p>
+
+<h2 id="ne-zaman-mekik-ne-zaman-degil">When a shuttle fits, and when it does not</h2>
+<p>The shuttle architecture was designed for lines that need <b>multiple simultaneous projections</b> . If your line has up to six laser reference lines and they do not all have to be visible at once, a shuttle is not needed — <a href="core-precisor.html">Core <span lang="en"><bdi lang="en">Precisor</bdi></span></a>  delivers the same control infrastructure with fewer components.</p>
+
+<div class="endbox">
+  <h3>WHAT DOES YOUR LINE NEED?</h3>
+  <p>Share your alignment requirements and we will assess the laser layout, the motion architecture and the automation interfaces for your application together.</p>
+  <a class="btn" href="contact.html">GET IN TOUCH</a>
+</div>
+</div></div></section>
+
+<section class="section" style="padding:0"><div class="wrap"><p style="border-left:3px solid var(--yellow);padding-left:15px;font-size:15.5px;color:#506275;line-height:1.65;margin-bottom:40px">For short definitions of the terms used in this article, see the <a href="glossary.html" style="font-weight:600;color:#0b0f14">alignment glossary</a> .</p></div></section><section class="related"><div class="wrap">
+<div class="rehber-intro"><div><p class="label">MORE</p><h2>RELATED ARTICLES</h2></div></div>
+<div class="stories">
+<article class="story" data-category="verim" data-areas="core" data-text="sabit referans lazeri ne işe yarar? sürekli görünür bir merkez referansının ayar ve malzeme yerleşimine katkısını inceleyin. merkezde duran yeşil çizgi bir süs değil. simetri kontrolü, operatör hatasının erken yakalanması ve reçete doğrulamasındaki rolünü anlatıyoruz — ve ne zaman gereksiz olduğunu. sabit referans lazeri ne ise yarar? surekli gorunur bir merkez referansinin ayar ve malzeme yerlesimine katkisini inceleyin. merkezde duran yesil cizgi bir sus degil. simetri kontrolu, operator hatasinin erken yakalanmasi ve recete dogrulamasindaki rolunu anlatiyoruz — ve ne zaman gereksiz oldugunu."><a class="svis" href="guide-fixed-reference.html" aria-label="What Is a Fixed Reference Laser For?"><svg viewBox="0 0 320 150" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true"><rect width="320" height="150" fill="#0A1017"/><line x1="0" y1="0" x2="0" y2="150" stroke="#17242f" stroke-width="1"/><line x1="32" y1="0" x2="32" y2="150" stroke="#17242f" stroke-width="1"/><line x1="64" y1="0" x2="64" y2="150" stroke="#17242f" stroke-width="1"/><line x1="96" y1="0" x2="96" y2="150" stroke="#17242f" stroke-width="1"/><line x1="128" y1="0" x2="128" y2="150" stroke="#17242f" stroke-width="1"/><line x1="160" y1="0" x2="160" y2="150" stroke="#17242f" stroke-width="1"/><line x1="192" y1="0" x2="192" y2="150" stroke="#17242f" stroke-width="1"/><line x1="224" y1="0" x2="224" y2="150" stroke="#17242f" stroke-width="1"/><line x1="256" y1="0" x2="256" y2="150" stroke="#17242f" stroke-width="1"/><line x1="288" y1="0" x2="288" y2="150" stroke="#17242f" stroke-width="1"/><line x1="320" y1="0" x2="320" y2="150" stroke="#17242f" stroke-width="1"/><rect x="0" y="0" width="320" height="5" fill="#ffd400"/><rect x="157.5" y="26" width="5" height="90" rx="1.5" fill="#2FE05C"/><rect x="98.5" y="40" width="3" height="76" rx="1.5" fill="#FF2D20"/><rect x="218.5" y="40" width="3" height="76" rx="1.5" fill="#FF2D20"/><path d="M100 128 L156 128 M148 123 l8 5 -8 5" stroke="#8FA3B8" stroke-width="1.5" fill="none"/><path d="M220 128 L164 128 M172 123 l-8 5 8 5" stroke="#8FA3B8" stroke-width="1.5" fill="none"/></svg></a><div class="sbody"><div class="tagrow"><span class="ctag verim">Production efficiency</span><span class="atag">Core Precisor</span></div><h3><a href="guide-fixed-reference.html" style="text-decoration:none">What Is a Fixed Reference Laser For?</a></h3><p class="pmeta"><b>23 September 2026</b> · 5 min read</p><p class="sum">See what a permanently visible centre reference contributes to setup and material placement.</p><a class="read" href="guide-fixed-reference.html">Read the article →</a><p class="sfoot">SERVOMOTION</p></div></article>
+<article class="story" data-category="secim" data-areas="genel" data-text="keşifte ölçtüğümüz 8 şey uygulama değerlendirmesini hızlandıran sekiz temel bilgiyi hazırlayın. hattınıza geldiğimizde neye bakıyoruz: montaj noktaları, çalışma mesafesi, titreşim, ortam ışığı ve reçete çeşitliliği. keşif öncesinde hazırlarsanız süreç kısalır. kesifte olctugumuz 8 sey uygulama degerlendirmesini hizlandiran sekiz temel bilgiyi hazirlayin. hattiniza geldigimizde neye bakiyoruz: montaj noktalari, calisma mesafesi, titresim, ortam isigi ve recete cesitliligi. kesif oncesinde hazirlarsaniz surec kisalir."><a class="svis" href="guide-site-survey-criteria.html" aria-label="The Eight Things We Measure On Site"><svg viewBox="0 0 320 150" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true"><rect width="320" height="150" fill="#0A1017"/><line x1="0" y1="0" x2="0" y2="150" stroke="#17242f" stroke-width="1"/><line x1="32" y1="0" x2="32" y2="150" stroke="#17242f" stroke-width="1"/><line x1="64" y1="0" x2="64" y2="150" stroke="#17242f" stroke-width="1"/><line x1="96" y1="0" x2="96" y2="150" stroke="#17242f" stroke-width="1"/><line x1="128" y1="0" x2="128" y2="150" stroke="#17242f" stroke-width="1"/><line x1="160" y1="0" x2="160" y2="150" stroke="#17242f" stroke-width="1"/><line x1="192" y1="0" x2="192" y2="150" stroke="#17242f" stroke-width="1"/><line x1="224" y1="0" x2="224" y2="150" stroke="#17242f" stroke-width="1"/><line x1="256" y1="0" x2="256" y2="150" stroke="#17242f" stroke-width="1"/><line x1="288" y1="0" x2="288" y2="150" stroke="#17242f" stroke-width="1"/><line x1="320" y1="0" x2="320" y2="150" stroke="#17242f" stroke-width="1"/><rect x="0" y="0" width="320" height="5" fill="#ffd400"/><circle cx="160" cy="72" r="30" fill="none" stroke="#ffd400" stroke-width="2"/><line x1="160" y1="30" x2="160" y2="114" stroke="#ffd400" stroke-width="1.4"/><line x1="118" y1="72" x2="202" y2="72" stroke="#ffd400" stroke-width="1.4"/><line x1="40" y1="126" x2="280" y2="126" stroke="#8FA3B8" stroke-width="1.4"/><path d="M40 121 v10 M280 121 v10" stroke="#8FA3B8" stroke-width="1.4"/><rect x="158.75" y="40" width="2.5" height="64" rx="1.5" fill="#FF2D20"/></svg></a><div class="sbody"><div class="tagrow"><span class="ctag secim">Investment and selection</span><span class="atag">All systems</span></div><h3><a href="guide-site-survey-criteria.html" style="text-decoration:none">The Eight Things We Measure On Site</a></h3><p class="pmeta"><b>23 September 2026</b> · 6 min read</p><p class="sum">Prepare the eight pieces of information that speed up an application assessment.</p><a class="read" href="guide-site-survey-criteria.html">Read the article →</a><p class="sfoot">SERVOMOTION</p></div></article>
+<article class="story" data-category="verim" data-areas="core shuttle" data-text="nonwoven hatlarında kenar kalitesi hizalama referansının nonwoven üretimindeki rolünü, kesim kalitesini etkileyen diğer unsurlarla birlikte değerlendirin. hijyenik ürün üretiminde dilimleme kenarının ürün kalitesine etkisi ve hizalama hatasının fireye dönüşme mekanizması. küçük bir sapmanın vardiya sonunda ne kadar tuttuğunu hesaplıyoruz. nonwoven hatlarinda kenar kalitesi hizalama referansinin nonwoven uretimindeki rolunu, kesim kalitesini etkileyen diger unsurlarla birlikte degerlendirin. hijyenik urun uretiminde dilimleme kenarinin urun kalitesine etkisi ve hizalama hatasinin fireye donusme mekanizmasi. kucuk bir sapmanin vardiya sonunda ne kadar tuttugunu hesapliyoruz."><a class="svis" href="guide-nonwoven-edge-quality.html" aria-label="Edge Quality in Nonwoven Lines"><svg viewBox="0 0 320 150" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true"><rect width="320" height="150" fill="#0A1017"/><line x1="0" y1="0" x2="0" y2="150" stroke="#17242f" stroke-width="1"/><line x1="32" y1="0" x2="32" y2="150" stroke="#17242f" stroke-width="1"/><line x1="64" y1="0" x2="64" y2="150" stroke="#17242f" stroke-width="1"/><line x1="96" y1="0" x2="96" y2="150" stroke="#17242f" stroke-width="1"/><line x1="128" y1="0" x2="128" y2="150" stroke="#17242f" stroke-width="1"/><line x1="160" y1="0" x2="160" y2="150" stroke="#17242f" stroke-width="1"/><line x1="192" y1="0" x2="192" y2="150" stroke="#17242f" stroke-width="1"/><line x1="224" y1="0" x2="224" y2="150" stroke="#17242f" stroke-width="1"/><line x1="256" y1="0" x2="256" y2="150" stroke="#17242f" stroke-width="1"/><line x1="288" y1="0" x2="288" y2="150" stroke="#17242f" stroke-width="1"/><line x1="320" y1="0" x2="320" y2="150" stroke="#17242f" stroke-width="1"/><rect x="0" y="0" width="320" height="5" fill="#ffd400"/><rect x="18" y="52" width="284" height="52" fill="#16222c" stroke="#2B3B4C"/><rect x="58.5" y="40" width="3" height="76" rx="1.5" fill="#FF2D20"/><rect x="108.5" y="40" width="3" height="76" rx="1.5" fill="#FF2D20"/><rect x="158.5" y="40" width="3" height="76" rx="1.5" fill="#FF2D20"/><rect x="208.5" y="40" width="3" height="76" rx="1.5" fill="#FF2D20"/><rect x="258.5" y="40" width="3" height="76" rx="1.5" fill="#FF2D20"/><path d="M18 44 L302 44" stroke="#8FA3B8" stroke-width="1" stroke-dasharray="3 4"/><path d="M18 112 L302 112" stroke="#8FA3B8" stroke-width="1" stroke-dasharray="3 4"/></svg></a><div class="sbody"><div class="tagrow"><span class="ctag verim">Production efficiency</span><span class="atag">Core Precisor</span><span class="atag">Shuttle Precisor</span></div><h3><a href="guide-nonwoven-edge-quality.html" style="text-decoration:none">Edge Quality in Nonwoven Lines</a></h3><p class="pmeta"><b>23 September 2026</b> · 7 min read</p><p class="sum">Assess the role of the alignment reference in nonwoven production alongside the other factors that affect cut quality.</p><a class="read" href="guide-nonwoven-edge-quality.html">Read the article →</a><p class="sfoot">SERVOMOTION</p></div></article>
+</div></div></section>
+<section class="news" id="bulten"><div class="wrap"><div>
+<h2>MAKE AN INFORMED INVESTMENT DECISION</h2>
+<p>We share technical articles, application examples and product updates by email as they are published, to make system selection and investment decisions easier.</p>
+</div><div>
+<form class="newsform" id="nf"><input type="email" id="nmail" placeholder="Your email address" aria-label="Your email address" required>
+<button class="btn primary" type="submit">SUBSCRIBE</button></form>
+<p class="newsnote" id="nnote">Questions: <a href="mailto:info@servomotion.com.tr">info@servomotion.com.tr</a></p>
+</div></div></section>
+</main>
+<script>
+(function(){"use strict";
+ var links=Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+ var heads=links.map(function(l){return document.getElementById(l.getAttribute('href').slice(1));});
+ function onScroll(){
+   var y=window.scrollY+120, cur=0;
+   heads.forEach(function(h,i){ if(h && h.offsetTop<=y) cur=i; });
+   links.forEach(function(l,i){ l.classList.toggle('on', i===cur); });
+ }
+ window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+})();
+
+(function(){"use strict";
+ var f=document.getElementById('nf'); if(!f) return;
+ f.addEventListener('submit',function(e){e.preventDefault();
+  var m=document.getElementById('nmail').value;
+  document.getElementById('nnote').innerHTML='The form is not connected to a list yet. For now you can '+
+   '<a href="mailto:info@servomotion.com.tr?subject=Guide%20subscription&body='+encodeURIComponent(m)+
+   '">write to us by email</a>.';});
+})();
+</script>
+<footer><div class="wrap"><div class="fcols"><div class="fcol"><b>SYSTEMS</b><a href="core-precisor.html">Core Precisor</a><a href="shuttle-precisor.html">Shuttle Precisor</a><a href="documents.html">Technical documents</a></div><div class="fcol"><b>APPLICATIONS</b><a href="application-rubber.html">Rubber and composite</a><a href="application-nonwoven.html">Hygiene products and nonwoven</a><a href="application-packaging.html">Packaging and paper</a><a href="application-film-foil.html">Film and foil</a><a href="application-textiles.html">Textiles and technical fabrics</a><a href="application-labels.html">Labels and adhesive tape</a></div><div class="fcol"><b>SUCCESS STORIES</b><a href="success-stories.html">Proven applications across six industries</a><a href="service.html">Service and commissioning</a><a href="service-helpdesk.html">Helpdesk</a><a href="service-manuals.html">Manuals</a><a href="guide.html">Guide articles</a></div><div class="fcol"><b>COMPANY</b><a href="company.html">About us</a><a href="contact.html">Contact</a><a href="faq.html">Frequently asked questions</a><a href="glossary.html">Glossary</a><a href="privacy.html">Privacy and cookies</a></div></div><div class="fbase"><span><bdi lang="en">ServoMotion</bdi> is a brand of Oktay Otomasyon Elektronik Mühendislik San. ve Tic. A.Ş. (<a href="https://o-em.com.tr" target="_blank" rel="noopener">OEM Lazer</a>).</span><span><a href="mailto:info@servomotion.com.tr">info@servomotion.com.tr</a> · <a href="tel:+902125772567">+90 212 577 25 67</a></span></div></div></footer>
+<script>
+(function(){"use strict";
+ var drops=[].slice.call(document.querySelectorAll('.navdrop'));
+ drops.forEach(function(d){
+   var btn=d.querySelector('.navtop');
+   if(!btn) return;
+   btn.addEventListener('click',function(e){
+     e.preventDefault();
+     var open=d.classList.contains('open');
+     drops.forEach(function(x){x.classList.remove('open');x.querySelector('.navtop').setAttribute('aria-expanded','false');});
+     if(!open){ d.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+   });
+ });
+ document.addEventListener('click',function(e){
+   if(e.target.closest('.navdrop')) return;
+   drops.forEach(function(x){x.classList.remove('open');x.querySelector('.navtop').setAttribute('aria-expanded','false');});
+ });
+ document.addEventListener('keydown',function(e){ if(e.key==='Escape')
+   drops.forEach(function(x){x.classList.remove('open');x.querySelector('.navtop').setAttribute('aria-expanded','false');}); });
+})();
+</script></body>
+</html>

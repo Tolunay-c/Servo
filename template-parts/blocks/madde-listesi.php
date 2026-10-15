@@ -30,6 +30,15 @@ if ( $servo_maddeler ) {
 	echo '</div>';
 }
 
+$servo_rakamlar = (array) servo_sub( 'rakamlar', array() );
+if ( $servo_rakamlar ) {
+	echo '<div class="pfacts" style="margin-top:30px">';
+	foreach ( $servo_rakamlar as $servo_r ) {
+		echo '<div><b>' . esc_html( $servo_r['deger'] ) . ( $servo_r['birim'] ? '<small>' . esc_html( $servo_r['birim'] ) . '</small>' : '' ) . '</b><span>' . esc_html( $servo_r['aciklama'] ) . '</span></div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	}
+	echo '</div>';
+}
+
 if ( $servo_not ) {
 	echo '<p class="note" style="margin-top:28px;border-left:3px solid var(--yellow);padding-left:15px;font-size:15px;color:#506275;line-height:1.65">' . servo_text( $servo_not ) . '</p>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 }

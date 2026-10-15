@@ -1,0 +1,58 @@
+@font-face{font-family:'Poppins';src:url('fonts/poppins-Regular.woff2') format('woff2');font-style:normal;font-weight:400;font-display:swap}@font-face{font-family:'Poppins';src:url('fonts/poppins-Bold.woff2') format('woff2');font-style:normal;font-weight:700;font-display:swap}.brand,.brand b{font-family:'Poppins','Segoe UI',Arial,sans-serif;font-weight:400;letter-spacing:.005em;text-transform:none}.brand .lo1,.brand .lo2{display:inline;font-style:normal;font-family:inherit;font-size:inherit;letter-spacing:inherit;color:inherit;text-transform:inherit}.brand .lo1{font-weight:400}.brand .lo2{font-weight:700}.nav .brand,.nav .brand b,.foot .brand{font-family:'Poppins','Segoe UI',Arial,sans-serif;text-transform:none;font-style:normal;font-weight:400;letter-spacing:.005em}.nav .brand .lo2{font-weight:700}
+/* açılır menü */
+.navdrop{position:relative;display:inline-flex;align-items:center}
+.navtop{background:none;border:0;color:inherit;font:inherit;cursor:pointer;padding:0;display:inline-flex;align-items:center;gap:6px}
+.navtop .car{font-size:9px;line-height:1;opacity:.75}
+.navsub{position:absolute;top:100%;left:0;min-width:248px;background:#11171e;border:1px solid #293542;
+  display:none;z-index:80;padding:6px 0;margin-top:12px;box-shadow:0 14px 34px rgba(0,0,0,.34)}
+.navdrop:hover .navsub,.navdrop.open .navsub{display:block}
+.navsub a{display:block;padding:11px 17px;font-size:13.5px;font-weight:600;letter-spacing:.05em;
+  white-space:nowrap;text-decoration:none;color:#cfd9e4;text-transform:none}
+.navsub a:hover{background:#1a2430;color:#ffd400}
+.navsub .sep{border-top:1px solid #253242;margin:6px 0}
+@media(max-width:900px){
+  .navdrop{display:block;width:100%}
+  .navsub{position:static;display:block;border:0;background:transparent;padding:0;margin:8px 0 4px 14px;box-shadow:none;min-width:0}
+  .navsub a{padding:5px 0;color:#9badc1;font-weight:500}
+}
+
+.tabs .navtop{border:1px solid #253242;border-radius:2px;padding:8px 15px;color:#93a4b7;
+  font-family:'Barlow Condensed','Arial Narrow',sans-serif;text-transform:uppercase;
+  letter-spacing:.09em;font-size:14.5px;font-weight:600;white-space:nowrap}
+.tabs .navtop:hover{border-color:#ffd400;color:#fff}
+.tabs .navdrop .navsub{margin-top:8px}
+@media(max-width:720px){.tabs .navdrop{flex:1 1 28%;min-width:0;display:block}
+  .tabs .navtop{width:100%;justify-content:center;padding:8px 6px;font-size:13px;white-space:normal}
+  .tabs .navsub{position:static;display:block;border:0;background:transparent;box-shadow:none;margin:6px 0 0;padding:0;min-width:0}
+  .tabs .navsub a{padding:5px 0;text-align:center;color:#9badc1;font-weight:500}}
+
+.nav-in{flex-wrap:wrap}
+.tabs{flex-wrap:wrap;justify-content:flex-end;row-gap:6px}
+@media(max-width:1180px){.tabs .tab,.tabs .navtop{padding:8px 11px;font-size:13.5px;letter-spacing:.06em}}
+
+@media(max-width:900px){.navsub a{white-space:normal}.navsub{max-width:100%}}
+@media(max-width:720px){.tabs .navsub a{white-space:normal}.tabs .navsub{max-width:100%}}
+
+@media(max-width:900px){.pbody .wrap{grid-template-columns:minmax(0,1fr)}
+  .toc,.toc ol,.toc li{min-width:0;max-width:100%}
+  .toc a{grid-template-columns:26px minmax(0,1fr);overflow-wrap:anywhere}}
+
+@media(max-width:430px){h1,h2,h3,h4{overflow-wrap:anywhere}
+  .atable,.ctable{display:block;overflow-x:auto;max-width:100%}
+  .strip-i,.strip-i b,.kpi .v,.kpi .v small{overflow-wrap:anywhere}}
+
+@media(max-width:1320px){.nav nav{gap:17px}.nav nav a,.nav .navtop{font-size:13px;letter-spacing:.045em}}
+@media(max-width:1120px){.nav nav{gap:13px}.nav nav a,.nav .navtop{font-size:12.5px;letter-spacing:.03em}}
+
+.langlink{border:1px solid #33465a;padding:4px 9px;font-size:12px;letter-spacing:.12em}
+.langlink:hover{border-color:var(--yellow);color:var(--yellow)}
+.tabs .langlink{padding:7px 11px}
+
+/* SM işareti — kelime markasının solunda */
+.brand{display:inline-flex;align-items:center;gap:.40em;text-decoration:none;white-space:nowrap}
+.brand .smk{height:.80em;width:auto;flex:none;display:block;color:#ffd400}
+.brand bdi{display:inline-block}.brand b{display:inline-flex;align-items:center;gap:.40em}
+.nav .brand:hover .smk,.nav .brand:focus-visible .smk{color:#fff}
+@media(max-width:600px){.brand .smk{height:.74em}}
+@media print{.brand .smk{color:#0b0f14}}
+/* menü logosu — sayfa açılışında bir kez oynar */@keyframes smkPerde{from{clip-path:polygon(-600px 0,159px 0,-118px 800px,-600px 800px)}to{clip-path:polygon(-600px 0,1845px 0,1568px 800px,-600px 800px)}}@keyframes smkIsin{0%{transform:translateX(0);opacity:0}14%{opacity:1}82%{opacity:1}100%{transform:translateX(1686px);opacity:0}}@keyframes smkKw{from{opacity:0;transform:translateX(-.3em)}to{opacity:1;transform:translateX(0)}}.brand .smk-m{animation:smkPerde .82s cubic-bezier(.62,.03,.30,1) both}.brand .smk-b{opacity:0;fill:#fff;animation:smkIsin .82s cubic-bezier(.62,.03,.30,1) both}.brand bdi{animation:smkKw .42s cubic-bezier(.22,.9,.28,1) .40s both}@media(prefers-reduced-motion:reduce){.brand .smk-m,.brand .smk-b,.brand bdi{animation:none}.brand .smk-m{clip-path:none}.brand .smk-b{opacity:0}}

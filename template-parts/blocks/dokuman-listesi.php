@@ -3,7 +3,8 @@
  * Blok: Doküman listesi (.dgrid > article.doc).
  *
  * Kartlar seçilen doküman kayıtlarından gelir. Dosyası yüklenmemiş doküman
- * gösterilmez.
+ * gösterilmez. "Talep formuyla" erişimli dokümanlarda dosya bağlantısı verilmez;
+ * kart, aynı sayfadaki talep formuna (#talep) gider.
  *
  * @package ServoMotion
  */
@@ -15,6 +16,7 @@ $servo_kartlar = '';
 foreach ( (array) servo_sub( 'dokumanlar', array() ) as $servo_id ) {
 	$servo_dosya = (int) servo_field( 'dosya', $servo_id, 0 );
 	$servo_url   = $servo_dosya ? wp_get_attachment_url( $servo_dosya ) : '';
+	$servo_formla = 'formla' === servo_field( 'erisim', $servo_id, 'acik' );
 
 	if ( ! $servo_url ) {
 		continue;
@@ -32,8 +34,12 @@ foreach ( (array) servo_sub( 'dokumanlar', array() ) as $servo_id ) {
 	if ( $servo_meta ) {
 		$servo_kartlar .= '<p class="meta">' . esc_html( $servo_meta ) . '</p>';
 	}
-	/* translators: %s: dosya türü (ör. PDF) */
-	$servo_kartlar .= '<a class="btn primary" href="' . esc_url( $servo_url ) . '" download>' . esc_html( sprintf( __( 'İNDİRİN (%s)', 'servomotion' ), $servo_tur ) ) . '</a>';
+	if ( $servo_formla ) {
+		$servo_kartlar .= '<a class="btn primary" href="#talep">' . esc_html__( 'TALEP EDİN', 'servomotion' ) . '</a>';
+	} else {
+		/* translators: %s: dosya türü (ör. PDF) */
+		$servo_kartlar .= '<a class="btn primary" href="' . esc_url( $servo_url ) . '" download>' . esc_html( sprintf( __( 'İNDİRİN (%s)', 'servomotion' ), $servo_tur ) ) . '</a>';
+	}
 	$servo_kartlar .= '</div></article>';
 }
 

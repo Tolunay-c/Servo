@@ -85,3 +85,9 @@ function servo_scandir_exclusions( $exclusions ) {
 	return array_merge( $exclusions, array( '_design', 'docs' ) );
 }
 add_filter( 'theme_scandir_exclusions', 'servo_scandir_exclusions' );
+
+/**
+ * WordPress sürüm bilgisini (generator meta etiketi) sayfa kaynağından ve beslemelerden kaldırır.
+ */
+remove_action( 'wp_head', 'wp_generator' );
+add_filter( 'the_generator', '__return_empty_string' );

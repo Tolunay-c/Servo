@@ -16,12 +16,117 @@
             "label": "Dosya",
             "name": "dosya",
             "type": "file",
-            "instructions": "İndirilecek dosya (genellikle PDF). Kartın sol üstündeki etiket dosya türünden otomatik oluşur.",
+            "instructions": "İndirilecek dosya (genellikle PDF). Kartın sol üstündeki etiket dosya türünden otomatik oluşur. Medya'ya yükleyin; \"Talep formuyla\" seçiliyse kaydettiğinizde dosya korumalı dizine taşınır.",
             "return_format": "id",
             "library": "all",
             "min_size": "",
             "max_size": "",
             "mime_types": ""
+        },
+        {
+            "key": "field_servo_dok_erisim",
+            "label": "Erişim",
+            "name": "erisim",
+            "type": "select",
+            "instructions": "\"Doğrudan indirme\": dosya Medya'da durur, herkes indirebilir. \"Talep formuyla\": dosya doğrudan erişime ve arama motorlarına kapalı bir dizine alınır; ziyaretçi formu doldurunca 7 gün geçerli bir indirme bağlantısı e-postayla gönderilir. Seçimi değiştirip kaydettiğinizde dosya otomatik taşınır.",
+            "choices": {
+                "acik": "Doğrudan indirme",
+                "formla": "Talep formuyla"
+            },
+            "default_value": "acik",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "wrapper": {
+                "width": "34",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_servo_dok_dil",
+            "label": "Dil",
+            "name": "dil",
+            "type": "select",
+            "instructions": "Formda diğer dil kutusu (Türkçe formda \"İngilizce sürümler\", İngilizce formda \"Turkish versions\") seçilince o dildeki dokümanlar da gönderilir. \"Her iki dil\" iki formda da asıl listede çıkar.",
+            "choices": {
+                "tr": "Türkçe",
+                "en": "İngilizce",
+                "ortak": "Her iki dil (ör. sertifika)"
+            },
+            "default_value": "tr",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_servo_dok_erisim",
+                        "operator": "==",
+                        "value": "formla"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_servo_dok_talep_kodu",
+            "label": "Talep kodu",
+            "name": "talep_kodu",
+            "type": "text",
+            "instructions": "Aynı dokümanın Türkçe ve İngilizce sürümleri aynı kodu taşır (ör. core-veri-sayfasi). Küçük harf, boşluksuz.",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_servo_dok_erisim",
+                        "operator": "==",
+                        "value": "formla"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_servo_dok_talep_etiketi",
+            "label": "Formdaki işaret kutusu yazısı",
+            "name": "talep_etiketi",
+            "type": "text",
+            "instructions": "Talep formundaki onay kutusunun yanında görünür (ör. Core Precisor veri sayfası).",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_servo_dok_erisim",
+                        "operator": "==",
+                        "value": "formla"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "field_servo_dok_talep_etiketi_en",
+            "label": "Formdaki yazı (İngilizce form)",
+            "name": "talep_etiketi_en",
+            "type": "text",
+            "instructions": "Sadece \"Her iki dil\" dokümanlarda: İngilizce formdaki onay kutusunun yazısı (ör. Declaration of conformity).",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_servo_dok_dil",
+                        "operator": "==",
+                        "value": "ortak"
+                    }
+                ]
+            ]
         },
         {
             "key": "field_servo_dok_kart_baslik",

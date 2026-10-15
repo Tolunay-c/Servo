@@ -1,0 +1,1279 @@
+# Copyright (C) 2026 
+# This file is distributed under the Proprietary.
+msgid ""
+msgstr ""
+"Project-Id-Version: ServoMotion 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/servo\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-10-14T23:22:20+02:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: servomotion\n"
+
+#. Theme Name of the theme
+#: style.css
+msgid "ServoMotion"
+msgstr ""
+
+#. Description of the theme
+#: style.css
+msgid "ServoMotion endüstriyel lazer konumlandırma sitesi için özel tema."
+msgstr ""
+
+#: 404.php:20
+msgid "ANA SAYFA"
+msgstr ""
+
+#: 404.php:24
+msgid "SİSTEMLER"
+msgstr ""
+
+#: 404.php:28
+msgid "İLETİŞİM"
+msgstr ""
+
+#: 404.php:38
+msgid "Core Precisor →"
+msgstr ""
+
+#: 404.php:42
+msgid "Shuttle Precisor →"
+msgstr ""
+
+#: 404.php:46
+msgid "Başarı hikayeleri →"
+msgstr ""
+
+#: 404.php:50
+msgid "Veri sayfaları →"
+msgstr ""
+
+#: 404.php:54
+msgid "Sıkça sorulan sorular →"
+msgstr ""
+
+#: 404.php:58
+msgid "Sözlük →"
+msgstr ""
+
+#: 404.php:62
+msgid "Rehber →"
+msgstr ""
+
+#: 404.php:73
+msgid "HATA 404"
+msgstr ""
+
+#: 404.php:74
+msgid "BU KONUMDA"
+msgstr ""
+
+#: 404.php:74
+msgid "BİR ÇİZGİ YOK"
+msgstr ""
+
+#: 404.php:75
+msgid "Aradığınız sayfa taşınmış veya adresi değişmiş olabilir. Aşağıdan devam edebilirsiniz."
+msgstr ""
+
+#: 404.php:86
+msgid "SIK KULLANILANLAR"
+msgstr ""
+
+#: 404.php:86
+msgid "BELKİ BUNLARI ARIYORDUNUZ"
+msgstr ""
+
+#: inc/acf.php:49
+#: inc/acf.php:50
+msgid "Site Ayarları"
+msgstr ""
+
+#: inc/acf.php:82
+msgid "İngilizce sitenin ayarları. Boş bıraktığınız alanlar Türkçe ayarlardaki değeri kullanır; telefon, e-posta, adres gibi çevrilmeyen alanları sadece \"Site Ayarları\" sayfasında doldurmanız yeterlidir."
+msgstr ""
+
+#. translators: %s: tekil içerik adı
+#: inc/cpt.php:28
+#, php-format
+msgid "Yeni %s ekle"
+msgstr ""
+
+#. translators: %s: tekil içerik adı
+#: inc/cpt.php:30
+#, php-format
+msgid "%s düzenle"
+msgstr ""
+
+#. translators: %s: tekil içerik adı
+#: inc/cpt.php:32
+#, php-format
+msgid "Yeni %s"
+msgstr ""
+
+#. translators: %s: tekil içerik adı
+#: inc/cpt.php:34
+#, php-format
+msgid "%s görüntüle"
+msgstr ""
+
+#. translators: %s: çoğul içerik adı
+#: inc/cpt.php:36
+#, php-format
+msgid "%s içinde ara"
+msgstr ""
+
+#: inc/cpt.php:37
+msgid "Kayıt bulunamadı."
+msgstr ""
+
+#: inc/cpt.php:38
+msgid "Çöp kutusunda kayıt yok."
+msgstr ""
+
+#: inc/cpt.php:73
+msgid "Uygulama alanı"
+msgstr ""
+
+#: inc/cpt.php:73
+msgid "Uygulama alanları"
+msgstr ""
+
+#: inc/cpt.php:94
+msgid "Vaka çalışması"
+msgstr ""
+
+#: inc/cpt.php:94
+msgid "Vaka çalışmaları"
+msgstr ""
+
+#: inc/cpt.php:108
+msgid "Doküman"
+msgstr ""
+
+#: inc/cpt.php:108
+msgid "Dokümanlar"
+msgstr ""
+
+#: inc/cpt.php:122
+msgid "Soru"
+msgstr ""
+
+#: inc/cpt.php:122
+msgid "SSS"
+msgstr ""
+
+#: inc/cpt.php:136
+msgid "Terim"
+msgstr ""
+
+#: inc/cpt.php:136
+msgid "Sözlük"
+msgstr ""
+
+#: inc/cpt.php:159
+#: inc/cpt.php:161
+msgid "Ürün alanları"
+msgstr ""
+
+#: inc/cpt.php:160
+#: template-parts/rehber/liste.php:72
+msgid "Ürün alanı"
+msgstr ""
+
+#: inc/cpt.php:162
+msgid "Yeni ürün alanı ekle"
+msgstr ""
+
+#: inc/cpt.php:163
+msgid "Ürün alanını düzenle"
+msgstr ""
+
+#: inc/cpt.php:181
+msgid "SSS grupları"
+msgstr ""
+
+#: inc/cpt.php:182
+msgid "SSS grubu"
+msgstr ""
+
+#: inc/cpt.php:183
+msgid "Gruplar"
+msgstr ""
+
+#: inc/cpt.php:184
+msgid "Yeni grup ekle"
+msgstr ""
+
+#: inc/cpt.php:185
+msgid "Grubu düzenle"
+msgstr ""
+
+#: inc/formlar.php:82
+#: template-parts/blocks/talep-formu.php:92
+msgid "Web sitesi"
+msgstr ""
+
+#: inc/formlar.php:152
+msgid "Oturum süresi doldu. Sayfayı yenileyip tekrar deneyin."
+msgstr ""
+
+#: inc/formlar.php:202
+#: inc/talep.php:537
+msgid "Çok fazla deneme yapıldı. Lütfen biraz sonra tekrar deneyin."
+msgstr ""
+
+#: inc/formlar.php:216
+#: inc/talep.php:557
+msgid "Form henüz bir adrese bağlı değil."
+msgstr ""
+
+#: inc/formlar.php:221
+msgid "İlgili kişi ve iletişim bilgisi gerekli."
+msgstr ""
+
+#. translators: %s: Firma adı veya site adı.
+#: inc/formlar.php:225
+#, php-format
+msgid "Uygulama özeti — %s"
+msgstr ""
+
+#: inc/formlar.php:227
+#: inc/talep.php:627
+msgid "Gönderilen sayfa"
+msgstr ""
+
+#: inc/formlar.php:228
+#: inc/formlar.php:344
+#: inc/talep.php:628
+msgid "Tarih"
+msgstr ""
+
+#: inc/formlar.php:238
+#: inc/talep.php:633
+msgid "Mail gönderilemedi."
+msgstr ""
+
+#: inc/formlar.php:252
+msgid "Bülten henüz bir listeye bağlı değil."
+msgstr ""
+
+#: inc/formlar.php:316
+#: inc/formlar.php:327
+#: inc/formlar.php:389
+msgid "Mail kayıtları"
+msgstr ""
+
+#: inc/formlar.php:328
+msgid "Geliştirme modu açık: site mailleri gönderilmiyor, son 50 mail burada saklanıyor. Canlı ortamda (WP_ENVIRONMENT_TYPE production) bu mod kapalıdır."
+msgstr ""
+
+#: inc/formlar.php:331
+msgid "Henüz kayıt yok."
+msgstr ""
+
+#: inc/formlar.php:338
+msgid "Kayıtları temizle"
+msgstr ""
+
+#: inc/formlar.php:345
+msgid "Kime"
+msgstr ""
+
+#: inc/formlar.php:350
+msgid "Ekler"
+msgstr ""
+
+#: inc/formlar.php:364
+msgid "Bu işlem için yetkiniz yok."
+msgstr ""
+
+#: inc/formlar.php:387
+msgid "Geliştirme modu açık: site mailleri gönderilmiyor, kaydediliyor."
+msgstr ""
+
+#: inc/rehber.php:22
+#: inc/rehber.php:54
+msgid "Bilgi kutusu"
+msgstr ""
+
+#: inc/rehber.php:23
+#: inc/rehber.php:67
+#: inc/rehber.php:71
+msgid "Mühendislik değerlendirmesi"
+msgstr ""
+
+#: inc/rehber.php:24
+msgid "Editoryal not (sarı, butonlu)"
+msgstr ""
+
+#: inc/rehber.php:27
+msgid "Bilgi kutusu başlığı"
+msgstr ""
+
+#: inc/rehber.php:28
+#: inc/rehber.php:98
+msgid "Kutu üst etiketi"
+msgstr ""
+
+#: inc/rehber.php:29
+msgid "Kutu butonu"
+msgstr ""
+
+#: inc/rehber.php:31
+#: inc/rehber.php:125
+msgid "Değer kutuları"
+msgstr ""
+
+#: inc/rehber.php:33
+#: inc/rehber.php:139
+msgid "Numaralı adımlar"
+msgstr ""
+
+#: inc/rehber.php:34
+msgid "Numaralı liste"
+msgstr ""
+
+#: inc/rehber.php:50
+msgid "ServoMotion rehber"
+msgstr ""
+
+#: inc/rehber.php:55
+msgid "Solunda sarı çizgi olan gri kutu: küçük başlık ve bir veya birkaç paragraf."
+msgstr ""
+
+#: inc/rehber.php:58
+#: inc/rehber.php:75
+#: inc/rehber.php:102
+msgid "Kutu başlığı"
+msgstr ""
+
+#: inc/rehber.php:62
+msgid "Kutu metni. Önemli kısımları kalın yazabilirsiniz."
+msgstr ""
+
+#: inc/rehber.php:68
+msgid "Yazının başında, mavi çizgili özet kutusu: üst etiket, başlık ve üç madde. Yazıda bir kez, ilk H2'den önce kullanılır; içindekiler listesine girmez."
+msgstr ""
+
+#: inc/rehber.php:80
+#: inc/rehber.php:107
+msgid "Birinci madde."
+msgstr ""
+
+#: inc/rehber.php:84
+#: inc/rehber.php:111
+msgid "İkinci madde."
+msgstr ""
+
+#: inc/rehber.php:88
+#: inc/rehber.php:115
+msgid "Üçüncü madde."
+msgstr ""
+
+#: inc/rehber.php:94
+msgid "Editoryal not (butonlu)"
+msgstr ""
+
+#: inc/rehber.php:95
+msgid "Yazının başında, sarı çizgili özet kutusu: üst etiket, başlık, üç madde ve iletişime giden bir buton. Yazıda bir kez, ilk H2'den önce kullanılır; içindekiler listesine girmez."
+msgstr ""
+
+#: inc/rehber.php:120
+msgid "BUTON YAZISI"
+msgstr ""
+
+#: inc/rehber.php:126
+msgid "Yan yana üç değer kutusu. Her satır bir kutudur: 1. sütun açıklama, 2. sütun değer, 3. sütun birim."
+msgstr ""
+
+#: inc/rehber.php:128
+msgid "Projeksiyon hassasiyeti"
+msgstr ""
+
+#: inc/rehber.php:128
+msgid "Çizgi inceliği"
+msgstr ""
+
+#: inc/rehber.php:128
+msgid "Konumlandırma hızı"
+msgstr ""
+
+#: inc/rehber.php:132
+msgid "Karşılaştırma tablosu"
+msgstr ""
+
+#: inc/rehber.php:133
+msgid "Koyu başlık satırlı tablo. İlk sütun kalın yazılır."
+msgstr ""
+
+#: inc/rehber.php:135
+msgid "Kavram"
+msgstr ""
+
+#: inc/rehber.php:135
+msgid "Ne anlatır"
+msgstr ""
+
+#: inc/rehber.php:135
+msgid "Neye bakılır"
+msgstr ""
+
+#: inc/rehber.php:140
+msgid "Çizgiyle ayrılmış, numaralı adımlar. Her adımın başındaki kalın kısım başlık olarak gösterilir."
+msgstr ""
+
+#: inc/rehber.php:143
+#: inc/rehber.php:147
+msgid "Adım başlığı"
+msgstr ""
+
+#: inc/rehber.php:143
+#: inc/rehber.php:147
+msgid "Adımın açıklaması."
+msgstr ""
+
+#: inc/rehber.php:464
+msgid "ServoMotion Mühendislik Ekibi"
+msgstr ""
+
+#: inc/setup.php:26
+#: template-parts/site/header-standart.php:10
+msgid "Ana menü"
+msgstr ""
+
+#: inc/setup.php:27
+msgid "Footer menüsü (üst öğeler kolon başlığı)"
+msgstr ""
+
+#: inc/setup.php:68
+msgid "Hero görseli"
+msgstr ""
+
+#: inc/setup.php:69
+msgid "Saha fotoğrafı"
+msgstr ""
+
+#: inc/talep.php:306
+msgid "Dokümanı yeniden talep edin"
+msgstr ""
+
+#: inc/talep.php:309
+msgid "Bağlantının süresi doldu"
+msgstr ""
+
+#: inc/talep.php:309
+msgid "Geçersiz bağlantı"
+msgstr ""
+
+#: inc/talep.php:311
+msgid "Bu indirme bağlantısı yalnızca 7 gün geçerlidir ve süresi dolmuştur."
+msgstr ""
+
+#: inc/talep.php:312
+msgid "Bu indirme bağlantısı geçerli değil."
+msgstr ""
+
+#: inc/talep.php:324
+msgid "Doküman bulunamadı."
+msgstr ""
+
+#: inc/talep.php:324
+msgid "Doküman bulunamadı"
+msgstr ""
+
+#: inc/talep.php:375
+#: inc/talep.php:385
+#: inc/talep.php:401
+#: inc/talep.php:417
+#: template-parts/blocks/uygulama-ozeti.php:60
+msgid "Firma"
+msgstr ""
+
+#: inc/talep.php:375
+#: inc/talep.php:385
+#: inc/talep.php:401
+#: inc/talep.php:417
+msgid "İlgili kişi"
+msgstr ""
+
+#: inc/talep.php:376
+#: inc/talep.php:386
+#: inc/talep.php:402
+#: inc/talep.php:418
+msgid "E-posta"
+msgstr ""
+
+#: inc/talep.php:376
+#: inc/talep.php:386
+#: inc/talep.php:402
+msgid "Telefon"
+msgstr ""
+
+#: inc/talep.php:377
+msgid "Uygulama / hat"
+msgstr ""
+
+#: inc/talep.php:377
+msgid "örn. bobin dilimleme, nonwoven kesim"
+msgstr ""
+
+#: inc/talep.php:389
+#: inc/talep.php:405
+msgid "Sistem"
+msgstr ""
+
+#: inc/talep.php:389
+msgid "Bilmiyorum"
+msgstr ""
+
+#: inc/talep.php:390
+#: inc/talep.php:406
+#: inc/talep.php:418
+msgid "Seri numarası"
+msgstr ""
+
+#: inc/talep.php:390
+#: inc/talep.php:418
+msgid "gövde etiketinde"
+msgstr ""
+
+#: inc/talep.php:392
+msgid "Öncelik"
+msgstr ""
+
+#: inc/talep.php:392
+msgid "Hat duruyor"
+msgstr ""
+
+#: inc/talep.php:392
+msgid "Hat çalışıyor, performans etkileniyor"
+msgstr ""
+
+#: inc/talep.php:392
+msgid "Bilgi / soru"
+msgstr ""
+
+#: inc/talep.php:393
+msgid "Belirti"
+msgstr ""
+
+#: inc/talep.php:393
+msgid "Ne zaman başladı, hangi reçetede görülüyor, panelde ne yazıyor"
+msgstr ""
+
+#: inc/talep.php:408
+msgid "Gönderilecek bileşen"
+msgstr ""
+
+#: inc/talep.php:408
+msgid "örn. lazer modülü, araba, tahrik bileşeni"
+msgstr ""
+
+#: inc/talep.php:409
+msgid "Arıza notu"
+msgstr ""
+
+#: inc/talep.php:409
+msgid "Belirti, ne zaman başladı, hangi reçetede görülüyor"
+msgstr ""
+
+#: inc/talep.php:423
+msgid "İhtiyaç duyulan doküman"
+msgstr ""
+
+#: inc/talep.php:428
+msgid "Kullanım kılavuzu"
+msgstr ""
+
+#: inc/talep.php:428
+msgid "Elektrik ve bağlantı şeması"
+msgstr ""
+
+#: inc/talep.php:428
+msgid "Montaj çizimi"
+msgstr ""
+
+#: inc/talep.php:428
+msgid "Kalibrasyon ve doğrulama kaydı"
+msgstr ""
+
+#: inc/talep.php:428
+#: template-parts/rehber/liste.php:80
+msgid "Tümü"
+msgstr ""
+
+#: inc/talep.php:433
+msgid "Not"
+msgstr ""
+
+#: inc/talep.php:433
+msgid "Hangi sistem, hangi hat, özel bir ihtiyaç var mı"
+msgstr ""
+
+#: inc/talep.php:554
+msgid "Geçersiz form."
+msgstr ""
+
+#. translators: %s: alan adı
+#: inc/talep.php:572
+#, php-format
+msgid "\"%s\" alanı gerekli."
+msgstr ""
+
+#: inc/talep.php:579
+msgid "Geçerli bir e-posta adresi girin."
+msgstr ""
+
+#: inc/talep.php:597
+msgid "En az bir doküman seçin."
+msgstr ""
+
+#: inc/talep.php:612
+#: template-parts/blocks/talep-formu.php:50
+msgid "İstenen dokümanlar"
+msgstr ""
+
+#: inc/talep.php:619
+msgid "Gönderim: otomatik. Dokümanların 7 gün geçerli indirme bağlantıları ziyaretçinin e-posta adresine gönderildi."
+msgstr ""
+
+#: inc/talep.php:620
+msgid "Gönderim: ziyaretçiye otomatik gönderilmedi. Aşağıdaki 7 gün geçerli bağlantıları ziyaretçiye iletebilirsiniz."
+msgstr ""
+
+#: inc/talep.php:639
+msgid "Merhaba,"
+msgstr ""
+
+#: inc/talep.php:640
+msgid "Talep ettiğiniz dokümanların indirme bağlantıları aşağıdadır:"
+msgstr ""
+
+#. translators: %s: tarih ve saat
+#: inc/talep.php:645
+#, php-format
+msgid "Bağlantılar %s tarihine kadar geçerlidir. Süre dolduktan sonra dokümanı yeniden talep edebilirsiniz."
+msgstr ""
+
+#: inc/talep.php:646
+msgid "Sorularınız için bu e-postayı yanıtlayabilirsiniz."
+msgstr ""
+
+#: inc/talep.php:651
+msgid "talep ettiğiniz dokümanlar"
+msgstr ""
+
+#: inc/talep.php:659
+msgid "Talebiniz alındı. Dokümanların indirme bağlantıları e-posta adresinize gönderildi; bağlantılar 7 gün geçerlidir."
+msgstr ""
+
+#: inc/talep.php:660
+msgid "Talebiniz alındı. İstediğiniz dokümanları en kısa sürede e-posta ile ileteceğiz."
+msgstr ""
+
+#: inc/talep.php:662
+#: template-parts/blocks/talep-formu.php:40
+msgid "Talebiniz alındı. En kısa sürede size dönüş yapacağız."
+msgstr ""
+
+#. Template Name of the theme
+msgid "Core Precisor"
+msgstr ""
+
+#. Template Name of the theme
+msgid "Shuttle Precisor"
+msgstr ""
+
+#: search.php:26
+#: search.php:27
+msgid "ARAMA"
+msgstr ""
+
+#: search.php:27
+msgid "SONUÇLARI"
+msgstr ""
+
+#: search.php:31
+msgid "Aramak istediğiniz kelimeyi aşağıdaki kutuya yazın."
+msgstr ""
+
+#. translators: 1: aranan kelime, 2: sonuç sayısı
+#: search.php:34
+#, php-format
+msgid "“%1$s” için %2$d sonuç bulundu."
+msgstr ""
+
+#. translators: %s: aranan kelime
+#: search.php:37
+#, php-format
+msgid "“%s” için sonuç bulunamadı."
+msgstr ""
+
+#: search.php:47
+msgid "Sitede arayın"
+msgstr ""
+
+#: search.php:48
+msgid "örn. strok, reçete, montaj"
+msgstr ""
+
+#: search.php:62
+msgid "Sayfaya gidin →"
+msgstr ""
+
+#: search.php:69
+msgid "← ÖNCEKİ SONUÇLAR"
+msgstr ""
+
+#: search.php:72
+msgid "SONRAKİ SONUÇLAR →"
+msgstr ""
+
+#: search.php:78
+msgid "Farklı bir kelimeyle tekrar deneyebilir ya da sorunuzu doğrudan bize iletebilirsiniz."
+msgstr ""
+
+#: search.php:79
+msgid "İletişime geçin →"
+msgstr ""
+
+#. translators: %d: dakika
+#: single.php:41
+#, php-format
+msgid "%d DK OKUMA"
+msgstr ""
+
+#: single.php:44
+msgid "REHBER"
+msgstr ""
+
+#: single.php:58
+msgid "İçindekiler"
+msgstr ""
+
+#: single.php:58
+msgid "İÇİNDEKİLER"
+msgstr ""
+
+#: single.php:86
+msgid "DEVAMI"
+msgstr ""
+
+#: single.php:86
+msgid "İLGİLİ YAZILAR"
+msgstr ""
+
+#: template-parts/blocks/dokuman-listesi.php:38
+msgid "TALEP EDİN"
+msgstr ""
+
+#. translators: %s: dosya türü (ör. PDF)
+#: template-parts/blocks/dokuman-listesi.php:41
+#, php-format
+msgid "İNDİRİN (%s)"
+msgstr ""
+
+#: template-parts/blocks/iletisim-bilgileri.php:40
+#: template-parts/blocks/iletisim-bilgileri.php:87
+msgid "MERKEZ"
+msgstr ""
+
+#: template-parts/blocks/iletisim-bilgileri.php:45
+msgid "Yol tarifi alın →"
+msgstr ""
+
+#: template-parts/blocks/iletisim-bilgileri.php:49
+msgid "TELEFON"
+msgstr ""
+
+#: template-parts/blocks/iletisim-bilgileri.php:54
+msgid "· WhatsApp"
+msgstr ""
+
+#: template-parts/blocks/iletisim-bilgileri.php:57
+msgid "FAKS"
+msgstr ""
+
+#: template-parts/blocks/iletisim-bilgileri.php:61
+msgid "E-POSTA"
+msgstr ""
+
+#: template-parts/blocks/iletisim-bilgileri.php:73
+msgid "KURUMSAL"
+msgstr ""
+
+#: template-parts/blocks/iletisim-bilgileri.php:78
+msgid "VERGİ DAİRESİ / NO"
+msgstr ""
+
+#: template-parts/blocks/iletisim-bilgileri.php:81
+msgid "MARKALAR"
+msgstr ""
+
+#. translators: %d: terim sayısı
+#: template-parts/blocks/sozluk.php:26
+#, php-format
+msgid "%d terim"
+msgstr ""
+
+#: template-parts/blocks/sozluk.php:29
+msgid "Terimler"
+msgstr ""
+
+#: template-parts/blocks/talep-formu.php:22
+msgid "TALEBİ GÖNDERİN"
+msgstr ""
+
+#: template-parts/blocks/talep-formu.php:41
+msgid "Talep gönderilemedi. Lütfen tekrar deneyin veya e-posta ile yazın."
+msgstr ""
+
+#: template-parts/blocks/talep-formu.php:55
+msgid "İngilizce sürümler"
+msgstr ""
+
+#: template-parts/blocks/talep-formu.php:75
+#: template-parts/blocks/uygulama-ozeti.php:36
+#: template-parts/blocks/uygulama-ozeti.php:45
+msgid "seçin"
+msgstr ""
+
+#: template-parts/blocks/uygulama-alanlari.php:42
+msgid "Belirleyici olan"
+msgstr ""
+
+#: template-parts/blocks/uygulama-alanlari.php:48
+msgid "Uygulama sayfasını görün →"
+msgstr ""
+
+#. translators: %s: belirleyici etkenler
+#: template-parts/blocks/uygulama-alanlari.php:69
+#, php-format
+msgid "Belirleyici olan: %s"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php:21
+msgid "UYGULAMA BİLGİLERİ"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php:21
+msgid "01 / GİRDİ"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php:23
+msgid "Hat / uygulama"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php:24
+msgid "örn. bobin dilimleme hattı, nonwoven kesim"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php:26
+msgid "Aynı anda görünmesi gereken çizgi"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php:27
+msgid "adet"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php:28
+msgid "Çalışma genişliği / strok"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php:29
+#: template-parts/blocks/uygulama-ozeti.php:33
+msgid "mm"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php:32
+msgid "Çalışma mesafesi"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php:34
+msgid "Reçete değişim sıklığı"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php:37
+msgid "Günde birkaç kez"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php:38
+msgid "Günde bir"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php:39
+msgid "Haftada birkaç kez"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php:40
+msgid "Daha seyrek"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php:43
+msgid "Montaj yapısı"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php:46
+msgid "Mevcut şaseye monte edilecek"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php:47
+msgid "Yeni taşıyıcı / traversi gerekiyor"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php:48
+msgid "Henüz belirlenmedi"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php:50
+msgid "Hazırda olan bilgiler"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php:52
+msgid "Ölçü şeması veya teknik resim"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php:53
+msgid "Hattaki PLC ve saha veri yolu bilgisi"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php:54
+msgid "Hattın titreşim durumu hakkında gözlem"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php:55
+msgid "Malzeme yüzeyi ve ortam ışığı bilgisi"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php:56
+msgid "Hattan fotoğraf veya video"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php:61
+msgid "firma adı"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php:62
+msgid "İlgili kişi ve iletişim"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php:63
+msgid "ad soyad · telefon veya e-posta"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php:70
+msgid "ÖN DEĞERLENDİRME"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php:70
+msgid "02 / ÇIKTI"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php:73
+msgid "SİSTEM YÖNÜ"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php:74
+msgid "ÇİZGİ SAYISINI GİRİN"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php:75
+msgid "Aynı anda kaç kesim çizgisinin görünmesi gerektiği, iki sistem arasındaki en belirleyici ayrımdır. Bu alanı doldurduğunuzda yönü burada göreceksiniz."
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php:77
+msgid "Özet, alanları doldurdukça burada oluşur."
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php:79
+msgid "E-POSTA İLE GÖNDER"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php:80
+msgid "WHATSAPP"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php:81
+msgid "ÖZETİ KOPYALA"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php:83
+msgid "Ön değerlendirme bağlayıcı değildir; nihai sistem seçimi keşifte alınan ölçülerle birlikte yapılır. Lazerler hizalama referansı oluşturur; malzeme ve makine elemanlarının ayarı operatör tarafından yapılır."
+msgstr ""
+
+#: template-parts/blocks/vaka-listesi.php:61
+msgid "Başlangıç durumu"
+msgstr ""
+
+#: template-parts/blocks/vaka-listesi.php:61
+msgid "Kurulan yapı"
+msgstr ""
+
+#. translators: %d: dakika
+#: template-parts/rehber/kart.php:27
+#, php-format
+msgid "%d dk okuma"
+msgstr ""
+
+#: template-parts/rehber/kart.php:29
+msgid "YAZIYI OKUYUN"
+msgstr ""
+
+#: template-parts/rehber/kart.php:29
+msgid "Yazıyı okuyun →"
+msgstr ""
+
+#: template-parts/rehber/liste.php:66
+msgid "Yazılarda arayın"
+msgstr ""
+
+#: template-parts/rehber/liste.php:71
+msgid "KATEGORİ"
+msgstr ""
+
+#: template-parts/rehber/liste.php:71
+msgid "Kategori"
+msgstr ""
+
+#: template-parts/rehber/liste.php:72
+msgid "ÜRÜN ALANI"
+msgstr ""
+
+#. translators: %d: yazı sayısı
+#: template-parts/rehber/liste.php:88
+#, php-format
+msgid "<b>%d</b> yazı listeleniyor"
+msgstr ""
+
+#: template-parts/rehber/liste.php:135
+msgid "Bu seçimle eşleşen yazı bulunamadı. Filtreleri sıfırlamayı deneyin."
+msgstr ""
+
+#: template-parts/shuttle/video.php:30
+msgid "Tarayıcınız video etiketini desteklemiyor."
+msgstr ""
+
+#: template-parts/shuttle/video.php:31
+msgid "Videoyu indirin"
+msgstr ""
+
+#: template-parts/site/bulten.php:27
+msgid "E-posta adresiniz"
+msgstr ""
+
+#: template-parts/site/bulten.php:28
+msgid "KAYDOLUN"
+msgstr ""
+
+#: template-parts/site/bulten.php:30
+msgid "Sorularınız için:"
+msgstr ""
+
+#. translators: 1: "ServoMotion" marka adı, 2: firma unvanı ve kardeş marka bağlantısı
+#: template-parts/site/footer-kolonlar.php:60
+#, php-format
+msgid "%1$s, %2$s markasıdır."
+msgstr ""
+
+msgid "Durdur"
+msgstr ""
+
+msgid "0,5×"
+msgstr ""
+
+msgid "Hareketli lazer"
+msgstr ""
+
+msgid "Sabit referans lazeri"
+msgstr ""
+
+msgid "Gövde / lineer eksen"
+msgstr ""
+
+msgid "Tek Kanal · 1 Hareketli Lazer"
+msgstr ""
+
+msgid "1.200 mm çalışma genişliği"
+msgstr ""
+
+msgid "Servo gövde · kanal"
+msgstr ""
+
+msgid "Hareketli lazer arabası"
+msgstr ""
+
+msgid "Sabit lazer (ayrı braket)"
+msgstr ""
+
+msgid "Lazer çizgisi"
+msgstr ""
+
+msgid "Hizalanmış bıçak"
+msgstr ""
+
+msgid "Tekrar Oynat"
+msgstr ""
+
+msgid "Sıfırla"
+msgstr ""
+
+msgid "Hazır"
+msgstr ""
+
+msgid "Kurulumu başlatmak için Tekrar Oynat'a basın"
+msgstr ""
+
+msgid "Lazer adedi"
+msgstr ""
+
+msgid "adet"
+msgstr ""
+
+msgid "Kanal"
+msgstr ""
+
+msgid "hat"
+msgstr ""
+
+msgid "Dilim sayısı"
+msgstr ""
+
+msgid "dilim"
+msgstr ""
+
+msgid "Konumlanma adımı"
+msgstr ""
+
+msgid "adım"
+msgstr ""
+
+msgid "Örnek hareket süresi"
+msgstr ""
+
+msgid "sn"
+msgstr ""
+
+msgid "Gösterim şematiktir. Süre, 1.000 mm/s varsayımı ve adım başına 0,25 saniye bekleme ile hesaplanır; gerçek ivmelenme profili, modüller arası mesafe ve operatörün ayar süresi modellenmez. Toplam kurulum süresini göstermez."
+msgstr ""
+
+msgid "Lazer"
+msgstr ""
+
+msgid "Hareket"
+msgstr ""
+
+msgid "Tipik kullanım"
+msgstr ""
+
+msgid "Sistem Gövdesi"
+msgstr ""
+
+msgid "2.600 mm"
+msgstr ""
+
+msgid "‹ Önceki"
+msgstr ""
+
+msgid "Adım Adım Göster"
+msgstr ""
+
+msgid "Sonraki ›"
+msgstr ""
+
+msgid "Ölçü gösterimi, her uçta 80 mm pay kabul edilen örnek bir yerleşimdir. Kullanılabilir hareket mesafesi; lazer modülü boyutu, uç sınırları ve seçilen konfigürasyona göre projede kesinleştirilir."
+msgstr ""
+
+msgid "Senaryo"
+msgstr ""
+
+msgid "A · Adet girdi"
+msgstr ""
+
+msgid "B · Aralık girdi"
+msgstr ""
+
+msgid "Parametreler"
+msgstr ""
+
+msgid "mm cinsinden"
+msgstr ""
+
+msgid "Strok mesafesi · L"
+msgstr ""
+
+msgid "girdi · mm"
+msgstr ""
+
+msgid "Gövdedeki lazer · n"
+msgstr ""
+
+msgid "girdi · adet"
+msgstr ""
+
+msgid "Çizgiler arası · p"
+msgstr ""
+
+msgid "hesaplanan · mm"
+msgstr ""
+
+msgid "Aktif / rezerve"
+msgstr ""
+
+msgid "Arabalar arası boşluk"
+msgstr ""
+
+msgid "Gereken ray boyu"
+msgstr ""
+
+msgid "Güç barası"
+msgstr ""
+
+msgid "Lazer arabası"
+msgstr ""
+
+msgid "Fren kilitli"
+msgstr ""
+
+msgid "Fren açık · mekikte"
+msgstr ""
+
+msgid "Rezerve · lazer kapalı"
+msgstr ""
+
+msgid "Kurulumu Oynat"
+msgstr ""
+
+msgid "Parametreleri girip kurulumu oynatın"
+msgstr ""
+
+msgid "Hesap, eşit aralıklı yerleşim varsayar. Değişken dilim genişlikli reçeteler de desteklenir; bu durumda sınır, en dar iki çizgi arasındaki mesafedir."
+msgstr ""
+
+msgctxt "aria-label"
+msgid "Animasyon hızı"
+msgstr ""
+
+msgctxt "aria-label"
+msgid "Konfigürasyon simülasyonu"
+msgstr ""
+
+msgctxt "aria-label"
+msgid "Strok mesafesi"
+msgstr ""
+
+msgctxt "aria-label"
+msgid "Lazer adedi"
+msgstr ""
+
+msgctxt "aria-label"
+msgid "Çizgiler arası mesafe"
+msgstr ""
+
+msgctxt "aria-label"
+msgid "Simülasyon hızı"
+msgstr ""

@@ -42,15 +42,15 @@ function servo_field( $name, $post_id = false, $default = null ) {
 }
 
 /**
- * Options Page'in post_id değerini döndürür.
+ * Options Page'in post_id değerini döndürür: dile göre "options_tr" veya "options_en".
  *
- * 2. fazda Polylang ile dile göre ayrım burada yapılır
- * (ör. 'options_' . pll_current_language()). Şimdilik tek dil.
- *
+ * @param string|null $dil tr | en (boşsa geçerli dil).
  * @return string
  */
-function servo_options_id() {
-	return apply_filters( 'servo_options_id', 'option' );
+function servo_options_id( $dil = null ) {
+	$dil = $dil ? $dil : servo_dil();
+
+	return apply_filters( 'servo_options_id', 'options_' . $dil, $dil );
 }
 
 /**
@@ -63,7 +63,14 @@ function servo_options_id() {
  * @return mixed
  */
 function servo_option( $name, $default = null ) {
-	return servo_field( $name, servo_options_id(), $default );
+	$deger = servo_field( $name, servo_options_id(), null );
+
+	// İngilizce alan boşsa Türkçe değer kullanılır (telefon, e-posta, adres gibi çevrilmeyen alanlar tek yerde durur).
+	if ( servo_is_empty( $deger ) && 'tr' !== servo_dil() ) {
+		$deger = servo_field( $name, servo_options_id( 'tr' ), null );
+	}
+
+	return servo_is_empty( $deger ) ? $default : $deger;
 }
 
 /**
@@ -106,7 +113,7 @@ function servo_is_product_layout() {
  * @return string
  */
 function servo_post_url( $slug, $post_type = 'page' ) {
-	$post = get_page_by_path( $slug, OBJECT, $post_type );
+	$post = servo_kayit_bul( $slug, $post_type );
 
 	if ( $post && 'publish' === get_post_status( $post ) ) {
 		return get_permalink( $post );

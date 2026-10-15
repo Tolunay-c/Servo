@@ -1,0 +1,73 @@
+# ServoMotion — statik site sunucu ayarları (Apache)
+# Sunucunuz Nginx ise bu dosya çalışmaz; aynı kuralları Nginx karşılıklarıyla tanımlayın.
+
+# ---------------------------------------------------------------- açılış dosyası
+DirectoryIndex index.html index.php
+
+# ---------------------------------------------------------------- hata sayfası
+ErrorDocument 404 /404.html
+
+# ---------------------------------------------------------------- yönlendirmeler
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # https zorunlu
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^(.*)$ https://www.servomotion.com.tr/$1 [R=301,L]
+
+  # www'suz adresi www'ya taşı  (tersini isterseniz bu bloğu aşağıdaki notla değiştirin)
+  RewriteCond %{HTTP_HOST} !^www\. [NC]
+  RewriteRule ^(.*)$ https://www.servomotion.com.tr/$1 [R=301,L]
+
+  # eski blog adreslerini yeni rehber adreslerine taşı
+  RewriteRule ^blog\.html$ /rehber.html [R=301,L]
+  RewriteRule ^blog-(.+)\.html$ /rehber-$1.html [R=301,L]
+</IfModule>
+
+# ---------------------------------------------------------------- karakter seti
+AddDefaultCharset UTF-8
+
+# ---------------------------------------------------------------- mime tipleri
+<IfModule mod_mime.c>
+  AddType font/woff2 .woff2
+  AddType image/svg+xml .svg
+  AddType application/xml .xml
+</IfModule>
+
+# ---------------------------------------------------------------- sıkıştırma
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/xml image/svg+xml
+</IfModule>
+
+# ---------------------------------------------------------------- önbellek
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html                 "access plus 0 seconds"
+  ExpiresByType text/css                  "access plus 1 month"
+  ExpiresByType application/javascript    "access plus 1 month"
+  ExpiresByType image/jpeg                "access plus 6 months"
+  ExpiresByType image/png                 "access plus 6 months"
+  ExpiresByType image/svg+xml             "access plus 6 months"
+  ExpiresByType font/woff2                "access plus 1 year"
+  ExpiresByType application/pdf           "access plus 1 month"
+</IfModule>
+
+# ---------------------------------------------------------------- güvenlik başlıkları
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set X-Frame-Options "SAMEORIGIN"
+</IfModule>
+
+# NOT — www yerine www'suz adres kullanmak isterseniz:
+#   1) Yukarıdaki iki RewriteRule'daki https://www.servomotion.com.tr yerine
+#      https://servomotion.com.tr yazın,
+#   2) "RewriteCond %{HTTP_HOST} !^www\." satırını
+#      "RewriteCond %{HTTP_HOST} ^www\." olarak değiştirin,
+#   3) sayfalardaki canonical / og:url etiketleri ile sitemap.xml ve robots.txt
+#      içindeki adresleri de aynı biçime getirin.
+
+# eski vaka çalışmaları adresi
+RewriteRule ^referanslar\.html$ /basari-hikayeleri.html [R=301,L]

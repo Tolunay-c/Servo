@@ -12,10 +12,15 @@ defined( 'ABSPATH' ) || exit;
 
 $servo_vakalar = (array) servo_sub( 'vakalar', array() );
 $servo_not     = servo_sub( 'not' );
+$servo_iki     = 'iki_sutun' === servo_sub( 'gorunum', 'liste' );
 
 echo servo_section_open( 'section' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 echo '<div class="wrap">';
 get_template_part( 'template-parts/blocks/_bolum-basligi' );
+
+if ( $servo_iki ) {
+	echo '<div class="cases">';
+}
 
 foreach ( $servo_vakalar as $servo_id ) {
 	if ( 'publish' !== get_post_status( $servo_id ) ) {
@@ -70,6 +75,10 @@ foreach ( $servo_vakalar as $servo_id ) {
 	}
 
 	echo '</article>';
+}
+
+if ( $servo_iki ) {
+	echo '</div>';
 }
 
 if ( $servo_not ) {

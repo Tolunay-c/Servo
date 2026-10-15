@@ -21,7 +21,7 @@ HEDEF="${1:-dist/${TEMA}-${SURUM:-0}.zip}"
 case "$HEDEF" in /*) ;; *) HEDEF="$KOK/$HEDEF" ;; esac
 
 # Pakete girmeyecek yollar (kökten itibaren).
-HARIC='^(_design/|docs/|bin/|dist/|\.playwright-mcp/|\.claude/|\.vscode/|\.idea/|node_modules/|\.git|CLAUDE\.md$|README\.md$|phpcs\.xml|composer\.(json|lock)$|package(-lock)?\.json$)'
+HARIC='^(_design/|servomotion-site-tum131026/|docs/|bin/|dist/|\.playwright-mcp/|\.claude/|\.vscode/|\.idea/|node_modules/|\.git|servomotion-canli-denetim\.html$|CLAUDE\.md$|README\.md$|phpcs\.xml|composer\.(json|lock)$|package(-lock)?\.json$)'
 
 GECICI="$(mktemp -d)"
 trap 'rm -rf "$GECICI"' EXIT

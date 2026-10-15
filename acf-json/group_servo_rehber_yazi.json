@@ -24,7 +24,7 @@
             }
         },
         {
-            "key": "field_servo_rehber_yazar",
+            "key": "field_servo_rehber_yazi_yazar",
             "label": "Yazar",
             "name": "yazar",
             "type": "text",

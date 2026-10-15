@@ -231,6 +231,39 @@
                             "return_format": "value"
                         },
                         {
+                            "key": "field_servo_blk_sayfa_hero_ust_yol",
+                            "label": "Üst yol: üst sayfa",
+                            "name": "ust_yol",
+                            "type": "link",
+                            "instructions": "İsteğe bağlı. Başlığın üstünde \"SERVİS · DESTEK HATTI\" gibi küçük bir yol gösterir. Bağlantı metni üst sayfanın adı olur (ör. SERVİS).",
+                            "return_format": "array",
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_servo_blk_sayfa_hero_duzen",
+                                        "operator": "==",
+                                        "value": "standart"
+                                    }
+                                ]
+                            ]
+                        },
+                        {
+                            "key": "field_servo_blk_sayfa_hero_ust_yol_son",
+                            "label": "Üst yol: bu sayfanın adı",
+                            "name": "ust_yol_son",
+                            "type": "text",
+                            "instructions": "Üst sayfanın yanında gösterilir (ör. DESTEK HATTI).",
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_servo_blk_sayfa_hero_duzen",
+                                        "operator": "==",
+                                        "value": "standart"
+                                    }
+                                ]
+                            ]
+                        },
+                        {
                             "key": "field_servo_blk_sayfa_hero_etiket",
                             "label": "Üst etiket",
                             "name": "etiket",
@@ -283,6 +316,22 @@
                                     "name": "birincil",
                                     "type": "true_false",
                                     "instructions": "Açıksa buton sarı (öne çıkan) olur. Genellikle sadece ilk buton sarıdır.",
+                                    "default_value": 0,
+                                    "ui": 1
+                                },
+                                {
+                                    "key": "field_servo_blk_sayfa_hero__butonlar_rozet",
+                                    "label": "Dosya rozeti",
+                                    "name": "rozet",
+                                    "type": "text",
+                                    "instructions": "İsteğe bağlı. Butonun yanında küçük yazı olarak görünür (ör. PDF)."
+                                },
+                                {
+                                    "key": "field_servo_blk_sayfa_hero__butonlar_indir",
+                                    "label": "İndirme bağlantısı",
+                                    "name": "indir",
+                                    "type": "true_false",
+                                    "instructions": "Açıksa bağlantı dosyayı doğrudan indirir (PDF gibi dosyalar için).",
                                     "default_value": 0,
                                     "ui": 1
                                 }
@@ -850,7 +899,8 @@
                                 "kazanim": "Kazanım kartları (3 sütun, üstte numara)",
                                 "adim": "Adım ızgarası (solda numara)",
                                 "akis": "Akış (yan yana adımlar, altta etiket)",
-                                "zaman": "Zaman çizelgesi (solda yıl/numara)"
+                                "zaman": "Zaman çizelgesi (solda yıl/numara)",
+                                "paket": "Adımlar, sade (.pack; solda numara, servis sayfaları)"
                             },
                             "default_value": "adim",
                             "allow_null": 0,
@@ -1615,6 +1665,40 @@
                             "instructions": "Maddelerin altındaki, solunda sarı çizgi olan not. Düz metin yazın. Bağlantı gerekiyorsa <a href=\"adres\">metin</a> biçimini kullanabilirsiniz.",
                             "rows": 2,
                             "new_lines": ""
+                        },
+                        {
+                            "key": "field_servo_blk_madde_listesi_rakamlar",
+                            "label": "Rakam kutuları",
+                            "name": "rakamlar",
+                            "type": "repeater",
+                            "instructions": "İsteğe bağlı. Madde listesinin altında üç rakam kutusu (ör. ±1.00 mm · Projeksiyon hassasiyeti).",
+                            "layout": "table",
+                            "button_label": "Kutu ekle",
+                            "sub_fields": [
+                                {
+                                    "key": "field_servo_blk_madde_listesi__rakamlar_deger",
+                                    "label": "Değer",
+                                    "name": "deger",
+                                    "type": "text",
+                                    "instructions": ""
+                                },
+                                {
+                                    "key": "field_servo_blk_madde_listesi__rakamlar_birim",
+                                    "label": "Birim",
+                                    "name": "birim",
+                                    "type": "text",
+                                    "instructions": ""
+                                },
+                                {
+                                    "key": "field_servo_blk_madde_listesi__rakamlar_aciklama",
+                                    "label": "Açıklama",
+                                    "name": "aciklama",
+                                    "type": "text",
+                                    "instructions": ""
+                                }
+                            ],
+                            "min": 0,
+                            "max": 0
                         },
                         {
                             "key": "field_servo_blk_madde_listesi_arka_plan",
@@ -2484,6 +2568,22 @@
                             "esc_html": 0
                         },
                         {
+                            "key": "field_servo_blk_vaka_listesi_gorunum",
+                            "label": "Görünüm",
+                            "name": "gorunum",
+                            "type": "select",
+                            "instructions": "Vakaların dizilişi.",
+                            "choices": {
+                                "liste": "Alt alta (varsayılan)",
+                                "iki_sutun": "İki sütun"
+                            },
+                            "default_value": "liste",
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value"
+                        },
+                        {
                             "key": "field_servo_blk_vaka_listesi_baslik_stili",
                             "label": "Başlık stili",
                             "name": "baslik_stili",
@@ -3349,6 +3449,419 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_servo_servis_kanallari": {
+                    "key": "layout_servo_servis_kanallari",
+                    "name": "servis_kanallari",
+                    "label": "Servis kanalları",
+                    "display": "block",
+                    "min": "",
+                    "max": "",
+                    "sub_fields": [
+                        {
+                            "key": "field_servo_blk_servis_kanallari_aciklama_servis_kanallari",
+                            "label": "Bu blok hakkında",
+                            "name": "aciklama_servis_kanallari",
+                            "type": "message",
+                            "message": "Simgeli, başlıklı ve bağlantılı kartlar (ör. destek hattı, iade ve sevkiyat, kılavuzlar). Kartlar yan yana dizilir.",
+                            "new_lines": "wpautop",
+                            "esc_html": 0
+                        },
+                        {
+                            "key": "field_servo_blk_servis_kanallari_baslik_stili",
+                            "label": "Başlık stili",
+                            "name": "baslik_stili",
+                            "type": "select",
+                            "instructions": "Bölüm başlığının görünümü. Çoğu bölümde \"Standart\" kullanılır.",
+                            "choices": {
+                                "standart": "Standart (sarı kısa çizgi)",
+                                "cizgili": "Çizgili (çizgi + küçük gri etiket)"
+                            },
+                            "default_value": "standart",
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value"
+                        },
+                        {
+                            "key": "field_servo_blk_servis_kanallari_etiket",
+                            "label": "Üst etiket",
+                            "name": "etiket",
+                            "type": "text",
+                            "instructions": "Başlığın üstündeki küçük, büyük harfli yazı (ör. KAPSAM). Boş bırakılabilir."
+                        },
+                        {
+                            "key": "field_servo_blk_servis_kanallari_baslik",
+                            "label": "Bölüm başlığı",
+                            "name": "baslik",
+                            "type": "textarea",
+                            "instructions": "Satır atlamak için Enter'a basın. Sarı vurgu yoktur; tasarımdaki satır kırılımını korur.",
+                            "rows": 2,
+                            "new_lines": ""
+                        },
+                        {
+                            "key": "field_servo_blk_servis_kanallari_aciklama",
+                            "label": "Açıklama",
+                            "name": "aciklama",
+                            "type": "textarea",
+                            "instructions": "Başlığın altındaki metin. Yeni paragraf için bir satır boş bırakın.",
+                            "rows": 3,
+                            "new_lines": ""
+                        },
+                        {
+                            "key": "field_servo_blk_servis_kanallari_kartlar",
+                            "label": "Kartlar",
+                            "name": "kartlar",
+                            "type": "repeater",
+                            "instructions": "",
+                            "layout": "block",
+                            "button_label": "Kart ekle",
+                            "sub_fields": [
+                                {
+                                    "key": "field_servo_blk_servis_kanallari__kartlar_ikon",
+                                    "label": "Simge",
+                                    "name": "ikon",
+                                    "type": "select",
+                                    "instructions": "Kartın üstündeki çizgi simge.",
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "servo-svg-servis",
+                                        "id": ""
+                                    },
+                                    "choices": {},
+                                    "default_value": "",
+                                    "allow_null": 1,
+                                    "multiple": 0,
+                                    "ui": 0,
+                                    "return_format": "value"
+                                },
+                                {
+                                    "key": "field_servo_blk_servis_kanallari__kartlar_baslik",
+                                    "label": "Başlık",
+                                    "name": "baslik",
+                                    "type": "text",
+                                    "instructions": ""
+                                },
+                                {
+                                    "key": "field_servo_blk_servis_kanallari__kartlar_metin",
+                                    "label": "Metin",
+                                    "name": "metin",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "rows": 3,
+                                    "new_lines": ""
+                                },
+                                {
+                                    "key": "field_servo_blk_servis_kanallari__kartlar_link",
+                                    "label": "Bağlantı",
+                                    "name": "link",
+                                    "type": "link",
+                                    "instructions": "Kartın altındaki bağlantı. Yazısı \"Bağlantı metni\" alanından gelir (ör. Destek talebi oluşturun →).",
+                                    "return_format": "array"
+                                }
+                            ],
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "field_servo_blk_servis_kanallari__kartlar_baslik"
+                        },
+                        {
+                            "key": "field_servo_blk_servis_kanallari_arka_plan",
+                            "label": "Arka plan",
+                            "name": "arka_plan",
+                            "type": "select",
+                            "instructions": "Bölümün zemin rengi. Art arda gelen bölümlerde gri ve beyazı sırayla kullanmak okunurluğu artırır.",
+                            "choices": {
+                                "varsayilan": "Açık gri (varsayılan)",
+                                "beyaz": "Beyaz",
+                                "koyu": "Koyu"
+                            },
+                            "default_value": "beyaz",
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value"
+                        },
+                        {
+                            "key": "field_servo_blk_servis_kanallari_capa",
+                            "label": "Bölüm bağlantı adı",
+                            "name": "capa",
+                            "type": "text",
+                            "instructions": "İsteğe bağlı. Bu bölüme bağlantı vermek için kısa bir ad yazın (ör. iletisim); bağlantı \"#iletisim\" olur. Türkçe karakter ve boşluk kullanmayın. Aynı sayfada aynı ad iki kez kullanılırsa ikincisine otomatik ek verilir.",
+                            "default_value": ""
+                        }
+                    ]
+                },
+                "layout_servo_indirme_listesi": {
+                    "key": "layout_servo_indirme_listesi",
+                    "name": "indirme_listesi",
+                    "label": "İndirme listesi",
+                    "display": "block",
+                    "min": "",
+                    "max": "",
+                    "sub_fields": [
+                        {
+                            "key": "field_servo_blk_indirme_listesi_aciklama_indirme_listesi",
+                            "label": "Bu blok hakkında",
+                            "name": "aciklama_indirme_listesi",
+                            "type": "message",
+                            "message": "Dosya adı ve türü yazan bağlantı kutuları (ör. kılavuzlar, uygulama notları). Dosyayı Medya'dan seçin; dosya yerine bir sayfa bağlantısı da verilebilir.",
+                            "new_lines": "wpautop",
+                            "esc_html": 0
+                        },
+                        {
+                            "key": "field_servo_blk_indirme_listesi_baslik_stili",
+                            "label": "Başlık stili",
+                            "name": "baslik_stili",
+                            "type": "select",
+                            "instructions": "Bölüm başlığının görünümü. Çoğu bölümde \"Standart\" kullanılır.",
+                            "choices": {
+                                "standart": "Standart (sarı kısa çizgi)",
+                                "cizgili": "Çizgili (çizgi + küçük gri etiket)"
+                            },
+                            "default_value": "standart",
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value"
+                        },
+                        {
+                            "key": "field_servo_blk_indirme_listesi_etiket",
+                            "label": "Üst etiket",
+                            "name": "etiket",
+                            "type": "text",
+                            "instructions": "Başlığın üstündeki küçük, büyük harfli yazı (ör. KAPSAM). Boş bırakılabilir."
+                        },
+                        {
+                            "key": "field_servo_blk_indirme_listesi_baslik",
+                            "label": "Bölüm başlığı",
+                            "name": "baslik",
+                            "type": "textarea",
+                            "instructions": "Satır atlamak için Enter'a basın. Sarı vurgu yoktur; tasarımdaki satır kırılımını korur.",
+                            "rows": 2,
+                            "new_lines": ""
+                        },
+                        {
+                            "key": "field_servo_blk_indirme_listesi_aciklama",
+                            "label": "Açıklama",
+                            "name": "aciklama",
+                            "type": "textarea",
+                            "instructions": "Başlığın altındaki metin. Yeni paragraf için bir satır boş bırakın.",
+                            "rows": 3,
+                            "new_lines": ""
+                        },
+                        {
+                            "key": "field_servo_blk_indirme_listesi_dosyalar",
+                            "label": "Bağlantılar",
+                            "name": "dosyalar",
+                            "type": "repeater",
+                            "instructions": "",
+                            "layout": "block",
+                            "button_label": "Bağlantı ekle",
+                            "sub_fields": [
+                                {
+                                    "key": "field_servo_blk_indirme_listesi__dosyalar_baslik",
+                                    "label": "Başlık",
+                                    "name": "baslik",
+                                    "type": "text",
+                                    "instructions": ""
+                                },
+                                {
+                                    "key": "field_servo_blk_indirme_listesi__dosyalar_dosya",
+                                    "label": "Dosya",
+                                    "name": "dosya",
+                                    "type": "file",
+                                    "instructions": "Medya'dan bir dosya seçin. Seçilirse indirme bağlantısı olur ve rozet dosya türünden (PDF, XLSX) gelir.",
+                                    "return_format": "id",
+                                    "library": "all"
+                                },
+                                {
+                                    "key": "field_servo_blk_indirme_listesi__dosyalar_link",
+                                    "label": "Sayfa bağlantısı",
+                                    "name": "link",
+                                    "type": "link",
+                                    "instructions": "Dosya seçilmediyse kullanılır (ör. bir sayfaya veya forma bağlantı).",
+                                    "return_format": "array"
+                                },
+                                {
+                                    "key": "field_servo_blk_indirme_listesi__dosyalar_rozet",
+                                    "label": "Rozet",
+                                    "name": "rozet",
+                                    "type": "text",
+                                    "instructions": "İsteğe bağlı. Sağdaki küçük yazı (ör. WEB, TALEP). Dosya seçildiyse boş bırakılırsa dosya türü yazılır."
+                                }
+                            ],
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "field_servo_blk_indirme_listesi__dosyalar_baslik"
+                        },
+                        {
+                            "key": "field_servo_blk_indirme_listesi_notlar",
+                            "label": "Notlar",
+                            "name": "notlar",
+                            "type": "repeater",
+                            "instructions": "Listenin altındaki küçük, solunda sarı çizgi olan notlar.",
+                            "layout": "block",
+                            "button_label": "Not ekle",
+                            "sub_fields": [
+                                {
+                                    "key": "field_servo_blk_indirme_listesi__notlar_metin",
+                                    "label": "Metin",
+                                    "name": "metin",
+                                    "type": "textarea",
+                                    "instructions": "Bağlantı için <a href=\"adres\">metin</a> biçimini kullanabilirsiniz.",
+                                    "rows": 3,
+                                    "new_lines": ""
+                                }
+                            ],
+                            "min": 0,
+                            "max": 0
+                        },
+                        {
+                            "key": "field_servo_blk_indirme_listesi_arka_plan",
+                            "label": "Arka plan",
+                            "name": "arka_plan",
+                            "type": "select",
+                            "instructions": "Bölümün zemin rengi. Art arda gelen bölümlerde gri ve beyazı sırayla kullanmak okunurluğu artırır.",
+                            "choices": {
+                                "varsayilan": "Açık gri (varsayılan)",
+                                "beyaz": "Beyaz",
+                                "koyu": "Koyu"
+                            },
+                            "default_value": "beyaz",
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value"
+                        },
+                        {
+                            "key": "field_servo_blk_indirme_listesi_capa",
+                            "label": "Bölüm bağlantı adı",
+                            "name": "capa",
+                            "type": "text",
+                            "instructions": "İsteğe bağlı. Bu bölüme bağlantı vermek için kısa bir ad yazın (ör. iletisim); bağlantı \"#iletisim\" olur. Türkçe karakter ve boşluk kullanmayın. Aynı sayfada aynı ad iki kez kullanılırsa ikincisine otomatik ek verilir.",
+                            "default_value": ""
+                        }
+                    ]
+                },
+                "layout_servo_talep_formu": {
+                    "key": "layout_servo_talep_formu",
+                    "name": "talep_formu",
+                    "label": "Talep formu",
+                    "display": "block",
+                    "min": "",
+                    "max": "",
+                    "sub_fields": [
+                        {
+                            "key": "field_servo_blk_talep_formu_aciklama_talep_formu",
+                            "label": "Bu blok hakkında",
+                            "name": "aciklama_talep_formu",
+                            "type": "message",
+                            "message": "Ziyaretçinin doldurup gönderebildiği talep formu. \"Form türü\" hangi alanların çıkacağını belirler. Gönderilen talep Site Ayarları > Formlar'daki adrese gelir; doküman talebinde ziyaretçiye süreli indirme bağlantısı da gönderilir (ayar orada).",
+                            "new_lines": "wpautop",
+                            "esc_html": 0
+                        },
+                        {
+                            "key": "field_servo_blk_talep_formu_baslik_stili",
+                            "label": "Başlık stili",
+                            "name": "baslik_stili",
+                            "type": "select",
+                            "instructions": "Bölüm başlığının görünümü. Çoğu bölümde \"Standart\" kullanılır.",
+                            "choices": {
+                                "standart": "Standart (sarı kısa çizgi)",
+                                "cizgili": "Çizgili (çizgi + küçük gri etiket)"
+                            },
+                            "default_value": "standart",
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value"
+                        },
+                        {
+                            "key": "field_servo_blk_talep_formu_etiket",
+                            "label": "Üst etiket",
+                            "name": "etiket",
+                            "type": "text",
+                            "instructions": "Başlığın üstündeki küçük, büyük harfli yazı (ör. KAPSAM). Boş bırakılabilir."
+                        },
+                        {
+                            "key": "field_servo_blk_talep_formu_baslik",
+                            "label": "Bölüm başlığı",
+                            "name": "baslik",
+                            "type": "textarea",
+                            "instructions": "Satır atlamak için Enter'a basın. Sarı vurgu yoktur; tasarımdaki satır kırılımını korur.",
+                            "rows": 2,
+                            "new_lines": ""
+                        },
+                        {
+                            "key": "field_servo_blk_talep_formu_aciklama",
+                            "label": "Açıklama",
+                            "name": "aciklama",
+                            "type": "textarea",
+                            "instructions": "Başlığın altındaki metin. Yeni paragraf için bir satır boş bırakın.",
+                            "rows": 3,
+                            "new_lines": ""
+                        },
+                        {
+                            "key": "field_servo_blk_talep_formu_tur",
+                            "label": "Form türü",
+                            "name": "tur",
+                            "type": "select",
+                            "instructions": "Dokümanlar sayfası için \"Doküman talebi\"; servis alt sayfaları için ilgili tür. Alanlar türe göre sabittir.",
+                            "choices": {
+                                "dokuman": "Doküman talebi (doküman kutuları + iletişim)",
+                                "destek": "Destek talebi",
+                                "iade": "İade / gönderim bildirimi",
+                                "kilavuz": "Kılavuz / doküman talebi (seri numarasıyla)"
+                            },
+                            "default_value": "dokuman",
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value"
+                        },
+                        {
+                            "key": "field_servo_blk_talep_formu_buton",
+                            "label": "Gönder düğmesi yazısı",
+                            "name": "buton",
+                            "type": "text",
+                            "instructions": "Boşsa \"TALEBİ GÖNDERİN\".",
+                            "default_value": "TALEBİ GÖNDERİN"
+                        },
+                        {
+                            "key": "field_servo_blk_talep_formu_not",
+                            "label": "Form altı notu",
+                            "name": "not",
+                            "type": "textarea",
+                            "instructions": "Düğmenin altındaki küçük not. Bağlantı için <a href=\"adres\">metin</a> biçimini kullanabilirsiniz.",
+                            "rows": 3,
+                            "new_lines": ""
+                        },
+                        {
+                            "key": "field_servo_blk_talep_formu_arka_plan",
+                            "label": "Arka plan",
+                            "name": "arka_plan",
+                            "type": "select",
+                            "instructions": "Bölümün zemin rengi. Art arda gelen bölümlerde gri ve beyazı sırayla kullanmak okunurluğu artırır.",
+                            "choices": {
+                                "varsayilan": "Açık gri (varsayılan)",
+                                "beyaz": "Beyaz",
+                                "koyu": "Koyu"
+                            },
+                            "default_value": "beyaz",
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value"
+                        },
+                        {
+                            "key": "field_servo_blk_talep_formu_capa",
+                            "label": "Bölüm bağlantı adı",
+                            "name": "capa",
+                            "type": "text",
+                            "instructions": "Sayfadaki bağlantılar bu forma bu adla gider (ör. form veya talep → \"#form\"). Hero butonları genellikle \"#form\" kullanır.",
+                            "default_value": ""
+                        }
+                    ]
                 }
             },
             "min": "",

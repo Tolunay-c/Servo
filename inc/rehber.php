@@ -3,7 +3,7 @@
  * Rehber (blog): yazı listesi, yazı şablonu ve Gutenberg uyarlamaları.
  *
  * Rehber yazıları Gutenberg ile yazılır. Tasarımın bileşenleri (.callout,
- * .keyval, .atable, ol.steps, ol.alist) editörde çekirdek bloklara eklenen
+ * .keyval, .atable, ol.steps, ol.alist, .editorial-note) editörde çekirdek bloklara eklenen
  * block style'lar ve desenlerle (pattern) sunulur; ön yüzde render_block
  * filtresi bu blokların çıktısını tasarımdaki markup'a çevirir. Böylece
  * rehber.css değiştirilmeden kullanılır.
@@ -18,8 +18,16 @@ defined( 'ABSPATH' ) || exit;
  */
 function servo_rehber_editor_kayit() {
 	$stiller = array(
-		'core/group'     => array( 'callout' => __( 'Bilgi kutusu', 'servomotion' ) ),
-		'core/paragraph' => array( 'kutu-basligi' => __( 'Bilgi kutusu başlığı', 'servomotion' ) ),
+		'core/group'     => array(
+			'callout'     => __( 'Bilgi kutusu', 'servomotion' ),
+			'muhendislik' => __( 'Mühendislik değerlendirmesi', 'servomotion' ),
+			'editoryal'   => __( 'Editoryal not (sarı, butonlu)', 'servomotion' ),
+		),
+		'core/paragraph' => array(
+			'kutu-basligi' => __( 'Bilgi kutusu başlığı', 'servomotion' ),
+			'eyebrow'      => __( 'Kutu üst etiketi', 'servomotion' ),
+			'buton'        => __( 'Kutu butonu', 'servomotion' ),
+		),
 		'core/table'     => array( 'keyval' => __( 'Değer kutuları', 'servomotion' ) ),
 		'core/list'      => array(
 			'steps' => __( 'Numaralı adımlar', 'servomotion' ),
@@ -52,6 +60,64 @@ function servo_rehber_editor_kayit() {
 
 <!-- wp:paragraph -->
 <p>' . esc_html__( 'Kutu metni. Önemli kısımları kalın yazabilirsiniz.', 'servomotion' ) . '</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->',
+		),
+		'muhendislik-degerlendirmesi' => array(
+			__( 'Mühendislik değerlendirmesi', 'servomotion' ),
+			__( 'Yazının başında, mavi çizgili özet kutusu: üst etiket, başlık ve üç madde. Yazıda bir kez, ilk H2\'den önce kullanılır; içindekiler listesine girmez.', 'servomotion' ),
+			'<!-- wp:group {"className":"is-style-muhendislik"} -->
+<div class="wp-block-group is-style-muhendislik"><!-- wp:paragraph {"className":"is-style-eyebrow"} -->
+<p class="is-style-eyebrow">' . esc_html__( 'Mühendislik değerlendirmesi', 'servomotion' ) . '</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">' . esc_html__( 'Kutu başlığı', 'servomotion' ) . '</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>' . esc_html__( 'Birinci madde.', 'servomotion' ) . '</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>' . esc_html__( 'İkinci madde.', 'servomotion' ) . '</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>' . esc_html__( 'Üçüncü madde.', 'servomotion' ) . '</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></div>
+<!-- /wp:group -->',
+		),
+		'editoryal-not' => array(
+			__( 'Editoryal not (butonlu)', 'servomotion' ),
+			__( 'Yazının başında, sarı çizgili özet kutusu: üst etiket, başlık, üç madde ve iletişime giden bir buton. Yazıda bir kez, ilk H2\'den önce kullanılır; içindekiler listesine girmez.', 'servomotion' ),
+			'<!-- wp:group {"className":"is-style-editoryal"} -->
+<div class="wp-block-group is-style-editoryal"><!-- wp:paragraph {"className":"is-style-eyebrow"} -->
+<p class="is-style-eyebrow">' . esc_html__( 'Kutu üst etiketi', 'servomotion' ) . '</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">' . esc_html__( 'Kutu başlığı', 'servomotion' ) . '</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>' . esc_html__( 'Birinci madde.', 'servomotion' ) . '</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>' . esc_html__( 'İkinci madde.', 'servomotion' ) . '</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>' . esc_html__( 'Üçüncü madde.', 'servomotion' ) . '</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph {"className":"is-style-buton"} -->
+<p class="is-style-buton"><a href="' . esc_url( home_url( '/iletisim/' ) ) . '">' . esc_html__( 'BUTON YAZISI', 'servomotion' ) . '</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->',
 		),
@@ -172,6 +238,9 @@ function servo_rehber_sinif( $html, $cikar, $ekle = array() ) {
  *   servo_rehber_icerik()'te kalkar); "Numaralı adımlar" /
  *   "Numaralı liste" stilleri ol.steps / ol.alist olur.
  * - "Bilgi kutusu" grubu div.callout, başlık paragrafı div.t olur.
+ * - "Mühendislik değerlendirmesi" grubu div.editorial-note.engineering,
+ *   "Editoryal not" grubu div.editorial-note, "Kutu üst etiketi" paragrafı
+ *   p.eyebrow, "Kutu butonu" paragrafı p > a.btn olur.
  * - Tablolar div.ascroll > table.atable, "Değer kutuları" tablosu div.keyval olur.
  *
  * @param string $html  Blok çıktısı.
@@ -201,17 +270,32 @@ function servo_rehber_render_block( $html, $block ) {
 				$ic = preg_replace( '#^\s*<p[^>]*>|</p>\s*$#', '', $html );
 				return '<div class="t">' . $ic . '</div>';
 			}
+			if ( servo_rehber_stil( $block, 'eyebrow' ) ) {
+				$ic = preg_replace( '#^\s*<p[^>]*>|</p>\s*$#', '', $html );
+				return '<p class="eyebrow">' . $ic . '</p>';
+			}
+			if ( servo_rehber_stil( $block, 'buton' ) ) {
+				$ic = preg_replace( '#^\s*<p[^>]*>|</p>\s*$#', '', $html );
+				$ic = preg_replace( '#<a\s#', '<a class="btn" ', $ic, 1 );
+				return '<p>' . $ic . '</p>';
+			}
 			return $html;
 
 		case 'core/group':
-			if ( ! servo_rehber_stil( $block, 'callout' ) ) {
+			if ( servo_rehber_stil( $block, 'callout' ) ) {
+				$sinif = 'callout';
+			} elseif ( servo_rehber_stil( $block, 'muhendislik' ) ) {
+				$sinif = 'editorial-note engineering';
+			} elseif ( servo_rehber_stil( $block, 'editoryal' ) ) {
+				$sinif = 'editorial-note';
+			} else {
 				return $html;
 			}
 			$ic = '';
 			foreach ( $block['innerBlocks'] as $alt ) {
 				$ic .= render_block( $alt );
 			}
-			return '<div class="callout">' . $ic . '</div>';
+			return '<div class="' . $sinif . '">' . $ic . '</div>';
 
 		case 'core/table':
 			if ( ! preg_match( '#<table[^>]*>(.*)</table>#s', $html, $m ) ) {
@@ -263,8 +347,21 @@ function servo_rehber_icerik( $post ) {
 	// WordPress paragraflara render_block'tan sonra da sınıf ekler; tasarımda yok.
 	$content = preg_replace( '#<p class="wp-block-paragraph"#', '<p', $content );
 	$content = preg_replace( '#(<p class="[^"]*?)\s*\bwp-block-paragraph\b#', '$1', $content );
+	// Sınıfı sökülen etiketlerde kalan boşluk (<h2 >, <ul >).
+	$content = preg_replace( '#<(h[1-6]|ul|ol|table)\s+>#', '<$1>', (string) $content );
 	$toc     = array();
 	$kullan  = array();
+
+	// Mühendislik değerlendirmesi kutusundaki H2 id almaz, içindekilere girmez.
+	$kutular = array();
+	$content = preg_replace_callback(
+		'#<div class="editorial-note[^"]*">.*?</div>#is',
+		function ( $m ) use ( &$kutular ) {
+			$kutular[] = $m[0];
+			return '<!--servo-kutu-' . ( count( $kutular ) - 1 ) . '-->';
+		},
+		$content
+	);
 
 	$content = preg_replace_callback(
 		'#<h2([^>]*)>(.*?)</h2>#is',
@@ -295,6 +392,10 @@ function servo_rehber_icerik( $post ) {
 		$content
 	);
 
+	foreach ( $kutular as $i => $kutu ) {
+		$content = str_replace( '<!--servo-kutu-' . $i . '-->', $kutu, $content );
+	}
+
 	return array( servo_bdi( $content ), $toc );
 }
 
@@ -308,6 +409,11 @@ function servo_rehber_icerik( $post ) {
  * @return string
  */
 function servo_tr_upper( $text ) {
+	// İngilizce metinde Türkçe büyük harf kuralı (i → İ) uygulanmaz.
+	if ( function_exists( 'servo_en' ) && servo_en() ) {
+		return mb_strtoupper( (string) $text, 'UTF-8' );
+	}
+
 	$adlar = array_map(
 		function ( $ad ) {
 			return preg_quote( $ad, '/' );
@@ -346,6 +452,8 @@ function servo_rehber_okuma( $post ) {
 
 /**
  * Yazının yazarını döndürür (alan boşsa Site Ayarları'ndaki varsayılan).
+ * Sadece liste kartlarının alt satırında gösterilir; yazı sayfasında ve öne
+ * çıkan kartta yazar bilgisi basılmaz.
  *
  * @param int|WP_Post $post Yazı.
  * @return string

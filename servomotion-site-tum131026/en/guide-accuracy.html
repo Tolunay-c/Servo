@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="../favicon.svg?v=20260917" type="image/svg+xml"><link rel="mask-icon" href="../favicon.svg?v=20260917" color="#FFD400"><link rel="apple-touch-icon" href="../apple-touch-icon.png?v=20260917"><link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png?v=20260917"><link rel="manifest" href="../site.webmanifest?v=20260917"><meta name="theme-color" content="#0B0F14">
+<title>What Does ±1.00 mm Mean, and Why Does It Matter? | ServoMotion Guide</title>
+<meta name="description" content="What projection accuracy measures, how it differs from line thickness, how working distance affects it and how to verify it on site."><link rel="canonical" href="https://www.servomotion.com.tr/en/guide-accuracy.html"><link rel="alternate" hreflang="tr" href="https://www.servomotion.com.tr/rehber-hassasiyet.html"><link rel="alternate" hreflang="en" href="https://www.servomotion.com.tr/en/guide-accuracy.html"><meta property="og:type" content="article"><meta property="og:site_name" content="ServoMotion"><meta property="og:locale" content="en_GB"><meta property="og:title" content="What Does ±1.00 mm Mean, and Why Does It Matter? | ServoMotion Guide"><meta property="og:description" content="What projection accuracy measures, how it differs from line thickness, how working distance affects it and how to verify it on site."><meta property="og:url" content="https://www.servomotion.com.tr/en/guide-accuracy.html"><meta property="og:image" content="https://www.servomotion.com.tr/og/rehber.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/rehber.css?v=20260917">
+<link rel="stylesheet" href="../assets/brandfont.css?v=20260917">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What Does ±1.00 mm Mean, and Why Does It Matter?","description":"What projection accuracy measures, how it differs from line thickness, how working distance affects it and how to verify it on site.","image":"https://www.servomotion.com.tr/og/rehber.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.servomotion.com.tr/en/guide-accuracy.html"},"inLanguage":"en","datePublished":"2026-09-23","dateModified":"2026-09-23","author":{"@type":"Organization","name":"ServoMotion","url":"https://www.servomotion.com.tr/"},"publisher":{"@type":"Organization","name":"ServoMotion","logo":{"@type":"ImageObject","url":"https://www.servomotion.com.tr/favicon-512.png"}},"isPartOf":{"@type":"Blog","name":"ServoMotion Guide","url":"https://www.servomotion.com.tr/en/guide.html"}}</script><style id="navfit">.nav .tabs .langlink{color:#D6DEE7}.nav .tabs .langlink:hover{color:var(--yellow)}@media(min-width:901px){.nav nav a,.nav .tabs a,.nav .tabs .tab{white-space:nowrap}.nav nav{gap:16px;flex-wrap:wrap}.nav nav a{font-size:13.5px;letter-spacing:.04em}.nav .nav-in{gap:16px}.nav .brand span{display:none}.nav .tabs{gap:9px;flex-wrap:wrap}.nav .tabs .tab{font-size:12.2px;letter-spacing:0}}@media(min-width:901px) and (max-width:1220px){.nav nav{gap:10px}.nav nav a{font-size:12.2px;letter-spacing:.01em}.nav .tabs{gap:7px}.nav .tabs .tab{font-size:11.6px}}@media(min-width:901px) and (max-width:1120px){.nav nav{gap:8px}.nav nav a{font-size:11.4px;letter-spacing:0}.nav .tabs{gap:6px}.nav .tabs .tab{font-size:11px}}@media(min-width:901px) and (max-width:1120px){.nav .wrap,.nav .nav-in{flex-direction:column;align-items:flex-start;gap:10px}.nav nav,.nav .tabs{width:100%;justify-content:flex-start}}</style>
+</head>
+<body>
+<header class="nav"><div class="wrap"><a class="brand" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1726.7 800.0" fill="currentColor" aria-hidden="true" focusable="false" class="smk"><g class="smk-m"><g transform="translate(276.56 0) skewX(-19.07)"><path d="M 72.00 0.00 H 670.04 V 228.00 H 0.00 V 72.00 A 72.00 72.00 0 0 1 72.00 0.00 Z"/><path d="M 72.00 0.00 H 280.00 V 468.00 H 0.00 V 72.00 A 72.00 72.00 0 0 1 72.00 0.00 Z"/><path d="M 0.00 332.00 H 670.04 V 468.00 H 0.00 V 332.00 Z"/><path d="M 0.00 572.00 H 280.00 V 800.00 H 72.00 A 72.00 72.00 0 0 1 0.00 728.00 V 572.00 Z"/><path d="M 390.04 332.00 H 670.04 V 800.00 H 390.04 V 332.00 Z"/><path d="M 780.08 0.00 H 1060.08 V 800.00 H 780.08 V 0.00 Z"/><path d="M 1170.12 0.00 H 1378.12 A 72.00 72.00 0 0 1 1450.12 72.00 V 728.00 A 72.00 72.00 0 0 1 1378.12 800.00 H 1170.12 V 0.00 Z"/></g></g><g transform="skewX(-19.07)"><rect class="smk-b" y="-46" width="64" height="892" rx="32" x="126.6" fill="#FFD400" opacity="0"/></g></svg><bdi lang="en"><i class="lo1">Servo</i><i class="lo2">Motion</i></bdi></a><nav aria-label="Main menu"><a href="index.html">HOME</a><a href="core-precisor.html">CORE PRECISOR</a><a href="shuttle-precisor.html">SHUTTLE PRECISOR</a><a href="success-stories.html">SUCCESS STORIES</a><a href="service.html">SERVICE</a><a href="company.html">COMPANY</a><a href="guide.html">GUIDE</a><a href="contact.html">CONTACT</a><a class="langlink" href="../rehber-hassasiyet.html" hreflang="tr" title="Türkçe">TR</a></nav></div></header>
+<main>
+<section class="pdoc"><div class="wrap">
+<p class="crumb"><a href="guide.html">GUIDE</a> · ACCURACY</p>
+<p class="topmeta"><span><b>23 September 2026</b></span><span>8 MIN READ</span></p>
+<h1>What Does ±1.00 mm Mean, and Why Does It Matter?</h1>
+<p class="intro">Projection accuracy is not a catalogue figure. It links directly to edge quality, scrap rate and changeover time. Here is what the figure actually measures, how working distance affects it and how much accuracy your line really needs.</p>
+<div class="ptags"><div class="tagrow"><span class="ctag secim">Investment and selection</span><span class="atag">Core Precisor</span><span class="atag">Shuttle Precisor</span></div></div>
+<div class="phero"><svg viewBox="0 0 320 150" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true"><rect width="320" height="150" fill="#0A1017"/><line x1="0" y1="0" x2="0" y2="150" stroke="#17242f" stroke-width="1"/><line x1="32" y1="0" x2="32" y2="150" stroke="#17242f" stroke-width="1"/><line x1="64" y1="0" x2="64" y2="150" stroke="#17242f" stroke-width="1"/><line x1="96" y1="0" x2="96" y2="150" stroke="#17242f" stroke-width="1"/><line x1="128" y1="0" x2="128" y2="150" stroke="#17242f" stroke-width="1"/><line x1="160" y1="0" x2="160" y2="150" stroke="#17242f" stroke-width="1"/><line x1="192" y1="0" x2="192" y2="150" stroke="#17242f" stroke-width="1"/><line x1="224" y1="0" x2="224" y2="150" stroke="#17242f" stroke-width="1"/><line x1="256" y1="0" x2="256" y2="150" stroke="#17242f" stroke-width="1"/><line x1="288" y1="0" x2="288" y2="150" stroke="#17242f" stroke-width="1"/><line x1="320" y1="0" x2="320" y2="150" stroke="#17242f" stroke-width="1"/><rect x="0" y="0" width="320" height="5" fill="#ffd400"/><line x1="40" y1="104" x2="40" y2="88" stroke="#8FA3B8" stroke-width="1.4"/><line x1="64" y1="104" x2="64" y2="96" stroke="#8FA3B8" stroke-width="1.4"/><line x1="88" y1="104" x2="88" y2="96" stroke="#8FA3B8" stroke-width="1.4"/><line x1="112" y1="104" x2="112" y2="96" stroke="#8FA3B8" stroke-width="1.4"/><line x1="136" y1="104" x2="136" y2="96" stroke="#8FA3B8" stroke-width="1.4"/><line x1="160" y1="104" x2="160" y2="88" stroke="#8FA3B8" stroke-width="1.4"/><line x1="184" y1="104" x2="184" y2="96" stroke="#8FA3B8" stroke-width="1.4"/><line x1="208" y1="104" x2="208" y2="96" stroke="#8FA3B8" stroke-width="1.4"/><line x1="232" y1="104" x2="232" y2="96" stroke="#8FA3B8" stroke-width="1.4"/><line x1="256" y1="104" x2="256" y2="96" stroke="#8FA3B8" stroke-width="1.4"/><line x1="280" y1="104" x2="280" y2="88" stroke="#8FA3B8" stroke-width="1.4"/><line x1="34" y1="104" x2="286" y2="104" stroke="#8FA3B8" stroke-width="1.6"/><rect x="148" y="34" width="24" height="70" fill="#ffd400" opacity=".16"/><rect x="158.5" y="30" width="3" height="74" rx="1.5" fill="#FF2D20"/><text x="160" y="116" fill="#ffd400" font-family="monospace" font-size="13" text-anchor="middle">±1.00 mm</text></svg></div>
+</div></section>
+
+<section class="pbody"><div class="wrap">
+<nav class="toc" aria-label="Contents"><div class="ttitle">CONTENTS</div><ol><li><a href="#hassasiyet-neyi-olcer">What does accuracy measure?</a></li><li><a href="#cizgi-kalinligi-hassasiyet-degildir">Line thickness is not accuracy</a></li><li><a href="#calisma-mesafesi-neyi-degistirir">What does working distance change?</a></li><li><a href="#hattinizda-ne-kadari-gerekli">How much do you need on your line?</a></li><li><a href="#sahada-nasil-dogrulanir">How is it verified on site?</a></li><li><a href="#ozet">Summary</a></li></ol></nav>
+<div class="prose">
+<div class="editorial-note engineering"><p class="eyebrow">Engineering assessment</p><h2>±1.00 mm on its own does not define quality</h2><ul><li>Read the figure together with a defined working distance, mounting rigidity and thermal conditions.</li><li>Measure accuracy and repeatability separately, and add the uncertainty of the measuring instrument to the results.</li><li>Report the acceptance test with repeated measurements at the centre and at both ends of the travel.</li></ul></div>
+
+
+<div class="keyval">
+  <div><div class="k">Projection accuracy</div><div class="v">±1.00<small>mm</small></div></div>
+  <div><div class="k">Line thickness</div><div class="v">1<small>mm</small></div></div>
+  <div><div class="k">Positioning speed</div><div class="v">1000<small>mm/s</small></div></div>
+</div>
+
+<h2 id="hassasiyet-neyi-olcer">What does accuracy measure?</h2>
+<p>In a laser positioning system, <b>projection accuracy</b> is the deviation between the position the control system targets and the centre of the line projected onto the working surface. ±1.00 mm means that if the system is commanded to 850.0 mm, the centre of the line falls between 849.0 and 851.0 mm.</p>
+<p>That figure comes not from a single component but from a <b>chain</b> : the positional accuracy of the servo axis, mechanical backlash, the mounting plane of the housing, the angular tolerance of the laser module and the working distance. Break any link in that chain and even the best servo will not hold the figure.</p>
+
+<div class="callout">
+  <div class="t">Two concepts that are often confused</div>
+  <p><b>Accuracy</b> is how close the line falls to the true target. <b>Repeatability</b> is the line falling in the same place each time you return to the same recipe.</p>
+  <p>In alignment applications, <b>repeatability is usually the more critical of the two</b>: the operator sets up once, and as long as the system returns to the same place at every changeover, the process stays under control.</p>
+</div>
+
+<h2 id="cizgi-kalinligi-hassasiyet-degildir">Line thickness is not accuracy</h2>
+<p>Two figures sit side by side in catalogues and are routinely confused: <b>line thickness</b>  and  <b>accuracy</b>. Line thickness is an optical property: the width of the strip of light the laser puts on the surface. Accuracy describes where the <b>centre</b>  of that strip falls.</p>
+<p>A 1 mm line can be positioned to 0.1 mm accuracy, and the reverse is equally possible. In practice the two only make sense together: the operator judges the centre of the line by eye, so a thick line gives back at the reading stage what a precise axis gained.</p>
+
+<h2 id="calisma-mesafesi-neyi-degistirir">What does working distance change?</h2>
+<p>As the distance between the laser module and the working surface grows, two things happen. First, the line gets
+<b>thicker</b>  — focus is adjustable, but only within limits. Second, and more importantly, a small <b>angular</b>  deviation in the module mounting is multiplied by distance and becomes a <b>linear</b>  deviation on the surface.</p>
+<p>An example: a mounting tilt of 0.05 degrees produces about 0.9 mm of offset at one metre. The same tilt gives 1.7 mm at two metres. An accuracy figure is therefore incomplete unless it states <b>at which working distance</b>  it applies.</p>
+
+<h2 id="hattinizda-ne-kadari-gerekli">How much do you need on your line?</h2>
+<p>The right question is not “which system is most accurate” but “what is my tolerance”. Check three things:</p>
+<ul>
+  <li><b>Slit width tolerance.</b> If your customer accepts ±2 mm, an alignment reference of ±1.00 mm leaves a reasonable margin. If ±0.5 mm is required, reassess the whole chain.</li>
+  <li><b>Blade or cutter width.</b> The cutting element itself is often wider than the laser accuracy, so a tighter reference may bring no measurable gain.</li>
+  <li><b>How it is read.</b> If the operator aligns by eye, human reading uncertainty typically sits in the 0.5–1 mm band. Pushing the system far below that adds cost without a return in the process.</li>
+</ul>
+
+<h2 id="sahada-nasil-dogrulanir">How is it verified on site?</h2>
+<p>We run a simple but effective check during commissioning:</p>
+<ol class="steps">
+  <li><b>Establish a reference point</b>Choose a measurable, fixed edge on the line and treat it as zero. Use a fixed gauge rather than a tape measure where possible.</li>
+  <li><b>Command five different positions</b>Enter five target positions spread along the travel, then measure the centre of the line at each and record the deviation.</li>
+  <li><b>Return to the same positions</b>Change the recipe and come back to the first positions. The difference between the second round and the first is your repeatability.</li>
+  <li><b>Repeat at the ends</b>The ends of the travel put the mechanical chain under most strain. If a system that holds at the centre does not hold at the ends, look at the mounting plane.</li>
+  <li><b>Keep the record</b>That measurement is the baseline to compare against if a deviation is ever suspected. File it with the commissioning record.</li>
+</ol>
+
+<h2 id="ozet">Summary</h2>
+<div class="ascroll"><table class="atable">
+  <thead><tr><th>Concept</th><th>What it describes</th><th>What to check</th></tr></thead>
+  <tbody>
+    <tr><td>Projection accuracy</td><td>The deviation between target position and line centre</td><td>The working distance it applies to</td></tr>
+    <tr><td>Repeatability</td><td>Falling in the same place when the recipe is repeated</td><td>The difference between two measurement rounds</td></tr>
+    <tr><td>Line thickness</td><td>The width of the strip of light</td><td>How easily the operator can read the centre</td></tr>
+    <tr><td>Mounting plane</td><td>Angular deviation growing with distance</td><td>The measurement at the ends of the travel</td></tr>
+  </tbody>
+</table></div>
+<p><bdi lang="en">ServoMotion</bdi>  systems we set ±1.00 mm as a level that holds under realistic mounting conditions and pays back in the process. If your line’s tolerance calls for a tighter reference, assess it together with the working distance and the mounting structure — that is a design decision, not a product selection.</p>
+
+<div class="endbox">
+  <h3>WHAT DOES YOUR LINE NEED?</h3>
+  <p>Share your alignment requirements and we will assess the laser layout, the motion architecture and the automation interfaces for your application together.</p>
+  <a class="btn" href="contact.html">GET IN TOUCH</a>
+</div>
+</div></div></section>
+
+<section class="section" style="padding:0"><div class="wrap"><p style="border-left:3px solid var(--yellow);padding-left:15px;font-size:15.5px;color:#506275;line-height:1.65;margin-bottom:40px">For short definitions of the terms used in this article, see the <a href="glossary.html" style="font-weight:600;color:#0b0f14">alignment glossary</a> .</p></div></section><section class="related"><div class="wrap">
+<div class="rehber-intro"><div><p class="label">MORE</p><h2>RELATED ARTICLES</h2></div></div>
+<div class="stories">
+<article class="story" data-category="secim" data-areas="core" data-text="core precisor'ın altı hareket konfigürasyonu altı düzenin hangi hizalama ihtiyacına karşılık geldiğini öğrenin; seçimi yalnızca lazer sayısına göre yapmayın. tek kanal, çift kanal ve simetrik mimariler; sabit referans lazerinin ne zaman gerektiği ve hangi hattın hangi modele uyduğu. k1'den k6'ya, altı düzenin hangi soruya cevap verdiğini anlatıyoruz. core precisor'in alti hareket konfigurasyonu alti duzenin hangi hizalama ihtiyacina karsilik geldigini ogrenin; secimi yalnizca lazer sayisina gore yapmayin. tek kanal, cift kanal ve simetrik mimariler; sabit referans lazerinin ne zaman gerektigi ve hangi hattin hangi modele uydugu. k1'den k6'ya, alti duzenin hangi soruya cevap verdigini anlatiyoruz."><a class="svis" href="guide-core-configurations.html" aria-label="The Six Motion Configurations of Core Precisor"><svg viewBox="0 0 320 150" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true"><rect width="320" height="150" fill="#0A1017"/><line x1="0" y1="0" x2="0" y2="150" stroke="#17242f" stroke-width="1"/><line x1="32" y1="0" x2="32" y2="150" stroke="#17242f" stroke-width="1"/><line x1="64" y1="0" x2="64" y2="150" stroke="#17242f" stroke-width="1"/><line x1="96" y1="0" x2="96" y2="150" stroke="#17242f" stroke-width="1"/><line x1="128" y1="0" x2="128" y2="150" stroke="#17242f" stroke-width="1"/><line x1="160" y1="0" x2="160" y2="150" stroke="#17242f" stroke-width="1"/><line x1="192" y1="0" x2="192" y2="150" stroke="#17242f" stroke-width="1"/><line x1="224" y1="0" x2="224" y2="150" stroke="#17242f" stroke-width="1"/><line x1="256" y1="0" x2="256" y2="150" stroke="#17242f" stroke-width="1"/><line x1="288" y1="0" x2="288" y2="150" stroke="#17242f" stroke-width="1"/><line x1="320" y1="0" x2="320" y2="150" stroke="#17242f" stroke-width="1"/><rect x="0" y="0" width="320" height="5" fill="#ffd400"/><rect x="94.5" y="34" width="3" height="66" rx="1.5" fill="#FF2D20"/><rect x="158.5" y="34" width="3" height="66" rx="1.5" fill="#2FE05C"/><rect x="222.5" y="34" width="3" height="66" rx="1.5" fill="#FF2D20"/><rect x="64" y="104" width="192" height="13" rx="2" fill="#ffd400"/><path d="M96 126 L132 126 M124 121 l8 5 -8 5" stroke="#8FA3B8" stroke-width="1.6" fill="none"/><path d="M224 126 L188 126 M196 121 l-8 5 8 5" stroke="#8FA3B8" stroke-width="1.6" fill="none"/></svg></a><div class="sbody"><div class="tagrow"><span class="ctag secim">Investment and selection</span><span class="atag">Core Precisor</span></div><h3><a href="guide-core-configurations.html" style="text-decoration:none">Core <span lang="en"><bdi lang="en">Precisor</bdi></span>’s Six Motion Configurations</a></h3><p class="pmeta"><b>23 September 2026</b> · 6 min read</p><p class="sum">Learn which alignment requirement each of the six configurations answers — and do not choose on laser count alone.</p><a class="read" href="guide-core-configurations.html">Read the article →</a><p class="sfoot">SERVOMOTION</p></div></article>
+<article class="story" data-category="secim" data-areas="shuttle" data-text="mekik mimarisi: tek servo, onlarca lazer shuttle precısor’ın sıralı yerleştirme yaklaşımını ve çoklu referans ihtiyacındaki yerini keşfedin. shuttle precisor'da üç raylı yapı nasıl çalışır, neden her lazer için ayrı motor gerekmez ve kurulum döngüsü nasıl hesaplanır. rezerve alanı ve ray boyu hesabıyla birlikte. mekik mimarisi: tek servo, onlarca lazer shuttle precisor’in sirali yerlestirme yaklasimini ve coklu referans ihtiyacindaki yerini kesfedin. shuttle precisor'da uc rayli yapi nasil calisir, neden her lazer icin ayri motor gerekmez ve kurulum dongusu nasil hesaplanir. rezerve alani ve ray boyu hesabiyla birlikte."><a class="svis" href="guide-shuttle-architecture.html" aria-label="Shuttle Architecture: One Servo Axis, Dozens of Lasers"><svg viewBox="0 0 320 150" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true"><rect width="320" height="150" fill="#0A1017"/><line x1="0" y1="0" x2="0" y2="150" stroke="#17242f" stroke-width="1"/><line x1="32" y1="0" x2="32" y2="150" stroke="#17242f" stroke-width="1"/><line x1="64" y1="0" x2="64" y2="150" stroke="#17242f" stroke-width="1"/><line x1="96" y1="0" x2="96" y2="150" stroke="#17242f" stroke-width="1"/><line x1="128" y1="0" x2="128" y2="150" stroke="#17242f" stroke-width="1"/><line x1="160" y1="0" x2="160" y2="150" stroke="#17242f" stroke-width="1"/><line x1="192" y1="0" x2="192" y2="150" stroke="#17242f" stroke-width="1"/><line x1="224" y1="0" x2="224" y2="150" stroke="#17242f" stroke-width="1"/><line x1="256" y1="0" x2="256" y2="150" stroke="#17242f" stroke-width="1"/><line x1="288" y1="0" x2="288" y2="150" stroke="#17242f" stroke-width="1"/><line x1="320" y1="0" x2="320" y2="150" stroke="#17242f" stroke-width="1"/><rect x="0" y="0" width="320" height="5" fill="#ffd400"/><rect x="24" y="26" width="272" height="9" rx="1" fill="none" stroke="#4FA3E3" stroke-width="1.4"/><rect x="34" y="44" width="26" height="18" rx="2" fill="#4A5A6B"/><rect x="45.5" y="62" width="3" height="42" rx="1.5" fill="#FF2D20"/><rect x="76" y="44" width="26" height="18" rx="2" fill="#4A5A6B"/><rect x="87.5" y="62" width="3" height="42" rx="1.5" fill="#FF2D20"/><rect x="118" y="44" width="26" height="18" rx="2" fill="#4A5A6B"/><rect x="129.5" y="62" width="3" height="42" rx="1.5" fill="#FF2D20"/><rect x="160" y="44" width="26" height="18" rx="2" fill="#4A5A6B"/><rect x="171.5" y="62" width="3" height="42" rx="1.5" fill="#FF2D20"/><rect x="202" y="44" width="26" height="18" rx="2" fill="#4A5A6B"/><rect x="213.5" y="62" width="3" height="42" rx="1.5" fill="#FF2D20"/><rect x="244" y="44" width="26" height="18" rx="2" fill="#4A5A6B"/><rect x="255.5" y="62" width="3" height="42" rx="1.5" fill="#FF2D20"/><rect x="24" y="110" width="272" height="10" rx="2" fill="#2B3B4C"/><rect x="130" y="106" width="28" height="18" rx="2" fill="#ffd400"/></svg></a><div class="sbody"><div class="tagrow"><span class="ctag secim">Investment and selection</span><span class="atag">Shuttle Precisor</span></div><h3><a href="guide-shuttle-architecture.html" style="text-decoration:none">Shuttle Architecture: One Servo Axis, Dozens of Lasers</a></h3><p class="pmeta"><b>23 September 2026</b> · 7 min read</p><p class="sum">Discover the sequential positioning approach of SHUTTLE PRECISOR and where it fits when many references are needed.</p><a class="read" href="guide-shuttle-architecture.html">Read the article →</a><p class="sfoot">SERVOMOTION</p></div></article>
+<article class="story" data-category="verim" data-areas="core" data-text="sabit referans lazeri ne işe yarar? sürekli görünür bir merkez referansının ayar ve malzeme yerleşimine katkısını inceleyin. merkezde duran yeşil çizgi bir süs değil. simetri kontrolü, operatör hatasının erken yakalanması ve reçete doğrulamasındaki rolünü anlatıyoruz — ve ne zaman gereksiz olduğunu. sabit referans lazeri ne ise yarar? surekli gorunur bir merkez referansinin ayar ve malzeme yerlesimine katkisini inceleyin. merkezde duran yesil cizgi bir sus degil. simetri kontrolu, operator hatasinin erken yakalanmasi ve recete dogrulamasindaki rolunu anlatiyoruz — ve ne zaman gereksiz oldugunu."><a class="svis" href="guide-fixed-reference.html" aria-label="What Is a Fixed Reference Laser For?"><svg viewBox="0 0 320 150" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true"><rect width="320" height="150" fill="#0A1017"/><line x1="0" y1="0" x2="0" y2="150" stroke="#17242f" stroke-width="1"/><line x1="32" y1="0" x2="32" y2="150" stroke="#17242f" stroke-width="1"/><line x1="64" y1="0" x2="64" y2="150" stroke="#17242f" stroke-width="1"/><line x1="96" y1="0" x2="96" y2="150" stroke="#17242f" stroke-width="1"/><line x1="128" y1="0" x2="128" y2="150" stroke="#17242f" stroke-width="1"/><line x1="160" y1="0" x2="160" y2="150" stroke="#17242f" stroke-width="1"/><line x1="192" y1="0" x2="192" y2="150" stroke="#17242f" stroke-width="1"/><line x1="224" y1="0" x2="224" y2="150" stroke="#17242f" stroke-width="1"/><line x1="256" y1="0" x2="256" y2="150" stroke="#17242f" stroke-width="1"/><line x1="288" y1="0" x2="288" y2="150" stroke="#17242f" stroke-width="1"/><line x1="320" y1="0" x2="320" y2="150" stroke="#17242f" stroke-width="1"/><rect x="0" y="0" width="320" height="5" fill="#ffd400"/><rect x="157.5" y="26" width="5" height="90" rx="1.5" fill="#2FE05C"/><rect x="98.5" y="40" width="3" height="76" rx="1.5" fill="#FF2D20"/><rect x="218.5" y="40" width="3" height="76" rx="1.5" fill="#FF2D20"/><path d="M100 128 L156 128 M148 123 l8 5 -8 5" stroke="#8FA3B8" stroke-width="1.5" fill="none"/><path d="M220 128 L164 128 M172 123 l-8 5 8 5" stroke="#8FA3B8" stroke-width="1.5" fill="none"/></svg></a><div class="sbody"><div class="tagrow"><span class="ctag verim">Production efficiency</span><span class="atag">Core Precisor</span></div><h3><a href="guide-fixed-reference.html" style="text-decoration:none">What Is a Fixed Reference Laser For?</a></h3><p class="pmeta"><b>23 September 2026</b> · 5 min read</p><p class="sum">See what a permanently visible centre reference contributes to setup and material placement.</p><a class="read" href="guide-fixed-reference.html">Read the article →</a><p class="sfoot">SERVOMOTION</p></div></article>
+</div></div></section>
+<section class="news" id="bulten"><div class="wrap"><div>
+<h2>MAKE AN INFORMED INVESTMENT DECISION</h2>
+<p>We share technical articles, application examples and product updates by email as they are published, to make system selection and investment decisions easier.</p>
+</div><div>
+<form class="newsform" id="nf"><input type="email" id="nmail" placeholder="Your email address" aria-label="Your email address" required>
+<button class="btn primary" type="submit">SUBSCRIBE</button></form>
+<p class="newsnote" id="nnote">Questions: <a href="mailto:info@servomotion.com.tr">info@servomotion.com.tr</a></p>
+</div></div></section>
+</main>
+<script>
+(function(){"use strict";
+ var links=Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+ var heads=links.map(function(l){return document.getElementById(l.getAttribute('href').slice(1));});
+ function onScroll(){
+   var y=window.scrollY+120, cur=0;
+   heads.forEach(function(h,i){ if(h && h.offsetTop<=y) cur=i; });
+   links.forEach(function(l,i){ l.classList.toggle('on', i===cur); });
+ }
+ window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+})();
+
+(function(){"use strict";
+ var f=document.getElementById('nf'); if(!f) return;
+ f.addEventListener('submit',function(e){e.preventDefault();
+  var m=document.getElementById('nmail').value;
+  document.getElementById('nnote').innerHTML='The form is not connected to a list yet. For now you can '+
+   '<a href="mailto:info@servomotion.com.tr?subject=Guide%20subscription&body='+encodeURIComponent(m)+
+   '">write to us by email</a>.';});
+})();
+</script>
+<footer><div class="wrap"><div class="fcols"><div class="fcol"><b>SYSTEMS</b><a href="core-precisor.html">Core Precisor</a><a href="shuttle-precisor.html">Shuttle Precisor</a><a href="documents.html">Technical documents</a></div><div class="fcol"><b>APPLICATIONS</b><a href="application-rubber.html">Rubber and composite</a><a href="application-nonwoven.html">Hygiene products and nonwoven</a><a href="application-packaging.html">Packaging and paper</a><a href="application-film-foil.html">Film and foil</a><a href="application-textiles.html">Textiles and technical fabrics</a><a href="application-labels.html">Labels and adhesive tape</a></div><div class="fcol"><b>SUCCESS STORIES</b><a href="success-stories.html">Proven applications across six industries</a><a href="service.html">Service and commissioning</a><a href="service-helpdesk.html">Helpdesk</a><a href="service-manuals.html">Manuals</a><a href="guide.html">Guide articles</a></div><div class="fcol"><b>COMPANY</b><a href="company.html">About us</a><a href="contact.html">Contact</a><a href="faq.html">Frequently asked questions</a><a href="glossary.html">Glossary</a><a href="privacy.html">Privacy and cookies</a></div></div><div class="fbase"><span><bdi lang="en">ServoMotion</bdi> is a brand of Oktay Otomasyon Elektronik Mühendislik San. ve Tic. A.Ş. (<a href="https://o-em.com.tr" target="_blank" rel="noopener">OEM Lazer</a>).</span><span><a href="mailto:info@servomotion.com.tr">info@servomotion.com.tr</a> · <a href="tel:+902125772567">+90 212 577 25 67</a></span></div></div></footer>
+<script>
+(function(){"use strict";
+ var drops=[].slice.call(document.querySelectorAll('.navdrop'));
+ drops.forEach(function(d){
+   var btn=d.querySelector('.navtop');
+   if(!btn) return;
+   btn.addEventListener('click',function(e){
+     e.preventDefault();
+     var open=d.classList.contains('open');
+     drops.forEach(function(x){x.classList.remove('open');x.querySelector('.navtop').setAttribute('aria-expanded','false');});
+     if(!open){ d.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+   });
+ });
+ document.addEventListener('click',function(e){
+   if(e.target.closest('.navdrop')) return;
+   drops.forEach(function(x){x.classList.remove('open');x.querySelector('.navtop').setAttribute('aria-expanded','false');});
+ });
+ document.addEventListener('keydown',function(e){ if(e.key==='Escape')
+   drops.forEach(function(x){x.classList.remove('open');x.querySelector('.navtop').setAttribute('aria-expanded','false');}); });
+})();
+</script></body>
+</html>

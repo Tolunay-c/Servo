@@ -17,8 +17,8 @@ defined( 'ABSPATH' ) || exit;
     <div class="hsg">
       <div class="hsg-hd">
         <span class="code" id="hCode">L4</span>
-        <h3>Sistem Gövdesi</h3>
-        <span class="w" id="hW">2.600 mm</span>
+        <h3><?php esc_html_e( 'Sistem Gövdesi', 'servomotion' ); ?></h3>
+        <span class="w" id="hW"><?php esc_html_e( '2.600 mm', 'servomotion' ); ?></span>
       </div>
 
       <div class="hstage">
@@ -41,13 +41,13 @@ defined( 'ABSPATH' ) || exit;
       </div>
 
       <div class="hbar">
-        <button class="btn btn-o" id="hPrev" style="background:transparent;border-color:#33465A;color:#D6DEE7">‹ Önceki</button>
-        <button class="btn btn-y" id="hAuto">Adım Adım Göster</button>
-        <button class="btn btn-o" id="hNext" style="background:transparent;border-color:#33465A;color:#D6DEE7">Sonraki ›</button>
+        <button class="btn btn-o" id="hPrev" style="background:transparent;border-color:#33465A;color:#D6DEE7"><?php esc_html_e( '‹ Önceki', 'servomotion' ); ?></button>
+        <button class="btn btn-y" id="hAuto"><?php esc_html_e( 'Adım Adım Göster', 'servomotion' ); ?></button>
+        <button class="btn btn-o" id="hNext" style="background:transparent;border-color:#33465A;color:#D6DEE7"><?php esc_html_e( 'Sonraki ›', 'servomotion' ); ?></button>
         <span class="hstep" id="hStep">4 / 6</span>
       </div>
 
-      <div class="ladder" id="ladder"></div><p class="simnote">Ölçü gösterimi, her uçta 80 mm pay kabul edilen örnek bir yerleşimdir. Kullanılabilir hareket mesafesi; lazer modülü boyutu, uç sınırları ve seçilen konfigürasyona göre projede kesinleştirilir.</p>
+      <div class="ladder" id="ladder"></div><p class="simnote"><?php esc_html_e( 'Ölçü gösterimi, her uçta 80 mm pay kabul edilen örnek bir yerleşimdir. Kullanılabilir hareket mesafesi; lazer modülü boyutu, uç sınırları ve seçilen konfigürasyona göre projede kesinleştirilir.', 'servomotion' ); ?></p>
 
     </div>
   </div>

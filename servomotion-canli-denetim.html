@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>servomotion.com.tr — Canlı Site Denetimi ve To-Do</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0B0F14; --ink2:#121A22; --panel:#fff; --edge:#E2E7EE; --edge2:#D9E0E8;
+  --text:#1B2531; --muted:#5B6B7D; --faint:#8494A6;
+  --yellow:#FFD400; --red:#E5484D; --amber:#F5A623; --blue:#3E7BBF; --green:#2FA866;
+  --disp:'Barlow Condensed','Arial Narrow',system-ui,sans-serif;
+  --body:'Barlow',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,'Courier New',monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#F4F6F9;color:var(--text);font:16px/1.65 var(--body)}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+
+/* ---- başlık ---- */
+header.top{background:var(--ink);color:#E6ECF2;padding:40px 0 34px;border-bottom:4px solid var(--yellow)}
+header.top .eyebrow{font:500 11px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--yellow);margin:0 0 14px}
+header.top h1{font-family:var(--disp);font-weight:700;font-size:clamp(26px,5vw,50px);line-height:1.05;margin:0;letter-spacing:.01em;text-transform:uppercase;overflow-wrap:anywhere}
+header.top h1 em{font-style:normal;color:var(--yellow)}
+header.top p.sub{margin:16px 0 0;max-width:72ch;color:#AEBDCC;font-size:16.5px}
+.meta{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px 26px;font:400 12.5px/1.6 var(--mono);color:#8DA0B4;letter-spacing:.04em}
+.meta b{color:#E6ECF2;font-weight:500}
+
+/* ---- kök neden kutusu ---- */
+.cause{background:#FFF8E1;border:1px solid #F0DFA0;border-left:5px solid var(--yellow);padding:20px 22px;margin:28px 0 0;border-radius:2px}
+.cause h2{font-family:var(--disp);font-size:21px;margin:0 0 8px;text-transform:uppercase;letter-spacing:.02em}
+.cause p{margin:0 0 9px;font-size:15.5px;color:#4A4121}
+.cause p:last-child{margin-bottom:0}
+
+/* ---- sayaçlar ---- */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--edge2);
+  border:1px solid var(--edge2);margin:26px 0 0;border-radius:2px;overflow:hidden}
+.stat{background:#fff;padding:16px 18px}
+.stat b{display:block;font-family:var(--disp);font-weight:700;font-size:34px;line-height:1;color:var(--ink)}
+.stat span{display:block;font:500 10.5px/1.5 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-top:6px}
+.stat.maj b{color:var(--red)} .stat.min b{color:var(--amber)} .stat.chk b{color:var(--blue)}
+
+/* ---- araç çubuğu ---- */
+.bar{position:sticky;top:0;z-index:5;background:#F4F6F9;border-bottom:1px solid var(--edge2);
+  padding:14px 0;margin-top:34px}
+.bar .in{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.filter{appearance:none;border:1px solid var(--edge2);background:#fff;color:var(--text);
+  font:600 12.5px/1 var(--body);letter-spacing:.04em;padding:10px 15px;border-radius:2px;cursor:pointer}
+.filter[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.filter:hover{border-color:var(--faint)}
+.prog{margin-left:auto;font:500 12.5px/1 var(--mono);letter-spacing:.08em;color:var(--muted)}
+.prog b{color:var(--ink)}
+
+/* ---- bölümler ---- */
+section.grp{margin:40px 0 0}
+.grp-hd{display:flex;align-items:baseline;gap:14px;border-bottom:2px solid var(--ink);padding-bottom:9px;margin-bottom:4px}
+.grp-hd h2{font-family:var(--disp);font-weight:700;font-size:27px;margin:0;text-transform:uppercase;letter-spacing:.02em}
+.grp-hd .tag{font:500 10.5px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;padding:5px 9px;border-radius:2px}
+.tag.maj{background:#FDE8E9;color:#A3242A} .tag.min{background:#FDF2DD;color:#8A5B07}
+.tag.chk{background:#E7F0FA;color:#1F4F80}
+.grp-hd p{margin:0 0 0 auto;font-size:13.5px;color:var(--muted)}
+
+/* ---- madde ---- */
+.item{background:#fff;border:1px solid var(--edge);border-radius:2px;margin-top:12px;
+  display:grid;grid-template-columns:52px 1fr;overflow:hidden}
+.item.maj{border-left:4px solid var(--red)}
+.item.min{border-left:4px solid var(--amber)}
+.item.chk{border-left:4px solid var(--blue)}
+.item .box{display:flex;align-items:flex-start;justify-content:center;padding:19px 0 0;background:#FBFCFD;border-right:1px solid var(--edge)}
+.item input[type=checkbox]{width:19px;height:19px;accent-color:var(--ink);cursor:pointer}
+.item .bd{padding:16px 20px 17px}
+.item h3{font-family:var(--disp);font-weight:600;font-size:20.5px;line-height:1.22;margin:0 0 7px;letter-spacing:.01em}
+.item h3 .id{font:500 11px/1 var(--mono);letter-spacing:.1em;color:var(--faint);margin-right:9px;vertical-align:2px}
+.item p{margin:0 0 9px;font-size:15px;color:var(--muted)}
+.item p:last-child{margin-bottom:0}
+.item .fix{background:#F7FAF8;border-left:3px solid var(--green);padding:10px 13px;font-size:14.5px;color:#2C4536;border-radius:2px}
+.item .fix b{color:#1E3527}
+.where{font:400 12px/1.7 var(--mono);color:var(--faint);letter-spacing:.02em;word-break:break-all;margin-bottom:8px}
+.where span{display:inline-block;background:#F2F5F8;border:1px solid var(--edge);padding:2px 7px;margin:0 5px 4px 0;border-radius:2px;color:#4A5B6E}
+.item.done{opacity:.46}
+.item.done h3{text-decoration:line-through}
+.hide{display:none!important}
+.item code{font:400 12.5px/1.5 var(--mono);background:#F2F5F8;border:1px solid var(--edge);padding:1px 5px;border-radius:2px;overflow-wrap:anywhere;word-break:break-word}
+.item .bd,.item p,.item .fix,.where{overflow-wrap:anywhere;min-width:0}
+.item{min-width:0}
+@media(max-width:560px){.where span{max-width:100%}}
+
+
+/* ---- kapanış ---- */
+footer.end{margin:52px 0 70px;padding-top:22px;border-top:1px solid var(--edge2);
+  font-size:14px;color:var(--muted)}
+footer.end b{color:var(--text)}
+.noprint{}
+@media print{
+  body{background:#fff}
+  .bar,.noprint{display:none!important}
+  .item{break-inside:avoid;page-break-inside:avoid}
+  header.top{background:#fff;color:#000;border-bottom:3px solid #000}
+  header.top h1,header.top h1 em{color:#000}
+  header.top p.sub,.meta{color:#333}
+}
+@media(max-width:860px){
+  .stats{grid-template-columns:1fr 1fr}
+  .grp-hd{flex-wrap:wrap}
+  .grp-hd p{margin-left:0;flex-basis:100%}
+}
+@media(max-width:560px){
+  .item{grid-template-columns:42px 1fr}
+  .item .bd{padding:14px 15px 15px}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">Canlı site denetimi · 13 Ekim 2026</p>
+    <h1>SERVOMOTION.COM.TR<br><em>YAYIN SONRASI FARK ANALİZİ</em></h1>
+    <p class="sub">Canlı site, teslim edilen HTML yapısıyla sayfa sayfa karşılaştırıldı. Aşağıdaki
+      liste; eksik sayfaları, uygulanmamış revizyon maddelerini, kırık ya da yanlış hedefe giden
+      bağlantıları, eksik dokümanları ve tarayıcıda doğrulanması gereken etkileşimli bileşenleri
+      kapsar.</p>
+    <div class="meta">
+      <span><b>Canlı altyapı:</b> WordPress 7.1.2</span>
+      <span><b>Canlı sayfa:</b> 27</span>
+      <span><b>Teslim edilen sayfa:</b> 68 (34 TR + 34 EN)</span>
+      <span><b>Kapatılacak madde:</b> 30</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="cause">
+    <h2>Kök neden — önce bu okunmalı</h2>
+    <p>Canlı sitedeki içerik, <b>Revizyonlar.docx uygulanmadan önceki sürüme</b> karşılık geliyor.
+      Menüde hâlâ “VAKA ÇALIŞMALARI” yazması, ağaç/kereste vakasının durması, rehber yazılarının
+      “ServoMotion Mühendislik Ekibi” imzasını ve 16 Eylül tarihini taşıması bunu gösteriyor.</p>
+    <p>Yani aşağıdaki maddelerin büyük bölümü tek tek düzeltilecek hatalar değil; <b>son sürümün
+      WordPress’e aktarılmamış olmasının sonuçları.</b> En verimli yol, maddeleri teker teker
+      kovalamak yerine son teslim paketindeki içeriği esas alıp sayfaları güncellemek.</p>
+    <p>İkinci bir yapısal konu: İngilizce sürüm hiç yayına alınmamış. 34 İngilizce sayfa, 6 İngilizce
+      uygulama notu PDF’i ve İngilizce kurulum dokümanları teslim paketinde hazır bekliyor.</p>
+  </div>
+
+  <div class="stats">
+    <div class="stat maj"><b>12</b><span>Majör</span></div>
+    <div class="stat min"><b>10</b><span>Minör</span></div>
+    <div class="stat chk"><b>8</b><span>Doğrulanacak</span></div>
+    <div class="stat"><b>30</b><span>Toplam madde</span></div>
+  </div>
+
+  <div class="bar noprint">
+    <div class="in">
+      <button class="filter" type="button" data-f="all" aria-pressed="true">Tümü</button>
+      <button class="filter" type="button" data-f="maj" aria-pressed="false">Majör</button>
+      <button class="filter" type="button" data-f="min" aria-pressed="false">Minör</button>
+      <button class="filter" type="button" data-f="chk" aria-pressed="false">Doğrulanacak</button>
+      <button class="filter" type="button" data-f="open" aria-pressed="false">Açık olanlar</button>
+      <button class="filter" type="button" id="prn">Yazdır / PDF</button>
+      <span class="prog"><b id="pdone">0</b> / <span id="ptot">30</span> tamam</span>
+    </div>
+  </div>
+
+  <!-- ================= MAJÖR ================= -->
+  <section class="grp" data-grp="maj">
+    <div class="grp-hd">
+      <h2>Majör</h2><span class="tag maj">Yayını etkiliyor</span>
+      <p>Eksik sayfa, uygulanmamış revizyon kararı, erişilemeyen doküman.</p>
+    </div>
+
+    <article class="item maj" data-k="maj">
+      <div class="box"><input type="checkbox"></div>
+      <div class="bd">
+        <h3><span class="id">M01</span>İngilizce sürüm hiç yayında değil</h3>
+        <div class="where"><span>/en/ — yok</span><span>menüde dil düğmesi yok</span></div>
+        <p>Teslim paketindeki 34 İngilizce sayfanın hiçbiri yüklenmemiş; menüde TR/EN geçiş düğmesi
+          bulunmuyor. Yurt dışı ziyaretçi için site tamamen Türkçe. Revizyon listesinin 16. maddesi
+          bu başlıktı.</p>
+        <div class="fix"><b>Yapılacak:</b> <code>en/</code> klasöründeki 34 sayfa aynı dizin yapısıyla
+          yüklenecek, menüye TR/EN düğmesi eklenecek, her Türkçe sayfaya
+          <code>hreflang="en"</code> ve karşılığına <code>hreflang="tr"</code> etiketi konacak.</div>
+      </div>
+    </article>
+
+    <article class="item maj" data-k="maj">
+      <div class="box"><input type="checkbox"></div>
+      <div class="bd">
+        <h3><span class="id">M02</span>WordPress “Örnek sayfa”sı yayında ve sitemap’te</h3>
+        <div class="where"><span>/ornek-sayfa/</span></div>
+        <p>WordPress kurulumuyla gelen varsayılan örnek sayfa silinmemiş. İçeriği “Bu bir örnek
+          sayfadır…” metni. Üstelik <code>wp-sitemap-posts-page-1.xml</code> içinde yer aldığı için
+          arama motorlarına da bildiriliyor.</p>
+        <div class="fix"><b>Yapılacak:</b> Sayfa kalıcı olarak silinecek (çöp kutusundan da).
+          Silindikten sonra sitemap kendiliğinden güncellenir.</div>
+      </div>
+    </article>
+
+    <article class="item maj" data-k="maj">
+      <div class="box"><input type="checkbox"></div>
+      <div class="bd">
+        <h3><span class="id">M03</span>“Başarı Hikayeleri” revizyonu hiç uygulanmamış</h3>
+        <div class="where"><span>/referanslar/</span><span>menü: VAKA ÇALIŞMALARI</span></div>
+        <p>Onaylanan revizyonda sayfa adı “Başarı Hikayeleri” olacak, dosya adı da buna göre
+          değişecekti. Canlıda menü “VAKA ÇALIŞMALARI”, adres <code>/referanslar/</code>, başlık
+          “SAHADAN DÖRT KURULUM”, alt başlık “DÖRT FARKLI SEGMENT / DÖRT FARKLI ÖLÇEK”.</p>
+        <div class="fix"><b>Yapılacak:</b> Sayfa <code>/basari-hikayeleri/</code> adresine taşınacak,
+          <code>/referanslar/</code> için 301 yönlendirme kurulacak, menü ve altbilgi etiketi
+          “BAŞARI HİKAYELERİ” yapılacak, başlıklar güncel metinle değiştirilecek.</div>
+      </div>
+    </article>
+
+    <article class="item maj" data-k="maj">
+      <div class="box"><input type="checkbox"></div>
+      <div class="bd">
+        <h3><span class="id">M04</span>Ağaç / kereste vakası hâlâ sayfada</h3>
+        <div class="where"><span>/referanslar/ → “Dilim sınırlarını kesimden önce görmek”</span></div>
+        <p>Revizyonun 24. maddesi “Ağaç uygulamasını tamamen kaldır” diyordu. Vaka yerinde duruyor ve
+          sayfadaki kurulum sayısını dörde çıkarıyor.</p>
+        <div class="fix"><b>Yapılacak:</b> Ağaç/tomruk vakası kaldırılacak; sayfa güncel paketteki
+          altı kurulumla (lastik, nonwoven, ambalaj, film-folyo, tekstil, etiket) yeniden kurulacak.</div>
+      </div>
+    </article>
+
+    <article class="item maj" data-k="maj">
+      <div class="box"><input type="checkbox"></div>
+      <div class="bd">
+        <h3><span class="id">M05</span>Altı uygulamadan üçü yok — ana sayfadaki kartlar bağlantısız</h3>
+        <div class="where"><span>/uygulama/lastik/ ✓</span><span>/uygulama/nonwoven/ ✓</span><span>/uygulama/ambalaj/ ✓</span><span>film-folyo ✗</span><span>tekstil ✗</span><span>etiket ✗</span></div>
+        <p>Ana sayfadaki “FARKLI PROSESLER İÇİN ORTAK HİZALAMA YAKLAŞIMI” bölümünde altı başlık
+          görünüyor, ancak son üçünün (Film ve Folyo, Tekstil ve Teknik Kumaşlar, Etiket ve Yapışkanlı
+          Bant) “Uygulama sayfasını görün” bağlantısı yok — kartlar ölü. Alt bilgideki uygulama
+          sütununda da yalnızca üç uygulama var; revizyonun 28. maddesi altısının da eklenmesini
+          istiyordu.</p>
+        <div class="fix"><b>Yapılacak:</b> Eksik üç uygulama sayfası yayınlanacak
+          (<code>/uygulama/film-folyo/</code>, <code>/tekstil/</code>, <code>/etiket/</code>),
+          ana sayfadaki altı karta da örnek kurulum satırı ve bağlantı eklenecek, altbilgi sütunu
+          altıya tamamlanacak.</div>
+      </div>
+    </article>
+
+    <article class="item maj" data-k="maj">
+      <div class="box"><input type="checkbox"></div>
+      <div class="bd">
+        <h3><span class="id">M06</span>Servis alt sayfaları yayınlanmamış</h3>
+        <div class="where"><span>/servis/ ✓</span><span>destek hattı ✗</span><span>iade ve sevkiyat ✗</span><span>kılavuzlar ✗</span></div>
+        <p>Revizyonun 33. maddesi servis sayfasının yeniden tasarlanmasını ve helpdesk / iade-sevkiyat
+          / kılavuzlar için üç ayrı alt sayfa açılmasını istiyordu. Canlıda üçü de yok; destek
+          bağlantılarının tamamı iletişim sayfasına gidiyor.</p>
+        <div class="fix"><b>Yapılacak:</b> Üç alt sayfa yayınlanacak ve servis sayfasındaki kartlardan
+          bunlara bağlantı verilecek.</div>
+      </div>
+    </article>
+
+    <article class="item maj" data-k="maj">
+      <div class="box"><input type="checkbox"></div>
+      <div class="bd">
+        <h3><span class="id">M07</span>Dokümanlar sayfası: doğrudan indirme açık, talep formu yok</h3>
+        <div class="where"><span>/dokumanlar/</span><span>…/wp-content/uploads/2026/10/servomotion-core-precisor-veri-sayfasi.pdf</span></div>
+        <p>Revizyonun 38. maddesi tam tersini istiyordu: “Doğrudan indirilebilir dosya paylaşma.
+          İndirme için form doldurmalarını iste.” Canlıda üç PDF doğrudan indiriliyor, sayfada hiçbir
+          form alanı yok; “talep” bağlantıları iletişim sayfasına yönlendiriyor.</p>
+        <div class="fix"><b>Yapılacak:</b> Doğrudan PDF bağlantıları kaldırılacak, yerine form
+          konacak; talep edilen doküman e-posta ile iletilecek. PDF’ler arama motorlarına kapalı bir
+          dizine alınacak.</div>
+      </div>
+    </article>
+
+    <article class="item maj" data-k="maj">
+      <div class="box"><input type="checkbox"></div>
+      <div class="bd">
+        <h3><span class="id">M08</span>Uygulama notu PDF’leri yüklenmemiş</h3>
+        <div class="where"><span>“UYGULAMA NOTU İSTEYİN” → /iletisim/?konu=lastik</span><span>…/uploads/2026/10/uygulama-lastik.pdf → yok</span></div>
+        <p>Revizyonun 29. maddesi altı uygulama için ayrı PDF notlar hazırlanmasını ve butonun
+          doğrudan dosyaya bağlanmasını istiyordu. PDF’ler teslim paketinde hazır (TR + EN, toplam 12
+          dosya) ama siteye yüklenmemiş; buton dosya yerine iletişim sayfasına gidiyor.</p>
+        <div class="fix"><b>Yapılacak:</b> 12 PDF yüklenecek; her uygulama sayfasındaki buton kendi
+          notuna bağlanacak (doküman adları sayfa adlarıyla aynı).</div>
+      </div>
+    </article>
+
+    <article class="item maj" data-k="maj">
+      <div class="box"><input type="checkbox"></div>
+      <div class="bd">
+        <h3><span class="id">M09</span>Rehber yazılarında “ServoMotion Mühendislik Ekibi” imzası duruyor</h3>
+        <div class="where"><span>/rehber/hassasiyet/ → “16 Eylül 2026 · ServoMotion Mühendislik Ekibi · 8 DK OKUMA”</span><span>11 yazının tamamı</span></div>
+        <p>Revizyonun 44. maddesi bu ibarenin tüm yazılardan kaldırılmasını istiyordu.</p>
+        <div class="fix"><b>Yapılacak:</b> 11 rehber yazısının üst bilgi satırından imza alanı
+          silinecek; geriye tarih ve okuma süresi kalacak.</div>
+      </div>
+    </article>
+
+    <article class="item maj" data-k="maj">
+      <div class="box"><input type="checkbox"></div>
+      <div class="bd">
+        <h3><span class="id">M10</span>Yayın tarihleri 16 Eylül 2026 görünüyor</h3>
+        <div class="where"><span>11 rehber yazısı</span></div>
+        <p>Revizyonun 45. maddesi tüm yazıların yayın tarihinin 23.09.2026 olarak güncellenmesini
+          istiyordu. Canlıda 16 Eylül 2026 yazıyor. Tarih hem sayfada hem de yapılandırılmış veride
+          (Article JSON-LD) geçtiği için arama sonuçlarına da bu şekilde yansır.</p>
+        <div class="fix"><b>Yapılacak:</b> WordPress yazı tarihleri ve sayfadaki tarih metni
+          23 Eylül 2026 yapılacak.</div>
+      </div>
+    </article>
+
+    <article class="item maj" data-k="maj">
+      <div class="box"><input type="checkbox"></div>
+      <div class="bd">
+        <h3><span class="id">M11</span>Kurumsal sayfasındaki üretim / saha görselleri kaldırılmamış</h3>
+        <div class="where"><span>/kurumsal/ → “Üretim · atölye ve montaj”, “Saha · devreye alma”</span></div>
+        <p>Revizyonun 30. maddesi “Kurumsal sayfasında en altta üretim ve saha görselini kaldır”
+          diyordu. İki görsel de sayfanın altında duruyor.</p>
+        <div class="fix"><b>Yapılacak:</b> İki görsel bloğu kaldırılacak. Aynı maddedeki ikinci istek
+          de kontrol edilecek: grup markaları bölümünde “inceleyin” yerine doğrudan alan adı
+          gösterilmeli.</div>
+      </div>
+    </article>
+
+    <article class="item maj" data-k="maj">
+      <div class="box"><input type="checkbox"></div>
+      <div class="bd">
+        <h3><span class="id">M12</span>www ve www’suz adres birlikte yayında</h3>
+        <div class="where"><span>paylaşılan adres: www.servomotion.com.tr</span><span>canonical: https://servomotion.com.tr/…</span></div>
+        <p>Her iki adres de içerik döndürüyor; canonical etiketi www’suz sürümü işaret ediyor. Bu
+          durum arama motorlarında çift içerik ve bölünmüş otorite riski yaratır; paylaştığınız
+          www’lu adres canonical ile uyuşmuyor.</p>
+        <div class="fix"><b>Yapılacak:</b> Bir sürüm tercih edilip diğeri sunucu düzeyinde 301 ile
+          yönlendirilecek. WordPress “Site Adresi” ayarı da aynı sürüme çekilecek.</div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ================= MİNÖR ================= -->
+  <section class="grp" data-grp="min">
+    <div class="grp-hd">
+      <h2>Minör</h2><span class="tag min">Cila ve tutarlılık</span>
+      <p>Yayını durdurmaz; marka tutarlılığını ve kullanım kolaylığını etkiler.</p>
+    </div>
+
+    <article class="item min" data-k="min">
+      <div class="box"><input type="checkbox"></div>
+      <div class="bd">
+        <h3><span class="id">m01</span>Altbilgide “Sahadan dört kurulum” yazıyor</h3>
+        <div class="where"><span>tüm sayfaların altbilgisi</span></div>
+        <p>Vaka sayısı değiştiğinde güncellenmemiş. Güncel pakette bu bölüm altı kurulum içeriyor.</p>
+        <div class="fix"><b>Yapılacak:</b> “Sahadan altı uygulama” olarak güncellenecek (M04 ile birlikte).</div>
+      </div>
+    </article>
+
+    <article class="item min" data-k="min">
+      <div class="box"><input type="checkbox"></div>
+      <div class="bd">
+        <h3><span class="id">m02</span>Shuttle Precisor sayfasının tarayıcı başlığı İngilizce</h3>
+        <div class="where"><span>/shuttle-precisor/ → sayfa başlığı (title) İngilizce, gövde Türkçe</span></div>
+        <p>Sekme adı ve arama sonucu başlığı İngilizce çıkıyor; sayfanın kendisi Türkçe.</p>
+        <div class="fix"><b>Yapılacak:</b> Başlık ve meta açıklaması Türkçe sürümle değiştirilecek.</div>
+      </div>
+    </article>
+
+    <article class="item min" data-k="min">
+      <div class="box"><input type="checkbox"></div>
+      <div class="bd">
+        <h3><span class="id">m03</span>“ProfiNet” yazımı</h3>
+        <div class="where"><span>/rehber/ → “ProfiNet Üzerinden Reçete Aktarımı”</span></div>
+        <p>Protokolün doğru yazımı <b>PROFINET</b>. Rehber listesinde ve yazı başlığında karışık
+          kullanılıyor.</p>
+        <div class="fix"><b>Yapılacak:</b> Site genelinde PROFINET olarak tekleştirilecek.</div>
+      </div>
+    </article>
+
+    <article class="item min" data-k="min">
+      <div class="box"><input type="checkbox"></div>
+      <div class="bd">
+        <h3><span class="id">m04</span>Ana sayfa karşılaştırma tablosunda boş hücre</h3>
+        <div class="where"><span>/ → “Ortak altyapı” satırı, Shuttle Precisor sütunu boş</span></div>
+        <p>Core sütunundaki maddeler ayraçsız birleşmiş görünüyor; Shuttle hücresi hiç doldurulmamış.
+          Tablo aktarımında satır eşleşmesi bozulmuş olabilir.</p>
+        <div class="fix"><b>Yapılacak:</b> Tablo teslim paketindeki hâliyle yeniden kurulacak.</div>
+      </div>
+    </article>
+
+    <article class="item min" data-k="min">
+      <div class="box"><input type="checkbox"></div>
+      <div class="bd">
+        <h3><span class="id">m05</span>Rehber ve SSS sayfalarında arama kutusu yok</h3>
+        <div class="where"><span>/rehber/ → filtreler var, arama yok</span><span>/sss/ → 18 soru, arama yok</span></div>
+        <p>Teslim edilen sürümde her iki sayfada da metin arama alanı vardı. Rehberde yalnızca
+          kategori ve ürün alanı filtreleri kalmış.</p>
+        <div class="fix"><b>Yapılacak:</b> Arama alanları geri eklenecek (Doğrulanacak D04 ile birlikte
+          test edilecek).</div>
+      </div>
+    </article>
+
+    <article class="item min" data-k="min">
+      <div class="box"><input type="checkbox"></div>
+      <div class="bd">
+        <h3><span class="id">m06</span>Bülten bandında e-posta alanı görünmüyor</h3>
+        <div class="where"><span>tüm sayfalar → “ÖNCE BİLGİ, SONRA YATIRIM / KAYDOLUN”</span></div>
+        <p>“KAYDOLUN” düğmesi var ama yanında e-posta giriş alanı görünmüyor. Düğme tek başına bir
+          işe yaramıyor.</p>
+        <div class="fix"><b>Yapılacak:</b> E-posta alanı geri eklenecek veya bant tamamen
+          kaldırılacak. Form bir listeye bağlı değilse “KAYDOLUN” yerine doğrudan e-posta bağlantısı
+          daha dürüst olur.</div>
+      </div>
+    </article>
+
+    <article class="item min" data-k="min">
+      <div class="box"><input type="checkbox"></div>
+      <div class="bd">
+        <h3><span class="id">m07</span>Ürün sayfalarında PDF düğmeleri dosyaya değil sayfaya gidiyor</h3>
+        <div class="where"><span>/core-precisor/ → “VERİ SAYFASI (PDF)” → /dokumanlar/</span><span>“Sertifikayı indirin” → /dokumanlar/#veri-sayfalari</span></div>
+        <p>Düğme “PDF” diyor ama bir PDF açmıyor. M07’de formlu indirmeye geçilirse bu davranış doğru
+          hâle gelir; o zaman da düğme metni “PDF” demekten çıkmalı.</p>
+        <div class="fix"><b>Yapılacak:</b> M07 kararına göre ya dosyaya bağlanacak ya da düğme metni
+          “VERİ SAYFASI TALEP EDİN” olarak değiştirilecek.</div>
+      </div>
+    </article>
+
+    <article class="item min" data-k="min">
+      <div class="box"><input type="checkbox"></div>
+      <div class="bd">
+        <h3><span class="id">m08</span>Sayfalarda <code>lang</code> ve paylaşım etiketleri eksik görünüyor</h3>
+        <div class="where"><span>/core-precisor/ → og:url yok, html lang yok</span></div>
+        <p>Teslim edilen sayfalarda <code>&lt;html lang="tr"&gt;</code>, Open Graph ve Twitter kart
+          etiketleri ile her sayfaya özel OG görseli vardı. Canlı sürümde bunlar görünmüyor; WhatsApp
+          ya da LinkedIn’de paylaşıldığında önizleme görseli ve başlığı çıkmayabilir.</p>
+        <div class="fix"><b>Yapılacak:</b> Tema şablonuna <code>lang</code> ve OG/Twitter etiketleri
+          eklenecek; <code>og/</code> klasöründeki 10 paylaşım görseli yüklenecek. Paylaşım
+          önizlemesi LinkedIn Post Inspector ile test edilecek.</div>
+      </div>
+    </article>
+
+    <article class="item min" data-k="min">
+      <div class="box"><input type="checkbox"></div>
+      <div class="bd">
+        <h3><span class="id">m09</span>WordPress sürümü dışarıya açık</h3>
+        <div class="where"><span>meta generator: WordPress 7.1.2</span></div>
+        <p>Sürüm bilgisinin sayfa kaynağında görünmesi gereksiz; bilinen açıkları hedefleyen otomatik
+          taramaları kolaylaştırır.</p>
+        <div class="fix"><b>Yapılacak:</b> <code>generator</code> meta etiketi kaldırılacak; yönetici
+          girişi için iki adımlı doğrulama açılacak.</div>
+      </div>
+    </article>
+
+    <article class="item min" data-k="min">
+      <div class="box"><input type="checkbox"></div>
+      <div class="bd">
+        <h3><span class="id">m10</span>Sayfa içi çapa bağlantıları doğrulanmamış</h3>
+        <div class="where"><span>#sistemler</span><span>#iletisim</span><span>#calisma</span><span>#teknik</span><span>#konfigurator</span><span>#video</span><span>#veri-sayfalari</span><span>/referanslar/#lastik</span></div>
+        <p>Bölüm kimlikleri WordPress’e aktarılırken korunmamış olabilir. Bu durumda “Sistemleri
+          karşılaştırın”, “Teklif isteyin”, “Sertifikayı indirin” gibi düğmeler tıklanınca hiçbir yere
+          gitmez.</p>
+        <div class="fix"><b>Yapılacak:</b> Her çapa tarayıcıda tek tek tıklanıp hedefe gittiği
+          doğrulanacak; eksik <code>id</code> değerleri bölümlere geri eklenecek.</div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ================= DOĞRULANACAK ================= -->
+  <section class="grp" data-grp="chk">
+    <div class="grp-hd">
+      <h2>Doğrulanacak</h2><span class="tag chk">Tarayıcıda test</span>
+      <p>JavaScript ile çalışan bileşenler. Kaynak kodda göründükleri hâliyle çalıştıkları
+        anlaşılamıyor; canlı sayfada denenmeli.</p>
+    </div>
+
+    <article class="item chk" data-k="chk">
+      <div class="box"><input type="checkbox"></div>
+      <div class="bd">
+        <h3><span class="id">D01</span>Core Precisor — K1–K6 hareket konfigürasyonu seçici</h3>
+        <div class="where"><span>/core-precisor/ → “Uygulamanıza uygun hareket konfigürasyonu”</span></div>
+        <p>Sayfa kaynağında yalnızca <b>K1</b> görünüyor ve altındaki “Kanal / Lazer / Hareket /
+          Tipik kullanım” tablosu <b>boş</b>. Altı konfigürasyon arasında geçiş çalışmıyorsa bu,
+          ürün sayfasının en önemli aracının devre dışı olması demektir.</p>
+        <div class="fix"><b>Test:</b> K1…K6 düğmelerine tıklayın; şema, tablo ve açıklama değişmeli.
+          Değişmiyorsa sayfanın satır içi <code>&lt;script&gt;</code> bloğu aktarımda düşmüş
+          demektir.</div>
+      </div>
+    </article>
+
+    <article class="item chk" data-k="chk">
+      <div class="box"><input type="checkbox"></div>
+      <div class="bd">
+        <h3><span class="id">D02</span>Core Precisor — gövde boyutlandırma aracı</h3>
+        <div class="where"><span>/core-precisor/ → “Hattınızın Ölçülerine Uygun Tasarım” · “4 / 6”</span></div>
+        <p>“Önceki / Adım Adım Göster / Sonraki” düğmeleri ve 600–4.000 mm gövde seçenekleri
+          arasındaki geçiş test edilmeli.</p>
+        <div class="fix"><b>Test:</b> Her adımda gövde uzunluğu, faydalı strok ve ölçü çizgileri
+          güncellenmeli.</div>
+      </div>
+    </article>
+
+    <article class="item chk" data-k="chk">
+      <div class="box"><input type="checkbox"></div>
+      <div class="bd">
+        <h3><span class="id">D03</span>Shuttle Precisor — konfigüratör ve kurulum animasyonu</h3>
+        <div class="where"><span>/shuttle-precisor/ → “Sisteminizi Kendiniz Kurgulayın”</span></div>
+        <p>Strok ve lazer adedi girildiğinde çizgi aralığı, aktif/rezerve sayısı ve gereken ray boyu
+          anında hesaplanmalı; “Kurulumu Oynat” ile 1× / 4× / 12× hızlarda animasyon çalışmalı.</p>
+        <div class="fix"><b>Test:</b> Strok 2.400 mm ve 20 lazer girin; “gereken ray boyu” değeri
+          değişmeli. Animasyon arabaları sırayla taşımalı.</div>
+      </div>
+    </article>
+
+    <article class="item chk" data-k="chk">
+      <div class="box"><input type="checkbox"></div>
+      <div class="bd">
+        <h3><span class="id">D04</span>Rehber — kategori ve ürün alanı filtreleri</h3>
+        <div class="where"><span>/rehber/ → “11 yazı listeleniyor”</span></div>
+        <p>Filtre düğmeleri görünüyor; tıklanınca listeyi süzüp sayaç metnini güncelleyip
+          güncellemediği doğrulanmalı.</p>
+        <div class="fix"><b>Test:</b> “Yatırım ve seçim” seçildiğinde liste kısalmalı ve sayaç
+          değişmeli.</div>
+      </div>
+    </article>
+
+    <article class="item chk" data-k="chk">
+      <div class="box"><input type="checkbox"></div>
+      <div class="bd">
+        <h3><span class="id">D05</span>SSS — soru akordeonları</h3>
+        <div class="where"><span>/sss/ → 18 soru, 6 kategori</span></div>
+        <p>Soruların açılır-kapanır çalıştığı doğrulanmalı. Çalışmıyorsa tüm cevaplar ya hep açık ya
+          hiç açılmaz hâlde kalır.</p>
+        <div class="fix"><b>Test:</b> Bir soruya tıklayın; cevap açılmalı, “+” işareti “–” olmalı.</div>
+      </div>
+    </article>
+
+    <article class="item chk" data-k="chk">
+      <div class="box"><input type="checkbox"></div>
+      <div class="bd">
+        <h3><span class="id">D06</span>İletişim — uygulama özeti aracı</h3>
+        <div class="where"><span>/iletisim/ → “ÖN DEĞERLENDİRME” · “SİSTEM YÖNÜ”</span></div>
+        <p>Alanlar doldurulduğunda ön değerlendirme metninin ve sistem yönü çıktısının canlı
+          güncellenmesi; “E-POSTA İLE GÖNDER”, “WHATSAPP” ve “ÖZETİ KOPYALA” düğmelerinin çalışması
+          gerekiyor. Bu araç sitenin tek gerçek dönüşüm noktası.</p>
+        <div class="fix"><b>Test:</b> Çizgi sayısına 8 yazın; sistem yönü Shuttle’a dönmeli.
+          E-posta düğmesi doldurulmuş bir taslak açmalı, WhatsApp düğmesi metni taşımalı.</div>
+      </div>
+    </article>
+
+    <article class="item chk" data-k="chk">
+      <div class="box"><input type="checkbox"></div>
+      <div class="bd">
+        <h3><span class="id">D07</span>Shuttle kurulum videosu</h3>
+        <div class="where"><span>…/uploads/2026/10/servomotion-shuttle-precisor.mp4</span></div>
+        <p>Dosya yüklenmiş görünüyor. Oynatıcının poster görselini gösterip göstermediği ve mobilde
+          oynatılıp oynatılmadığı kontrol edilmeli.</p>
+        <div class="fix"><b>Test:</b> Masaüstü ve telefonda oynatın. Poster görseli
+          (<code>servomotion-shuttle-poster.jpg</code>) yüklenmemişse siyah kare görünür.</div>
+      </div>
+    </article>
+
+    <article class="item chk" data-k="chk">
+      <div class="box"><input type="checkbox"></div>
+      <div class="bd">
+        <h3><span class="id">D08</span>Menü yerleşimi ve mobil görünüm</h3>
+        <div class="where"><span>1440 px · 1366 px · 1024 px · 390 px</span></div>
+        <p>Teslim edilen sürümde menü sekiz maddeyle tek satıra sığacak şekilde ayarlanmıştı; dil
+          düğmesi eklendiğinde (M01) yeniden taşma riski var. Ayrıca ürün sayfalarındaki yatay
+          sekmeli menü ile diğer sayfaların menüsü farklı davranıyor.</p>
+        <div class="fix"><b>Test:</b> Tarayıcıyı bu genişliklerde daraltın; menü iki satıra kırılmamalı,
+          yatay kaydırma çubuğu çıkmamalı.</div>
+      </div>
+    </article>
+  </section>
+
+  <footer class="end">
+    <p><b>Denetim yöntemi:</b> Canlı sitedeki 13 sayfa ile sitemap’teki 27 adres tek tek çekildi;
+      başlık yapısı, bağlantı hedefleri, doküman adresleri ve bölüm bütünlüğü teslim edilen HTML
+      yapısıyla karşılaştırıldı. “Doğrulanacak” başlığındaki maddeler JavaScript ile çalıştığı için
+      kaynak koddan değil, tarayıcıdan teyit edilmelidir.</p>
+    <p><b>Önerilen sıra:</b> Önce M01–M08 (içerik ve sayfa eksikleri), sonra D01–D06 (etkileşimli
+      bileşenler), en son minör cila. M02 ve M12 beş dakikalık işler — bugün kapatılabilir.</p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var items = Array.prototype.slice.call(document.querySelectorAll('.item'));
+  var boxes = items.map(function(i){ return i.querySelector('input[type=checkbox]'); });
+  var done  = document.getElementById('pdone');
+  var tot   = document.getElementById('ptot');
+  var state = 'all';
+  tot.textContent = items.length;
+
+  function sayac(){
+    var n = boxes.filter(function(b){ return b.checked; }).length;
+    done.textContent = n;
+  }
+  function uygula(){
+    items.forEach(function(it){
+      var k  = it.getAttribute('data-k');
+      var ok = (state === 'all') ||
+               (state === 'open' && !it.classList.contains('done')) ||
+               (state === k);
+      it.classList.toggle('hide', !ok);
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('.grp'), function(g){
+      var gorunen = g.querySelectorAll('.item:not(.hide)').length;
+      g.classList.toggle('hide', gorunen === 0);
+    });
+  }
+  boxes.forEach(function(b, i){
+    b.addEventListener('change', function(){
+      items[i].classList.toggle('done', b.checked);
+      sayac();
+      if (state === 'open') uygula();
+    });
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('.filter[data-f]'), function(btn, _, hepsi){
+    btn.addEventListener('click', function(){
+      hepsi.forEach(function(x){ x.setAttribute('aria-pressed', String(x === btn)); });
+      state = btn.getAttribute('data-f');
+      uygula();
+    });
+  });
+  document.getElementById('prn').addEventListener('click', function(){ window.print(); });
+  sayac(); uygula();
+})();
+</script>
+</body>
+</html>

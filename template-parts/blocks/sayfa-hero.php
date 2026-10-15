@@ -40,6 +40,15 @@ if ( in_array( $servo_yan, array( 'rakamlar', 'gorsel' ), true ) ) {
 echo servo_section_open( isset( $servo_classes[ $servo_duzen ] ) ? $servo_classes[ $servo_duzen ] : 'phero', '', false ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 echo '<div class="wrap"><div>';
 
+$servo_ust_yol = 'standart' === $servo_duzen ? servo_sub( 'ust_yol' ) : null;
+if ( is_array( $servo_ust_yol ) && ! empty( $servo_ust_yol['url'] ) ) {
+	echo '<p class="crumb" style="font:11px \'IBM Plex Mono\',monospace;letter-spacing:.16em;color:#7f90a3;margin-bottom:14px"><a href="' . esc_url( $servo_ust_yol['url'] ) . '" style="color:#7f90a3;text-decoration:none">' . esc_html( $servo_ust_yol['title'] ) . '</a>';
+	if ( servo_sub( 'ust_yol_son' ) ) {
+		echo ' · ' . esc_html( servo_sub( 'ust_yol_son' ) );
+	}
+	echo '</p>';
+}
+
 if ( $servo_etiket ) {
 	echo '<p class="label">' . esc_html( $servo_etiket ) . '</p>';
 }

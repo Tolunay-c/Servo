@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="../favicon.svg?v=20260917" type="image/svg+xml"><link rel="mask-icon" href="../favicon.svg?v=20260917" color="#FFD400"><link rel="apple-touch-icon" href="../apple-touch-icon.png?v=20260917"><link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png?v=20260917"><link rel="manifest" href="../site.webmanifest?v=20260917"><meta name="theme-color" content="#0B0F14">
+<title>PROFINET Recipe Transfer | ServoMotion Guide</title>
+<meta name="description" content="Three levels of recipe integration for laser positioning systems: the data structure, the handshake logic, fault conditions and the commissioning sequence."><link rel="canonical" href="https://www.servomotion.com.tr/en/guide-profinet-recipe-transfer.html"><link rel="alternate" hreflang="tr" href="https://www.servomotion.com.tr/rehber-profinet-recete.html"><link rel="alternate" hreflang="en" href="https://www.servomotion.com.tr/en/guide-profinet-recipe-transfer.html"><meta property="og:type" content="article"><meta property="og:site_name" content="ServoMotion"><meta property="og:locale" content="en_GB"><meta property="og:title" content="PROFINET Recipe Transfer | ServoMotion Guide"><meta property="og:description" content="Three levels of recipe integration for laser positioning systems: the data structure, the handshake logic, fault conditions and the commissioning sequence."><meta property="og:url" content="https://www.servomotion.com.tr/en/guide-profinet-recipe-transfer.html"><meta property="og:image" content="https://www.servomotion.com.tr/og/rehber.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/rehber.css?v=20260917">
+<link rel="stylesheet" href="../assets/brandfont.css?v=20260917">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"PROFINET Recipe Transfer","description":"Three levels of recipe integration for laser positioning systems: the data structure, the handshake logic, fault conditions and the commissioning sequence.","image":"https://www.servomotion.com.tr/og/rehber.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.servomotion.com.tr/en/guide-profinet-recipe-transfer.html"},"inLanguage":"en","datePublished":"2026-09-23","dateModified":"2026-09-23","author":{"@type":"Organization","name":"ServoMotion","url":"https://www.servomotion.com.tr/"},"publisher":{"@type":"Organization","name":"ServoMotion","logo":{"@type":"ImageObject","url":"https://www.servomotion.com.tr/favicon-512.png"}},"isPartOf":{"@type":"Blog","name":"ServoMotion Guide","url":"https://www.servomotion.com.tr/en/guide.html"}}</script><style id="navfit">.nav .tabs .langlink{color:#D6DEE7}.nav .tabs .langlink:hover{color:var(--yellow)}@media(min-width:901px){.nav nav a,.nav .tabs a,.nav .tabs .tab{white-space:nowrap}.nav nav{gap:16px;flex-wrap:wrap}.nav nav a{font-size:13.5px;letter-spacing:.04em}.nav .nav-in{gap:16px}.nav .brand span{display:none}.nav .tabs{gap:9px;flex-wrap:wrap}.nav .tabs .tab{font-size:12.2px;letter-spacing:0}}@media(min-width:901px) and (max-width:1220px){.nav nav{gap:10px}.nav nav a{font-size:12.2px;letter-spacing:.01em}.nav .tabs{gap:7px}.nav .tabs .tab{font-size:11.6px}}@media(min-width:901px) and (max-width:1120px){.nav nav{gap:8px}.nav nav a{font-size:11.4px;letter-spacing:0}.nav .tabs{gap:6px}.nav .tabs .tab{font-size:11px}}@media(min-width:901px) and (max-width:1120px){.nav .wrap,.nav .nav-in{flex-direction:column;align-items:flex-start;gap:10px}.nav nav,.nav .tabs{width:100%;justify-content:flex-start}}</style>
+</head>
+<body>
+<header class="nav"><div class="wrap"><a class="brand" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1726.7 800.0" fill="currentColor" aria-hidden="true" focusable="false" class="smk"><g class="smk-m"><g transform="translate(276.56 0) skewX(-19.07)"><path d="M 72.00 0.00 H 670.04 V 228.00 H 0.00 V 72.00 A 72.00 72.00 0 0 1 72.00 0.00 Z"/><path d="M 72.00 0.00 H 280.00 V 468.00 H 0.00 V 72.00 A 72.00 72.00 0 0 1 72.00 0.00 Z"/><path d="M 0.00 332.00 H 670.04 V 468.00 H 0.00 V 332.00 Z"/><path d="M 0.00 572.00 H 280.00 V 800.00 H 72.00 A 72.00 72.00 0 0 1 0.00 728.00 V 572.00 Z"/><path d="M 390.04 332.00 H 670.04 V 800.00 H 390.04 V 332.00 Z"/><path d="M 780.08 0.00 H 1060.08 V 800.00 H 780.08 V 0.00 Z"/><path d="M 1170.12 0.00 H 1378.12 A 72.00 72.00 0 0 1 1450.12 72.00 V 728.00 A 72.00 72.00 0 0 1 1378.12 800.00 H 1170.12 V 0.00 Z"/></g></g><g transform="skewX(-19.07)"><rect class="smk-b" y="-46" width="64" height="892" rx="32" x="126.6" fill="#FFD400" opacity="0"/></g></svg><bdi lang="en"><i class="lo1">Servo</i><i class="lo2">Motion</i></bdi></a><nav aria-label="Main menu"><a href="index.html">HOME</a><a href="core-precisor.html">CORE PRECISOR</a><a href="shuttle-precisor.html">SHUTTLE PRECISOR</a><a href="success-stories.html">SUCCESS STORIES</a><a href="service.html">SERVICE</a><a href="company.html">COMPANY</a><a href="guide.html">GUIDE</a><a href="contact.html">CONTACT</a><a class="langlink" href="../rehber-profinet-recete.html" hreflang="tr" title="Türkçe">TR</a></nav></div></header>
+<main>
+<section class="pdoc"><div class="wrap">
+<p class="crumb"><a href="guide.html">GUIDE</a> · AUTOMATION AND WORKFLOW</p>
+<p class="topmeta"><span><b>23 September 2026</b></span><span>9 MIN READ</span></p>
+<h1><bdi lang="en">PROFINET</bdi>  Recipe Transfer</h1>
+<p class="intro">How the cutting recipe reaches the system from the line automation: the data structure and the handshake logic, across three levels of integration from manual entry to full data exchange.</p>
+<div class="ptags"><div class="tagrow"><span class="ctag secim">Investment and selection</span><span class="atag">All systems</span></div></div>
+<div class="phero"><svg viewBox="0 0 320 150" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true"><rect width="320" height="150" fill="#0A1017"/><line x1="0" y1="0" x2="0" y2="150" stroke="#17242f" stroke-width="1"/><line x1="32" y1="0" x2="32" y2="150" stroke="#17242f" stroke-width="1"/><line x1="64" y1="0" x2="64" y2="150" stroke="#17242f" stroke-width="1"/><line x1="96" y1="0" x2="96" y2="150" stroke="#17242f" stroke-width="1"/><line x1="128" y1="0" x2="128" y2="150" stroke="#17242f" stroke-width="1"/><line x1="160" y1="0" x2="160" y2="150" stroke="#17242f" stroke-width="1"/><line x1="192" y1="0" x2="192" y2="150" stroke="#17242f" stroke-width="1"/><line x1="224" y1="0" x2="224" y2="150" stroke="#17242f" stroke-width="1"/><line x1="256" y1="0" x2="256" y2="150" stroke="#17242f" stroke-width="1"/><line x1="288" y1="0" x2="288" y2="150" stroke="#17242f" stroke-width="1"/><line x1="320" y1="0" x2="320" y2="150" stroke="#17242f" stroke-width="1"/><rect x="0" y="0" width="320" height="5" fill="#ffd400"/><rect x="26" y="56" width="62" height="38" rx="3" fill="#16222c" stroke="#4FA3E3" stroke-width="1.4"/><rect x="129" y="56" width="62" height="38" rx="3" fill="#16222c" stroke="#4FA3E3" stroke-width="1.4"/><rect x="232" y="56" width="62" height="38" rx="3" fill="#16222c" stroke="#ffd400" stroke-width="1.6"/><path d="M88 75 H129 M191 75 H232" stroke="#4FA3E3" stroke-width="1.6"/><circle cx="108" cy="75" r="3.5" fill="#ffd400"/><circle cx="211" cy="75" r="3.5" fill="#ffd400"/><rect x="240" y="104" width="8" height="14" fill="#ffd400" opacity="0.3"/><rect x="253" y="104" width="8" height="14" fill="#ffd400" opacity="0.5"/><rect x="266" y="104" width="8" height="14" fill="#ffd400" opacity="0.7"/></svg></div>
+</div></section>
+
+<section class="pbody"><div class="wrap">
+<nav class="toc" aria-label="Contents"><div class="ttitle">CONTENTS</div><ol><li><a href="#uc-entegrasyon-seviyesi">Three integration levels</a></li><li><a href="#veri-yapisi">Data structure</a></li><li><a href="#el-sikisma-handshake-neden-gerekli">Why a handshake is necessary</a></li><li><a href="#hata-durumlarini-onceden-tanimlamak">Define fault conditions in advance</a></li><li><a href="#devreye-alma-sirasi">Commissioning sequence</a></li></ol></nav>
+<div class="prose">
+<div class="editorial-note engineering"><p class="eyebrow">Automation assessment</p><h2>Deterministic state management is the backbone of recipe integration</h2><ul><li>Define the telegram structure with data type, scaling, byte order, a validity bit and version information.</li><li>The handshake flow must cover timeout, repeated commands and loss of communication.</li><li>FAT and SAT tests should cover limit values and fault injection as well as the normal cycle.</li></ul></div>
+
+
+<p>A laser positioning system can receive a recipe in two ways: the operator enters it on the panel, or the line automation sends it. The two are not alternatives. Most installations use both, with a priority rule defined between them.</p>
+
+<h2 id="uc-entegrasyon-seviyesi">Three integration levels</h2>
+<div class="ascroll"><table class="atable">
+  <thead><tr><th>Level</th><th>Where the recipe comes from</th><th>When it is preferred</th></tr></thead>
+  <tbody>
+    <tr><td>1 · Standalone</td><td>The operator enters it on the panel</td>
+        <td>No recipe data is held in the line automation; fastest to commission</td></tr>
+    <tr><td>2 · Recipe number</td><td>The line sends a recipe number only; the positions are stored in the system</td>
+        <td>A limited set of fixed recipes; the most common installation</td></tr>
+    <tr><td>3 · Full data</td><td>The line sends every position value</td>
+        <td>Recipes are numerous or change continuously; order-based production</td></tr>
+  </tbody>
+</table></div>
+
+<div class="callout">
+  <div class="t">A practical recommendation</div>
+  <p>Level 2 strikes the right balance on most lines. Recipe definitions live in one place — the laser system — and the line automation simply calls for “set up number 7 now”. A recipe change then requires no change to the PLC program.</p>
+</div>
+
+<h2 id="veri-yapisi">Data structure</h2>
+<p>Whether the protocol is <bdi lang="en">PROFINET</bdi>  or EtherNet/IP, the exchange is the same in substance: a small bidirectional data block. Its typical content is set out below.</p>
+<h3>From the line to the system</h3>
+<ul>
+  <li><b>Recipe number</b>  — or an array of position values sent directly</li>
+  <li><b>Number of active reference lines</b>  — how many reference lines are to be set</li>
+  <li><b>Command bit</b>  — “start setup”, “return home”, “lasers off”</li>
+</ul>
+<h3>From the system to the line</h3>
+<ul>
+  <li><b>Status</b>  — ready / setting up / set / fault</li>
+  <li><b>Progress</b>  — how many reference lines are in position</li>
+  <li><b>Fault code</b>  — limit exceeded, position not reached, communication lost</li>
+  <li><b>Acknowledge bit</b>  — confirmation that the command was received</li>
+</ul>
+
+<h2 id="el-sikisma-handshake-neden-gerekli">Why a handshake is necessary</h2>
+<p>A setup cycle takes seconds; the PLC works in milliseconds. That difference opens a gap between a command being “sent” and being “done”. The handshake closes it.</p>
+<ol class="steps">
+  <li><b>The line writes the command</b>The recipe number and the start bit pass to the system.</li>
+  <li><b>The system acknowledges</b>It raises the acknowledge bit. The line then knows the command has been received.</li>
+  <li><b>The line drops the command bit</b>This prevents the same command from being processed twice.</li>
+  <li><b>The system performs the setup</b>The status stays “setting up” while the progress value updates.</li>
+  <li><b>The system reports completion</b>The line now knows every reference line is in position and can move to the next step.</li>
+</ol>
+<p>That four-bit loop settles the “I sent the recipe but I do not know whether the machine is ready” question. It matters most on lines that change product automatically.</p>
+
+<h2 id="hata-durumlarini-onceden-tanimlamak">Define fault conditions in advance</h2>
+<p>The biggest time sink at commissioning is an exception nobody discussed. Agree these three scenarios up front:</p>
+<ul>
+  <li><b>The requested position falls outside the usable travel.</b> The system rejects the command and returns a fault code. What should the line do — stop, or move to the nearest valid position?</li>
+  <li><b>Communication is lost.</b> Should the reference lines hold position or retract home? On most lines the right answer is “hold position”, because production may still be running.</li>
+  <li><b>A new command arrives during setup.</b> Is the current cycle cancelled, or allowed to finish?</li>
+</ul>
+
+<h2 id="devreye-alma-sirasi">Commissioning sequence</h2>
+<ol class="steps">
+  <li><b>Physical connection and addressing</b>Network topology, device names and the IP plan. This stage is normally handled with the line automation team.</li>
+  <li><b>Data block matching</b>Check that the variables on both sides match in order and in type. Most errors appear here.</li>
+  <li><b>Dry run</b>Run the command/acknowledge loop with the lasers switched off.</li>
+  <li><b>Position verification</b>Measure the reference line positions on the machine for a few recipes.</li>
+  <li><b>Fault scenarios</b>Trigger the three conditions above deliberately and record the behaviour.</li>
+</ol>
+
+<div class="callout">
+  <div class="t">Note</div>
+  <p>The structure described here is the approach common to industrial applications. Project-specific data blocks, bit definitions and timing parameters are issued separately in the commissioning documentation and adapted to your existing line automation.</p>
+</div>
+
+<p>To discuss your line’s automation infrastructure and recipe flow,
+<a href="contact.html">get in touch</a>.</p>
+
+<div class="endbox">
+  <h3>WHAT DOES YOUR LINE NEED?</h3>
+  <p>Share your alignment requirements and we will assess the laser layout, the motion architecture and the automation interfaces for your application together.</p>
+  <a class="btn" href="contact.html">GET IN TOUCH</a>
+</div>
+</div></div></section>
+
+<section class="section" style="padding:0"><div class="wrap"><p style="border-left:3px solid var(--yellow);padding-left:15px;font-size:15.5px;color:#506275;line-height:1.65;margin-bottom:40px">For short definitions of the terms used in this article, see the <a href="glossary.html" style="font-weight:600;color:#0b0f14">alignment glossary</a> .</p></div></section><section class="related"><div class="wrap">
+<div class="rehber-intro"><div><p class="label">MORE</p><h2>RELATED ARTICLES</h2></div></div>
+<div class="stories">
+<article class="story" data-category="verim" data-areas="genel" data-text="ürün değişimlerinde zamanı nerede kaybediyorsunuz? ölçü aktarma, ayar noktalarını bulma ve aynı işlemi yeniden yapma: küçük adımlar, sık ürün değişen hatlarda önemli bir iş yüküne dönüşebilir. görünür referansların bu süreçteki yerini değerlendirin. ürün değişim süresi tek bir işlem değil, üst üste binen küçük adımların toplamıdır. bu yazıda o adımları tek tek ayırıyor, hangisinin gerçekten süre yediğine ve görünür referansın nerede devreye girdiğine bakıyoruz. urun degisimlerinde zamani nerede kaybediyorsunuz? olcu aktarma, ayar noktalarini bulma ve ayni islemi yeniden yapma: kucuk adimlar, sik urun degisen hatlarda onemli bir is yukune donusebilir. gorunur referanslarin bu surecteki yerini degerlendirin. urun degisim suresi tek bir islem degil, ust uste binen kucuk adimlarin toplamidir. bu yazida o adimlari tek tek ayiriyor, hangisinin gercekten sure yedigine ve gorunur referansin nerede devreye girdigine bakiyoruz."><a class="svis" href="guide-changeover-time.html" aria-label="Where Does Changeover Time Actually Go?"><svg viewBox="0 0 320 150" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true"><rect width="320" height="150" fill="#0A1017"/><line x1="0" y1="0" x2="0" y2="150" stroke="#17242f" stroke-width="1"/><line x1="32" y1="0" x2="32" y2="150" stroke="#17242f" stroke-width="1"/><line x1="64" y1="0" x2="64" y2="150" stroke="#17242f" stroke-width="1"/><line x1="96" y1="0" x2="96" y2="150" stroke="#17242f" stroke-width="1"/><line x1="128" y1="0" x2="128" y2="150" stroke="#17242f" stroke-width="1"/><line x1="160" y1="0" x2="160" y2="150" stroke="#17242f" stroke-width="1"/><line x1="192" y1="0" x2="192" y2="150" stroke="#17242f" stroke-width="1"/><line x1="224" y1="0" x2="224" y2="150" stroke="#17242f" stroke-width="1"/><line x1="256" y1="0" x2="256" y2="150" stroke="#17242f" stroke-width="1"/><line x1="288" y1="0" x2="288" y2="150" stroke="#17242f" stroke-width="1"/><line x1="320" y1="0" x2="320" y2="150" stroke="#17242f" stroke-width="1"/><rect x="0" y="0" width="320" height="5" fill="#ffd400"/><rect x="30" y="46" width="40" height="58" fill="#3A4B5C" rx="2"/><rect x="88" y="34" width="40" height="70" fill="#3A4B5C" rx="2"/><rect x="146" y="58" width="40" height="46" fill="#ffd400" rx="2"/><rect x="204" y="74" width="40" height="30" fill="#3A4B5C" rx="2"/><rect x="262" y="82" width="40" height="22" fill="#3A4B5C" rx="2"/><line x1="20" y1="106" x2="300" y2="106" stroke="#8FA3B8" stroke-width="1.4"/><text x="160" y="116" fill="#8FA3B8" font-family="monospace" font-size="11" text-anchor="middle">SETUP STEPS</text></svg></a><div class="sbody"><div class="tagrow"><span class="ctag verim">Production efficiency</span><span class="atag">All systems</span></div><h3><a href="guide-changeover-time.html" style="text-decoration:none">Where Does Changeover Time Actually Go?</a></h3><p class="pmeta"><b>23 September 2026</b> · 6 min read</p><p class="sum">Transferring measurements, finding setup points, repeating the same operation: small steps add up to a heavy workload on lines that change product often. See where visible references fit in.</p><a class="read" href="guide-changeover-time.html">Read the article →</a><p class="sfoot">SERVOMOTION</p></div></article>
+<article class="story" data-category="secim" data-areas="core shuttle" data-text="core mu, shuttle mı? seçimi ihtiyaç belirler doğru yatırım, en fazla özelliği sunan sistemle değil, üretiminize uygun çözümle başlar. iki ürün ailesini kullanım ihtiyacı, yerleşim düzeni ve çalışma alanı üzerinden karşılaştırın. iki mimari arasındaki seçim bir performans karşılaştırması değil, bir ihtiyaç tanımıdır. doğru soruyu sorarsanız cevap genellikle tek bir cümlede çıkar. core mu, shuttle mi? secimi ihtiyac belirler dogru yatirim, en fazla ozelligi sunan sistemle degil, uretiminize uygun cozumle baslar. iki urun ailesini kullanim ihtiyaci, yerlesim duzeni ve calisma alani uzerinden karsilastirin. iki mimari arasindaki secim bir performans karsilastirmasi degil, bir ihtiyac tanimidir. dogru soruyu sorarsaniz cevap genellikle tek bir cumlede cikar."><a class="svis" href="guide-system-selection.html" aria-label="Core or Shuttle? The Requirement Decides"><svg viewBox="0 0 320 150" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true"><rect width="320" height="150" fill="#0A1017"/><line x1="0" y1="0" x2="0" y2="150" stroke="#17242f" stroke-width="1"/><line x1="32" y1="0" x2="32" y2="150" stroke="#17242f" stroke-width="1"/><line x1="64" y1="0" x2="64" y2="150" stroke="#17242f" stroke-width="1"/><line x1="96" y1="0" x2="96" y2="150" stroke="#17242f" stroke-width="1"/><line x1="128" y1="0" x2="128" y2="150" stroke="#17242f" stroke-width="1"/><line x1="160" y1="0" x2="160" y2="150" stroke="#17242f" stroke-width="1"/><line x1="192" y1="0" x2="192" y2="150" stroke="#17242f" stroke-width="1"/><line x1="224" y1="0" x2="224" y2="150" stroke="#17242f" stroke-width="1"/><line x1="256" y1="0" x2="256" y2="150" stroke="#17242f" stroke-width="1"/><line x1="288" y1="0" x2="288" y2="150" stroke="#17242f" stroke-width="1"/><line x1="320" y1="0" x2="320" y2="150" stroke="#17242f" stroke-width="1"/><rect x="0" y="0" width="320" height="5" fill="#ffd400"/><path d="M30 75 H120 M120 75 L172 44 M120 75 L172 106" stroke="#8FA3B8" stroke-width="2" fill="none"/><circle cx="120" cy="75" r="5" fill="#ffd400"/><rect x="184.5" y="30" width="3" height="28" rx="1.5" fill="#FF2D20"/><rect x="202.5" y="30" width="3" height="28" rx="1.5" fill="#FF2D20"/><rect x="184.5" y="92" width="3" height="28" rx="1.5" fill="#FF2D20"/><rect x="202.5" y="92" width="3" height="28" rx="1.5" fill="#FF2D20"/><rect x="220.5" y="92" width="3" height="28" rx="1.5" fill="#FF2D20"/><rect x="238.5" y="92" width="3" height="28" rx="1.5" fill="#FF2D20"/><rect x="256.5" y="92" width="3" height="28" rx="1.5" fill="#FF2D20"/><rect x="274.5" y="92" width="3" height="28" rx="1.5" fill="#FF2D20"/></svg></a><div class="sbody"><div class="tagrow"><span class="ctag secim">Investment and selection</span><span class="atag">Core Precisor</span><span class="atag">Shuttle Precisor</span></div><h3><a href="guide-system-selection.html" style="text-decoration:none">Core or Shuttle? Your Working Method Decides</a></h3><p class="pmeta"><b>23 September 2026</b> · 7 min read</p><p class="sum">The right investment starts with the system that fits your production, not the one with the most features. Compare the two product families on requirement, layout and working area.</p><a class="read" href="guide-system-selection.html">Read the article →</a><p class="sfoot">SERVOMOTION</p></div></article>
+<article class="story" data-category="secim" data-areas="genel" data-text="hizalama yatırımının değerini nasıl ölçersiniz? satın alma bedelinin yanında ayar süresi, değişim sıklığı ve tekrar iş yükü de değerlendirmeye dahildir. yatırım kararınızı kendi üretim verilerinize dayandırın. bir hizalama sisteminin değeri, fiyat etiketinde değil, sizin üretim verilerinizde yazılıdır. bu yazıda hangi dört kalemin ölçülmesi gerektiğini ve hesabı kendi hattınız için nasıl yapacağınızı anlatıyoruz. hizalama yatiriminin degerini nasil olcersiniz? satin alma bedelinin yaninda ayar suresi, degisim sikligi ve tekrar is yuku de degerlendirmeye dahildir. yatirim kararinizi kendi uretim verilerinize dayandirin. bir hizalama sisteminin degeri, fiyat etiketinde degil, sizin uretim verilerinizde yazilidir. bu yazida hangi dort kalemin olculmesi gerektigini ve hesabi kendi hattiniz icin nasil yapacaginizi anlatiyoruz."><a class="svis" href="guide-investment-value.html" aria-label="How Do You Measure the Value of an Alignment Investment?"><svg viewBox="0 0 320 150" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true"><rect width="320" height="150" fill="#0A1017"/><line x1="0" y1="0" x2="0" y2="150" stroke="#17242f" stroke-width="1"/><line x1="32" y1="0" x2="32" y2="150" stroke="#17242f" stroke-width="1"/><line x1="64" y1="0" x2="64" y2="150" stroke="#17242f" stroke-width="1"/><line x1="96" y1="0" x2="96" y2="150" stroke="#17242f" stroke-width="1"/><line x1="128" y1="0" x2="128" y2="150" stroke="#17242f" stroke-width="1"/><line x1="160" y1="0" x2="160" y2="150" stroke="#17242f" stroke-width="1"/><line x1="192" y1="0" x2="192" y2="150" stroke="#17242f" stroke-width="1"/><line x1="224" y1="0" x2="224" y2="150" stroke="#17242f" stroke-width="1"/><line x1="256" y1="0" x2="256" y2="150" stroke="#17242f" stroke-width="1"/><line x1="288" y1="0" x2="288" y2="150" stroke="#17242f" stroke-width="1"/><line x1="320" y1="0" x2="320" y2="150" stroke="#17242f" stroke-width="1"/><rect x="0" y="0" width="320" height="5" fill="#ffd400"/><rect x="34" y="30" width="232" height="14" rx="2" fill="#ffd400"/><rect x="34" y="54" width="176" height="14" rx="2" fill="#3A4B5C"/><rect x="34" y="78" width="120" height="14" rx="2" fill="#3A4B5C"/><rect x="34" y="102" width="72" height="14" rx="2" fill="#3A4B5C"/><line x1="30" y1="24" x2="30" y2="128" stroke="#8FA3B8" stroke-width="1.4"/></svg></a><div class="sbody"><div class="tagrow"><span class="ctag secim">Investment and selection</span><span class="atag">All systems</span></div><h3><a href="guide-investment-value.html" style="text-decoration:none">How Do You Measure the Value of an Alignment Investment?</a></h3><p class="pmeta"><b>23 September 2026</b> · 8 min read</p><p class="sum">Setup time, changeover frequency and repeated workload belong in the assessment alongside the purchase price. Base the decision on your own production data.</p><a class="read" href="guide-investment-value.html">Read the article →</a><p class="sfoot">SERVOMOTION</p></div></article>
+</div></div></section>
+<section class="news" id="bulten"><div class="wrap"><div>
+<h2>MAKE AN INFORMED INVESTMENT DECISION</h2>
+<p>We share technical articles, application examples and product updates by email as they are published, to make system selection and investment decisions easier.</p>
+</div><div>
+<form class="newsform" id="nf"><input type="email" id="nmail" placeholder="Your email address" aria-label="Your email address" required>
+<button class="btn primary" type="submit">SUBSCRIBE</button></form>
+<p class="newsnote" id="nnote">Questions: <a href="mailto:info@servomotion.com.tr">info@servomotion.com.tr</a></p>
+</div></div></section>
+</main>
+<script>
+(function(){"use strict";
+ var links=Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+ var heads=links.map(function(l){return document.getElementById(l.getAttribute('href').slice(1));});
+ function onScroll(){
+   var y=window.scrollY+120, cur=0;
+   heads.forEach(function(h,i){ if(h && h.offsetTop<=y) cur=i; });
+   links.forEach(function(l,i){ l.classList.toggle('on', i===cur); });
+ }
+ window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+})();
+
+(function(){"use strict";
+ var f=document.getElementById('nf'); if(!f) return;
+ f.addEventListener('submit',function(e){e.preventDefault();
+  var m=document.getElementById('nmail').value;
+  document.getElementById('nnote').innerHTML='The form is not connected to a list yet. For now you can '+
+   '<a href="mailto:info@servomotion.com.tr?subject=Guide%20subscription&body='+encodeURIComponent(m)+
+   '">write to us by email</a>.';});
+})();
+</script>
+<footer><div class="wrap"><div class="fcols"><div class="fcol"><b>SYSTEMS</b><a href="core-precisor.html">Core Precisor</a><a href="shuttle-precisor.html">Shuttle Precisor</a><a href="documents.html">Technical documents</a></div><div class="fcol"><b>APPLICATIONS</b><a href="application-rubber.html">Rubber and composite</a><a href="application-nonwoven.html">Hygiene products and nonwoven</a><a href="application-packaging.html">Packaging and paper</a><a href="application-film-foil.html">Film and foil</a><a href="application-textiles.html">Textiles and technical fabrics</a><a href="application-labels.html">Labels and adhesive tape</a></div><div class="fcol"><b>SUCCESS STORIES</b><a href="success-stories.html">Proven applications across six industries</a><a href="service.html">Service and commissioning</a><a href="service-helpdesk.html">Helpdesk</a><a href="service-manuals.html">Manuals</a><a href="guide.html">Guide articles</a></div><div class="fcol"><b>COMPANY</b><a href="company.html">About us</a><a href="contact.html">Contact</a><a href="faq.html">Frequently asked questions</a><a href="glossary.html">Glossary</a><a href="privacy.html">Privacy and cookies</a></div></div><div class="fbase"><span><bdi lang="en">ServoMotion</bdi> is a brand of Oktay Otomasyon Elektronik Mühendislik San. ve Tic. A.Ş. (<a href="https://o-em.com.tr" target="_blank" rel="noopener">OEM Lazer</a>).</span><span><a href="mailto:info@servomotion.com.tr">info@servomotion.com.tr</a> · <a href="tel:+902125772567">+90 212 577 25 67</a></span></div></div></footer>
+<script>
+(function(){"use strict";
+ var drops=[].slice.call(document.querySelectorAll('.navdrop'));
+ drops.forEach(function(d){
+   var btn=d.querySelector('.navtop');
+   if(!btn) return;
+   btn.addEventListener('click',function(e){
+     e.preventDefault();
+     var open=d.classList.contains('open');
+     drops.forEach(function(x){x.classList.remove('open');x.querySelector('.navtop').setAttribute('aria-expanded','false');});
+     if(!open){ d.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+   });
+ });
+ document.addEventListener('click',function(e){
+   if(e.target.closest('.navdrop')) return;
+   drops.forEach(function(x){x.classList.remove('open');x.querySelector('.navtop').setAttribute('aria-expanded','false');});
+ });
+ document.addEventListener('keydown',function(e){ if(e.key==='Escape')
+   drops.forEach(function(x){x.classList.remove('open');x.querySelector('.navtop').setAttribute('aria-expanded','false');}); });
+})();
+</script></body>
+</html>

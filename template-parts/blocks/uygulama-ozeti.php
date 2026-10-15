@@ -81,6 +81,7 @@ get_template_part( 'template-parts/blocks/_bolum-basligi' );
             <button class="btn" type="button" id="b-copy"><?php esc_html_e( 'ÖZETİ KOPYALA', 'servomotion' ); ?></button>
           </div>
           <p class="hint" id="b-note"><?php esc_html_e( 'Ön değerlendirme bağlayıcı değildir; nihai sistem seçimi keşifte alınan ölçülerle birlikte yapılır. Lazerler hizalama referansı oluşturur; malzeme ve makine elemanlarının ayarı operatör tarafından yapılır.', 'servomotion' ); ?></p>
+          <p class="hint talep-kvkk"><?php echo servo_kvkk_notu(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
         </div>
       </div>
     </div>

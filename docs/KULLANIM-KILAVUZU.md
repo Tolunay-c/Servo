@@ -133,6 +133,10 @@ Bu içerikler kendi menülerinde tutulur. İlgili sayfalar bunları otomatik ola
 3. **Yayımla**'ya basın.
 4. **Önemli:** Dokümanın sitede görünmesi için **Sayfalar > Teknik Dokümanlar** sayfasını açın. "Doküman listesi" bloğundaki **Dokümanlar** alanından yeni dokümanı seçin, sürükleyerek sıralayın ve **Güncelle**'ye basın.
 
+**Erişim:** Dokümanda **Erişim** alanı vardır. "Doğrudan indirme" seçiliyse dosyayı herkes indirir. "Talep formuyla" seçilirse (veri sayfaları, sertifikalar) dosya doğrudan erişime ve arama motorlarına kapalı bir klasöre taşınır; kartta "TALEP EDİN" düğmesi görünür ve ziyaretçi sayfadaki talep formunu doldurunca 7 gün geçerli bir indirme bağlantısı e-postayla gönderilir. Bu seçimde **Talep kodu** (aynı dokümanın Türkçe ve İngilizce sürümlerinde aynı) ve **Formdaki işaret kutusu yazısı** doldurulur; İngilizce sürüm için **Dil** "İngilizce" seçilir. Form sayfaya **Talep formu** bloğuyla eklenir (tür: Doküman talebi).
+
+**Talep e-postaları:** Formlardan gelen talepler **Site Ayarları > Formlar**'daki adrese gider. Aynı sekmedeki **Doküman talebi: gönderim** ayarı "Otomatik gönder" ise ziyaretçiye indirme bağlantıları kendiliğinden e-postalanır; "Sadece ekibe bildir" ise yalnızca ekibe bildirim düşer (bildirimde bağlantılar da vardır, ziyaretçiye siz iletebilirsiniz).
+
 Bir dokümanın yeni sürümünü yayımlamak için doküman kaydını açıp **Dosya** alanından eski dosyayı kaldırın, yenisini yükleyin ve alt bilgi satırındaki revizyon tarihini güncelleyin.
 
 **Vaka çalışmaları** da aynı şekilde **Vaka çalışmaları** menüsünden eklenir. Görünmeleri için **Sayfalar > Vaka Çalışmaları** sayfasındaki "Vaka listesi" bloğundan seçilmeleri gerekir.

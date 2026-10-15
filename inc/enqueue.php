@@ -36,6 +36,7 @@ function servo_enqueue_style( $handle, $path, $deps = array() ) {
  * @param string[] $deps   Bağımlılıklar.
  */
 function servo_enqueue_script( $handle, $path, $deps = array() ) {
+	$path    = servo_js_yolu( $path );
 	$version = servo_asset_version( $path );
 
 	if ( null === $version ) {
@@ -78,11 +79,15 @@ function servo_asset_group() {
  * Yükleme sırası tasarımdaki sırayla aynıdır: fontlar (Google Fonts <link>
  * yerine), harici CSS dosyaları, ardından sayfanın stilleri. JS'ler
  * tasarımdaki <script> sırasıyla footer'da yüklenir. Sözlük ve uygulama
- * özeti script'leri sadece ilgili blok sayfadaysa yüklenir.
+ * özeti script'leri sadece ilgili blok sayfadaysa yüklenir. Menü sığdırma
+ * stilleri (navfit.css) tasarımdaki gibi her sayfada en son yüklenir.
  */
 function servo_enqueue_assets() {
 	$group = servo_asset_group();
 	$ozet  = 'bloklar' === $group && servo_page_has_block( 'uygulama_ozeti' );
+	$talep = 'bloklar' === $group && servo_page_has_block( 'talep_formu' );
+
+	$son = 'servo-fonts';
 
 	servo_enqueue_style( 'servo-fonts', 'assets/css/fonts.css' );
 
@@ -91,11 +96,13 @@ function servo_enqueue_assets() {
 			servo_enqueue_style( 'servo-core', 'assets/css/core.css', array( 'servo-fonts' ) );
 			servo_enqueue_script( 'servo-core-sim', 'assets/js/core-sim.js' );
 			servo_enqueue_script( 'servo-core-govde', 'assets/js/core-govde.js' );
+			$son = 'servo-core';
 			break;
 
 		case 'shuttle':
 			servo_enqueue_style( 'servo-shuttle', 'assets/css/shuttle.css', array( 'servo-fonts' ) );
 			servo_enqueue_script( 'servo-shuttle-konfig', 'assets/js/shuttle-konfig.js' );
+			$son = 'servo-shuttle';
 			break;
 
 		case 'rehber':
@@ -107,15 +114,24 @@ function servo_enqueue_assets() {
 			if ( ! is_singular() ) {
 				wp_add_inline_style( 'servo-brandfont', '.nav .brand:hover .smk{color:#fff}' );
 			}
+			$son = 'servo-brandfont';
 			break;
 
 		default:
 			servo_enqueue_style( 'servo-base', 'assets/css/base.css', array( 'servo-fonts' ) );
 			servo_enqueue_style( 'servo-brandfont', 'assets/css/brandfont.css', array( 'servo-base' ) );
 			servo_enqueue_style( 'servo-bloklar', 'assets/css/bloklar.css', array( 'servo-brandfont' ) );
+			$son = 'servo-bloklar';
 
 			if ( is_singular() && servo_field( 'iki_yana_yasla', get_queried_object_id(), false ) ) {
 				servo_enqueue_style( 'servo-hizalama', 'assets/css/hizalama.css', array( 'servo-bloklar' ) );
+				$son = 'servo-hizalama';
+			}
+
+			// Servis kanalları, talep formu ve doküman blokları (servis.css).
+			if ( servo_page_has_block( 'servis_kanallari' ) || servo_page_has_block( 'talep_formu' ) ) {
+				servo_enqueue_style( 'servo-servis', 'assets/css/servis.css', array( $son ) );
+				$son = 'servo-servis';
 			}
 
 			if ( servo_page_has_block( 'sozluk' ) ) {
@@ -123,6 +139,8 @@ function servo_enqueue_assets() {
 			}
 			break;
 	}
+
+	servo_enqueue_style( 'servo-navfit', 'assets/css/navfit.css', array( $son ) );
 
 	// Bülten: rehber sayfalarında bülten kodu sayfa script'inin içindedir.
 	if ( 'rehber' === $group ) {
@@ -137,6 +155,10 @@ function servo_enqueue_assets() {
 
 	if ( $ozet ) {
 		servo_enqueue_script( 'servo-iletisim-ozet', 'assets/js/iletisim-ozet.js' );
+	}
+
+	if ( $talep ) {
+		servo_enqueue_script( 'servo-talep', 'assets/js/talep.js' );
 	}
 
 	servo_enqueue_script( 'servo-nav', 'assets/js/nav.js' );

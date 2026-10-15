@@ -42,8 +42,8 @@ $servo_baglantilar = servo_option_links(
 			'title' => __( 'Shuttle Precisor →', 'servomotion' ),
 		),
 		array(
-			'url'   => servo_post_url( 'referanslar' ),
-			'title' => __( 'Uygulama örnekleri →', 'servomotion' ),
+			'url'   => servo_post_url( 'basari-hikayeleri' ),
+			'title' => __( 'Başarı hikayeleri →', 'servomotion' ),
 		),
 		array(
 			'url'   => servo_post_url( 'dokumanlar' ),

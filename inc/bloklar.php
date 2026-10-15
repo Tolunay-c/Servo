@@ -261,7 +261,8 @@ add_filter( 'acf/fields/flexible_content/layout_title/name=bloklar', 'servo_layo
  *
  * Wrapper class'ı "servo-svg-gorsel" olan alanlar şema/görsel SVG'lerini,
  * "servo-svg-ikon" olanlar ikon-* SVG'lerini, "servo-svg-rehber" olanlar
- * rehber yazı kartı şemalarını (rehber-*) listeler.
+ * rehber yazı kartı şemalarını (rehber-*), "servo-svg-servis" olanlar servis
+ * kanalı simgelerini (servis-*) listeler.
  *
  * @param array $field Alan.
  * @return array
@@ -278,6 +279,8 @@ function servo_svg_choices( $field ) {
 		$grup = 'ikon-';
 	} elseif ( false !== strpos( $class, 'servo-svg-rehber' ) ) {
 		$grup = 'rehber-';
+	} elseif ( false !== strpos( $class, 'servo-svg-servis' ) ) {
+		$grup = 'servis-';
 	} else {
 		$grup = '';
 	}
@@ -288,7 +291,7 @@ function servo_svg_choices( $field ) {
 		$name       = basename( $file, '.svg' );
 		$dosya_grup = '';
 
-		foreach ( array( 'ikon-', 'rehber-' ) as $onek ) {
+		foreach ( array( 'ikon-', 'rehber-', 'servis-' ) as $onek ) {
 			if ( 0 === strpos( $name, $onek ) ) {
 				$dosya_grup = $onek;
 			}
@@ -298,7 +301,7 @@ function servo_svg_choices( $field ) {
 			continue;
 		}
 
-		$choices[ $name ] = ucfirst( str_replace( array( 'ikon-', 'rehber-', '-' ), array( '', '', ' ' ), $name ) );
+		$choices[ $name ] = ucfirst( str_replace( array( 'ikon-', 'rehber-', 'servis-', '-' ), array( '', '', '', ' ' ), $name ) );
 	}
 
 	$field['choices'] = $choices;
@@ -405,7 +408,9 @@ function servo_buttons( $rows ) {
 		}
 
 		$class = empty( $row['birincil'] ) ? 'btn' : 'btn primary';
-		$html .= '<a class="' . $class . '"' . servo_link_atts( $row['link'] ) . '>' . esc_html( $row['link']['title'] ) . '</a>';
+		$indir = empty( $row['indir'] ) ? '' : ' download';
+		$rozet = empty( $row['rozet'] ) ? '' : ' <span style="font-size:12px;opacity:.75;margin-left:8px">' . esc_html( $row['rozet'] ) . '</span>';
+		$html .= '<a class="' . $class . '"' . servo_link_atts( $row['link'] ) . $indir . '>' . esc_html( $row['link']['title'] ) . $rozet . '</a>';
 	}
 
 	return $html;
