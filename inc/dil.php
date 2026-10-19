@@ -446,3 +446,64 @@ function servo_js_yolu( $yol ) {
 
 	return $yol;
 }
+
+/**
+ * İngilizce sürümde ortak medya kütüphanesindeki Türkçe alt metinleri çevirir.
+ *
+ * Medya diller arasında paylaşılır; alt metin Türkçe girildiği için çıktıda
+ * languages/servomotion-en_GB.po içindeki karşılığı kullanılır (yoksa değişmez).
+ *
+ * @param string[] $attr Görsel öznitelikleri.
+ * @return string[]
+ */
+function servo_en_gorsel_alt( $attr ) {
+	if ( ! empty( $attr['alt'] ) && servo_en() ) {
+		$attr['alt'] = __( $attr['alt'], 'servomotion' ); // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText
+	}
+
+	return $attr;
+}
+add_filter( 'wp_get_attachment_image_attributes', 'servo_en_gorsel_alt' );
+
+/**
+ * İstek /en/ ön ekli bir adres mi (dil Polylang'le çözülemese de)?
+ *
+ * @return bool
+ */
+function servo_en_istek() {
+	if ( servo_en() ) {
+		return true;
+	}
+
+	$yol = isset( $_SERVER['REQUEST_URI'] ) ? (string) wp_parse_url( wp_unslash( $_SERVER['REQUEST_URI'] ), PHP_URL_PATH ) : '';
+	$kok = trailingslashit( (string) wp_parse_url( home_url( '/' ), PHP_URL_PATH ) );
+	$yol = trim( substr( $yol, strlen( $kok ) ), '/' );
+
+	return 'en' === $yol || 0 === strpos( $yol, 'en/' );
+}
+
+/**
+ * Var olmayan /en/... adresleri 404 kalır: tahminli yönlendirme ve kanonik yönlendirme devre dışı.
+ *
+ * WordPress'in redirect_guess_404_permalink'i (ve Polylang'in dil içi tahmini) yanlış sayfaya
+ * ya da /en/home/'a atabilir. Yalnızca tam /en ve /en/ adresi /en/home/'a yönlenir (Polylang).
+ * TR 404 davranışı değişmez.
+ *
+ * @param mixed $onceki Tahmin sonucu (null: tahmin yapılsın).
+ * @return mixed
+ */
+function servo_en_404_tahmin_kapat( $onceki ) {
+	return servo_en_istek() ? false : $onceki;
+}
+add_filter( 'pre_redirect_guess_404_permalink', 'servo_en_404_tahmin_kapat', 99 );
+
+/**
+ * EN 404'te kanonik yönlendirme çalışmaz.
+ *
+ * @param string|false $yonlendirme Hedef adres.
+ * @return string|false
+ */
+function servo_en_404_kanonik( $yonlendirme ) {
+	return ( is_404() && servo_en_istek() ) ? false : $yonlendirme;
+}
+add_filter( 'redirect_canonical', 'servo_en_404_kanonik', 99 );

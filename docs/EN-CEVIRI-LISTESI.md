@@ -304,3 +304,31 @@ Toplam 156 metin (76 paketten, 80 çeviri).
 | Lazer adedi (aria-label) | Laser count | template-parts/core/konfigurasyonlar.php; template-parts/shuttle/konfigurator.php |
 | Çizgiler arası mesafe (aria-label) | Line spacing | template-parts/core/konfigurasyonlar.php; template-parts/shuttle/konfigurator.php |
 | Simülasyon hızı (aria-label) | Simulation speed | template-parts/core/konfigurasyonlar.php; template-parts/shuttle/konfigurator.php |
+
+## EN ana sayfa hero ve şerit (TR'den çevrildi, onay bekliyor)
+
+Kaynak: TR ana sayfadaki `ana_hero` bloğu. Alanlar `servo_guncelle_3()` (`inc/guncelleme.php`) ile yazılır.
+
+| Türkçe | İngilizce | Yer |
+|---|---|---|
+| Hassas hizalama. | Precise alignment. | Hero, kazanım satırı 1 |
+| Hızlı ürün geçişleri. | Fast product changeovers. | Hero, kazanım satırı 2 |
+| Verimli üretim. | Efficient production. | Hero, kazanım satırı 3 (vurgulu) |
+| ServoMotion lazer konumlandırma sistemleriyle üretiminize yön verin. | Steer your production with ServoMotion laser positioning systems. | Hero, kapanış |
+| Kompakt gövde · Servo kontrollü hareket | Compact housing · Servo-controlled motion | Hero, görsel alt yazısı |
+| PLC TABANLI KONTROL | PLC-BASED CONTROL | Şerit 1 |
+| Reçete ve hareket yönetimi | Recipe and motion management | Şerit 1 |
+| PROFINET / EtherNet/IP haberleşmesi | PROFINET / EtherNet/IP communication | Şerit 1 |
+| SERVO HAREKET MİMARİSİ | SERVO MOTION ARCHITECTURE | Şerit 2 |
+| CORE: bağımsız ve simetrik hareket | CORE: independent and symmetrical motion | Şerit 2 |
+| SHUTTLE: tek mekikle sıralı yerleştirme | SHUTTLE: sequential placement with a single shuttle | Şerit 2 |
+| Enkoder geri beslemeli konum kontrolü | Position control with encoder feedback | Şerit 2 |
+| KIRMIZI / YEŞİL LAZER | RED / GREEN LASER | Şerit 3 |
+| Ayarlanabilir odak · Çizgisel referans | Adjustable focus · Line reference | Şerit 3 |
+| 12–24 VDC besleme · Standart M12 bağlantı | 12–24 VDC supply · Standard M12 connector | Şerit 3 |
+| UYGULAMAYA ÖZEL MEKANİK | APPLICATION-SPECIFIC MECHANICS | Şerit 4 |
+| CORE: kompakt, kapalı gövde | CORE: compact, enclosed housing | Şerit 4 |
+| SHUTTLE: üç raylı, kilitli araba yapısı | SHUTTLE: three-rail, locking carriage design | Şerit 4 |
+| Çalışma alanına göre boyutlandırma | Sized to the working area | Şerit 4 |
+
+Hero etiketi, başlık ve düğmeler EN'de önceden vardı (referans paketten): "SERVO-CONTROLLED LASER POSITIONING", "ACCURATE POSITIONING. / FASTER CHANGEOVERS.", "COMPARE THE SYSTEMS", "REQUEST A QUOTE".

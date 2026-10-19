@@ -1,0 +1,435 @@
+- generic [active] [ref=f1e1]:
+  - navigation "Ana menü" [ref=f1e2]:
+    - generic [ref=f1e3]:
+      - link "ServoMotion" [ref=f1e4] [cursor=pointer]:
+        - /url: http://localhost/servo/
+      - generic [ref=f1e19]:
+        - link "ANA SAYFA" [ref=f1e20] [cursor=pointer]:
+          - /url: http://localhost/servo/
+        - link "CORE PRECISOR" [ref=f1e21] [cursor=pointer]:
+          - /url: http://localhost/servo/core-precisor/
+        - link "SHUTTLE PRECISOR" [ref=f1e22] [cursor=pointer]:
+          - /url: http://localhost/servo/shuttle-precisor/
+        - link "BAŞARI HİKAYELERİ" [ref=f1e23] [cursor=pointer]:
+          - /url: http://localhost/servo/basari-hikayeleri/
+        - link "SERVİS" [ref=f1e24] [cursor=pointer]:
+          - /url: http://localhost/servo/servis/
+        - link "KURUMSAL" [ref=f1e25] [cursor=pointer]:
+          - /url: http://localhost/servo/kurumsal/
+        - link "REHBER" [ref=f1e26] [cursor=pointer]:
+          - /url: http://localhost/servo/rehber/
+        - link "İLETİŞİM" [ref=f1e27] [cursor=pointer]:
+          - /url: http://localhost/servo/iletisim/
+        - link "EN" [ref=f1e28] [cursor=pointer]:
+          - /url: http://localhost/servo/en/home/
+  - main [ref=f1e29]:
+    - generic [ref=f1e30]:
+      - generic [ref=f1e31]:
+        - generic [ref=f1e32]:
+          - paragraph [ref=f1e33]: SABİT AYAR DEĞİL, REÇETEYE GÖRE KONUMLANDIRMA
+          - heading [level=1] [ref=f1e34]:
+            - text: DOĞRU KONUM
+            - emphasis [ref=f1e35]: HIZLI AYAR
+          - generic [ref=f1e36]:
+            - paragraph [ref=f1e37]:
+              - generic [ref=f1e38]: Hassas hizalama.
+              - generic [ref=f1e39]: Hızlı ürün geçişleri.
+              - strong [ref=f1e40]: Verimli üretim.
+            - paragraph [ref=f1e41]: ServoMotion lazer konumlandırma sistemleriyle üretiminize yön verin.
+          - generic [ref=f1e42]:
+            - link "SİSTEMLERİ KARŞILAŞTIRIN" [ref=f1e43] [cursor=pointer]:
+              - /url: "#sistemler"
+            - link "TEKLİF İSTEYİN" [ref=f1e44] [cursor=pointer]:
+              - /url: "#iletisim"
+        - figure "CORE PRECISOR Kompakt gövde · Servo kontrollü hareket" [ref=f1e45]:
+          - img "CORE PRECISOR lazer konumlandırma sistemi — iki kırmızı, ortada bir yeşil referans çizgisi" [ref=f1e46]
+          - generic [ref=f1e47]:
+            - generic [ref=f1e48]: CORE PRECISOR
+            - generic [ref=f1e49]: Kompakt gövde · Servo kontrollü hareket
+      - generic [ref=f1e51]:
+        - generic [ref=f1e52]:
+          - generic [ref=f1e53]: PLC TABANLI KONTROL
+          - paragraph [ref=f1e54]: Reçete ve hareket yönetimi
+          - generic [ref=f1e55]: PROFINET / EtherNet/IP haberleşmesi
+        - generic [ref=f1e56]:
+          - generic [ref=f1e57]: SERVO HAREKET MİMARİSİ
+          - paragraph [ref=f1e58]: "CORE: bağımsız ve simetrik hareket SHUTTLE: tek mekikle sıralı yerleştirme"
+          - generic [ref=f1e59]: Enkoder geri beslemeli konum kontrolü
+        - generic [ref=f1e60]:
+          - generic [ref=f1e61]: KIRMIZI / YEŞİL LAZER
+          - paragraph [ref=f1e62]: Ayarlanabilir odak · Çizgisel referans
+          - generic [ref=f1e63]: 12–24 VDC besleme · Standart M12 bağlantı
+        - generic [ref=f1e64]:
+          - generic [ref=f1e65]: UYGULAMAYA ÖZEL MEKANİK
+          - paragraph [ref=f1e66]: "CORE: kompakt, kapalı gövde SHUTTLE: üç raylı, kilitli araba yapısı"
+          - generic [ref=f1e67]: Çalışma alanına göre boyutlandırma
+    - generic [ref=f1e69]:
+      - generic [ref=f1e70]:
+        - paragraph [ref=f1e71]: SERVOMOTION ÜRÜN AİLESİ
+        - heading "YÜKSEK HASSASİYETLİ LAZER KONUMLANDIRMA ÇÖZÜMLERİ" [level=2] [ref=f1e72]
+        - paragraph [ref=f1e73]: Hassasiyetin, hızın ve esnekliğin ön planda olduğu endüstriyel hatlar için geliştirilmiş yenilikçi konumlandırma mimarileri.
+      - generic [ref=f1e74]:
+        - article [ref=f1e75]:
+          - img "CORE PRECISOR kapalı gövde" [ref=f1e77]
+          - generic [ref=f1e78]:
+            - generic [ref=f1e79]: KOMPAKT GÖVDE · ESNEK HAREKET
+            - heading "CORE PRECISOR" [level=3] [ref=f1e80]
+            - paragraph [ref=f1e81]: CORE PRECISOR, kompakt gövdesi ve esnek hareket seçenekleriyle üretim hattınızın hizalama gereksinimlerine uyum sağlar. Lazerleri bağımsız veya simetrik olarak konumlandırarak malzeme yerleştirme ve makine ayarlarında hassas, tekrarlanabilir referanslar oluşturur.
+            - generic [ref=f1e82]:
+              - generic [ref=f1e83]:
+                - generic [ref=f1e84]: "6"
+                - text: hareket konfigürasyonu
+              - generic [ref=f1e85]:
+                - generic [ref=f1e86]: 600–4.000 mm
+                - text: gövde uzunluğu
+            - link "CORE PRECISOR ürün detayları" [ref=f1e87] [cursor=pointer]:
+              - /url: http://localhost/servo/core-precisor/
+              - text: ÜRÜN DETAYLARI
+        - article [ref=f1e88]:
+          - img "Üç raylı mekik sistemi şeması — 6 aktif lazer arabası ve sağda 2 rezerve araba" [ref=f1e90]:
+            - generic [ref=f1e92]: ÜST RAY · +24 VDC BARA
+            - generic [ref=f1e94]: REZERVE ALANI
+            - generic [ref=f1e133]: REZ.1
+            - generic [ref=f1e139]: REZ.2
+            - generic [ref=f1e147]: MEKİK
+            - generic [ref=f1e148]: ALT RAY · SERVO MEKİK
+            - generic [ref=f1e150]: "ÜST RAY: +24 VDC BESLEME · ORTA RAY: LAZER ARABALARI · ALT RAY: SERVO MEKİK"
+          - generic [ref=f1e151]:
+            - generic [ref=f1e152]: MEKİK MİMARİSİ · ÇOKLU KONUMLANDIRMA
+            - heading "SHUTTLE PRECISOR" [level=3] [ref=f1e153]
+            - paragraph [ref=f1e154]: SHUTTLE PRECISOR, çok sayıda lazer referansı gerektiren uygulamalar için tek servo eksenle konumlandırma sunar. Mekik, lazer arabalarını sırayla hedeflerine taşır; konumlarında kilitlenen arabalar, tüm referans çizgilerinin çalışma boyunca birlikte kullanılmasını sağlar.
+            - generic [ref=f1e155]:
+              - generic [ref=f1e156]:
+                - generic [ref=f1e157]: 5–40+
+                - text: lazer arabası*
+              - generic [ref=f1e158]:
+                - generic [ref=f1e159]: 1 servo
+                - text: üç raylı mimari
+            - link "SHUTTLE PRECISOR ürün detayları" [ref=f1e160] [cursor=pointer]:
+              - /url: http://localhost/servo/shuttle-precisor/
+              - text: ÜRÜN DETAYLARI
+      - paragraph [ref=f1e161]: "* SHUTTLE PRECISOR lazer kapasitesi, hareket mesafesi ve rezerve alanı uygulama gereksinimlerine göre belirlenir."
+    - generic [ref=f1e163]:
+      - generic [ref=f1e164]:
+        - paragraph [ref=f1e165]: UYGULAMA VE PROSES KAZANIMLARI
+        - heading "HİZALAMA SÜREÇLERİNDE HASSASİYET VE TEKRARLANABİLİRLİK" [level=2] [ref=f1e166]
+      - generic [ref=f1e167]:
+        - article [ref=f1e168]:
+          - generic [ref=f1e169]: 01 / MALZEME YERLEŞTİRME
+          - heading "KENAR VE EKSEN REFERANSI" [level=3] [ref=f1e170]
+          - paragraph [ref=f1e171]: Tanımlanan kenar ve eksen konumları, çalışma yüzeyine lazer çizgileri olarak yansıtılır. Operatörün malzeme veya parçayı ortak bir referansa göre yerleştirmesi sağlanarak manuel ölçü aktarımı ihtiyacı azaltılır.
+        - article [ref=f1e172]:
+          - generic [ref=f1e173]: 02 / MAKİNE AYARI
+          - heading "KONTROLLÜ AYAR SÜRECİ" [level=3] [ref=f1e174]
+          - paragraph [ref=f1e175]: Kılavuz, dayama ve işlem elemanlarının hedef konumları lazer referanslarıyla gösterilir. Ayar noktalarının doğrudan çalışma alanında izlenebilmesi, kurulum sürecini kolaylaştırır ve tekrarlanan ölçüm adımlarını azaltır.
+        - article [ref=f1e176]:
+          - generic [ref=f1e177]: 03 / ÜRÜN DEĞİŞİMİ
+          - heading "REÇETE TABANLI TEKRARLANABİLİRLİK" [level=3] [ref=f1e178]
+          - paragraph [ref=f1e179]: Ürüne ait konum bilgileri reçetede saklanır ve ürün değişiminde PLC kontrolüyle yeniden uygulanır. Aynı referans düzenine geri dönülmesi, ayar standardizasyonunu destekler ve geçişlerde hazırlık süresini kısaltır.
+    - generic [ref=f1e181]:
+      - generic [ref=f1e182]:
+        - paragraph [ref=f1e184]: Kategori Farkı
+        - heading "Sabit Ayar Değil. Reçeteye Göre Konumlandırma." [level=2] [ref=f1e185]
+      - generic [ref=f1e186]:
+        - article [ref=f1e187]:
+          - paragraph [ref=f1e188]: GELENEKSEL SABİT REFERANS
+          - heading "KONUM BİR KURULUM AYARIDIR" [level=3] [ref=f1e189]
+          - paragraph [ref=f1e190]: Lazer, devreye alma sırasında bir kez konumlandırılır. Reçete değiştiğinde çizgiyi operatör yeniden ayarlar; sonuç ayarı yapan kişiye, kullanılan ölçüm yöntemine ve o an ayrılabilen süreye bağlı kalır.
+        - article [ref=f1e191]:
+          - paragraph [ref=f1e192]: SERVO KONTROLLÜ REFERANS
+          - heading "KONUM BİR REÇETE VERİSİDİR" [level=3] [ref=f1e193]
+          - paragraph [ref=f1e194]: Ölçü panelden girilir; sistem hedef konumlara kendisi gider. Aynı reçete her çağrıldığında çizgiler aynı yere döner, ayar operatörün işi olmaktan çıkar ve ürün geçişi hattın kendi süresine bağlı hâle gelir.
+      - generic [ref=f1e195]:
+        - generic [ref=f1e196]:
+          - generic [ref=f1e197]: ±1,00mm
+          - generic [ref=f1e198]: Projeksiyon hassasiyeti
+        - generic [ref=f1e199]:
+          - generic [ref=f1e200]: 1000mm/s
+          - generic [ref=f1e201]: Konumlandırma hızı · Core
+        - generic [ref=f1e202]:
+          - generic [ref=f1e203]: "6"
+          - generic [ref=f1e204]: Hareket konfigürasyonu · Core
+        - generic [ref=f1e205]:
+          - generic [ref=f1e206]: ~118sn
+          - generic [ref=f1e207]: Tam kurulum döngüsü · Shuttle
+      - paragraph [ref=f1e208]:
+        - text: Değerler; 2.400 mm strok, 20 lazer ve 200 mm çizgi aralığı senaryosu üzerinden verilmiştir. Sabit referansın hangi uygulamalarda hâlâ doğru çözüm olduğunu
+        - link "Sabit referans lazeri ne işe yarar?" [ref=f1e209] [cursor=pointer]:
+          - /url: http://localhost/servo/rehber/sabit-referans/
+        - text: yazısında ele aldık.
+    - generic [ref=f1e211]:
+      - generic [ref=f1e212]:
+        - paragraph [ref=f1e214]: Teknik Karşılaştırma
+        - heading "Aynı Referans. Farklı Hareket Mimarisi." [level=2] [ref=f1e215]
+      - table [ref=f1e217]:
+        - rowgroup [ref=f1e218]:
+          - row [ref=f1e219]:
+            - columnheader "Kriter" [ref=f1e220]
+            - columnheader "Core Precisor" [ref=f1e221]:
+              - text: Core
+              - generic [ref=f1e222]: Precisor
+            - columnheader "Shuttle Precisor" [ref=f1e223]:
+              - text: Shuttle
+              - generic [ref=f1e224]: Precisor
+        - rowgroup [ref=f1e225]:
+          - row [ref=f1e226]:
+            - cell "Mimari" [ref=f1e227]
+            - cell "Kapalı gövdede servo tahrikli lazer hizalama sistemi 6 hareket konfigürasyonu" [ref=f1e228]:
+              - text: Kapalı gövdede servo tahrikli lazer hizalama sistemi
+              - generic [ref=f1e229]: 6 hareket konfigürasyonu
+            - cell "Üç raylı mekik yapısında çoklu lazer hizalama sistemi Tek servo tahrik, çok sayıda kilitli araba" [ref=f1e230]:
+              - text: Üç raylı mekik yapısında çoklu lazer hizalama sistemi
+              - generic [ref=f1e231]: Tek servo tahrik, çok sayıda kilitli araba
+          - row [ref=f1e232]:
+            - cell "Aynı anda görünen çizgi" [ref=f1e233]
+            - cell "Gövdedeki lazer adedi kadar Kalan çizgiler reçete adımlarıyla sırayla gösterilir" [ref=f1e234]:
+              - text: Gövdedeki lazer adedi kadar
+              - generic [ref=f1e235]: Kalan çizgiler reçete adımlarıyla sırayla gösterilir
+            - cell "Tüm kesim çizgileri Reçete kurulduktan sonra eş zamanlı ve sürekli" [ref=f1e236]:
+              - text: Tüm kesim çizgileri
+              - generic [ref=f1e237]: Reçete kurulduktan sonra eş zamanlı ve sürekli
+          - row [ref=f1e238]:
+            - cell "Tipik lazer adedi" [ref=f1e239]
+            - cell "1 – 6" [ref=f1e240]
+            - cell "5 – 40+" [ref=f1e241]
+          - row [ref=f1e242]:
+            - cell "Servo eksen sayısı" [ref=f1e243]
+            - cell "Hareketli lazer başına 1 eksen" [ref=f1e244]
+            - cell "Toplam 1 mekik ekseni (Tek tahrik)" [ref=f1e245]
+          - row [ref=f1e246]:
+            - cell "Uygun uygulama" [ref=f1e247]
+            - cell "Az dilimli dilimleme, bıçak hizalama, tek referanslı hatlar" [ref=f1e248]
+            - cell "Çok dilimli dilimleme, kalender ve geniş bant hatları, elastik/kulak besleme" [ref=f1e249]
+          - row [ref=f1e250]:
+            - cell "Kurulum sonrası" [ref=f1e251]
+            - cell "Lazerler bir sonraki reçete konumuna geçer" [ref=f1e252]
+            - cell "Mekik başlangıç konumuna geri döner, tüm çizgiler yerinde kalır" [ref=f1e253]
+          - row [ref=f1e254]:
+            - cell "Gövde uzunluğu" [ref=f1e255]
+            - cell "600 – 4.000 mm Daha uzun hatlar talebe göre tasarlanır" [ref=f1e256]:
+              - text: 600 – 4.000 mm
+              - generic [ref=f1e257]: Daha uzun hatlar talebe göre tasarlanır
+            - cell "Strok + rezerve alanı + emniyet payı Projeye göre ölçeklendirilir · konfigüratör hesaplar" [ref=f1e258]:
+              - text: Strok + rezerve alanı + emniyet payı
+              - generic [ref=f1e259]: Projeye göre ölçeklendirilir · konfigüratör hesaplar
+          - row [ref=f1e260]:
+            - cell "Ortak altyapı" [ref=f1e261]
+            - cell "Endüstriyel PLC ve servo sürücü kontrolü Standart saha veri yolu ile hat otomasyonuna entegrasyon Dokunmatik operatör paneli Endüstriyel çizgi lazer modülleri" [ref=f1e262]:
+              - generic [ref=f1e263]:
+                - generic [ref=f1e264]: Endüstriyel PLC ve servo sürücü kontrolü
+                - generic [ref=f1e269]: Standart saha veri yolu ile hat otomasyonuna entegrasyon
+                - generic [ref=f1e276]: Dokunmatik operatör paneli
+                - generic [ref=f1e281]: Endüstriyel çizgi lazer modülleri
+      - paragraph [ref=f1e286]: Nihai performans ve bağlantı kapsamı; hareket yükü, uygulama mesafesi ve montaj koşullarıyla birlikte değerlendirilir. Lazerler hizalama referansı oluşturur; malzeme ve makine elemanlarının ayarı operatör tarafından yapılır.
+    - generic [ref=f1e288]:
+      - generic [ref=f1e289]:
+        - paragraph [ref=f1e290]: ENDÜSTRİYEL UYGULAMALAR
+        - heading "FARKLI PROSESLER İÇİN ORTAK HİZALAMA YAKLAŞIMI" [level=2] [ref=f1e291]
+        - paragraph [ref=f1e292]: ServoMotion sistemleri; malzeme yerleştirme, kenar hizalama ve makine ayarı süreçlerinde konum referansı oluşturur. Lazer yerleşimi ve hareket mimarisi; proses geometrisi, çalışma mesafesi ve reçete gereksinimlerine göre belirlenir.
+      - generic [ref=f1e293]:
+        - generic [ref=f1e294]:
+          - generic [ref=f1e295]: Ürün değişiminde ayar hazırlığı
+          - paragraph [ref=f1e296]: Reçete her değiştiğinde çizgilerin yeniden ölçülüp ayarlanması, hattın duruş süresini uzatır.
+        - generic [ref=f1e297]:
+          - generic [ref=f1e298]: Kenar ve merkez hizalama
+          - paragraph [ref=f1e299]: Malzemenin kenarı ya da ekseni, yerleştirme ve kesim kalitesini doğrudan belirler.
+        - generic [ref=f1e300]:
+          - generic [ref=f1e301]: Çoklu referans yönetimi
+          - paragraph [ref=f1e302]: Aynı anda birden çok çizgi gerektiğinde referansların tümünün tek reçeteden yönetilmesi gerekir.
+      - generic [ref=f1e303]:
+        - article [ref=f1e304]:
+          - heading "LASTİK VE KOMPOZİT MALZEMELER" [level=3] [ref=f1e317]
+          - paragraph [ref=f1e318]: Takviye katmanlarının serim genişliği üründen ürüne değişir; her geçişte kenar ve simetri referansının yeniden kurulması gerekir. Referans çizgileri, uygulama yüzeyinin geometrisine göre düzenlenir.
+          - paragraph [ref=f1e319]:
+            - emphasis [ref=f1e320]: Belirleyici olan
+            - text: Katman genişliği, simetri ekseni, uygulama yüzeyinin geometrisi ve çalışma mesafesi.
+          - paragraph [ref=f1e321]:
+            - text: ÖRNEK KURULUM
+            - generic [ref=f1e322]:
+              - text: Core
+              - generic [ref=f1e323]: Precisor
+            - text: · K4 çift kanal (1 sabit + 2 hareketli) · 1.600 mm strok
+          - link "Uygulama sayfasını görün →" [ref=f1e324] [cursor=pointer]:
+            - /url: http://localhost/servo/uygulama/lastik/
+        - article [ref=f1e325]:
+          - heading "HİJYENİK ÜRÜNLER VE NONWOVEN" [level=3] [ref=f1e359]
+          - paragraph [ref=f1e360]: Çok katmanlı yapıda her katmanın kenar ve eksen referansının tutarlı olması gerekir; ürün ölçüsü ise sık değişir. Ölçü değiştiğinde hizalama konumları reçeteye göre yeniden oluşturulur.
+          - paragraph [ref=f1e361]:
+            - emphasis [ref=f1e362]: Belirleyici olan
+            - text: Katman sayısı, çalışma genişliği, eşzamanlı çizgi sayısı ve dokunmamış yüzeyin optik davranışı.
+          - paragraph [ref=f1e363]:
+            - text: ÖRNEK KURULUM
+            - generic [ref=f1e364]:
+              - text: Shuttle
+              - generic [ref=f1e365]: Precisor
+            - text: · 26 lazer · 2.300 mm strok
+          - link "Uygulama sayfasını görün →" [ref=f1e366] [cursor=pointer]:
+            - /url: http://localhost/servo/uygulama/nonwoven/
+        - article [ref=f1e367]:
+          - heading "AMBALAJ VE KAĞIT" [level=3] [ref=f1e390]
+          - paragraph [ref=f1e391]: Farklı ebatlar arasındaki geçişte kılavuzların ve işlem elemanlarının ayarı hattı bekletir. Ortak bir konum referansı, ebatlar arasında aynı ayar disiplinini korur.
+          - paragraph [ref=f1e392]:
+            - emphasis [ref=f1e393]: Belirleyici olan
+            - text: Ebat çeşitliliği, reçete değişim sıklığı ve eşzamanlı görünmesi gereken çizgi sayısı.
+          - paragraph [ref=f1e394]:
+            - text: ÖRNEK KURULUM
+            - generic [ref=f1e395]:
+              - text: Shuttle
+              - generic [ref=f1e396]: Precisor
+            - text: · 16 lazer · 1.800 mm strok
+          - link "Uygulama sayfasını görün →" [ref=f1e397] [cursor=pointer]:
+            - /url: http://localhost/servo/uygulama/ambalaj/
+        - article [ref=f1e398]:
+          - heading "FİLM VE FOLYO" [level=3] [ref=f1e408]
+          - paragraph [ref=f1e409]: İş çoğu zaman iki kenarın nerede duracağıyla başlar. Bobin genişliği ve kesim eni reçeteden reçeteye değişir; her geçişte kenar konumunun yeniden kurulması gerekir.
+          - paragraph [ref=f1e410]:
+            - emphasis [ref=f1e411]: Belirleyici olan
+            - text: Yüzey optiği, kenarlar arası mesafe, lazer rengi ve çalışma mesafesi.
+          - paragraph [ref=f1e412]:
+            - text: ÖRNEK KURULUM
+            - generic [ref=f1e413]:
+              - text: Core
+              - generic [ref=f1e414]: Precisor
+            - text: · K3 tek kanal + sabit (1 hareketli + 2 sabit referans) · 2.000 mm strok
+          - link "Uygulama sayfasını görün →" [ref=f1e415] [cursor=pointer]:
+            - /url: http://localhost/servo/uygulama/film-folyo/
+        - article [ref=f1e416]:
+          - img [aria-hidden] [ref=f1e418]:
+            - generic [ref=f1e428]: SABİT MERKEZ
+          - heading "TEKSTİL VE TEKNİK KUMAŞLAR" [level=3] [ref=f1e429]
+          - paragraph [ref=f1e430]: Simetri, kenar konumu kadar belirleyicidir. Merkez ekseni kaybolduğunda kenarlar doğru olsa bile ürün ortalanmamış çıkar; merkez referansının üretim boyunca görünür kalması gerekir.
+          - paragraph [ref=f1e431]:
+            - emphasis [ref=f1e432]: Belirleyici olan
+            - text: Serim genişliği, merkez ekseni, katman düzeni ve montaj yüksekliği.
+          - paragraph [ref=f1e433]:
+            - text: ÖRNEK KURULUM
+            - generic [ref=f1e434]:
+              - text: Core
+              - generic [ref=f1e435]: Precisor
+            - text: · K4 çift kanal (2 hareketli + 1 sabit merkez) · 2.400 mm strok
+          - link "Uygulama sayfasını görün →" [ref=f1e436] [cursor=pointer]:
+            - /url: http://localhost/servo/uygulama/tekstil/
+        - article [ref=f1e437]:
+          - heading "ETİKET VE YAPIŞKANLI BANT" [level=3] [ref=f1e483]
+          - paragraph [ref=f1e484]: Dar en dilimlemede bir reçete onlarca kesim çizgisi demektir. Çizgilerin tek tek ölçülüp ayarlanması, hattın en uzun duruş kalemine dönüşebilir.
+          - paragraph [ref=f1e485]:
+            - emphasis [ref=f1e486]: Belirleyici olan
+            - text: Çizgiler arası mesafe, eşzamanlı çizgi sayısı ve mekanik yerleşim.
+          - paragraph [ref=f1e487]:
+            - text: ÖRNEK KURULUM
+            - generic [ref=f1e488]:
+              - text: Shuttle
+              - generic [ref=f1e489]: Precisor
+            - text: · 20 lazer · 1.800 mm strok
+          - link "Uygulama sayfasını görün →" [ref=f1e490] [cursor=pointer]:
+            - /url: http://localhost/servo/uygulama/etiket/
+      - paragraph [ref=f1e491]:
+        - text: Bu yaklaşımın altı farklı segmentteki kurulumları için
+        - link "başarı hikayelerine" [ref=f1e492] [cursor=pointer]:
+          - /url: http://localhost/servo/basari-hikayeleri/
+        - text: bakabilirsiniz.
+      - paragraph [ref=f1e493]:
+        - text: Montaj, devreye alma ve sonrasındaki destek kapsamı için
+        - link "servis ve devreye alma sayfasına" [ref=f1e494] [cursor=pointer]:
+          - /url: http://localhost/servo/servis/
+        - text: göz atın.
+      - paragraph [ref=f1e495]:
+        - text: "Listede kendi prosesinizi görmüyorsanız: hizalama ihtiyacı çoğu zaman sektörden bağımsızdır."
+        - link "Uygulamanızı birlikte değerlendirelim →" [ref=f1e496] [cursor=pointer]:
+          - /url: http://localhost/servo/iletisim/
+    - generic [ref=f1e498]:
+      - generic [ref=f1e499]:
+        - paragraph [ref=f1e500]: SERVOMOTION / OEM LAZER
+        - heading "TASARIMDAN DEVREYE ALMAYA BÜTÜNCÜL MÜHENDİSLİK" [level=2] [ref=f1e501]
+      - generic [ref=f1e502]:
+        - paragraph [ref=f1e503]: 2014’ten bu yana endüstriyel lazer uygulamaları geliştiren OEM Lazer, ServoMotion sistemlerinde mekanik tasarımı, lazer yerleşimini ve servo hareket kontrolünü PLC otomasyonuyla bütünleştirir. Çalışma alanı, montaj koşulları ve proses gereksinimleri birlikte değerlendirilerek uygulamaya özel sistem yapısı belirlenir. Mühendislik süreci, montaj ve devreye alma desteğiyle üretim hattına entegrasyona kadar uzanır.
+        - link "Mühendislik yaklaşımımızı inceleyin →" [ref=f1e504] [cursor=pointer]:
+          - /url: http://localhost/servo/kurumsal/
+        - link "Servis ve devreye alma süreci →" [ref=f1e505] [cursor=pointer]:
+          - /url: http://localhost/servo/servis/
+        - link "Veri sayfası talep edin →" [ref=f1e506] [cursor=pointer]:
+          - /url: http://localhost/servo/dokumanlar/
+    - generic [ref=f1e508]:
+      - generic [ref=f1e509]:
+        - heading "HATTINIZA UYGUN SİSTEMİ BİRLİKTE BELİRLEYELİM" [level=2] [ref=f1e510]
+        - paragraph [ref=f1e511]: Hattınızın hizalama gereksinimlerini iletin; lazer yerleşimi, hareket kontrolü ve PLC/otomasyon entegrasyonunu sisteminize özel olarak tasarlayalım.
+      - generic [ref=f1e512]:
+        - link "UYGULAMA ÖZETİ OLUŞTURUN →" [ref=f1e513] [cursor=pointer]:
+          - /url: http://localhost/servo/iletisim/
+        - link "INFO@SERVOMOTION.COM.TR" [ref=f1e514] [cursor=pointer]:
+          - /url: mailto:info@servomotion.com.tr?subject=ServoMotion%20Bilgi%20Talebi
+        - link "+90 212 577 25 67" [ref=f1e515] [cursor=pointer]:
+          - /url: tel:+902125772567
+  - generic [ref=f1e517]:
+    - generic [ref=f1e518]:
+      - heading "ÖNCE BİLGİ, SONRA YATIRIM" [level=2] [ref=f1e519]
+      - paragraph [ref=f1e520]: Sistem seçimi ve yatırım kararlarını kolaylaştıran teknik yazıları, uygulama örneklerini ve ürün güncellemelerini yayımlandıkça e-posta ile paylaşıyoruz.
+    - generic [ref=f1e521]:
+      - generic [ref=f1e522]:
+        - textbox "E-posta adresiniz" [ref=f1e523]
+        - button "KAYDOLUN" [ref=f1e524] [cursor=pointer]
+      - paragraph [ref=f1e525]:
+        - text: "Bülten kaydı şimdilik e-posta ile alınır: KAYDOLUN’a bastığınızda e-posta uygulamanız hazır bir mesajla açılır, mesajı göndermeniz yeterli. Sorularınız için:"
+        - link "info@servomotion.com.tr" [ref=f1e526] [cursor=pointer]:
+          - /url: mailto:info@servomotion.com.tr
+  - contentinfo [ref=f1e527]:
+    - generic [ref=f1e528]:
+      - generic [ref=f1e529]:
+        - generic [ref=f1e530]:
+          - generic [ref=f1e531]: SİSTEMLER
+          - link "Core Precisor" [ref=f1e532] [cursor=pointer]:
+            - /url: http://localhost/servo/core-precisor/
+          - link "Shuttle Precisor" [ref=f1e533] [cursor=pointer]:
+            - /url: http://localhost/servo/shuttle-precisor/
+          - link "Teknik dokümanlar" [ref=f1e534] [cursor=pointer]:
+            - /url: http://localhost/servo/dokumanlar/
+        - generic [ref=f1e535]:
+          - generic [ref=f1e536]: UYGULAMA ALANLARI
+          - link "Lastik ve kompozit" [ref=f1e537] [cursor=pointer]:
+            - /url: http://localhost/servo/uygulama/lastik/
+          - link "Hijyenik ürünler ve nonwoven" [ref=f1e538] [cursor=pointer]:
+            - /url: http://localhost/servo/uygulama/nonwoven/
+          - link "Ambalaj ve kağıt" [ref=f1e539] [cursor=pointer]:
+            - /url: http://localhost/servo/uygulama/ambalaj/
+          - link "Film ve folyo" [ref=f1e540] [cursor=pointer]:
+            - /url: http://localhost/servo/uygulama/film-folyo/
+          - link "Tekstil ve teknik kumaşlar" [ref=f1e541] [cursor=pointer]:
+            - /url: http://localhost/servo/uygulama/tekstil/
+          - link "Etiket ve yapışkanlı bant" [ref=f1e542] [cursor=pointer]:
+            - /url: http://localhost/servo/uygulama/etiket/
+        - generic [ref=f1e543]:
+          - generic [ref=f1e544]: BAŞARI HİKAYELERİ
+          - link "Sahadan altı uygulama" [ref=f1e545] [cursor=pointer]:
+            - /url: http://localhost/servo/basari-hikayeleri/
+          - link "Servis ve devreye alma" [ref=f1e546] [cursor=pointer]:
+            - /url: http://localhost/servo/servis/
+          - link "Destek hattı" [ref=f1e547] [cursor=pointer]:
+            - /url: http://localhost/servo/servis-destek-hatti/
+          - link "Kılavuzlar" [ref=f1e548] [cursor=pointer]:
+            - /url: http://localhost/servo/servis-kilavuzlar/
+          - link "Rehber yazıları" [ref=f1e549] [cursor=pointer]:
+            - /url: http://localhost/servo/rehber/
+        - generic [ref=f1e550]:
+          - generic [ref=f1e551]: KURUMSAL
+          - link "Hakkımızda" [ref=f1e552] [cursor=pointer]:
+            - /url: http://localhost/servo/kurumsal/
+          - link "İletişim" [ref=f1e553] [cursor=pointer]:
+            - /url: http://localhost/servo/iletisim/
+          - link "Sıkça sorulan sorular" [ref=f1e554] [cursor=pointer]:
+            - /url: http://localhost/servo/sss/
+          - link "Sözlük" [ref=f1e555] [cursor=pointer]:
+            - /url: http://localhost/servo/sozluk/
+          - link "KVKK ve çerezler" [ref=f1e556] [cursor=pointer]:
+            - /url: http://localhost/servo/kvkk/
+      - generic [ref=f1e557]:
+        - generic [ref=f1e558]:
+          - text: ServoMotion, Oktay Otomasyon Elektronik Mühendislik San. ve Tic. A.Ş. (
+          - link "OEM Lazer" [ref=f1e559] [cursor=pointer]:
+            - /url: https://o-em.com.tr
+          - text: ) markasıdır.
+        - generic [ref=f1e560]:
+          - link "info@servomotion.com.tr" [ref=f1e561] [cursor=pointer]:
+            - /url: mailto:info@servomotion.com.tr
+          - text: ·
+          - link "+90 212 577 25 67" [ref=f1e562] [cursor=pointer]:
+            - /url: tel:+902125772567

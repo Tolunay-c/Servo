@@ -1,0 +1,26 @@
+/* ServoMotion: tek tip header.
+ * Ürün sayfalarının (Core/Shuttle) kutulu sekme header'ı (.nav > .nav-in > .brand + .tabs) tüm sayfalarda kullanılır.
+ * Bu, tasarımdan bilinçli bir sapmadır (CLAUDE.md, mimari karar 3). Değerler core.css'teki header kurallarının
+ * nihai (cascade sonrası) hâlidir; base.css / rehber.css'teki standart header kurallarını bu header için geçersiz kılar.
+ * Hamburger menü, sticky ve dar ekran davranışı nav-mobil.css'tedir (en son yüklenir). */
+.nav{--white:#fff;--alu:#93A4B7;--disp:'Barlow Condensed','Arial Narrow',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,'Courier New',monospace;
+  position:sticky;top:0;z-index:50;background:rgba(11,15,20,.96);backdrop-filter:blur(8px);border-bottom:1px solid #1D2833;color:#fff;font-size:16px;line-height:1.6}
+.nav .brand{font-size:16px;color:var(--white)}
+.nav .brand:hover{color:var(--white)}
+.nav .brand b{font-size:23px;line-height:1.6}
+.nav .brand span{display:none}
+.nav .tabs{display:flex;gap:3px;margin-left:auto;flex-wrap:wrap;justify-content:flex-end;row-gap:6px}
+.nav .tab{font-family:var(--disp);text-transform:uppercase;letter-spacing:.03em;font-size:12.5px;font-weight:600;
+  padding:8px 8px;border:1px solid #253242;border-radius:2px;color:var(--alu);text-decoration:none;white-space:nowrap}
+.nav .tab:hover{border-color:var(--yellow);color:var(--white)}
+.nav .tab[aria-current="page"],.nav .tab[aria-current="page"]:hover{background:var(--yellow);border-color:var(--yellow);color:#0B0F14}
+@media(min-width:1181px){
+.nav .wrap.nav-in{display:flex;flex-direction:row;flex-wrap:nowrap;align-items:center;justify-content:flex-start;gap:26px;height:62px;max-width:1220px;margin:0 auto;padding:0 22px}
+}
+@media(min-width:1181px) and (max-width:1340px){
+.nav .wrap.nav-in{gap:14px}
+.nav .brand b{font-size:20px}
+}
+@media(max-width:420px){
+.nav .brand b{font-size:20px}
+}

@@ -25,6 +25,7 @@ require_once $servo_inc . 'arama.php';
 require_once $servo_inc . 'formlar.php';
 require_once $servo_inc . 'talep.php';
 require_once $servo_inc . 'seo.php';
+require_once $servo_inc . 'guncelleme.php';
 
 if ( defined( 'WP_CLI' ) && WP_CLI ) {
 	require_once $servo_inc . 'cli.php';

@@ -444,6 +444,11 @@ function servo_get_svg( $name ) {
 	$name = sanitize_file_name( $name );
 	$file = get_template_directory() . '/assets/img/svg/' . $name . '.svg';
 
+	// İngilizce sürümde içinde yazı olan şemaların "-en" karşılığı varsa o kullanılır.
+	if ( function_exists( 'servo_en' ) && servo_en() && file_exists( get_template_directory() . '/assets/img/svg/' . $name . '-en.svg' ) ) {
+		$file = get_template_directory() . '/assets/img/svg/' . $name . '-en.svg';
+	}
+
 	if ( '' === $name || ! file_exists( $file ) ) {
 		return '';
 	}

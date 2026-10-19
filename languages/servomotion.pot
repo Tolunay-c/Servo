@@ -437,10 +437,6 @@ msgstr ""
 msgid "Adımın açıklaması."
 msgstr ""
 
-#: inc/rehber.php:464
-msgid "ServoMotion Mühendislik Ekibi"
-msgstr ""
-
 #: inc/setup.php:26
 #: template-parts/site/header-standart.php:10
 msgid "Ana menü"
@@ -1284,4 +1280,76 @@ msgstr ""
 
 #: template-parts/site/nav-aksiyon.php
 msgid "Menüyü kapat"
+msgstr ""
+
+#: template-parts/site/bulten.php
+msgid "Bülten kaydı şimdilik e-posta ile alınır: KAYDOLUN’a bastığınızda e-posta uygulamanız hazır bir mesajla açılır, mesajı göndermeniz yeterli."
+msgstr ""
+
+#: inc/enqueue.php
+msgid "Bülten kaydı"
+msgstr ""
+
+#: inc/enqueue.php
+msgid ""
+"Merhaba,\n"
+"\n"
+"ServoMotion bültenine kaydolmak istiyorum.\n"
+"E-posta adresim: %s"
+msgstr ""
+
+#: inc/enqueue.php
+msgid "E-posta uygulamanız hazır bir bülten kaydı mesajıyla açıldı; kaydın tamamlanması için mesajı göndermeniz yeterli."
+msgstr ""
+
+#: inc/enqueue.php
+msgid "Açılmadıysa buraya tıklayın."
+msgstr ""
+
+#: inc/enqueue.php
+msgid "Lütfen geçerli bir e-posta adresi girin."
+msgstr ""
+
+#: inc/formlar.php
+msgid "Özet boş görünüyor. Lütfen en az çizgi sayısını girin."
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "Ölçü şeması / teknik resim"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "PLC ve saha veri yolu bilgisi"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "Titreşim gözlemi"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "Yüzey ve ortam ışığı bilgisi"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "Fotoğraf / video"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "ServoMotion Core Precisor — kapalı gövde, iki kırmızı ve merkezde bir yeşil referans lazer çizgisi"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "CORE PRECISOR lazer konumlandırma sistemi — iki kırmızı, ortada bir yeşil referans çizgisi"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "Lastik ve kompozit hattında takviye serimi"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "Hijyenik ürün ve nonwoven hattında çok katmanlı serim"
+msgstr ""
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "Ambalaj ve kağıt hattında ebat geçişi"
 msgstr ""

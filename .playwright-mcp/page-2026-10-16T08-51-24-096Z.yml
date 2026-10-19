@@ -1,0 +1,530 @@
+- generic [active] [ref=f149e1]:
+  - navigation "Main menu" [ref=f149e2]:
+    - generic [ref=f149e3]:
+      - link "ServoMotion" [ref=f149e4] [cursor=pointer]:
+        - /url: http://localhost/servo/en/home/
+      - generic [ref=f149e19]:
+        - link "HOME" [ref=f149e20] [cursor=pointer]:
+          - /url: http://localhost/servo/en/home/
+        - link "CORE PRECISOR" [ref=f149e21] [cursor=pointer]:
+          - /url: http://localhost/servo/en/core-precisor/
+        - link "SHUTTLE PRECISOR" [ref=f149e22] [cursor=pointer]:
+          - /url: http://localhost/servo/en/shuttle-precisor/
+        - link "SUCCESS STORIES" [ref=f149e23] [cursor=pointer]:
+          - /url: http://localhost/servo/en/success-stories/
+        - link "SERVICE" [ref=f149e24] [cursor=pointer]:
+          - /url: http://localhost/servo/en/service/
+        - link "COMPANY" [ref=f149e25] [cursor=pointer]:
+          - /url: http://localhost/servo/en/company/
+        - link "GUIDE" [ref=f149e26] [cursor=pointer]:
+          - /url: http://localhost/servo/en/guide/
+        - link "CONTACT" [ref=f149e27] [cursor=pointer]:
+          - /url: http://localhost/servo/en/contact/
+        - link "TR" [ref=f149e28] [cursor=pointer]:
+          - /url: http://localhost/servo/shuttle-precisor/
+  - banner [ref=f149e29]:
+    - generic [ref=f149e30]:
+      - generic [ref=f149e31]:
+        - paragraph [ref=f149e32]: SERVOMOTION · SIMULTANEOUS MULTI-LASER POSITIONING
+        - heading "Shuttle Precisor" [level=1] [ref=f149e33]:
+          - text: Shuttle
+          - emphasis [ref=f149e34]:
+            - generic [ref=f149e35]: Precisor
+        - generic [ref=f149e36]:
+          - paragraph [ref=f149e37]: "The right solution for high-density industrial lines where several cutting lines must be positioned at the same time:"
+          - list [ref=f149e38]:
+            - listitem [ref=f149e39]: "One servo, unlimited lines: No motor, drive or cable per laser; system cost and cable complexity do not grow as the number of lines increases."
+            - listitem [ref=f149e40]: "Recipe changeover in seconds: The shuttle picks up the locked carriages in turn and moves them to the new size; the line does not wait for minutes."
+            - listitem [ref=f149e41]: "Stability after setup: Each carriage locks mechanically to the rail once positioned, so the lines stay where they were aligned after the shuttle withdraws."
+        - generic [ref=f149e42]:
+          - generic [ref=f149e43]:
+            - generic [ref=f149e44]: Lasers in one rail assembly
+            - generic [ref=f149e45]: 40+carriages
+          - generic [ref=f149e46]:
+            - generic [ref=f149e47]: Moving axis
+            - generic [ref=f149e48]: 1servo axis
+          - generic [ref=f149e49]:
+            - generic [ref=f149e50]: Projection accuracy
+            - generic [ref=f149e51]: ±1.00mm
+        - generic [ref=f149e52]:
+          - link "Configure Your System" [ref=f149e53] [cursor=pointer]:
+            - /url: "#konfigurator"
+          - link "Watch the Motion" [ref=f149e54] [cursor=pointer]:
+            - /url: "#video"
+          - link "Specifications" [ref=f149e55] [cursor=pointer]:
+            - /url: "#teknik"
+      - generic [ref=f149e56]:
+        - img "Three-rail shuttle system diagram — six active laser carriages and two reserve carriages on the right" [ref=f149e58]:
+          - generic [ref=f149e60]: UPPER RAIL · +24 VDC BUS
+          - generic [ref=f149e62]: RESERVE AREA
+          - generic [ref=f149e101]: RES.1
+          - generic [ref=f149e107]: RES.2
+          - generic [ref=f149e115]: SHUTTLE
+          - generic [ref=f149e116]: LOWER RAIL · SERVO
+          - generic [ref=f149e118]: "UPPER RAIL: +24 VDC SUPPLY · MIDDLE RAIL: LASER CARRIAGES · LOWER RAIL: SERVO SHUTTLE"
+        - paragraph [ref=f149e119]: Three-rail shuttle system diagram — six active laser carriages and two reserve carriages on the right
+    - generic [ref=f149e122]:
+      - generic [ref=f149e123]:
+        - generic [ref=f149e124]: Simultaneous Visibility
+        - text: All cutting lines stay active throughout operation and are projected simultaneously along the line.
+      - generic [ref=f149e125]:
+        - generic [ref=f149e126]: Locked Position
+        - text: Once a carriage is seated it locks to the rail; vibration or loss of power does not shift the line.
+      - generic [ref=f149e127]:
+        - generic [ref=f149e128]: Reserve Zone
+        - text: Laser carriages not in active use wait in their own park zone at the end of the rail.
+      - generic [ref=f149e129]:
+        - generic [ref=f149e130]: Single-Axis Drive Architecture
+        - text: No per-laser motor drive cost, cable complexity or maintenance load.
+  - generic [ref=f149e132]:
+    - generic [ref=f149e133]:
+      - paragraph [ref=f149e135]: Architecture
+      - heading "Three-Rail Shuttle Architecture" [level=2] [ref=f149e136]
+      - paragraph [ref=f149e137]: "Power transmission, carriage guidance and motion drive sit in one rail assembly. One servo axis performs all movement instead of a motor, drive and cable per laser: fewer components and a simpler maintenance routine. The number of servo axes remains unchanged as laser carriages are added, helping limit system complexity as the application scales."
+    - generic [ref=f149e138]:
+      - generic [ref=f149e139]:
+        - generic [ref=f149e140]: UPPER RAIL
+        - heading "Power supply" [level=3] [ref=f149e141]
+        - paragraph [ref=f149e142]: Lasers are powered continuously at any position along the rail, so moving cables and energy chains are not required.
+      - generic [ref=f149e143]:
+        - generic [ref=f149e144]: MIDDLE RAIL
+        - heading "Laser carriages" [level=3] [ref=f149e145]
+        - paragraph [ref=f149e146]: Each laser travels in its own carriage. When it reaches its position it locks on the rail and stays there independently of the shuttle.
+      - generic [ref=f149e147]:
+        - generic [ref=f149e148]: LOWER RAIL
+        - heading "Servo shuttle" [level=3] [ref=f149e149]
+        - paragraph [ref=f149e150]: The only moving axis of the system. It carries the carriages to their recipe positions in sequence and withdraws when finished.
+    - heading "Setup cycle" [level=3] [ref=f149e151]
+    - generic [ref=f149e152]:
+      - generic [ref=f149e153]:
+        - generic [ref=f149e154]: "01"
+        - heading "Recipe" [level=4] [ref=f149e155]
+        - paragraph [ref=f149e156]: Cut dimensions are entered at the panel, and the system calculates the target position for each laser.
+      - generic [ref=f149e157]:
+        - generic [ref=f149e158]: "02"
+        - heading "Approach" [level=4] [ref=f149e159]
+        - paragraph [ref=f149e160]: The shuttle positions itself under the next laser carriage on the lower rail.
+      - generic [ref=f149e161]:
+        - generic [ref=f149e162]: "03"
+        - heading "Transport" [level=4] [ref=f149e163]
+        - paragraph [ref=f149e164]: The carriage is moved to its recipe position with the laser on, so the reference line can be followed as it travels.
+      - generic [ref=f149e165]:
+        - generic [ref=f149e166]: "04"
+        - heading "Release" [level=4] [ref=f149e167]
+        - paragraph [ref=f149e168]: The carriage is fixed in position and becomes independent of the shuttle.
+      - generic [ref=f149e169]:
+        - generic [ref=f149e170]: "05"
+        - heading "Completion" [level=4] [ref=f149e171]
+        - paragraph [ref=f149e172]: The shuttle moves to the next carriage; once all lines are set it withdraws to the home position.
+    - heading "What This Architecture Delivers" [level=3] [ref=f149e173]
+    - generic [ref=f149e174]:
+      - generic [ref=f149e175]:
+        - heading "Fewer Parts" [level=4] [ref=f149e176]
+        - paragraph [ref=f149e177]: No servo motor, drive or cable per laser. As the system grows only the number of carriages increases, not the parts list.
+      - generic [ref=f149e178]:
+        - heading "Simple Maintenance" [level=4] [ref=f149e179]
+        - paragraph [ref=f149e180]: Periodic maintenance is concentrated on the single servo axis. The carriages have no moving electrical connections.
+      - generic [ref=f149e181]:
+        - heading "Easy Access" [level=4] [ref=f149e182]
+        - paragraph [ref=f149e183]: Carriages are added, removed and lasers replaced from the rail; the housing does not have to be removed from the line.
+      - generic [ref=f149e184]:
+        - heading "Scalable Investment" [level=4] [ref=f149e185]
+        - paragraph [ref=f149e186]: When the number of cutting lines grows, the drive and control infrastructure stays the same; only carriages are added.
+      - generic [ref=f149e187]:
+        - heading "Low Operating Cost" [level=4] [ref=f149e188]
+        - paragraph [ref=f149e189]: Few moving components mean few spare parts and short downtime.
+  - generic [ref=f149e191]:
+    - generic [ref=f149e192]:
+      - paragraph [ref=f149e194]: Motion video · Setup cycle
+      - heading "Recipe changeover cycle" [level=2] [ref=f149e195]
+      - paragraph [ref=f149e196]: An uninterrupted recording of one servo axis carrying every laser carriage to its recipe position in sequence. The shuttle travels at 800 mm/s when empty and 500 mm/s when carrying a carriage; at the end of the cycle the lines settle to ±1.00 mm projection accuracy and the shuttle withdraws to its home position. The recording is an accelerated simulation of a 2,400 mm travel range with 20 laser carriages.
+    - generic [ref=f149e197]: Your browser does not support the video tag. .
+    - paragraph [ref=f149e199]: "15 s · 1280×866 · MP4 / H.264 · Scenario: 2,400 mm travel range · 20 laser carriages · 123.2 mm line spacing · 20 active / 0 reserve · required rail 2,500 mm"
+  - generic [ref=f149e201]:
+    - generic [ref=f149e202]:
+      - paragraph [ref=f149e204]: Configurator
+      - heading "Configure the system yourself" [level=2] [ref=f149e205]
+      - paragraph [ref=f149e206]: Enter the required travel range of your line and calculate the number of projected laser lines or the spacing straight away. Lasers not used by the recipe collect in the reserve zone at the end of the rail, and the tool reports carriage clearance checks, safety margins and the total rail length required in real time.
+    - generic [ref=f149e207]:
+      - generic [ref=f149e208]:
+        - generic [ref=f149e209]:
+          - heading "Scenario" [level=3] [ref=f149e211]
+          - generic [ref=f149e212]:
+            - generic [ref=f149e213]:
+              - button "A · Laser lines as input" [pressed] [ref=f149e214] [cursor=pointer]
+              - button "B · Spacing as input" [ref=f149e215] [cursor=pointer]
+            - paragraph [ref=f149e216]: You enter the number of lasers in the body; line spacing is calculated from it.
+        - generic [ref=f149e217]:
+          - generic [ref=f149e218]:
+            - heading "Parameters" [level=3] [ref=f149e219]
+            - generic [ref=f149e220]: in mm
+          - generic [ref=f149e221]:
+            - generic [ref=f149e222]:
+              - generic [ref=f149e223]:
+                - generic [ref=f149e224]: Travel · L
+                - generic [ref=f149e225]: input · mm
+              - generic [ref=f149e226]:
+                - slider "Travel" [ref=f149e227] [cursor=pointer]: "2400"
+                - spinbutton "Travel · L" [ref=f149e228]: "2400"
+            - generic [ref=f149e229]:
+              - generic [ref=f149e230]:
+                - generic [ref=f149e231]: Lasers in the rail assembly · n
+                - generic [ref=f149e232]: input · pcs
+              - generic [ref=f149e233]:
+                - slider "Laser count" [ref=f149e234] [cursor=pointer]: "16"
+                - spinbutton "Lasers in the rail assembly · n" [ref=f149e235]: "16"
+            - generic [ref=f149e236]:
+              - generic [ref=f149e237]:
+                - generic [ref=f149e238]: Line spacing · p
+                - generic [ref=f149e239]: calculated · mm
+              - generic [ref=f149e240]:
+                - slider "Line spacing" [ref=f149e241] [cursor=pointer]: "156"
+                - spinbutton "Line spacing · p" [ref=f149e242]: "156"
+      - generic [ref=f149e243]:
+        - generic [ref=f149e244]:
+          - generic [ref=f149e245]:
+            - generic [ref=f149e246]:
+              - generic [ref=f149e247]: Line spacing · p
+              - generic [ref=f149e248]: 156.0mm
+            - generic [ref=f149e249]:
+              - generic [ref=f149e250]: Active / reserve
+              - generic [ref=f149e251]: 16/ 0
+            - generic [ref=f149e252]:
+              - generic [ref=f149e253]: Gap between carriages
+              - generic [ref=f149e254]: 96.0mm
+            - generic [ref=f149e255]:
+              - generic [ref=f149e256]: Rail length required
+              - generic [ref=f149e257]: 2,500mm
+          - generic [ref=f149e258]:
+            - generic [ref=f149e260]: Fits
+            - generic [ref=f149e261]: There is 96.0 mm of clearance between carriages. This travel range physically accommodates at most 40 lasers.
+          - img "Shuttle system configuration diagram" [ref=f149e264]:
+            - generic [ref=f149e267]: UPPER RAIL · +24 VDC BUS
+            - generic [ref=f149e270]: LOWER RAIL · SERVO
+            - generic [ref=f149e272]: END OF TRAVEL
+            - generic [ref=f149e274]: RESERVE · 0
+            - generic [ref=f149e420]: SHUTTLE
+            - generic [ref=f149e421]: TRAVEL 2,400 mm · 16 ACTIVE · RAIL REQUIRED 2,500 mm
+          - generic [ref=f149e422]:
+            - generic [ref=f149e423]: Power bus
+            - generic [ref=f149e425]: Laser carriage
+            - generic [ref=f149e427]: Brake locked
+            - generic [ref=f149e429]: Brake released · on the shuttle
+            - generic [ref=f149e431]: Laser line
+            - generic [ref=f149e433]: Reserve · laser off
+          - generic [ref=f149e435]:
+            - button "Play setup" [ref=f149e436] [cursor=pointer]
+            - button "Reset" [ref=f149e437] [cursor=pointer]
+            - group "Simulation speed" [ref=f149e438]:
+              - button "1×" [ref=f149e439] [cursor=pointer]
+              - button "4×" [pressed] [ref=f149e440] [cursor=pointer]
+              - button "12×" [ref=f149e441] [cursor=pointer]
+          - generic [ref=f149e443]:
+            - generic [ref=f149e445]: Ready
+            - generic [ref=f149e446]: 15 carriages to move
+        - paragraph [ref=f149e447]: The calculation assumes equally spaced lines. Recipes with variable slice widths are also supported; in that case the limiting factor is the distance between the two closest lines.
+  - generic [ref=f149e449]:
+    - generic [ref=f149e450]:
+      - paragraph [ref=f149e452]: System components
+      - heading "Control and motion infrastructure" [level=2] [ref=f149e453]
+      - paragraph [ref=f149e454]: The laser carriages, the single servo shuttle and the PLC work together to bring every cutting reference to the position held in the recipe. The operator panel gives access to recipe entry and carriage status.
+    - generic [ref=f149e455]:
+      - generic [ref=f149e456]:
+        - generic [ref=f149e457]: Laser modules
+        - heading "Laser modules on the carriages" [level=3] [ref=f149e458]
+        - list [ref=f149e459]:
+          - listitem [ref=f149e460]: Red and green laser options
+          - listitem [ref=f149e461]: One laser module per carriage
+          - listitem [ref=f149e462]: Focus adjustable to the working distance
+          - listitem [ref=f149e463]: 12–24 VDC supply
+          - listitem [ref=f149e464]: Standard M12 connector
+      - generic [ref=f149e465]:
+        - generic [ref=f149e466]: Control system
+        - heading "PLC-based control" [level=3] [ref=f149e467]
+        - list [ref=f149e468]:
+          - listitem [ref=f149e469]: Carriage target positions calculated from the recipe
+          - listitem [ref=f149e470]: Setup sequence planned and managed
+          - listitem [ref=f149e471]: Active and reserve carriages tracked
+          - listitem [ref=f149e472]: Drive communication over PROFINET
+          - listitem [ref=f149e473]: Operating status and fault diagnostics
+      - generic [ref=f149e474]:
+        - generic [ref=f149e475]: Motion system
+        - heading "Single-axis shuttle drive" [level=3] [ref=f149e476]
+        - list [ref=f149e477]:
+          - listitem [ref=f149e478]: The only moving servo axis in the system
+          - listitem [ref=f149e479]: Closed-loop position control with encoder feedback
+          - listitem [ref=f149e480]: Separate speed profiles for empty approach and loaded transport
+          - listitem [ref=f149e481]: Synchronous communication over PROFINET
+          - listitem [ref=f149e482]: The number of axes stays the same as reference lines are added
+      - generic [ref=f149e483]:
+        - generic [ref=f149e484]: Mechanical group
+        - heading "Three-rail structure and carriages" [level=3] [ref=f149e485]
+        - list [ref=f149e486]:
+          - listitem [ref=f149e487]: Separate upper, middle and lower rails
+          - listitem [ref=f149e488]: A carriage locks mechanically to the rail once it reaches its position
+          - listitem [ref=f149e489]: Carriages outside the travel range wait in the reserve zone
+          - listitem [ref=f149e490]: Carriages are added and lasers replaced from the rail
+          - listitem [ref=f149e491]: Rail assembly length scales with the travel range of the line
+  - generic [ref=f149e493]:
+    - generic [ref=f149e494]:
+      - paragraph [ref=f149e496]: Specifications
+      - heading "Technical data" [level=2] [ref=f149e497]
+    - generic [ref=f149e498]:
+      - generic [ref=f149e499]:
+        - heading "Laser" [level=3] [ref=f149e500]
+        - table [ref=f149e501]:
+          - rowgroup [ref=f149e502]:
+            - row [ref=f149e503]:
+              - rowheader "Laser colour" [ref=f149e504]
+              - cell "Red or green" [ref=f149e505]
+            - row [ref=f149e506]:
+              - rowheader "Line width" [ref=f149e507]
+              - cell "1 mm" [ref=f149e508]
+            - row [ref=f149e509]:
+              - rowheader "Laser layout" [ref=f149e510]
+              - cell "One module per carriage" [ref=f149e511]
+            - row [ref=f149e512]:
+              - rowheader "Lines on simultaneously" [ref=f149e513]
+              - cell "All laser reference lines" [ref=f149e514]
+            - row [ref=f149e515]:
+              - rowheader "Focus" [ref=f149e516]
+              - cell "Adjustable" [ref=f149e517]
+            - row [ref=f149e518]:
+              - rowheader "Laser supply" [ref=f149e519]
+              - cell "12–24 VDC" [ref=f149e520]
+            - row [ref=f149e521]:
+              - rowheader "Laser protection class" [ref=f149e522]
+              - cell "IP54" [ref=f149e523]
+            - row [ref=f149e524]:
+              - rowheader "Laser class" [ref=f149e525]
+              - cell "Classified to IEC 60825-1 · Class 2M or 3R depending on the selected optical power; the exact class is stated on the product label and in the user manual" [ref=f149e526]
+            - row [ref=f149e527]:
+              - rowheader "Wavelength" [ref=f149e528]
+              - cell "Red 635–660 nm · green 515–532 nm · depending on module" [ref=f149e529]
+            - row [ref=f149e530]:
+              - rowheader "Laser connector" [ref=f149e531]
+              - cell "M12, 4 pin" [ref=f149e532]
+      - generic [ref=f149e533]:
+        - heading "Mechanics & motion" [level=3] [ref=f149e534]
+        - table [ref=f149e535]:
+          - rowgroup [ref=f149e536]:
+            - row [ref=f149e537]:
+              - rowheader "Projection accuracy" [ref=f149e538]
+              - cell "± 1.00 mm" [ref=f149e539]
+            - row [ref=f149e540]:
+              - rowheader "Shuttle speed · approach" [ref=f149e541]
+              - cell "up to 800 mm/s" [ref=f149e542]
+            - row [ref=f149e543]:
+              - rowheader "Shuttle speed · loaded" [ref=f149e544]
+              - cell "up to 500 mm/s" [ref=f149e545]
+            - row [ref=f149e546]:
+              - rowheader "Rail structure" [ref=f149e547]
+              - cell "Three rails · upper, middle, lower" [ref=f149e548]
+            - row [ref=f149e549]:
+              - rowheader "Laser carriages" [ref=f149e550]
+              - cell "5 – 40+ · project specific" [ref=f149e551]
+            - row [ref=f149e552]:
+              - rowheader "Travel" [ref=f149e553]
+              - cell "According to the cutting width of the line" [ref=f149e554]
+            - row [ref=f149e555]:
+              - rowheader "Rail length" [ref=f149e556]
+              - cell "Travel + reserve area + safety margin" [ref=f149e557]
+            - row [ref=f149e558]:
+              - rowheader "Minimum line spacing" [ref=f149e559]
+              - cell "Per carriage width and service allowance" [ref=f149e560]
+            - row [ref=f149e561]:
+              - rowheader "Carriage fixing" [ref=f149e562]
+              - cell "Mechanical lock in position" [ref=f149e563]
+            - row [ref=f149e564]:
+              - rowheader "Service access" [ref=f149e565]
+              - cell "Carriage and laser change along the rail" [ref=f149e566]
+            - row [ref=f149e567]:
+              - rowheader "Rail assembly protection class" [ref=f149e568]
+              - cell "IP54 · higher protection on request" [ref=f149e569]
+            - row [ref=f149e570]:
+              - rowheader "System weight" [ref=f149e571]
+              - cell "Varies with application, rail length and carriage count · stated in the quotation" [ref=f149e572]
+            - row [ref=f149e573]:
+              - rowheader "Mounting interface" [ref=f149e574]
+              - cell "Defined per application · connection to the existing frame or a new cross-beam" [ref=f149e575]
+      - generic [ref=f149e576]:
+        - heading "Control & communication" [level=3] [ref=f149e577]
+        - table [ref=f149e578]:
+          - rowgroup [ref=f149e579]:
+            - row [ref=f149e580]:
+              - rowheader "Controller" [ref=f149e581]
+              - cell "Industrial PLC" [ref=f149e582]
+            - row [ref=f149e583]:
+              - rowheader "Drive" [ref=f149e584]
+              - cell "Single-axis servo drive" [ref=f149e585]
+            - row [ref=f149e586]:
+              - rowheader "Protocol" [ref=f149e587]
+              - cell "Industrial fieldbus (PROFINET · EtherNet/IP™)" [ref=f149e588]
+            - row [ref=f149e589]:
+              - rowheader "Axis management" [ref=f149e590]
+              - cell "Single axis · sequential carriage positioning" [ref=f149e591]
+            - row [ref=f149e592]:
+              - rowheader "Position feedback" [ref=f149e593]
+              - cell "Closed-loop control with encoder" [ref=f149e594]
+            - row [ref=f149e595]:
+              - rowheader "Recipe management" [ref=f149e596]
+              - cell "Active and reserve carriage planning" [ref=f149e597]
+            - row [ref=f149e598]:
+              - rowheader "Diagnostics" [ref=f149e599]
+              - cell "Status and fault monitoring" [ref=f149e600]
+            - row [ref=f149e601]:
+              - rowheader "Supply" [ref=f149e602]
+              - cell "220 V AC 50 Hz · from the control cabinet" [ref=f149e603]
+            - row [ref=f149e604]:
+              - rowheader "Power consumption" [ref=f149e605]
+              - cell "Varies with laser count and carriage count · given in the project file" [ref=f149e606]
+            - row [ref=f149e607]:
+              - rowheader "Operating environment" [ref=f149e608]
+              - cell "Enclosed production area · +10 … +40 °C · 10–90 % RH, non-condensing" [ref=f149e609]
+      - generic [ref=f149e610]:
+        - heading "Operator panel" [level=3] [ref=f149e611]
+        - table [ref=f149e612]:
+          - rowgroup [ref=f149e613]:
+            - row [ref=f149e614]:
+              - rowheader "Display" [ref=f149e615]
+              - cell "PCAP touch screen" [ref=f149e616]
+            - row [ref=f149e617]:
+              - rowheader "Processing / storage" [ref=f149e618]
+              - cell "Industrial platform · solid-state storage" [ref=f149e619]
+            - row [ref=f149e620]:
+              - rowheader "Recipe entry" [ref=f149e621]
+              - cell "Travel, number of laser lines and line spacing" [ref=f149e622]
+            - row [ref=f149e623]:
+              - rowheader "Status view" [ref=f149e624]
+              - cell "Carriage positions · active / reserve" [ref=f149e625]
+            - row [ref=f149e626]:
+              - rowheader "Interfaces" [ref=f149e627]
+              - cell "Industrial and peripheral connection options" [ref=f149e628]
+            - row [ref=f149e629]:
+              - rowheader "Network" [ref=f149e630]
+              - cell "Ethernet and wireless options" [ref=f149e631]
+            - row [ref=f149e632]:
+              - rowheader "Supply" [ref=f149e633]
+              - cell "DC supply" [ref=f149e634]
+    - paragraph [ref=f149e635]: Values apply to example configurations; carriage count and rail assembly length are determined during the site survey.
+  - generic [ref=f149e637]:
+    - generic [ref=f149e638]:
+      - paragraph [ref=f149e639]: SAFETY
+      - heading "LASER SAFETY AND COMPLIANCE" [level=2] [ref=f149e640]
+    - generic [ref=f149e641]:
+      - generic [ref=f149e642]:
+        - text: Laser class and labelling
+        - paragraph [ref=f149e643]: The class of the line laser module used in the system is stated on the product label and in the user manual delivered with it. Modules must be operated under the conditions defined in that manual.
+      - generic [ref=f149e644]:
+        - text: During operation
+        - paragraph [ref=f149e645]: The beam must not be viewed directly. Reflection angles on glossy surfaces are assessed together during installation, and the operator’s working position is reviewed at commissioning.
+      - generic [ref=f149e646]:
+        - text: During maintenance
+        - paragraph [ref=f149e647]: The system must be de-energised and the line brought to a safe state before optics cleaning and mechanical checks.
+      - generic [ref=f149e648]:
+        - text: Certificate of conformity
+        - paragraph [ref=f149e649]:
+          - text: The industrial positioning laser modules used in the system have been assessed against EN 55011 and EN 55032 electromagnetic compatibility requirements and certified by TÜV Rheinland LGA Products GmbH (Cert. No. AK 50498967 0001).
+          - link "Request the certificate" [ref=f149e650] [cursor=pointer]:
+            - /url: http://localhost/servo/en/documents/#request
+          - text: .
+      - generic [ref=f149e651]:
+        - text: Conformity documentation
+        - paragraph [ref=f149e652]: The declaration of conformity and the technical file for the delivered system are supplied with the delivery package, project by project.
+  - generic [ref=f149e654]:
+    - generic [ref=f149e655]:
+      - paragraph [ref=f149e656]: Same Brand · Different Architecture
+      - heading "Is Sequential Positioning of Your Cutting Lines Enough?" [level=2] [ref=f149e657]
+      - paragraph [ref=f149e658]:
+        - text: For lines that do not need several simultaneous projections, Core
+        - generic [ref=f149e659]: Precisor
+        - text: provides the same automation strength and accuracy in a leaner structure with an optimised budget.
+    - link "Explore Core Precisor" [ref=f149e660] [cursor=pointer]:
+      - /url: http://localhost/servo/en/core-precisor/
+      - text: Explore Core
+      - generic [ref=f149e661]: Precisor
+  - generic [ref=f149e663]:
+    - heading "HOW MANY SIMULTANEOUS REFERENCE LINES DO YOU NEED?" [level=2] [ref=f149e664]
+    - paragraph [ref=f149e665]: Share the number of simultaneous reference lines and the required travel range, and we will size the rail assembly and reserve area with you.
+    - generic [ref=f149e666]:
+      - link "INFO@SERVOMOTION.COM.TR" [ref=f149e667] [cursor=pointer]:
+        - /url: mailto:info@servomotion.com.tr?subject=ServoMotion%20Shuttle%20Precisor%20Enquiry
+      - link "+90 212 577 25 67" [ref=f149e668] [cursor=pointer]:
+        - /url: tel:+902125772567
+      - link "INSTALLATION AND COMMISSIONING" [ref=f149e669] [cursor=pointer]:
+        - /url: http://localhost/servo/en/service/
+      - link "REQUEST A DATA SHEET" [ref=f149e670] [cursor=pointer]:
+        - /url: http://localhost/servo/en/documents/
+  - generic [ref=f149e672]:
+    - generic [ref=f149e673]:
+      - heading "MAKE AN INFORMED INVESTMENT DECISION" [level=2] [ref=f149e674]
+      - paragraph [ref=f149e675]: We share technical articles, application examples and product updates by email as they are published, to make system selection and investment decisions easier.
+    - generic [ref=f149e676]:
+      - generic [ref=f149e677]:
+        - textbox "Your email address" [ref=f149e678]
+        - button "SUBSCRIBE" [ref=f149e679] [cursor=pointer]
+      - paragraph [ref=f149e680]:
+        - text: "Newsletter sign-up is handled by email for now: when you press SUBSCRIBE, your email app opens with a ready-made message — just send it. Questions:"
+        - link "info@servomotion.com.tr" [ref=f149e681] [cursor=pointer]:
+          - /url: mailto:info@servomotion.com.tr
+  - contentinfo [ref=f149e682]:
+    - generic [ref=f149e683]:
+      - generic [ref=f149e684]:
+        - generic [ref=f149e685]:
+          - generic [ref=f149e686]: SYSTEMS
+          - link "Core Precisor" [ref=f149e687] [cursor=pointer]:
+            - /url: http://localhost/servo/en/core-precisor/
+          - link "Shuttle Precisor" [ref=f149e688] [cursor=pointer]:
+            - /url: http://localhost/servo/en/shuttle-precisor/
+          - link "Technical documents" [ref=f149e689] [cursor=pointer]:
+            - /url: http://localhost/servo/en/documents/
+        - generic [ref=f149e690]:
+          - generic [ref=f149e691]: APPLICATIONS
+          - link "Rubber and composite" [ref=f149e692] [cursor=pointer]:
+            - /url: http://localhost/servo/en/application/rubber/
+          - link "Hygiene products and nonwoven" [ref=f149e693] [cursor=pointer]:
+            - /url: http://localhost/servo/en/application/nonwoven/
+          - link "Packaging and paper" [ref=f149e694] [cursor=pointer]:
+            - /url: http://localhost/servo/en/application/packaging/
+          - link "Film and foil" [ref=f149e695] [cursor=pointer]:
+            - /url: http://localhost/servo/en/application/film-foil/
+          - link "Textiles and technical fabrics" [ref=f149e696] [cursor=pointer]:
+            - /url: http://localhost/servo/en/application/textiles/
+          - link "Labels and adhesive tape" [ref=f149e697] [cursor=pointer]:
+            - /url: http://localhost/servo/en/application/labels/
+        - generic [ref=f149e698]:
+          - generic [ref=f149e699]: SUCCESS STORIES
+          - link "Proven applications across six industries" [ref=f149e700] [cursor=pointer]:
+            - /url: http://localhost/servo/en/success-stories/
+          - link "Service and commissioning" [ref=f149e701] [cursor=pointer]:
+            - /url: http://localhost/servo/en/service/
+          - link "Helpdesk" [ref=f149e702] [cursor=pointer]:
+            - /url: http://localhost/servo/en/service-helpdesk/
+          - link "Manuals" [ref=f149e703] [cursor=pointer]:
+            - /url: http://localhost/servo/en/service-manuals/
+          - link "Guide articles" [ref=f149e704] [cursor=pointer]:
+            - /url: http://localhost/servo/en/guide/
+        - generic [ref=f149e705]:
+          - generic [ref=f149e706]: COMPANY
+          - link "About us" [ref=f149e707] [cursor=pointer]:
+            - /url: http://localhost/servo/en/company/
+          - link "Contact" [ref=f149e708] [cursor=pointer]:
+            - /url: http://localhost/servo/en/contact/
+          - link "Frequently asked questions" [ref=f149e709] [cursor=pointer]:
+            - /url: http://localhost/servo/en/faq/
+          - link "Glossary" [ref=f149e710] [cursor=pointer]:
+            - /url: http://localhost/servo/en/glossary/
+          - link "Privacy and cookies" [ref=f149e711] [cursor=pointer]:
+            - /url: http://localhost/servo/en/privacy/
+      - generic [ref=f149e712]:
+        - generic [ref=f149e713]:
+          - text: ServoMotion is a brand of Oktay Otomasyon Elektronik Mühendislik San. ve Tic. A.Ş. (
+          - link "OEM Lazer" [ref=f149e714] [cursor=pointer]:
+            - /url: https://o-em.com.tr
+          - text: ).
+        - generic [ref=f149e715]:
+          - link "info@servomotion.com.tr" [ref=f149e716] [cursor=pointer]:
+            - /url: mailto:info@servomotion.com.tr
+          - text: ·
+          - link "+90 212 577 25 67" [ref=f149e717] [cursor=pointer]:
+            - /url: tel:+902125772567

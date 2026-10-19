@@ -289,6 +289,11 @@ function servo_svg_choices( $field ) {
 
 	foreach ( (array) glob( get_template_directory() . '/assets/img/svg/*.svg' ) as $file ) {
 		$name       = basename( $file, '.svg' );
+
+		// Otomatik seçilen İngilizce karşılıklar (ör. uygulama-tekstil-en) listede görünmez.
+		if ( preg_match( '/^uygulama-.+-en$/', $name ) ) {
+			continue;
+		}
 		$dosya_grup = '';
 
 		foreach ( array( 'ikon-', 'rehber-', 'servis-' ) as $onek ) {

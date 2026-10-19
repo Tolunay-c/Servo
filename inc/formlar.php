@@ -216,6 +216,11 @@ function servo_ozet_gonder( $request ) {
 		return new WP_Error( 'servo_alici', __( 'Form henüz bir adrese bağlı değil.', 'servomotion' ), array( 'status' => 503 ) );
 	}
 
+	// Alan doldurulmadan oluşan yer tutucu özet tek satırdır; gerçek özet başlık + alanlardan oluşur.
+	if ( count( array_filter( array_map( 'trim', explode( "\n", $ozet ) ) ) ) < 5 ) {
+		return new WP_Error( 'servo_bos_ozet', __( 'Özet boş görünüyor. Lütfen en az çizgi sayısını girin.', 'servomotion' ), array( 'status' => 400 ) );
+	}
+
 	// İletişim bilgisi olmayan özete dönüş yapılamaz.
 	if ( '' === $ozet || '' === trim( $kisi ) ) {
 		return new WP_Error( 'servo_eksik', __( 'İlgili kişi ve iletişim bilgisi gerekli.', 'servomotion' ), array( 'status' => 400 ) );

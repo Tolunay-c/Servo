@@ -181,7 +181,7 @@ function buildScene(c){
       stroke:'#5B6C7E','stroke-width':1,'stroke-dasharray':'3 4'}));
     svg.appendChild(el('text',{x:X(W/2),y:10,'text-anchor':'middle',
       'font-family':'IBM Plex Mono, monospace','font-size':10,'letter-spacing':'1.4',
-      fill:'#C9A700'}, c.sym?'SIMETRI EKSENI':'MERKEZ REFERANSI'));
+      fill:'#C9A700'}, c.sym?'SYMMETRY AXIS':'CENTRE REFERENCE'));
   }
 
   /* sabit lazerler — ayrı braket, rayın arkasındaki düzlemde (raylardan önce çizilir) */
@@ -190,7 +190,7 @@ function buildScene(c){
     svg.appendChild(el('rect',{x:X(0)+SPAN*0.02,y:BRK_Y,width:SPAN*0.96,height:BRK_H,rx:2,
       fill:'#16221B',stroke:'#2C4436','stroke-width':1}));
     svg.appendChild(el('text',{x:X(0)+SPAN*0.02,y:BRK_Y-6,'font-family':'IBM Plex Mono, monospace',
-      'font-size':9,'letter-spacing':'1.2',fill:'#4E7A5C'},'SABIT LAZER BRAKETI'));
+      'font-size':9,'letter-spacing':'1.2',fill:'#4E7A5C'},'FIXED LASER BRACKET'));
     svg.appendChild(el('line',{x1:X(mm),y1:BRK_Y+BRK_H,x2:X(mm),y2:WEB_Y,stroke:'#2FE05C','stroke-width':11,opacity:.14,'stroke-linecap':'round'}));
     svg.appendChild(el('line',{x1:X(mm),y1:BRK_Y+BRK_H,x2:X(mm),y2:WEB_Y,stroke:'#2FE05C','stroke-width':3.2}));
     svg.appendChild(el('rect',{x:X(mm)-10,y:BRK_Y-4,width:20,height:BRK_H+8,rx:3,fill:'#0B2415',stroke:'#2FE05C','stroke-width':1.5}));

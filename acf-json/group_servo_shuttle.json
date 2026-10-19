@@ -902,6 +902,27 @@
             "collapsed": "field_servo_shuttle__teknik_tablolar_baslik"
         },
         {
+            "key": "field_servo_shuttle_teknik_not",
+            "label": "Tablo altı not",
+            "name": "teknik_not",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Tabloların altında, sol çizgili küçük not olarak görünür. Örnek konfigürasyon / koşul açıklaması için kullanılır. Boşsa gösterilmez.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "rows": 2,
+            "new_lines": ""
+        },
+        {
             "key": "field_servo_shuttle_tab_gecis",
             "label": "Diğer ürüne geçiş",
             "name": "tab_gecis",

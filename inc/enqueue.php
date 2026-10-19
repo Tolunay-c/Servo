@@ -140,7 +140,9 @@ function servo_enqueue_assets() {
 			break;
 	}
 
-	servo_enqueue_style( 'servo-navfit', 'assets/css/navfit.css', array( $son ) );
+	// Tek tip header (ürün sayfası kutulu sekme stili); sayfa CSS'inden sonra, navfit/nav-mobil'den önce.
+	servo_enqueue_style( 'servo-header-tek', 'assets/css/header-tek.css', array( $son ) );
+	servo_enqueue_style( 'servo-navfit', 'assets/css/navfit.css', array( 'servo-header-tek' ) );
 	servo_enqueue_style( 'servo-nav-mobil', 'assets/css/nav-mobil.css', array( 'servo-navfit' ) );
 
 	// Bülten: rehber sayfalarında bülten kodu sayfa script'inin içindedir.
@@ -154,7 +156,30 @@ function servo_enqueue_assets() {
 		servo_enqueue_script( 'servo-bulten', 'assets/js/bulten.js' );
 	}
 
+	// Bülten: liste servisi bağlanana kadar hazır konulu mailto akışı (bulten-mailto.js).
+	$bulten_eposta = (string) servo_option( 'eposta', '' );
+	if ( '' !== $bulten_eposta ) {
+		servo_enqueue_script( 'servo-bulten-mailto', 'assets/js/bulten-mailto.js' );
+		wp_add_inline_script(
+			'servo-bulten-mailto',
+			'window.SERVO_BULTEN=' . wp_json_encode(
+				array(
+					'eposta'   => $bulten_eposta,
+					'konu'     => __( 'Bülten kaydı', 'servomotion' ),
+					/* translators: %s: Ziyaretçinin e-posta adresi. */
+					'govde'    => __( "Merhaba,\n\nServoMotion bültenine kaydolmak istiyorum.\nE-posta adresim: %s", 'servomotion' ),
+					'acildi'   => __( 'E-posta uygulamanız hazır bir bülten kaydı mesajıyla açıldı; kaydın tamamlanması için mesajı göndermeniz yeterli.', 'servomotion' ),
+					'baglanti' => __( 'Açılmadıysa buraya tıklayın.', 'servomotion' ),
+					'gecersiz' => __( 'Lütfen geçerli bir e-posta adresi girin.', 'servomotion' ),
+				)
+			) . ';',
+			'before'
+		);
+	}
+
 	if ( $ozet ) {
+		// Boş özetin gönderimini engelleyen sarmalayıcı; tasarım script'lerinden önce bağlanır.
+		servo_enqueue_script( 'servo-iletisim-dogrula', 'assets/js/iletisim-dogrula.js' );
 		servo_enqueue_script( 'servo-iletisim-ozet', 'assets/js/iletisim-ozet.js' );
 	}
 

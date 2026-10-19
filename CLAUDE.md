@@ -23,7 +23,7 @@ Tamamlanmış fazların ayrıntıları, uygulama notları ve karar gerekçeleri 
 ├── docs/                 # Proje dokümanları (analiz, kılavuz, yönlendirmeler, canlı kurulum; deploy edilmez)
 ├── bin/                  # Geliştirme betikleri (paket.sh: canlı tema paketi; deploy edilmez)
 ├── acf-json/             # ACF Local JSON (alan grupları burada versiyonlanır)
-├── assets/               # css, js, img, fonts
+├── assets/               # css (header-tek.css: tek tip header), js, img, fonts
 ├── languages/            # servomotion.pot, servomotion-en_GB.po/.mo
 ├── inc/
 │   ├── setup.php         # theme supports, menüler, image sizes
@@ -82,7 +82,7 @@ WordPress core dosyaları, `wp-config.php`, `wp-content/uploads`, `node_modules`
 
 1. **Çok dillilik:** Polylang. Sabit metinler çeviriye hazır; dile göre options ayrımı yalnızca `servo_option()` içindedir.
 2. **CSS:** Tasarımın `<style>` blokları içerik değiştirilmeden `assets/css/` altında dosyalara taşınır. Ürün sayfaları ve rehber kendi dosyalarını yükler; flexible content kullanan tüm sayfalar ortak `bloklar.css`'i (`base.css` + `brandfont.css` ardından) yükler. `sozluk.js` ve iletişim aracı script'leri yalnızca ilgili blok sayfadaysa yüklenir.
-3. **Header:** İki yapı (standart ve ürün sayfası); aynı WP menüsü iki ayrı walker ile basılır, walker'lar alt menüyü (`navdrop`) destekler.
+3. **Header:** Tüm sayfalarda tek tip: ürün sayfalarının kutulu sekme header'ı (`nav.nav > .nav-in > .brand + .tabs`, aktif öğe sarı dolgulu). Bu, tasarımdan **bilinçli bir sapmadır** (tasarımda ana sayfa/servis/kurumsal/rehber vb. düz metin menülü standart header kullanır). `header.php` her zaman `template-parts/site/header-urun.php`'yi basar; `header-standart.php` ve onun CSS'i (base.css/rehber.css'teki `.nav nav` kuralları) silinmedi, sadece devre dışıdır. Header kuralları `assets/css/header-tek.css`'tedir (core.css'teki nihai değerler; sayfa CSS'inden sonra, navfit/nav-mobil'den önce yüklenir). Logo altı yazısı hiçbir sayfada basılmaz (ürün sayfalarında CSS ile zaten gizliydi). Sticky ve 1180 px altı hamburger `nav-mobil.css/js` ile her sayfada aynıdır; aktif öğe `servo_menu_item_is_current()` ile belirlenir (adres eşleşmesi dahil). Alt menü (`navdrop`) walker'da desteklenir.
 4. **Inline SVG'ler:** `assets/img/svg/` altında dosya. ACF'de "görsel" alanı: yüklenirse fotoğraf, boşsa varsayılan SVG.
 5. **Ürün sayfaları (Core, Shuttle):** Ürüne özel iki sayfa şablonu (CPT değil). Konfigüratör/simülasyon sabitleri (`CFG` dizileri) JS'te kalır; bunlara bağlı markup sabittir, panelden yalnızca bölüm başlığı/açıklaması değişir. Her ürünün alan grubu vardır (`group_servo_core`, `group_servo_shuttle`), her bölüm bir sekmedir; ortak bölümler aynı alan adlarıyla tanımlanır ve `inc/urun.php` yardımcılarıyla okunur. Lazer güvenliği bölümü Site Ayarları > Ürün güvenliği'nden tek yerden yönetilir.
 6. **Bülten:** `servomotion/v1/bulten` uç noktası şimdilik 501 döner; servis bağlandığında yalnızca `servo_bulten_kayit()` (`inc/formlar.php`) değişir.
@@ -110,6 +110,7 @@ WordPress core dosyaları, `wp-config.php`, `wp-content/uploads`, `node_modules`
 - **Çeviri:** `languages/servomotion.pot` / `servomotion-en_GB.po/.mo`; yönetim paneli dizgeleri Türkçe kalır. Onay bekleyen çeviriler: `docs/EN-CEVIRI-LISTESI.md`.
 - **İçerik betiği:** `wp servo faz4 [adım…] [--dry-run]` (`inc/cli-faz4.php`), tekrar çalıştırılınca kopya üretmez.
 - **Formlar:** `servomotion/v1/talep` isteği `lang` alır; ziyaretçiye giden mesaj onun dilindedir, ekibe bildirim her zaman TR'dir.
+- **EN ana sayfa hero'su (bilinçli sapma):** EN ana sayfa, paketteki `en/index.html`'deki `.phero` yerine TR ana sayfayla aynı `ana_hero` bloğunu (aynı görsel, oran, yerleşim; masaüstü ve mobil) kullanır; metinler İngilizcedir. Dönüşüm `servo_guncelle_3()` (`inc/guncelleme.php`) ile yapılır.
 - Core/Shuttle Precisor, iletişim, SSS, sözlük ve KVKK'nın EN sürümleri paketin EN sürümünde TR'den farklıdır; karar bekleyene kadar taslaktır.
 
 ## Kontrol listesi

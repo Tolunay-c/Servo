@@ -29,6 +29,7 @@ Statik sitenin `.html` adresleri WordPress'e geçişte değişir. Arama motorlar
 | `/servis-iade-sevkiyat.html` | `/servis-iade-sevkiyat/` |
 | `/servis-kilavuzlar.html` | `/servis-kilavuzlar/` |
 | `/kurumsal.html` | `/kurumsal/` |
+| `/kurulum-notlari.html`, `/kurulum-notlari/` | `/servis-kilavuzlar/` (kurulum notları PDF'i ve kontrol listesi orada; denetim MIN-06) |
 | `/iletisim.html` | `/iletisim/` |
 | `/dokumanlar.html` | `/dokumanlar/` |
 | `/sss.html` | `/sss/` |
@@ -80,7 +81,7 @@ Favicon'lar temadan basılır. Bazı tarayıcılar ve iOS kök dizindeki dosyala
 ### Yönlendirilmeyenler
 
 - `/404.html`: WordPress'in kendi 404 sayfası çalışır.
-- `/kurulum-notlari.html`, `/KURULUM-NOTLARI.md`: müşteriye yazılmış iç notlardır, site sayfası değildir (sitemap'te yoktu). 404 döner. (Aynı adlı PDF ve xlsx dosyaları ise kılavuzlar sayfasında yayındadır, yukarıdaki tabloya bakın.)
+- `/KURULUM-NOTLARI.md`: müşteriye yazılmış iç nottur, site sayfası değildir. 404 döner. (`/kurulum-notlari.html` ve `/kurulum-notlari/` ise kılavuzlar sayfasına 301 ile gider; aynı adlı PDF ve xlsx dosyaları orada yayındadır, yukarıdaki tabloya bakın. Yönlendirme temada da yapılır: `servo_eski_adres_yonlendir()`, `inc/setup.php`.)
 - `/site.webmanifest`, `/robots.txt`: `robots.txt`'yi WordPress/Rank Math üretir. Manifest kullanılmıyor.
 
 ### İngilizce sayfalar (FAZ 4)
@@ -145,6 +146,7 @@ RewriteRule ^uygulama-(lastik|nonwoven|ambalaj|film-folyo|tekstil|etiket)\.html$
 # Sayfalar
 RewriteRule ^index\.html$ / [R=301,L]
 RewriteRule ^(core-precisor|shuttle-precisor|basari-hikayeleri|servis|servis-destek-hatti|servis-iade-sevkiyat|servis-kilavuzlar|kurumsal|iletisim|dokumanlar|sss|sozluk|kvkk|rehber)\.html$ /$1/ [R=301,L]
+RewriteRule ^kurulum-notlari(\.html|/)?$ /servis-kilavuzlar/ [R=301,L]
 
 # Dosyalar (yükleme klasörünü canlıdaki Media Library adresiyle kontrol edin)
 # Veri sayfaları ve sertifika doğrudan indirilemez: talep formuna gider.

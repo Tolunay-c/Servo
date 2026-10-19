@@ -1,6 +1,6 @@
 <?php
 /**
- * Ürün sayfası header'ı: <nav class="nav"> ve .tabs.
+ * Tek tip site header'ı: <nav class="nav"> ve .tabs (tüm sayfalarda).
  *
  * Ürün hero'su (<header class="hero">) sayfa şablonundadır.
  *
@@ -9,7 +9,7 @@
 
 defined( 'ABSPATH' ) || exit;
 ?>
-<nav class="nav"><div class="wrap nav-in"><?php get_template_part( 'template-parts/site/logo', null, array( 'variant' => 'urun' ) ); ?><?php get_template_part( 'template-parts/site/nav-aksiyon', null, array( 'panel' => 'ana-menu' ) ); ?><div class="tabs" id="ana-menu">
+<nav class="nav" aria-label="<?php esc_attr_e( 'Ana menü', 'servomotion' ); ?>"><div class="wrap nav-in"><?php get_template_part( 'template-parts/site/logo', null, array( 'variant' => 'urun' ) ); ?><?php get_template_part( 'template-parts/site/nav-aksiyon', null, array( 'panel' => 'ana-menu' ) ); ?><div class="tabs" id="ana-menu">
 <?php
 wp_nav_menu(
 	array(

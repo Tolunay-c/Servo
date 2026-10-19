@@ -104,10 +104,6 @@ msgstr "The email could not be sent."
 msgid "Bülten henüz bir listeye bağlı değil."
 msgstr "The newsletter is not connected to a list yet."
 
-#: inc/rehber.php
-msgid "ServoMotion Mühendislik Ekibi"
-msgstr "ServoMotion"
-
 #: inc/setup.php, template-parts/site/header-standart.php
 msgid "Ana menü"
 msgstr "Main menu"
@@ -838,3 +834,119 @@ msgstr "Open menu"
 #: template-parts/site/nav-aksiyon.php
 msgid "Menüyü kapat"
 msgstr "Close menu"
+
+#: template-parts/site/bulten.php
+msgid "Bülten kaydı şimdilik e-posta ile alınır: KAYDOLUN’a bastığınızda e-posta uygulamanız hazır bir mesajla açılır, mesajı göndermeniz yeterli."
+msgstr "Newsletter sign-up is handled by email for now: when you press SUBSCRIBE, your email app opens with a ready-made message — just send it."
+
+#: inc/enqueue.php
+msgid "Bülten kaydı"
+msgstr "Newsletter sign-up"
+
+#: inc/enqueue.php
+msgid ""
+"Merhaba,\n"
+"\n"
+"ServoMotion bültenine kaydolmak istiyorum.\n"
+"E-posta adresim: %s"
+msgstr ""
+"Hello,\n"
+"\n"
+"I would like to subscribe to the ServoMotion newsletter.\n"
+"My email address: %s"
+
+#: inc/enqueue.php
+msgid "E-posta uygulamanız hazır bir bülten kaydı mesajıyla açıldı; kaydın tamamlanması için mesajı göndermeniz yeterli."
+msgstr "Your email app has opened with a ready-made sign-up message; just send it to complete your sign-up."
+
+#: inc/enqueue.php
+msgid "Açılmadıysa buraya tıklayın."
+msgstr "Click here if it did not open."
+
+#: inc/enqueue.php
+msgid "Lütfen geçerli bir e-posta adresi girin."
+msgstr "Please enter a valid email address."
+
+#: inc/formlar.php
+msgid "Özet boş görünüyor. Lütfen en az çizgi sayısını girin."
+msgstr "The summary looks empty. Please enter at least the number of lines."
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "örn. bobin dilimleme hattı, nonwoven kesim"
+msgstr "e.g. slitting line, nonwoven converting"
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "Ölçü şeması veya teknik resim"
+msgstr "Dimensional drawing or technical layout"
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "Hattaki PLC ve saha veri yolu bilgisi"
+msgstr "PLC and fieldbus details for the line"
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "Hattın titreşim durumu hakkında gözlem"
+msgstr "Notes on line vibration"
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "Malzeme yüzeyi ve ortam ışığı bilgisi"
+msgstr "Material surface and ambient light details"
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "Hattan fotoğraf veya video"
+msgstr "Photo or video of the line"
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "firma adı"
+msgstr "company name"
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "ad soyad · telefon veya e-posta"
+msgstr "name · phone or email"
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "Ürün alanı"
+msgstr "Product area"
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "\"%s\" alanı gerekli."
+msgstr "\"%s\" is required."
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "Ölçü şeması / teknik resim"
+msgstr "Dimensional drawing"
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "PLC ve saha veri yolu bilgisi"
+msgstr "PLC and fieldbus details"
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "Titreşim gözlemi"
+msgstr "Vibration observation"
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "Yüzey ve ortam ışığı bilgisi"
+msgstr "Surface and ambient light"
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "Fotoğraf / video"
+msgstr "Photo / video"
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "ServoMotion Core Precisor — kapalı gövde, iki kırmızı ve merkezde bir yeşil referans lazer çizgisi"
+msgstr "Core Precisor"
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "CORE PRECISOR lazer konumlandırma sistemi — iki kırmızı, ortada bir yeşil referans çizgisi"
+msgstr "Core Precisor"
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "Lastik ve kompozit hattında takviye serimi"
+msgstr "Reinforcement layup on a rubber and composite line"
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "Hijyenik ürün ve nonwoven hattında çok katmanlı serim"
+msgstr "Multi-layer line in a hygiene and nonwoven plant"
+
+#: template-parts/blocks/uygulama-ozeti.php
+msgid "Ambalaj ve kağıt hattında ebat geçişi"
+msgstr "Size changeover on a packaging and paper line"

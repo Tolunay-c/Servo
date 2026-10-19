@@ -67,3 +67,31 @@ function servo_rank_math_json_ld( $data ) {
 	return $data;
 }
 add_filter( 'rank_math/json_ld', 'servo_rank_math_json_ld', 99 );
+
+/**
+ * Rehber listesi (yazılar sayfası) canonical adresini düzeltir.
+ *
+ * Rank Math'in Polylang uyumluluk kodu ana sayfa canonical'ına dil yolunu ekler ama
+ * `is_home()` koşulu yazılar sayfasını da kapsar; sonuç /en/guide/en/home/ gibi
+ * hatalı bir adres olur (og:url ve şema adresi de buradan beslenir).
+ *
+ * @param string $canonical Rank Math'in canonical adresi.
+ * @return string
+ */
+function servo_rehber_canonical( $canonical ) {
+	$sayfa = (int) get_option( 'page_for_posts' );
+
+	if ( ! $sayfa || ! is_home() ) {
+		return $canonical;
+	}
+
+	if ( function_exists( 'pll_get_post' ) ) {
+		$cevrilen = pll_get_post( $sayfa );
+		$sayfa    = $cevrilen ? (int) $cevrilen : $sayfa;
+	}
+
+	$adres = get_permalink( $sayfa );
+
+	return $adres ? $adres : $canonical;
+}
+add_filter( 'rank_math/frontend/canonical', 'servo_rehber_canonical', 20 );

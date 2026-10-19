@@ -49,11 +49,11 @@ get_template_part( 'template-parts/blocks/_bolum-basligi' );
             </select></div>
           <div class="fld"><label><?php esc_html_e( 'Hazırda olan bilgiler', 'servomotion' ); ?></label>
             <div class="chk">
-              <label><input type="checkbox" data-h="Ölçü şeması / teknik resim"> <?php esc_html_e( 'Ölçü şeması veya teknik resim', 'servomotion' ); ?></label>
-              <label><input type="checkbox" data-h="PLC ve saha veri yolu bilgisi"> <?php esc_html_e( 'Hattaki PLC ve saha veri yolu bilgisi', 'servomotion' ); ?></label>
-              <label><input type="checkbox" data-h="Titreşim gözlemi"> <?php esc_html_e( 'Hattın titreşim durumu hakkında gözlem', 'servomotion' ); ?></label>
-              <label><input type="checkbox" data-h="Yüzey ve ortam ışığı bilgisi"> <?php esc_html_e( 'Malzeme yüzeyi ve ortam ışığı bilgisi', 'servomotion' ); ?></label>
-              <label><input type="checkbox" data-h="Fotoğraf / video"> <?php esc_html_e( 'Hattan fotoğraf veya video', 'servomotion' ); ?></label>
+              <label><input type="checkbox" data-h="<?php echo esc_attr__( 'Ölçü şeması / teknik resim', 'servomotion' ); ?>"> <?php esc_html_e( 'Ölçü şeması veya teknik resim', 'servomotion' ); ?></label>
+              <label><input type="checkbox" data-h="<?php echo esc_attr__( 'PLC ve saha veri yolu bilgisi', 'servomotion' ); ?>"> <?php esc_html_e( 'Hattaki PLC ve saha veri yolu bilgisi', 'servomotion' ); ?></label>
+              <label><input type="checkbox" data-h="<?php echo esc_attr__( 'Titreşim gözlemi', 'servomotion' ); ?>"> <?php esc_html_e( 'Hattın titreşim durumu hakkında gözlem', 'servomotion' ); ?></label>
+              <label><input type="checkbox" data-h="<?php echo esc_attr__( 'Yüzey ve ortam ışığı bilgisi', 'servomotion' ); ?>"> <?php esc_html_e( 'Malzeme yüzeyi ve ortam ışığı bilgisi', 'servomotion' ); ?></label>
+              <label><input type="checkbox" data-h="<?php echo esc_attr__( 'Fotoğraf / video', 'servomotion' ); ?>"> <?php esc_html_e( 'Hattan fotoğraf veya video', 'servomotion' ); ?></label>
             </div>
           </div>
           <div class="two">

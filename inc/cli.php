@@ -119,6 +119,26 @@ class Servo_CLI {
 	}
 
 	/**
+	 * Bekleyen veritabanı içerik güncellemelerini çalıştırır (inc/guncelleme.php).
+	 *
+	 * Canlıda aynı güncelleme ilk yönetici ziyaretinde kendiliğinden çalışır.
+	 *
+	 * ## OPTIONS
+	 *
+	 * [--zorla]
+	 * : Uygulanmış sürümleri de yeniden çalıştırır (adımlar tekrar güvenlidir).
+	 *
+	 * @param array $args       Kullanılmaz.
+	 * @param array $assoc_args Seçenekler.
+	 */
+	public function guncelle( $args, $assoc_args ) {
+		foreach ( servo_guncelle_calistir( ! empty( $assoc_args['zorla'] ) ) as $satir ) {
+			WP_CLI::log( $satir );
+		}
+		WP_CLI::success( sprintf( 'Veritabanı sürümü: %d', (int) get_option( 'servo_db_surum', 0 ) ) );
+	}
+
+	/**
 	 * Tasarımdaki rehber yazılarını (rehber-*.html) Gutenberg yazısı olarak içeri aktarır.
 	 *
 	 * Yazılar kaynak dosya adıyla (_servo_kaynak meta) eşleştirilir; komut tekrar

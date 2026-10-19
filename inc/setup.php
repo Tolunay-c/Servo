@@ -91,3 +91,25 @@ add_filter( 'theme_scandir_exclusions', 'servo_scandir_exclusions' );
  */
 remove_action( 'wp_head', 'wp_generator' );
 add_filter( 'the_generator', '__return_empty_string' );
+
+/**
+ * Kaldırılan /kurulum-notlari sayfasının eski adreslerini kılavuzlar sayfasına yönlendirir.
+ *
+ * `.htaccess` kuralı (docs/YONLENDIRMELER.md) yoksa da çalışsın diye tema tarafında da tutulur.
+ * Sadece WordPress'in 404 verdiği istekte devreye girer; Polylang ön ekleri (/en/) kapsam dışıdır.
+ */
+function servo_eski_adres_yonlendir() {
+	if ( ! is_404() ) {
+		return;
+	}
+
+	$yol = isset( $_SERVER['REQUEST_URI'] ) ? (string) wp_parse_url( wp_unslash( $_SERVER['REQUEST_URI'] ), PHP_URL_PATH ) : '';
+	$kok = trailingslashit( (string) wp_parse_url( home_url( '/' ), PHP_URL_PATH ) );
+	$yol = strtolower( trim( substr( $yol, strlen( $kok ) ), '/' ) );
+
+	if ( in_array( $yol, array( 'kurulum-notlari', 'kurulum-notlari.html' ), true ) ) {
+		wp_safe_redirect( home_url( '/servis-kilavuzlar/' ), 301 );
+		exit;
+	}
+}
+add_action( 'template_redirect', 'servo_eski_adres_yonlendir' );

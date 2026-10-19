@@ -404,7 +404,7 @@
             "type": "text",
             "instructions": "Yazıda yazar girilmemişse kullanılır.",
             "required": 0,
-            "default_value": "ServoMotion Mühendislik Ekibi",
+            "default_value": "ServoMotion",
             "placeholder": "",
             "wrapper": {
                 "width": "",

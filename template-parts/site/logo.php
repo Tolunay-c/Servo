@@ -19,12 +19,9 @@ $servo_variant = isset( $args['variant'] ) ? $args['variant'] : 'standart';
 $servo_logo = servo_get_svg( 'logo-isaret' ) . '<bdi lang="en"><i class="lo1">Servo</i><i class="lo2">Motion</i></bdi>';
 
 if ( 'urun' === $servo_variant ) {
-	$servo_logo    = '<b>' . $servo_logo . '</b>';
-	$servo_tagline = servo_option( 'logo_alt_yazi' );
-
-	if ( $servo_tagline ) {
-		$servo_logo .= '<span>' . esc_html( $servo_tagline ) . '</span>';
-	}
+	// Logo altı yazısı ("Lazer Konumlandırma") tek tip header'da hiçbir sayfada basılmaz:
+	// ürün sayfalarında CSS ile zaten gizliydi, diğer sayfalarda hiç yoktu.
+	$servo_logo = '<b>' . $servo_logo . '</b>';
 }
 
 echo '<a class="brand" href="' . esc_url( home_url( '/' ) ) . '">' . trim( $servo_logo ) . '</a>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped

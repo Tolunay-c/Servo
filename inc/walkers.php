@@ -209,6 +209,17 @@ function servo_menu_item_is_current( $item ) {
 		return true;
 	}
 
+	// WordPress öğeyi geçerli işaretlemediyse adres eşleşmesine bak: serbest bağlantılar ve aynı slug'ı
+	// iki dilde paylaşan ürün sayfaları (/en/core-precisor/ sorgusu TR sayfa nesnesini döndürür).
+	if ( ! empty( $item->url ) && ! is_404() && ! is_search() ) {
+		$istek = isset( $_SERVER['REQUEST_URI'] ) ? (string) wp_parse_url( wp_unslash( $_SERVER['REQUEST_URI'] ), PHP_URL_PATH ) : '';
+		$hedef = (string) wp_parse_url( $item->url, PHP_URL_PATH );
+
+		if ( '' !== $istek && '' !== $hedef && untrailingslashit( $istek ) === untrailingslashit( $hedef ) && untrailingslashit( home_url() ) !== untrailingslashit( $item->url ) ) {
+			return true;
+		}
+	}
+
 	$posts_page = (int) get_option( 'page_for_posts' );
 
 	return $posts_page

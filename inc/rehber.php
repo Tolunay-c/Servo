@@ -263,7 +263,12 @@ function servo_rehber_render_block( $html, $block ) {
 					$ekle[] = $stil;
 				}
 			}
-			return servo_rehber_sinif( $html, array( 'wp-block-list', 'is-style-steps', 'is-style-alist' ), $ekle );
+			$html = servo_rehber_sinif( $html, array( 'wp-block-list', 'is-style-steps', 'is-style-alist' ), $ekle );
+			if ( in_array( 'alist', $ekle, true ) && false === stripos( $html, '<ul' ) && 1 === substr_count( strtolower( $html ), '<ol' ) ) {
+				// .alist li iki sütunlu grid: kalın başlık + düz metin tek grid öğesi olsun.
+				$html = preg_replace( '#(<li(?:\s[^>]*)?>)(.*?)</li>#is', '$1<span>$2</span></li>', $html );
+			}
+			return $html;
 
 		case 'core/paragraph':
 			if ( servo_rehber_stil( $block, 'kutu-basligi' ) ) {
@@ -461,7 +466,7 @@ function servo_rehber_okuma( $post ) {
 function servo_rehber_yazar( $post ) {
 	$post = get_post( $post );
 
-	return (string) servo_field( 'yazar', $post->ID, servo_option( 'rehber_yazar', __( 'ServoMotion Mühendislik Ekibi', 'servomotion' ) ) );
+	return (string) servo_field( 'yazar', $post->ID, servo_option( 'rehber_yazar', __( 'ServoMotion', 'servomotion' ) ) );
 }
 
 /**

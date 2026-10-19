@@ -3,8 +3,9 @@
  * Site başlığı.
  *
  * <title>, description, OG ve canonical Rank Math'e bırakılır; tema basmaz.
- * Ürün sayfalarında (core, shuttle) tasarımın .tabs header'ı, diğer
- * sayfalarda standart header.nav basılır.
+ * Tüm sayfalarda ürün sayfalarının kutulu sekme (.tabs) header'ı basılır
+ * (bilinçli tasarım sapması, CLAUDE.md mimari karar 3). Standart header
+ * şablonu (header-standart.php) ve CSS'i devre dışı olarak durur.
  *
  * @package ServoMotion
  */
@@ -22,4 +23,4 @@ defined( 'ABSPATH' ) || exit;
 <?php
 wp_body_open();
 
-get_template_part( 'template-parts/site/header', servo_is_product_layout() ? 'urun' : 'standart' );
+get_template_part( 'template-parts/site/header', 'urun' );

@@ -12,7 +12,28 @@ defined( 'ABSPATH' ) || exit;
 
 $servo_rehber = (int) get_option( 'page_for_posts' );
 
-$servo_butonlar = servo_option_links(
+// EN'de TR Site Ayarları metnine düşülmez: yalnızca EN alanı ya da (çevrilmiş) varsayılan kullanılır.
+$servo_hata = static function ( $ad, $varsayilan ) {
+	if ( ! servo_en() ) {
+		return servo_option( $ad, $varsayilan );
+	}
+	$deger = servo_field( $ad, servo_options_id(), null );
+
+	return servo_is_empty( $deger ) ? $varsayilan : $deger;
+};
+
+$servo_hata_linkler = static function ( $ad, $varsayilan ) use ( $servo_hata ) {
+	$linkler = array();
+	foreach ( (array) $servo_hata( $ad, array() ) as $satir ) {
+		if ( ! empty( $satir['link']['url'] ) ) {
+			$linkler[] = $satir['link'];
+		}
+	}
+
+	return $linkler ? $linkler : $varsayilan;
+};
+
+$servo_butonlar = $servo_hata_linkler(
 	'hata_butonlar',
 	array(
 		array(
@@ -20,7 +41,7 @@ $servo_butonlar = servo_option_links(
 			'title' => __( 'ANA SAYFA', 'servomotion' ),
 		),
 		array(
-			'url'   => home_url( '/#sistemler' ),
+			'url'   => home_url( servo_en() ? '/#systems' : '/#sistemler' ),
 			'title' => __( 'SİSTEMLER', 'servomotion' ),
 		),
 		array(
@@ -30,7 +51,7 @@ $servo_butonlar = servo_option_links(
 	)
 );
 
-$servo_baglantilar = servo_option_links(
+$servo_baglantilar = $servo_hata_linkler(
 	'hata_baglantilar',
 	array(
 		array(
@@ -70,9 +91,9 @@ get_header();
 <section class="phero" style="padding:110px 0 120px">
 	<div class="wrap" style="grid-template-columns:minmax(0,1fr)">
 		<div>
-			<p class="label"><?php echo esc_html( servo_option( 'hata_etiket', __( 'HATA 404', 'servomotion' ) ) ); ?></p>
-			<h1><?php echo esc_html( servo_option( 'hata_baslik', __( 'BU KONUMDA', 'servomotion' ) ) ); ?><br><em><?php echo esc_html( servo_option( 'hata_vurgu', __( 'BİR ÇİZGİ YOK', 'servomotion' ) ) ); ?></em></h1>
-			<p class="intro"><?php echo servo_text( servo_option( 'hata_giris', __( 'Aradığınız sayfa taşınmış veya adresi değişmiş olabilir. Aşağıdan devam edebilirsiniz.', 'servomotion' ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
+			<p class="label"><?php echo esc_html( $servo_hata( 'hata_etiket', __( 'HATA 404', 'servomotion' ) ) ); ?></p>
+			<h1><?php echo esc_html( $servo_hata( 'hata_baslik', __( 'BU KONUMDA', 'servomotion' ) ) ); ?><br><em><?php echo esc_html( $servo_hata( 'hata_vurgu', __( 'BİR ÇİZGİ YOK', 'servomotion' ) ) ); ?></em></h1>
+			<p class="intro"><?php echo servo_text( $servo_hata( 'hata_giris', __( 'Aradığınız sayfa taşınmış veya adresi değişmiş olabilir. Aşağıdan devam edebilirsiniz.', 'servomotion' ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
 			<div class="actions">
 				<?php foreach ( $servo_butonlar as $servo_i => $servo_link ) : ?>
 				<a class="<?php echo 0 === $servo_i ? 'btn primary' : 'btn'; ?>"<?php echo servo_link_atts( $servo_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>><?php echo esc_html( $servo_link['title'] ); ?></a>
@@ -83,7 +104,7 @@ get_header();
 </section>
 <section class="section" style="background:#fff">
 	<div class="wrap">
-		<div class="section-head"><p class="label"><?php echo esc_html( servo_option( 'hata_liste_etiket', __( 'SIK KULLANILANLAR', 'servomotion' ) ) ); ?></p><h2><?php echo esc_html( servo_option( 'hata_liste_baslik', __( 'BELKİ BUNLARI ARIYORDUNUZ', 'servomotion' ) ) ); ?></h2></div>
+		<div class="section-head"><p class="label"><?php echo esc_html( $servo_hata( 'hata_liste_etiket', __( 'SIK KULLANILANLAR', 'servomotion' ) ) ); ?></p><h2><?php echo esc_html( $servo_hata( 'hata_liste_baslik', __( 'BELKİ BUNLARI ARIYORDUNUZ', 'servomotion' ) ) ); ?></h2></div>
 		<div class="related-links">
 			<?php foreach ( $servo_baglantilar as $servo_link ) : ?>
 			<a<?php echo servo_link_atts( $servo_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>><?php echo esc_html( $servo_link['title'] ); ?></a>

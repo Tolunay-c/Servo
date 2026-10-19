@@ -2,8 +2,8 @@
 /**
  * Bülten bandı: section.news#bulten.
  *
- * Form şimdilik tasarımın kendi davranışıyla çalışır (bulten.js /
- * rehber-*.js: "e-posta ile yazın" mesajı). Rehber sayfalarında buton
+ * Liste servisi bağlanana kadar form hazır konulu bir mailto açar
+ * (assets/js/bulten-mailto.js; tasarımın bulten.js / rehber-*.js dosyalarından önce çalışır). Rehber sayfalarında buton
  * class'ı tasarımdaki gibi "btn primary"dır.
  *
  * @package ServoMotion
@@ -27,7 +27,7 @@ $servo_btn    = 'rehber' === servo_asset_group() ? 'btn primary' : 'newsbtn';
 <form class="newsform" id="nf"><input type="email" id="nmail" placeholder="<?php esc_attr_e( 'E-posta adresiniz', 'servomotion' ); ?>" aria-label="<?php esc_attr_e( 'E-posta adresiniz', 'servomotion' ); ?>" required>
 <button class="<?php echo esc_attr( $servo_btn ); ?>" type="submit"><?php esc_html_e( 'KAYDOLUN', 'servomotion' ); ?></button></form>
 <?php if ( $servo_eposta ) : ?>
-<p class="newsnote" id="nnote"><?php esc_html_e( 'Sorularınız için:', 'servomotion' ); ?> <a href="<?php echo esc_url( 'mailto:' . $servo_eposta ); ?>"><?php echo esc_html( $servo_eposta ); ?></a></p>
+<p class="newsnote" id="nnote"><?php esc_html_e( 'Bülten kaydı şimdilik e-posta ile alınır: KAYDOLUN’a bastığınızda e-posta uygulamanız hazır bir mesajla açılır, mesajı göndermeniz yeterli.', 'servomotion' ); ?> <?php esc_html_e( 'Sorularınız için:', 'servomotion' ); ?> <a href="<?php echo esc_url( 'mailto:' . $servo_eposta ); ?>"><?php echo esc_html( $servo_eposta ); ?></a></p>
 <?php else : ?>
 <p class="newsnote" id="nnote"></p>
 <?php endif; ?>
