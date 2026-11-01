@@ -950,3 +950,127 @@ msgstr "Multi-layer line in a hygiene and nonwoven plant"
 #: template-parts/blocks/uygulama-ozeti.php
 msgid "Ambalaj ve kağıt hattında ebat geçişi"
 msgstr "Size changeover on a packaging and paper line"
+
+#: template-parts/uygulama/resimler.php
+msgid "Uygulama Resimleri"
+msgstr "Application Images"
+
+#: template-parts/site/bulten.php
+msgid "E-bülten aboneliği için kaydolun"
+msgstr "Sign up for the e-newsletter"
+
+#: template-parts/site/bulten.php
+msgid "E-posta adresiniz yalnızca bülten göndermek için işlenir; aboneliğinizi her zaman sonlandırabilirsiniz. Ayrıntılar için %s."
+msgstr "Your email address is processed only to send the newsletter, and you can unsubscribe at any time. For details, see %s."
+
+#: template-parts/site/bulten.php
+msgid "KVKK aydınlatma metnimize bakın"
+msgstr "our privacy notice"
+
+#: inc/enqueue.php
+msgid "Başarıyla kaydedilmiştir"
+msgstr "Successfully registered"
+
+#: inc/enqueue.php
+msgid "Bu e-posta adresi zaten kayıtlı."
+msgstr "This email address is already registered."
+
+#: inc/enqueue.php
+msgid "Kayıt yapılamadı. Lütfen daha sonra tekrar deneyin."
+msgstr "Registration failed. Please try again later."
+
+#: inc/bulten.php
+msgid "Bu abonelikten çıkma bağlantısı geçerli değil ya da abonelik zaten sonlandırılmış."
+msgstr "This unsubscribe link is not valid, or the subscription has already ended."
+
+#: inc/bulten.php
+msgid "Bülten aboneliğiniz sonlandırıldı."
+msgstr "Your newsletter subscription has ended."
+
+#: inc/bulten.php
+msgid "Bülten aboneliğinizi sonlandırmak istiyor musunuz?"
+msgstr "Do you want to end your newsletter subscription?"
+
+#: inc/bulten.php
+msgid "Abonelikten çık"
+msgstr "Unsubscribe"
+
+#: inc/talep.php
+msgid "PDF talep etmek için lütfen e-posta adresinizi girin"
+msgstr "To request the PDF, please enter your email address"
+
+#: inc/talep.php
+msgid "Uygulama notu"
+msgstr "Application note"
+
+#: inc/talep.php
+msgid "Talebiniz alınmıştır. Destek ekibimiz en kısa sürede tarafınıza dönüş sağlayacaktır."
+msgstr "Your request has been received. Our support team will get back to you as soon as possible."
+
+#: template-parts/blocks/indirme-listesi.php
+msgid "Gönder"
+msgstr "Send"
+
+#: inc/guncelleme.php (Medya alt metni)
+msgid "Ambalaj ve kağıt uygulama resmi 1"
+msgstr "Packaging and paper application image 1"
+
+#: inc/guncelleme.php (Medya alt metni)
+msgid "Ambalaj ve kağıt uygulama resmi 2"
+msgstr "Packaging and paper application image 2"
+
+#: inc/guncelleme.php (Medya alt metni)
+msgid "Hijyenik ürünler ve nonwoven uygulama resmi 1"
+msgstr "Hygiene products and nonwoven application image 1"
+
+#: inc/guncelleme.php (Medya alt metni)
+msgid "Hijyenik ürünler ve nonwoven uygulama resmi 2"
+msgstr "Hygiene products and nonwoven application image 2"
+
+#: inc/guncelleme.php (Medya alt metni)
+msgid "Lastik ve kompozit uygulama resmi 1"
+msgstr "Rubber and composite application image 1"
+
+#: inc/guncelleme.php (Medya alt metni)
+msgid "Lastik ve kompozit uygulama resmi 2"
+msgstr "Rubber and composite application image 2"
+
+#: inc/guncelleme.php (Medya alt metni)
+msgid "Film ve folyo uygulama resmi 1"
+msgstr "Film and foil application image 1"
+
+#: inc/guncelleme.php (Medya alt metni)
+msgid "Film ve folyo uygulama resmi 2"
+msgstr "Film and foil application image 2"
+
+#: inc/guncelleme.php (Medya alt metni)
+msgid "Tekstil ve teknik kumaşlar uygulama resmi 1"
+msgstr "Textiles and technical fabrics application image 1"
+
+#: inc/guncelleme.php (Medya alt metni)
+msgid "Tekstil ve teknik kumaşlar uygulama resmi 2"
+msgstr "Textiles and technical fabrics application image 2"
+
+#: inc/guncelleme.php (Medya alt metni)
+msgid "Etiket ve yapışkanlı bant uygulama resmi 1"
+msgstr "Labels and adhesive tape application image 1"
+
+#: inc/guncelleme.php (Medya alt metni)
+msgid "Etiket ve yapışkanlı bant uygulama resmi 2"
+msgstr "Labels and adhesive tape application image 2"
+
+#: template-parts/uygulama/resimler.php
+msgid "SAHADAN"
+msgstr "FROM THE FIELD"
+
+#: template-parts/blocks/indirme-listesi.php
+msgid "Talep et"
+msgstr "Request"
+
+#. translators: %s: uygulama adı
+msgid "Saha fotoğrafı · %s"
+msgstr "Site photograph · %s"
+
+#. translators: %s: menü öğesi adı
+msgid "%s alt menüsünü aç/kapat"
+msgstr "Toggle %s submenu"

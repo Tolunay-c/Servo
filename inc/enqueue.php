@@ -85,7 +85,7 @@ function servo_asset_group() {
 function servo_enqueue_assets() {
 	$group = servo_asset_group();
 	$ozet  = 'bloklar' === $group && servo_page_has_block( 'uygulama_ozeti' );
-	$talep = 'bloklar' === $group && servo_page_has_block( 'talep_formu' );
+	$talep = 'bloklar' === $group && ( servo_page_has_block( 'talep_formu' ) || servo_page_has_block( 'indirme_listesi' ) );
 
 	$son = 'servo-fonts';
 
@@ -129,7 +129,7 @@ function servo_enqueue_assets() {
 			}
 
 			// Servis kanalları, talep formu ve doküman blokları (servis.css).
-			if ( servo_page_has_block( 'servis_kanallari' ) || servo_page_has_block( 'talep_formu' ) ) {
+			if ( servo_page_has_block( 'servis_kanallari' ) || servo_page_has_block( 'talep_formu' ) || servo_page_has_block( 'indirme_listesi' ) ) {
 				servo_enqueue_style( 'servo-servis', 'assets/css/servis.css', array( $son ) );
 				$son = 'servo-servis';
 			}
@@ -156,26 +156,22 @@ function servo_enqueue_assets() {
 		servo_enqueue_script( 'servo-bulten', 'assets/js/bulten.js' );
 	}
 
-	// Bülten: liste servisi bağlanana kadar hazır konulu mailto akışı (bulten-mailto.js).
-	$bulten_eposta = (string) servo_option( 'eposta', '' );
-	if ( '' !== $bulten_eposta ) {
-		servo_enqueue_script( 'servo-bulten-mailto', 'assets/js/bulten-mailto.js' );
-		wp_add_inline_script(
-			'servo-bulten-mailto',
-			'window.SERVO_BULTEN=' . wp_json_encode(
-				array(
-					'eposta'   => $bulten_eposta,
-					'konu'     => __( 'Bülten kaydı', 'servomotion' ),
-					/* translators: %s: Ziyaretçinin e-posta adresi. */
-					'govde'    => __( "Merhaba,\n\nServoMotion bültenine kaydolmak istiyorum.\nE-posta adresim: %s", 'servomotion' ),
-					'acildi'   => __( 'E-posta uygulamanız hazır bir bülten kaydı mesajıyla açıldı; kaydın tamamlanması için mesajı göndermeniz yeterli.', 'servomotion' ),
-					'baglanti' => __( 'Açılmadıysa buraya tıklayın.', 'servomotion' ),
-					'gecersiz' => __( 'Lütfen geçerli bir e-posta adresi girin.', 'servomotion' ),
-				)
-			) . ';',
-			'before'
-		);
-	}
+	// Bülten: e-posta REST ile kaydedilir (bulten-kayit.js); adres nonce ile verilir.
+	servo_enqueue_script( 'servo-bulten-kayit', 'assets/js/bulten-kayit.js' );
+	wp_add_inline_script(
+		'servo-bulten-kayit',
+		'window.SERVO_BULTEN=' . wp_json_encode(
+			array(
+				'adres'    => add_query_arg( '_wpnonce', wp_create_nonce( 'wp_rest' ), rest_url( SERVO_REST_NS . '/bulten' ) ),
+				'lang'     => servo_en() ? 'en' : 'tr',
+				'tamam'    => __( 'Başarıyla kaydedilmiştir', 'servomotion' ),
+				'zaten'    => __( 'Bu e-posta adresi zaten kayıtlı.', 'servomotion' ),
+				'gecersiz' => __( 'Lütfen geçerli bir e-posta adresi girin.', 'servomotion' ),
+				'hata'     => __( 'Kayıt yapılamadı. Lütfen daha sonra tekrar deneyin.', 'servomotion' ),
+			)
+		) . ';',
+		'before'
+	);
 
 	if ( $ozet ) {
 		// Boş özetin gönderimini engelleyen sarmalayıcı; tasarım script'lerinden önce bağlanır.
@@ -185,6 +181,7 @@ function servo_enqueue_assets() {
 
 	if ( $talep ) {
 		servo_enqueue_script( 'servo-talep', 'assets/js/talep.js' );
+		servo_enqueue_script( 'servo-talep-kart', 'assets/js/talep-kart.js' );
 	}
 
 	servo_enqueue_script( 'servo-nav', 'assets/js/nav.js' );

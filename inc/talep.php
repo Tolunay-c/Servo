@@ -357,7 +357,7 @@ add_action( 'init', 'servo_indir_istegi', 1 );
  * Her satır: 'cift' (iki alan yan yana, .two) veya 'tek'. Alan adları (ad)
  * tasarımın mailto biçimiyle aynıdır; e-posta istemcisi yedeği bu adları kullanır.
  *
- * @param string $tur dokuman | destek | iade | kilavuz.
+ * @param string $tur dokuman | destek | iade | kilavuz | uygulama_notu.
  * @return array{onek:string,satirlar:array,konu:string}|null
  */
 function servo_talep_sema( $tur ) {
@@ -415,6 +415,17 @@ function servo_talep_sema( $tur ) {
 					),
 					array( 'tek', $f( 'Bilesen', __( 'Gönderilecek bileşen', 'servomotion' ), 'i-bilesen', 'text', true, array( 'placeholder' => __( 'örn. lazer modülü, araba, tahrik bileşeni', 'servomotion' ) ) ) ),
 					array( 'tek', $f( 'Ariza notu', __( 'Arıza notu', 'servomotion' ), 'i-not', 'textarea', true, array( 'placeholder' => __( 'Belirti, ne zaman başladı, hangi reçetede görülüyor', 'servomotion' ) ) ) ),
+				),
+			);
+
+		case 'uygulama_notu':
+			// Yalnızca e-posta: talep ekibe bildirim olarak gider, ziyaretçiye otomatik PDF gitmez.
+			// "Uygulama notu" gizli alandır (liste satırından gelir; yoksa gönderilen sayfadan çıkarılır).
+			return array(
+				'onek'     => 'Uygulama notu talebi',
+				'satirlar' => array(
+					array( 'tek', $f( 'E-posta', __( 'E-posta', 'servomotion' ), 'un-mail', 'email', true, array( 'gorunen' => __( 'PDF talep etmek için lütfen e-posta adresinizi girin', 'servomotion' ) ) ) ),
+					array( 'gizli', $f( 'Uygulama notu', __( 'Uygulama notu', 'servomotion' ), 'un-not', 'gizli' ) ),
 				),
 			);
 
@@ -658,6 +669,14 @@ function servo_talep_isle( $p, $dil ) {
 	// Ekibe bildirim: her zaman Türkçe.
 	$tr_degisti = switch_to_locale( 'tr_TR' );
 
+	// Uygulama notu talebinde belge adı gelmediyse formun bulunduğu sayfadan çıkarılır.
+	if ( 'uygulama_notu' === $tur && '' === $deger['Uygulama notu'] ) {
+		$kaynak_id = url_to_postid( isset( $p['kaynak'] ) ? (string) $p['kaynak'] : '' );
+		if ( $kaynak_id ) {
+			$deger['Uygulama notu'] = get_the_title( $kaynak_id );
+		}
+	}
+
 	$satirlar = array();
 	foreach ( servo_talep_alanlari( $tur ) as $ad => $alan ) {
 		if ( '' !== $deger[ $ad ] ) {
@@ -669,6 +688,10 @@ function servo_talep_isle( $p, $dil ) {
 	}
 
 	$metin = implode( "\n", $satirlar ) . "\n";
+
+	if ( 'uygulama_notu' === $tur ) {
+		$metin .= "\n" . __( 'Gönderim: ziyaretçiye otomatik PDF gönderilmedi; talep yalnızca ekibe bildirildi.', 'servomotion' ) . "\n";
+	}
 
 	if ( 'dokuman' === $tur ) {
 		$metin .= "\n" . ( $otomatik
@@ -721,6 +744,8 @@ function servo_talep_isle( $p, $dil ) {
 		$mesaj = $otomatik
 			? __( 'Talebiniz alındı. Dokümanların indirme bağlantıları e-posta adresinize gönderildi; bağlantılar 7 gün geçerlidir.', 'servomotion' )
 			: __( 'Talebiniz alındı. İstediğiniz dokümanları en kısa sürede e-posta ile ileteceğiz.', 'servomotion' );
+	} elseif ( 'uygulama_notu' === $tur ) {
+		$mesaj = __( 'Talebiniz alınmıştır. Destek ekibimiz en kısa sürede tarafınıza dönüş sağlayacaktır.', 'servomotion' );
 	} else {
 		$mesaj = __( 'Talebiniz alındı. En kısa sürede size dönüş yapacağız.', 'servomotion' );
 	}

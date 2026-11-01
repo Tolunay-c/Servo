@@ -1,0 +1,253 @@
+- generic [active] [ref=f3e1]:
+  - navigation "Ana menü" [ref=f3e2]:
+    - generic [ref=f3e3]:
+      - link "ServoMotion" [ref=f3e4] [cursor=pointer]:
+        - /url: http://localhost/servo/
+      - generic [ref=f3e19]:
+        - link "EN" [ref=f3e20] [cursor=pointer]:
+          - /url: http://localhost/servo/en/service-manuals/
+        - button "Menüyü aç" [ref=f3e21] [cursor=pointer]
+  - main [ref=f3e23]:
+    - generic [ref=f3e26]:
+      - paragraph [ref=f3e27]:
+        - link "SERVİS" [ref=f3e28] [cursor=pointer]:
+          - /url: http://localhost/servo/servis/
+        - text: · KILAVUZLAR
+      - paragraph [ref=f3e29]: KILAVUZLAR
+      - heading [level=1] [ref=f3e30]:
+        - text: KULLANIM VE BAKIM
+        - emphasis [ref=f3e31]: DOKÜMANLARI
+      - paragraph [ref=f3e32]: Herkese açık dokümanları doğrudan indirebilirsiniz. Kullanım kılavuzu, elektrik şeması ve kalibrasyon kaydı gibi sisteme özel dokümanlar seri numarasına göre hazırlanır; talep formunu doldurduğunuzda e-posta ile iletilir.
+      - generic [ref=f3e33]:
+        - link "TALEP OLUŞTURUN" [ref=f3e34] [cursor=pointer]:
+          - /url: "#form"
+        - link "+90 212 577 25 67" [ref=f3e35] [cursor=pointer]:
+          - /url: tel:+902125772567
+    - generic [ref=f3e37]:
+      - generic [ref=f3e38]:
+        - paragraph [ref=f3e39]: DOKÜMANLAR
+        - heading "UYGULAMA NOTLARI VE İLGİLİ BAĞLANTILAR" [level=2] [ref=f3e40]
+        - paragraph [ref=f3e41]: Uygulama notlarını PDF olarak talep edebilirsiniz; talep ekibimize iletilir.
+      - generic [ref=f3e42]:
+        - generic [ref=f3e43]:
+          - paragraph [ref=f3e44]:
+            - text: Uygulama notu · Lastik ve kompozit
+            - generic [ref=f3e45]: PDF
+          - generic [ref=f3e46]: PDF talep etmek için lütfen e-posta adresinizi girin
+          - generic [ref=f3e47]:
+            - textbox "PDF talep etmek için lütfen e-posta adresinizi girin" [ref=f3e48]
+            - generic [aria-hidden] [ref=f3e49]:
+              - text: Web sitesi
+              - textbox [ref=f3e50]
+            - button "Gönder" [ref=f3e51] [cursor=pointer]
+        - generic [ref=f3e52]:
+          - paragraph [ref=f3e53]:
+            - text: Uygulama notu · Hijyenik ürünler ve nonwoven
+            - generic [ref=f3e54]: PDF
+          - generic [ref=f3e55]: PDF talep etmek için lütfen e-posta adresinizi girin
+          - generic [ref=f3e56]:
+            - textbox "PDF talep etmek için lütfen e-posta adresinizi girin" [ref=f3e57]
+            - generic [aria-hidden] [ref=f3e58]:
+              - text: Web sitesi
+              - textbox [ref=f3e59]
+            - button "Gönder" [ref=f3e60] [cursor=pointer]
+        - generic [ref=f3e61]:
+          - paragraph [ref=f3e62]:
+            - text: Uygulama notu · Ambalaj ve kağıt
+            - generic [ref=f3e63]: PDF
+          - generic [ref=f3e64]: PDF talep etmek için lütfen e-posta adresinizi girin
+          - generic [ref=f3e65]:
+            - textbox "PDF talep etmek için lütfen e-posta adresinizi girin" [ref=f3e66]
+            - generic [aria-hidden] [ref=f3e67]:
+              - text: Web sitesi
+              - textbox [ref=f3e68]
+            - button "Gönder" [ref=f3e69] [cursor=pointer]
+        - generic [ref=f3e70]:
+          - paragraph [ref=f3e71]:
+            - text: Uygulama notu · Film ve folyo
+            - generic [ref=f3e72]: PDF
+          - generic [ref=f3e73]: PDF talep etmek için lütfen e-posta adresinizi girin
+          - generic [ref=f3e74]:
+            - textbox "PDF talep etmek için lütfen e-posta adresinizi girin" [ref=f3e75]
+            - generic [aria-hidden] [ref=f3e76]:
+              - text: Web sitesi
+              - textbox [ref=f3e77]
+            - button "Gönder" [ref=f3e78] [cursor=pointer]
+        - generic [ref=f3e79]:
+          - paragraph [ref=f3e80]:
+            - text: Uygulama notu · Tekstil ve teknik kumaşlar
+            - generic [ref=f3e81]: PDF
+          - generic [ref=f3e82]: PDF talep etmek için lütfen e-posta adresinizi girin
+          - generic [ref=f3e83]:
+            - textbox "PDF talep etmek için lütfen e-posta adresinizi girin" [ref=f3e84]
+            - generic [aria-hidden] [ref=f3e85]:
+              - text: Web sitesi
+              - textbox [ref=f3e86]
+            - button "Gönder" [ref=f3e87] [cursor=pointer]
+        - generic [ref=f3e88]:
+          - paragraph [ref=f3e89]:
+            - text: Uygulama notu · Etiket ve yapışkanlı bant
+            - generic [ref=f3e90]: PDF
+          - generic [ref=f3e91]: PDF talep etmek için lütfen e-posta adresinizi girin
+          - generic [ref=f3e92]:
+            - textbox "PDF talep etmek için lütfen e-posta adresinizi girin" [ref=f3e93]
+            - generic [aria-hidden] [ref=f3e94]:
+              - text: Web sitesi
+              - textbox [ref=f3e95]
+            - button "Gönder" [ref=f3e96] [cursor=pointer]
+        - link "EMC uygunluk sertifikası TALEP" [ref=f3e97] [cursor=pointer]:
+          - /url: http://localhost/servo/dokumanlar/#talep
+          - text: EMC uygunluk sertifikası
+          - generic [ref=f3e98]: TALEP
+        - link "Terimler sözlüğü WEB" [ref=f3e99] [cursor=pointer]:
+          - /url: http://localhost/servo/sozluk/
+          - text: Terimler sözlüğü
+          - generic [ref=f3e100]: WEB
+    - generic [ref=f3e102]:
+      - generic [ref=f3e103]:
+        - paragraph [ref=f3e104]: TALEBE BAĞLI
+        - heading "SİSTEMİNİZE ÖZEL DOKÜMANLAR" [level=2] [ref=f3e105]
+        - paragraph [ref=f3e106]: Kullanım kılavuzu, elektrik şeması, montaj çizimi ve kalibrasyon kaydı sisteme özeldir; seri numarasına göre hazırlanır ve e-posta ile iletilir.
+      - generic [ref=f3e107]:
+        - generic [ref=f3e108]:
+          - generic [ref=f3e109]: Kullanım kılavuzu
+          - paragraph [ref=f3e110]: Panel kullanımı, reçete tanımlama, günlük kontroller ve emniyet uyarıları. Devreye almada teslim edilir; kaybolduğunda yeniden gönderilir.
+        - generic [ref=f3e111]:
+          - generic [ref=f3e112]: Elektrik ve bağlantı şeması
+          - paragraph [ref=f3e113]: Besleme, saha veri yolu ve emniyet devresi bağlantıları. Bakım ekibinizin ihtiyaç duyduğu tek doküman genellikle budur.
+        - generic [ref=f3e114]:
+          - generic [ref=f3e115]: Montaj çizimi
+          - paragraph [ref=f3e116]: Gövde ölçüleri, montaj delik düzeni ve arayüz ölçüleri. Hatta değişiklik planlıyorsanız işinizi kolaylaştırır.
+        - generic [ref=f3e117]:
+          - generic [ref=f3e118]: Kalibrasyon ve doğrulama kaydı
+          - paragraph [ref=f3e119]: Devreye almada alınan ölçüm kayıtları. Bir sapma şüphesi doğduğunda karşılaştıracağınız başlangıç verisidir.
+    - generic [ref=f3e121]:
+      - generic [ref=f3e122]:
+        - paragraph [ref=f3e123]: DOKÜMAN TALEBİ
+        - heading "TALEBİNİZİ OLUŞTURUN" [level=2] [ref=f3e124]
+        - paragraph [ref=f3e125]: Seri numarasını yazın; sisteminize ait güncel doküman setini e-posta ile gönderelim.
+      - generic [ref=f3e127]:
+        - generic [ref=f3e128]:
+          - generic [ref=f3e129]:
+            - generic [ref=f3e130]: Firma
+            - textbox "Firma" [ref=f3e131]
+          - generic [ref=f3e132]:
+            - generic [ref=f3e133]: İlgili kişi
+            - textbox "İlgili kişi" [ref=f3e134]
+        - generic [ref=f3e135]:
+          - generic [ref=f3e136]:
+            - generic [ref=f3e137]: E-posta
+            - textbox "E-posta" [ref=f3e138]
+          - generic [ref=f3e139]:
+            - generic [ref=f3e140]: Seri numarası
+            - textbox "Seri numarası" [ref=f3e141]:
+              - /placeholder: gövde etiketinde
+        - generic [ref=f3e142]:
+          - generic [ref=f3e143]: İhtiyaç duyulan doküman
+          - combobox "İhtiyaç duyulan doküman" [ref=f3e144]:
+            - option "Kullanım kılavuzu" [selected]
+            - option "Elektrik ve bağlantı şeması"
+            - option "Montaj çizimi"
+            - option "Kalibrasyon ve doğrulama kaydı"
+            - option "Tümü"
+        - generic [ref=f3e145]:
+          - generic [ref=f3e146]: Not
+          - textbox "Not" [ref=f3e147]:
+            - /placeholder: Hangi sistem, hangi hat, özel bir ihtiyaç var mı
+        - generic [aria-hidden] [ref=f3e148]:
+          - text: Web sitesi
+          - textbox [ref=f3e149]
+        - button "TALEBİ GÖNDERİN" [ref=f3e150] [cursor=pointer]
+        - paragraph [ref=f3e151]:
+          - text: Bu formda paylaştığınız bilgiler yalnızca talebinizi yanıtlamak için kullanılır ve e-posta ile ekibimize iletilir. Ayrıntılar için
+          - link "KVKK aydınlatma metnimizi" [ref=f3e152] [cursor=pointer]:
+            - /url: http://localhost/servo/kvkk/
+          - text: inceleyin.
+        - paragraph [ref=f3e153]:
+          - text: "Talepler iş günlerinde yanıtlanır. Doğrudan yazmak isterseniz:"
+          - link "info@servomotion.com.tr" [ref=f3e154] [cursor=pointer]:
+            - /url: mailto:info@servomotion.com.tr
+    - generic [ref=f3e156]:
+      - generic [ref=f3e157]:
+        - heading "ARADIĞINIZI BULAMADINIZ MI?" [level=2] [ref=f3e158]
+        - paragraph [ref=f3e159]: Hangi dokümana ihtiyacınız olduğundan emin değilseniz yazın; birlikte bulalım.
+      - link "İLETİŞİME GEÇİN" [ref=f3e160] [cursor=pointer]:
+        - /url: http://localhost/servo/iletisim/
+  - generic [ref=f3e162]:
+    - generic [ref=f3e163]:
+      - heading "ÖNCE BİLGİ, SONRA YATIRIM" [level=2] [ref=f3e164]
+      - paragraph [ref=f3e165]: Sistem seçimi ve yatırım kararlarını kolaylaştıran teknik yazıları, uygulama örneklerini ve ürün güncellemelerini yayımlandıkça e-posta ile paylaşıyoruz.
+    - generic [ref=f3e166]:
+      - generic [ref=f3e167]:
+        - textbox "E-posta adresiniz" [ref=f3e168]
+        - generic [aria-hidden] [ref=f3e169]:
+          - text: Web sitesi
+          - textbox [ref=f3e170]
+        - button "KAYDOLUN" [ref=f3e171] [cursor=pointer]
+      - paragraph [ref=f3e172]: E-bülten aboneliği için kaydolun
+      - paragraph [ref=f3e173]:
+        - text: E-posta adresiniz yalnızca bülten göndermek için işlenir; aboneliğinizi her zaman sonlandırabilirsiniz. Ayrıntılar için
+        - link "KVKK aydınlatma metnimize bakın" [ref=f3e174] [cursor=pointer]:
+          - /url: http://localhost/servo/kvkk/
+        - text: .
+  - contentinfo [ref=f3e175]:
+    - generic [ref=f3e176]:
+      - generic [ref=f3e177]:
+        - generic [ref=f3e178]:
+          - generic [ref=f3e179]: SİSTEMLER
+          - link "Core Precisor" [ref=f3e180] [cursor=pointer]:
+            - /url: http://localhost/servo/core-precisor/
+          - link "Shuttle Precisor" [ref=f3e181] [cursor=pointer]:
+            - /url: http://localhost/servo/shuttle-precisor/
+          - link "Teknik dokümanlar" [ref=f3e182] [cursor=pointer]:
+            - /url: http://localhost/servo/dokumanlar/
+        - generic [ref=f3e183]:
+          - generic [ref=f3e184]: UYGULAMA ALANLARI
+          - link "Lastik ve kompozit" [ref=f3e185] [cursor=pointer]:
+            - /url: http://localhost/servo/uygulama/lastik/
+          - link "Hijyenik ürünler ve nonwoven" [ref=f3e186] [cursor=pointer]:
+            - /url: http://localhost/servo/uygulama/nonwoven/
+          - link "Ambalaj ve kağıt" [ref=f3e187] [cursor=pointer]:
+            - /url: http://localhost/servo/uygulama/ambalaj/
+          - link "Film ve folyo" [ref=f3e188] [cursor=pointer]:
+            - /url: http://localhost/servo/uygulama/film-folyo/
+          - link "Tekstil ve teknik kumaşlar" [ref=f3e189] [cursor=pointer]:
+            - /url: http://localhost/servo/uygulama/tekstil/
+          - link "Etiket ve yapışkanlı bant" [ref=f3e190] [cursor=pointer]:
+            - /url: http://localhost/servo/uygulama/etiket/
+        - generic [ref=f3e191]:
+          - generic [ref=f3e192]: BAŞARI HİKAYELERİ
+          - link "Sahadan altı uygulama" [ref=f3e193] [cursor=pointer]:
+            - /url: http://localhost/servo/basari-hikayeleri/
+          - link "Servis ve devreye alma" [ref=f3e194] [cursor=pointer]:
+            - /url: http://localhost/servo/servis/
+          - link "Destek hattı" [ref=f3e195] [cursor=pointer]:
+            - /url: http://localhost/servo/servis-destek-hatti/
+          - link "Kılavuzlar" [ref=f3e196] [cursor=pointer]:
+            - /url: http://localhost/servo/servis-kilavuzlar/
+          - link "Rehber yazıları" [ref=f3e197] [cursor=pointer]:
+            - /url: http://localhost/servo/rehber/
+        - generic [ref=f3e198]:
+          - generic [ref=f3e199]: KURUMSAL
+          - link "Hakkımızda" [ref=f3e200] [cursor=pointer]:
+            - /url: http://localhost/servo/kurumsal/
+          - link "İletişim" [ref=f3e201] [cursor=pointer]:
+            - /url: http://localhost/servo/iletisim/
+          - link "Sıkça sorulan sorular" [ref=f3e202] [cursor=pointer]:
+            - /url: http://localhost/servo/sss/
+          - link "Sözlük" [ref=f3e203] [cursor=pointer]:
+            - /url: http://localhost/servo/sozluk/
+          - link "KVKK ve çerezler" [ref=f3e204] [cursor=pointer]:
+            - /url: http://localhost/servo/kvkk/
+      - generic [ref=f3e205]:
+        - generic [ref=f3e206]:
+          - text: ServoMotion, Oktay Otomasyon Elektronik Mühendislik San. ve Tic. A.Ş. (
+          - link "OEM Lazer" [ref=f3e207] [cursor=pointer]:
+            - /url: https://o-em.com.tr
+          - text: ) markasıdır.
+        - generic [ref=f3e208]:
+          - link "info@servomotion.com.tr" [ref=f3e209] [cursor=pointer]:
+            - /url: mailto:info@servomotion.com.tr
+          - text: ·
+          - link "+90 212 577 25 67" [ref=f3e210] [cursor=pointer]:
+            - /url: tel:+902125772567

@@ -24,6 +24,10 @@ defined( 'ABSPATH' ) || exit;
  * </div>
  *
  * Alt öğelerde CSS class'ı "sep" olan öğe ayırıcı çizgi olarak basılır.
+ *
+ * Üst öğeye "servo-ust-link" class'ı verilirse üst öğe düğme yerine bağlantı olur (tıklayınca kendi adresine gider);
+ * alt menü masaüstünde hover ve klavye odağıyla (CSS), hamburgerde girintili liste olarak açılır.
+ * Alt öğelerden biri (ya da bir uygulama sayfası) geçerliyse üst öğe aktif görünür.
  */
 class Servo_Nav_Walker extends Walker_Nav_Menu {
 
@@ -59,6 +63,23 @@ class Servo_Nav_Walker extends Walker_Nav_Menu {
 		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
 		$title   = apply_filters( 'nav_menu_item_title', $item->title, $item, $args, $depth );
 
+		// Tıklanınca kendi adresine giden, hover/odakla açılan alt menülü üst öğe (menü öğesi class'ı "servo-ust-link").
+		if ( 0 === $depth && $this->has_children && in_array( 'servo-ust-link', $classes, true ) && ! empty( $item->url ) && '#' !== $item->url ) {
+			$aktif = in_array( 'current-menu-parent', $classes, true )
+				|| in_array( 'current-menu-ancestor', $classes, true )
+				|| ( false === strpos( $item->url, '#' ) && servo_menu_item_is_current( $item ) )
+				|| $this->alt_oge_aktif( $item, $args );
+
+			$output .= '<div class="navdrop navdrop-link"><a class="tab" href="' . esc_url( $item->url ) . '" aria-haspopup="true"'
+				. ( $aktif ? ' aria-current="page"' : '' ) . '>' . esc_html( $title ) . '</a>'
+				// Hamburgerde alt menüyü açıp kapatan ok düğmesi (masaüstünde CSS ile gizli; nav-mobil.js yönetir).
+				. '<button type="button" class="navdrop-ok" aria-expanded="false" aria-controls="' . esc_attr( 'navsub-' . $item->ID ) . '" aria-label="'
+				. esc_attr( sprintf( /* translators: %s: menü öğesi adı */ __( '%s alt menüsünü aç/kapat', 'servomotion' ), $title ) ) . '"><span class="car" aria-hidden="true">▾</span></button>'
+				. '<div class="navsub" id="' . esc_attr( 'navsub-' . $item->ID ) . '">';
+
+			return;
+		}
+
 		if ( 0 === $depth && $this->has_children ) {
 			$output .= '<div class="navdrop"><button class="navtop" type="button" aria-expanded="false">'
 				. esc_html( $title ) . ' <span class="car" aria-hidden="true">▾</span></button><div class="navsub">';
@@ -78,6 +99,38 @@ class Servo_Nav_Walker extends Walker_Nav_Menu {
 
 		$class   = ( 0 === $depth && isset( $args->servo_variant ) && 'tab' === $args->servo_variant ) ? 'tab' : '';
 		$output .= $this->link( $item, $title, $class );
+	}
+
+	/**
+	 * Üst öğenin alt öğelerinden biri geçerli sayfa mı (ya da alt öğe uygulama sayfaları ve geçerli sayfa bir uygulama mı).
+	 *
+	 * @param WP_Post  $parent Üst menü öğesi.
+	 * @param stdClass $args   wp_nav_menu argümanları.
+	 * @return bool
+	 */
+	private function alt_oge_aktif( $parent, $args ) {
+		$ogeler = ( isset( $args->menu ) && $args->menu ) ? wp_get_nav_menu_items( $args->menu ) : array();
+
+		if ( ! $ogeler && ! empty( $args->theme_location ) ) {
+			$konumlar = get_nav_menu_locations();
+			$ogeler   = ! empty( $konumlar[ $args->theme_location ] ) ? wp_get_nav_menu_items( $konumlar[ $args->theme_location ] ) : array();
+		}
+
+		foreach ( (array) $ogeler as $alt ) {
+			if ( (int) $alt->menu_item_parent !== (int) $parent->ID ) {
+				continue;
+			}
+
+			if ( 'uygulama' === $alt->object && is_singular( 'uygulama' ) ) {
+				return true;
+			}
+
+			if ( servo_menu_item_is_current( $alt ) ) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	/**

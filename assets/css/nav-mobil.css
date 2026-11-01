@@ -44,6 +44,28 @@ html{scroll-padding-top:calc(var(--servo-header-h,100px) + var(--servo-ust,0px) 
 .nav .wrap>nav .navdrop,.nav .wrap>.tabs .navdrop{display:block;flex:none;width:100%}
 .nav .wrap>nav .navsub,.nav .wrap>.tabs .navsub{position:static;display:block;min-width:0;max-width:100%;margin:0 0 4px 14px;padding:0;background:transparent;border:0;box-shadow:none}
 .nav .wrap>nav .navsub a,.nav .wrap>.tabs .navsub a{padding:10px 2px;color:#9badc1;font-weight:500;text-align:left}
+/* Akordeon: bağlantılı üst öğe + ok düğmesi yan yana, alt menü varsayılan kapalı. */
+.nav .wrap>.tabs .navdrop-link{display:flex;flex-wrap:wrap;align-items:stretch}
+.nav .wrap>.tabs .navdrop-link>a.tab{flex:1 1 0;width:auto;min-width:0}
+.nav .wrap>.tabs .navdrop-ok{display:inline-flex;align-items:center;justify-content:center;flex:none;width:48px;margin:0;padding:0;background:none;border:0;border-bottom:1px solid #1D2833;border-left:1px solid #1D2833;border-radius:0;color:#fff;cursor:pointer}
+.nav .wrap>.tabs .navdrop-ok:hover,.nav .wrap>.tabs .navdrop-ok[aria-expanded="true"]{color:var(--yellow)}
+.nav .wrap>.tabs .navdrop-ok:focus-visible{outline:3px solid #589deb;outline-offset:-3px}
+.nav .wrap>.tabs .navdrop-ok .car{display:block;font-size:14px;line-height:1;transition:transform .2s}
+.nav .wrap>.tabs .navdrop-ok[aria-expanded="true"] .car{transform:rotate(180deg)}
+.nav .wrap>.tabs .navdrop-link .navsub{display:none;flex:0 0 100%;margin:0 0 4px 14px;max-width:calc(100% - 14px)}
+.nav .wrap>.tabs .navdrop-link.navdrop-acik .navsub{display:block}
 }
+@media(min-width:1181px){.navdrop-ok{display:none}}
+@media(max-width:1180px) and (prefers-reduced-motion:reduce){.navdrop-ok .car{transition:none!important}}
+/* Çok dar ekran (≤360px): logo yazısı EN ve menü düğmesine binmesin. */
+@media(max-width:360px){
+.nav .wrap.nav-in{padding-left:14px;padding-right:14px;gap:0 8px}
+.nav .brand{flex:0 1 auto;min-width:0;overflow:hidden}
+header.nav .brand b{font-size:17px;white-space:nowrap}
+.nav-aksiyon{gap:6px;flex:none}
+.nav-aksiyon .langlink{padding:0 8px;height:38px}
+.navtoggle{width:40px;height:38px}
+}
+@media(max-width:300px){header.nav .brand b{font-size:15px}.nav-aksiyon .langlink{padding:0 6px}.navtoggle{width:38px}}
 @media(max-width:480px){header.nav .brand{font-size:22px}}
 @media(prefers-reduced-motion:reduce){.navtoggle-cizgi,.navtoggle-cizgi:before,.navtoggle-cizgi:after{transition:none}}

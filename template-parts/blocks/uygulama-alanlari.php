@@ -47,6 +47,7 @@ if ( $servo_one ) {
 		if ( '0' !== (string) get_post_meta( $servo_id, 'detay_sayfasi', true ) ) {
 			echo '<a class="appnote" href="' . esc_url( get_permalink( $servo_id ) ) . '">' . esc_html__( 'Uygulama sayfasını görün →', 'servomotion' ) . '</a>';
 		}
+		echo servo_uygulama_foto( $servo_id ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		echo '</article>';
 	}
 	echo '</div>';
@@ -68,7 +69,7 @@ if ( $servo_digerleri ) {
 			/* translators: %s: belirleyici etkenler */
 			echo '<span style="display:block;margin-top:8px;font-size:14.5px;color:#64758a">' . esc_html( sprintf( __( 'Belirleyici olan: %s', 'servomotion' ), $servo_belirleyici ) ) . '</span>';
 		}
-		echo '</p></article>';
+		echo '</p>' . servo_uygulama_foto( $servo_id ) . '</article>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 	echo '</div>';
 }

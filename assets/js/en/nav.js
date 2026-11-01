@@ -1,6 +1,6 @@
 /* Kaynak: servomotion-site-tum131026/en/core-precisor.html <script> (içerik değiştirilmeden taşındı) */
 (function(){"use strict";
- var drops=[].slice.call(document.querySelectorAll('.navdrop'));
+ var drops=[].slice.call(document.querySelectorAll('.navdrop')).filter(function(d){return d.querySelector('.navtop');}); /* .navdrop-link (bağlantılı üst öğe) CSS ile açılır */
  drops.forEach(function(d){
    var btn=d.querySelector('.navtop');
    if(!btn) return;

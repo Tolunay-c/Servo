@@ -1,0 +1,231 @@
+- generic [active] [ref=f14e1]:
+  - navigation "Main menu" [ref=f14e2]:
+    - generic [ref=f14e3]:
+      - link "ServoMotion" [ref=f14e4] [cursor=pointer]:
+        - /url: http://localhost/servo/en/home/
+      - generic [ref=f14e19]:
+        - link "TR" [ref=f14e20] [cursor=pointer]:
+          - /url: http://localhost/servo/uygulama/lastik/
+        - button "Open menu" [ref=f14e21] [cursor=pointer]
+  - main [ref=f14e23]:
+    - generic [ref=f14e25]:
+      - generic [ref=f14e26]:
+        - paragraph [ref=f14e27]: APPLICATION · RUBBER AND COMPOSITE
+        - heading [level=1] [ref=f14e28]:
+          - text: EDGE AND SYMMETRY REFERENCE
+          - emphasis [ref=f14e29]: IN REINFORCEMENT LAYUP
+        - paragraph [ref=f14e30]: Reinforcement ply layup width changes from product to product. Every changeover means re-establishing the edge position and the symmetry axis, and setting them by eye makes the result depend on the operator and on the time available. ServoMotion reads the target positions from the recipe and projects the laser reference lines onto the working surface.
+        - generic [ref=f14e31]:
+          - link "REQUEST APPLICATION NOTE" [ref=f14e32] [cursor=pointer]:
+            - /url: "#not-talep"
+          - link "EXPLORE CORE PRECISOR" [ref=f14e33] [cursor=pointer]:
+            - /url: http://localhost/servo/en/core-precisor/
+        - generic [ref=f14e34]:
+          - generic [ref=f14e35]:
+            - generic [ref=f14e36]: Core
+            - generic [ref=f14e37]: System used in the example installation
+          - generic [ref=f14e38]:
+            - generic [ref=f14e39]: K4dual channel
+            - generic [ref=f14e40]: 1 fixed + 2 moving
+          - generic [ref=f14e41]:
+            - generic [ref=f14e42]: 1,600mm
+            - generic [ref=f14e43]: Travel
+      - img "Rubber and composite application image 1" [ref=f14e45]
+    - generic [ref=f14e47]:
+      - generic [ref=f14e48]:
+        - paragraph [ref=f14e50]: FROM THE FIELD
+        - heading "Application Images" [level=2] [ref=f14e51]
+      - generic [ref=f14e52]:
+        - figure [ref=f14e53]:
+          - img "Rubber and composite application image 1" [ref=f14e54]
+        - figure [ref=f14e55]:
+          - img "Rubber and composite application image 2" [ref=f14e56]
+    - generic [ref=f14e58]:
+      - generic [ref=f14e59]:
+        - paragraph [ref=f14e60]: ON THE LINE
+        - heading "DO THESE SOUND FAMILIAR?" [level=2] [ref=f14e61]
+      - generic [ref=f14e62]:
+        - generic [ref=f14e63]:
+          - generic [ref=f14e64]: Re-alignment on every product
+          - paragraph [ref=f14e65]: When the layup width changes, the edge and symmetry reference is rebuilt from scratch, making setup the longest item in the changeover.
+        - generic [ref=f14e66]:
+          - generic [ref=f14e67]: Judgement by eye on curved surfaces
+          - paragraph [ref=f14e68]: On a cylindrical or curved surface, centring the ply depends on the operator’s viewing angle. The same product is set up differently across shifts, resulting in inconsistent output.
+        - generic [ref=f14e69]:
+          - generic [ref=f14e70]: The error shows up downstream
+          - paragraph [ref=f14e71]: Ply misalignment goes unnoticed during layup, and by the time it appears at the next stage, correcting it is expensive.
+        - generic [ref=f14e72]:
+          - generic [ref=f14e73]: The reference drifts mechanically
+          - paragraph [ref=f14e74]: Fixed guides and templates shift with vibration and contact, and need periodic readjustment.
+    - generic [ref=f14e76]:
+      - generic [ref=f14e77]:
+        - paragraph [ref=f14e78]: WHAT WE MEASURE ON SITE
+        - heading "PARAMETERS THAT DEFINE THE SYSTEM" [level=2] [ref=f14e79]
+        - paragraph [ref=f14e80]: The parameters below drive the design decisions in this segment. We measure these values on your line and base the quotation on that data.
+      - table [ref=f14e81]:
+        - rowgroup [ref=f14e82]:
+          - row [ref=f14e83]:
+            - rowheader "Layup width range" [ref=f14e84]
+            - cell "The difference between the narrowest and widest product determines the housing length and the travel range." [ref=f14e85]
+          - row [ref=f14e86]:
+            - rowheader "Symmetry axis" [ref=f14e87]
+            - cell "Whether the centre reference must remain visible continuously determines the channel configuration." [ref=f14e88]
+          - row [ref=f14e89]:
+            - rowheader "Surface geometry" [ref=f14e90]
+            - cell "Flat, curved or cylindrical geometry affects the projection angle and the mounting height." [ref=f14e91]
+          - row [ref=f14e92]:
+            - rowheader "Working distance" [ref=f14e93]
+            - cell "The vertical distance between the laser and the surface determines line width and angular tolerance." [ref=f14e94]
+          - row [ref=f14e95]:
+            - rowheader "Support structure" [ref=f14e96]
+            - cell "An existing frame or a new traverse; rigidity translates directly into accuracy." [ref=f14e97]
+          - row [ref=f14e98]:
+            - rowheader "Vibration and environment" [ref=f14e99]
+            - cell "Line vibration, surface colour and overhead lighting all influence the choice of laser colour." [ref=f14e100]
+    - generic [ref=f14e102]:
+      - generic [ref=f14e103]:
+        - paragraph [ref=f14e104]: SYSTEM SELECTION
+        - heading "WHICH ARCHITECTURE FOR THIS SEGMENT?" [level=2] [ref=f14e105]
+      - generic [ref=f14e106]:
+        - generic [ref=f14e107]:
+          - paragraph [ref=f14e108]: MOST APPLICATIONS
+          - heading "CORE PRECISOR" [level=3] [ref=f14e109]
+          - paragraph [ref=f14e110]: In reinforcement layup, the number of simultaneous reference lines is usually limited. An enclosed industrial profile drives to the target positions under servo control, and where symmetry is required, a dual-channel configuration keeps the centre reference continuously visible.
+          - link "Explore Core Precisor →" [ref=f14e111] [cursor=pointer]:
+            - /url: http://localhost/servo/en/core-precisor/
+            - text: Explore Core
+            - generic [ref=f14e112]: Precisor
+            - text: →
+        - generic [ref=f14e113]:
+          - paragraph [ref=f14e114]: IF THE NUMBER OF PROJECTED LASER LINES GROWS
+          - heading "SHUTTLE PRECISOR" [level=3] [ref=f14e115]
+          - paragraph [ref=f14e116]: If more than six lines must be visible at once, the shuttle architecture — a single servo axis positioning multiple laser carriages — takes over. The decision is based on the densest recipe in your portfolio.
+          - link "Explore Shuttle Precisor →" [ref=f14e117] [cursor=pointer]:
+            - /url: http://localhost/servo/en/shuttle-precisor/
+            - text: Explore Shuttle
+            - generic [ref=f14e118]: Precisor
+            - text: →
+      - generic [ref=f14e119]:
+        - paragraph [ref=f14e120]: EXAMPLE INSTALLATION
+        - paragraph [ref=f14e121]: CORE PRECISOR · K4 DUAL CHANNEL · 1,600 MM TRAVEL
+        - paragraph [ref=f14e122]: Two independent motion channels plus a fixed centre reference on a separate bracket. In symmetrical layup, both edges are positioned simultaneously while the centre line stays visible throughout production. These figures come from one example installation; the dimensions for your line are determined during the site survey.
+    - generic [ref=f14e124]:
+      - generic [ref=f14e125]:
+        - paragraph [ref=f14e126]: RELATED ARTICLES
+        - heading "WHAT WE HAVE WRITTEN ON THIS" [level=2] [ref=f14e127]
+      - generic [ref=f14e128]:
+        - link "An example installation from this segment →" [ref=f14e129] [cursor=pointer]:
+          - /url: http://localhost/servo/basari-hikayeleri/#lastik
+        - link "What is a fixed reference laser for? →" [ref=f14e130] [cursor=pointer]:
+          - /url: http://localhost/servo/en/guide/fixed-reference/
+        - link "The six motion configurations of Core Precisor →" [ref=f14e131] [cursor=pointer]:
+          - /url: http://localhost/servo/en/guide/core-configurations/
+          - text: The six motion configurations of Core
+          - generic [ref=f14e132]: Precisor
+          - text: →
+        - link "The eight things we measure on site →" [ref=f14e133] [cursor=pointer]:
+          - /url: http://localhost/servo/en/guide/site-survey-criteria/
+        - link "What does ±1.00 mm mean, and why does it matter? →" [ref=f14e134] [cursor=pointer]:
+          - /url: http://localhost/servo/en/guide/accuracy/
+    - generic [ref=f14e137]:
+      - generic [ref=f14e139]:
+        - paragraph [ref=f14e140]: APPLICATION NOTE
+        - heading "REQUEST THE APPLICATION NOTE" [level=2] [ref=f14e141]
+        - paragraph [ref=f14e142]: The application note is shared as a PDF on request.
+      - generic [ref=f14e144]:
+        - generic [ref=f14e145]:
+          - generic [ref=f14e146]: To request the PDF, please enter your email address
+          - textbox "To request the PDF, please enter your email address" [ref=f14e147]
+        - generic [aria-hidden] [ref=f14e148]:
+          - text: Website
+          - textbox [ref=f14e149]
+        - button "SEND" [ref=f14e150] [cursor=pointer]
+        - paragraph [ref=f14e151]:
+          - text: The details you share in this form are used only to answer your request and are sent to our team by email. See our
+          - link "privacy notice" [ref=f14e152] [cursor=pointer]:
+            - /url: http://localhost/servo/en/privacy/
+          - text: for details.
+    - generic [ref=f14e154]:
+      - generic [ref=f14e155]:
+        - heading "LET'S ASSESS YOUR LINE TOGETHER" [level=2] [ref=f14e156]
+        - paragraph [ref=f14e157]: Share your layup width range and mounting structure, and we will define the system configuration and housing dimensions together.
+      - link "SEND AN APPLICATION SUMMARY" [ref=f14e158] [cursor=pointer]:
+        - /url: http://localhost/servo/en/contact/
+  - generic [ref=f14e160]:
+    - generic [ref=f14e161]:
+      - heading "MAKE AN INFORMED INVESTMENT DECISION" [level=2] [ref=f14e162]
+      - paragraph [ref=f14e163]: We share technical articles, application examples and product updates by email as they are published, to make system selection and investment decisions easier.
+    - generic [ref=f14e164]:
+      - generic [ref=f14e165]:
+        - textbox "Your email address" [ref=f14e166]
+        - generic [aria-hidden] [ref=f14e167]:
+          - text: Website
+          - textbox [ref=f14e168]
+        - button "SUBSCRIBE" [ref=f14e169] [cursor=pointer]
+      - paragraph [ref=f14e170]: Sign up for the e-newsletter
+      - paragraph [ref=f14e171]:
+        - text: Your email address is processed only to send the newsletter, and you can unsubscribe at any time. For details, see
+        - link "our privacy notice" [ref=f14e172] [cursor=pointer]:
+          - /url: http://localhost/servo/en/privacy/
+        - text: .
+  - contentinfo [ref=f14e173]:
+    - generic [ref=f14e174]:
+      - generic [ref=f14e175]:
+        - generic [ref=f14e176]:
+          - generic [ref=f14e177]: SYSTEMS
+          - link "Core Precisor" [ref=f14e178] [cursor=pointer]:
+            - /url: http://localhost/servo/en/core-precisor/
+          - link "Shuttle Precisor" [ref=f14e179] [cursor=pointer]:
+            - /url: http://localhost/servo/en/shuttle-precisor/
+          - link "Technical documents" [ref=f14e180] [cursor=pointer]:
+            - /url: http://localhost/servo/en/documents/
+        - generic [ref=f14e181]:
+          - generic [ref=f14e182]: APPLICATIONS
+          - link "Rubber and composite" [ref=f14e183] [cursor=pointer]:
+            - /url: http://localhost/servo/en/application/rubber/
+          - link "Hygiene products and nonwoven" [ref=f14e184] [cursor=pointer]:
+            - /url: http://localhost/servo/en/application/nonwoven/
+          - link "Packaging and paper" [ref=f14e185] [cursor=pointer]:
+            - /url: http://localhost/servo/en/application/packaging/
+          - link "Film and foil" [ref=f14e186] [cursor=pointer]:
+            - /url: http://localhost/servo/en/application/film-foil/
+          - link "Textiles and technical fabrics" [ref=f14e187] [cursor=pointer]:
+            - /url: http://localhost/servo/en/application/textiles/
+          - link "Labels and adhesive tape" [ref=f14e188] [cursor=pointer]:
+            - /url: http://localhost/servo/en/application/labels/
+        - generic [ref=f14e189]:
+          - generic [ref=f14e190]: SUCCESS STORIES
+          - link "Proven applications across six industries" [ref=f14e191] [cursor=pointer]:
+            - /url: http://localhost/servo/en/success-stories/
+          - link "Service and commissioning" [ref=f14e192] [cursor=pointer]:
+            - /url: http://localhost/servo/en/service/
+          - link "Helpdesk" [ref=f14e193] [cursor=pointer]:
+            - /url: http://localhost/servo/en/service-helpdesk/
+          - link "Manuals" [ref=f14e194] [cursor=pointer]:
+            - /url: http://localhost/servo/en/service-manuals/
+          - link "Guide articles" [ref=f14e195] [cursor=pointer]:
+            - /url: http://localhost/servo/en/guide/
+        - generic [ref=f14e196]:
+          - generic [ref=f14e197]: COMPANY
+          - link "About us" [ref=f14e198] [cursor=pointer]:
+            - /url: http://localhost/servo/en/company/
+          - link "Contact" [ref=f14e199] [cursor=pointer]:
+            - /url: http://localhost/servo/en/contact/
+          - link "Frequently asked questions" [ref=f14e200] [cursor=pointer]:
+            - /url: http://localhost/servo/en/faq/
+          - link "Glossary" [ref=f14e201] [cursor=pointer]:
+            - /url: http://localhost/servo/en/glossary/
+          - link "Privacy and cookies" [ref=f14e202] [cursor=pointer]:
+            - /url: http://localhost/servo/en/privacy/
+      - generic [ref=f14e203]:
+        - generic [ref=f14e204]:
+          - text: ServoMotion is a brand of Oktay Otomasyon Elektronik Mühendislik San. ve Tic. A.Ş. (
+          - link "OEM Lazer" [ref=f14e205] [cursor=pointer]:
+            - /url: https://o-em.com.tr
+          - text: ).
+        - generic [ref=f14e206]:
+          - link "info@servomotion.com.tr" [ref=f14e207] [cursor=pointer]:
+            - /url: mailto:info@servomotion.com.tr
+          - text: ·
+          - link "+90 212 577 25 67" [ref=f14e208] [cursor=pointer]:
+            - /url: tel:+902125772567

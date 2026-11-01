@@ -21,6 +21,22 @@
    if(e.key==='Escape'&&btn.getAttribute('aria-expanded')==='true'){ set(false); btn.focus(); }
  });
  panel.addEventListener('click',function(e){ if(e.target.closest('a')) set(false); });
+ // Akordeon: ok düğmeleri alt menüyü açar/kapatır, aynı anda tek menü açık kalır; geçerli sayfa bir alt öğeyse o menü açık gelir.
+ var oklar=[].slice.call(panel.querySelectorAll('.navdrop-ok'));
+ function ac(ok,open){
+   var kap=ok.closest('.navdrop-link');
+   ok.setAttribute('aria-expanded',open?'true':'false');
+   if(kap) kap.classList.toggle('navdrop-acik',open);
+ }
+ oklar.forEach(function(ok){
+   var kap=ok.closest('.navdrop-link');
+   if(kap&&kap.querySelector('.navsub [aria-current]')) ac(ok,true);
+   ok.addEventListener('click',function(){
+     var open=ok.getAttribute('aria-expanded')!=='true';
+     oklar.forEach(function(o){ if(o!==ok) ac(o,false); });
+     ac(ok,open);
+   });
+ });
  function genis(){ if(!mq.matches) set(false); }
  if(mq.addEventListener) mq.addEventListener('change',genis); else mq.addListener(genis);
 })();

@@ -26,10 +26,18 @@ function servo_render_blocks( $post_id = false ) {
 	}
 
 	// Marka adları tüm blok çıktısında tek seferde işaretlenir (servo_bdi()).
+	// Uygulama sayfalarında "Uygulama Resimleri" bölümü koyu hero'dan hemen sonra gelir.
+	$resimler = is_singular( 'uygulama' ) && ( ! $post_id || (int) $post_id === get_queried_object_id() );
+	$sira     = 0;
+
 	ob_start();
 	while ( have_rows( 'bloklar', $post_id ) ) {
 		the_row();
 		get_template_part( 'template-parts/blocks/' . str_replace( '_', '-', get_row_layout() ) );
+
+		if ( 0 === $sira++ && $resimler ) {
+			get_template_part( 'template-parts/uygulama/resimler' );
+		}
 	}
 	echo servo_bdi( (string) ob_get_clean() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- bloklar kendi çıktısını escape eder.
 

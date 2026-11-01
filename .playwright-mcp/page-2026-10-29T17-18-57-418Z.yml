@@ -1,0 +1,303 @@
+- generic [active] [ref=f9e1]:
+  - navigation "Main menu" [ref=f9e2]:
+    - generic [ref=f9e3]:
+      - link "ServoMotion" [ref=f9e4] [cursor=pointer]:
+        - /url: http://localhost/servo/en/home/
+      - generic [ref=f9e19]:
+        - link "HOME" [ref=f9e20] [cursor=pointer]:
+          - /url: http://localhost/servo/en/home/
+        - link "CORE PRECISOR" [ref=f9e21] [cursor=pointer]:
+          - /url: http://localhost/servo/en/core-precisor/
+        - link "SHUTTLE PRECISOR" [ref=f9e22] [cursor=pointer]:
+          - /url: http://localhost/servo/en/shuttle-precisor/
+        - link "SUCCESS STORIES" [ref=f9e23] [cursor=pointer]:
+          - /url: http://localhost/servo/en/success-stories/
+        - link "SERVICE" [ref=f9e24] [cursor=pointer]:
+          - /url: http://localhost/servo/en/service/
+        - link "COMPANY" [ref=f9e25] [cursor=pointer]:
+          - /url: http://localhost/servo/en/company/
+        - link "GUIDE" [ref=f9e26] [cursor=pointer]:
+          - /url: http://localhost/servo/en/guide/
+        - link "CONTACT" [ref=f9e27] [cursor=pointer]:
+          - /url: http://localhost/servo/en/contact/
+        - link "TR" [ref=f9e28] [cursor=pointer]:
+          - /url: http://localhost/servo/basari-hikayeleri/
+  - main [ref=f9e29]:
+    - generic [ref=f9e32]:
+      - paragraph [ref=f9e33]: SUCCESS STORIES
+      - heading [level=1] [ref=f9e34]:
+        - text: PROVEN APPLICATIONS
+        - emphasis [ref=f9e35]: ACROSS SIX INDUSTRIES
+      - paragraph [ref=f9e36]: The cases below come from projects commissioned on site. Customer identities are withheld for commercial confidentiality; the figures are shared so you can scale system capacity and performance to your own line.
+      - generic [ref=f9e37]:
+        - link "TALK TO OUR SPECIALISTS" [ref=f9e38] [cursor=pointer]:
+          - /url: http://localhost/servo/en/contact/
+        - link "REQUEST DOCUMENTS" [ref=f9e39] [cursor=pointer]:
+          - /url: http://localhost/servo/en/documents/
+    - generic [ref=f9e41]:
+      - generic [ref=f9e42]:
+        - paragraph [ref=f9e43]: INSTALLATIONS
+        - heading "SIX SEGMENTS SIX SCALES" [level=2] [ref=f9e44]
+        - paragraph [ref=f9e45]: How the same reference logic scales across different line types.
+      - generic [ref=f9e46]:
+        - article [ref=f9e47]:
+          - generic [ref=f9e61]:
+            - paragraph [ref=f9e62]: RUBBER AND COMPOSITE · REINFORCEMENT LAYUP
+            - heading "EDGE AND SYMMETRY REFERENCE ON A CURVED SURFACE" [level=3] [ref=f9e63]
+            - paragraph [ref=f9e64]: The layup width of the reinforcement plies changed from product to product, and the edge and symmetry reference had to be rebuilt at every changeover.
+          - generic [ref=f9e65]:
+            - generic [ref=f9e66]:
+              - generic [ref=f9e67]:
+                - text: Core
+                - generic [ref=f9e68]: Precisor
+              - generic [ref=f9e70]: System
+            - generic [ref=f9e71]:
+              - generic [ref=f9e72]: K4dual channel
+              - generic [ref=f9e73]: Configuration
+            - generic [ref=f9e74]:
+              - generic [ref=f9e75]: 1,600mm
+              - generic [ref=f9e76]: Travel
+            - generic [ref=f9e77]:
+              - generic [ref=f9e78]: ±1.00mm
+              - generic [ref=f9e79]: Projection accuracy
+          - generic [ref=f9e80]:
+            - generic [ref=f9e81]:
+              - heading "Starting point" [level=4] [ref=f9e82]
+              - paragraph [ref=f9e83]: Layup width varied by product group, and centring on the curved surface was done by eye. The same product was set up differently across shifts, resulting in inconsistent output.
+            - generic [ref=f9e84]:
+              - heading "What was installed" [level=4] [ref=f9e85]
+              - paragraph [ref=f9e86]: "A dual-channel configuration: two moving channels travel to the edge positions in the recipe while a fixed laser on a separate bracket keeps the centre reference visible throughout production."
+          - figure "Site photograph · rubber and composite" [ref=f9e87]:
+            - img "Rubber and composite application image 1" [ref=f9e88]
+        - article [ref=f9e90]:
+          - generic [ref=f9e125]:
+            - paragraph [ref=f9e126]: HYGIENE PRODUCTS AND NONWOVEN · MULTI-LAYER LINE
+            - heading "TWENTY-SIX LASER LINES, ONE SERVO AXIS" [level=3] [ref=f9e127]
+            - paragraph [ref=f9e128]: Many laser reference lines had to be visible simultaneously, and the product size changed several times a day.
+          - generic [ref=f9e129]:
+            - generic [ref=f9e130]:
+              - generic [ref=f9e131]:
+                - text: Shuttle
+                - generic [ref=f9e132]: Precisor
+              - generic [ref=f9e134]: System
+            - generic [ref=f9e135]:
+              - generic [ref=f9e136]: 26lasers
+              - generic [ref=f9e137]: Carriage count
+            - generic [ref=f9e138]:
+              - generic [ref=f9e139]: 2,300mm
+              - generic [ref=f9e140]: Travel
+            - generic [ref=f9e141]:
+              - generic [ref=f9e142]: 1servo axis
+              - generic [ref=f9e143]: Moving axis
+          - generic [ref=f9e144]:
+            - generic [ref=f9e145]:
+              - heading "Starting point" [level=4] [ref=f9e146]
+              - paragraph [ref=f9e147]: Measuring and adjusting each reference line individually at every recipe change was the longest stop on the line, and small offsets between layers accumulated at the merge point.
+            - generic [ref=f9e148]:
+              - heading "What was installed" [level=4] [ref=f9e149]
+              - paragraph [ref=f9e150]: "A three-rail shuttle architecture: one servo axis carries 26 carriages to their recipe positions in sequence, each carriage locks on its rail, and once setup is complete every reference line remains visible at the same time."
+          - figure "Site photograph · hygiene products and nonwoven" [ref=f9e151]:
+            - img "Hygiene products and nonwoven application image 1" [ref=f9e152]
+        - article [ref=f9e154]:
+          - generic [ref=f9e178]:
+            - paragraph [ref=f9e179]: PACKAGING AND PAPER · SIZE CHANGEOVERS
+            - heading "A SHARED SETUP REFERENCE ACROSS SIZES" [level=3] [ref=f9e180]
+            - paragraph [ref=f9e181]: The line ran a wide range of sizes, and the guides and process elements were repositioned at every changeover.
+          - generic [ref=f9e182]:
+            - generic [ref=f9e183]:
+              - generic [ref=f9e184]:
+                - text: Shuttle
+                - generic [ref=f9e185]: Precisor
+              - generic [ref=f9e187]: System
+            - generic [ref=f9e188]:
+              - generic [ref=f9e189]: 16lasers
+              - generic [ref=f9e190]: Carriage count
+            - generic [ref=f9e191]:
+              - generic [ref=f9e192]: 1,800mm
+              - generic [ref=f9e193]: Travel
+            - generic [ref=f9e194]:
+              - generic [ref=f9e195]: ±1.00mm
+              - generic [ref=f9e196]: Projection accuracy
+          - generic [ref=f9e197]:
+            - generic [ref=f9e198]:
+              - heading "Starting point" [level=4] [ref=f9e199]
+              - paragraph [ref=f9e200]: The same product was set up differently across shifts, resulting in inconsistent output and increased material waste. There was no shared position reference across sizes.
+            - generic [ref=f9e201]:
+              - heading "What was installed" [level=4] [ref=f9e202]
+              - paragraph [ref=f9e203]: Sixteen laser carriages move to the positions defined in the recipe. At a size change the operator simply selects the recipe, and every position is rebuilt within the same reference frame.
+          - figure "Site photograph · packaging and paper" [ref=f9e204]:
+            - img "Packaging and paper application image 1" [ref=f9e205]
+        - article [ref=f9e207]:
+          - generic [ref=f9e218]:
+            - paragraph [ref=f9e219]: FILM AND FOIL · REEL SLITTING
+            - heading "A STABLE CUT REFERENCE BETWEEN TWO EDGES" [level=3] [ref=f9e220]
+            - paragraph [ref=f9e221]: Reel width and slit width changed from recipe to recipe, and the position of both edges had to be rebuilt at every changeover.
+          - generic [ref=f9e222]:
+            - generic [ref=f9e223]:
+              - generic [ref=f9e224]:
+                - text: Core
+                - generic [ref=f9e225]: Precisor
+              - generic [ref=f9e227]: System
+            - generic [ref=f9e228]:
+              - generic [ref=f9e229]: K3single channel + fixed
+              - generic [ref=f9e230]: Configuration
+            - generic [ref=f9e231]:
+              - generic [ref=f9e232]: 2,000mm
+              - generic [ref=f9e233]: Travel
+            - generic [ref=f9e234]:
+              - generic [ref=f9e235]: ±1.00mm
+              - generic [ref=f9e236]: Projection accuracy
+          - generic [ref=f9e237]:
+            - generic [ref=f9e238]:
+              - heading "Starting point" [level=4] [ref=f9e239]
+              - paragraph [ref=f9e240]: On a glossy, transparent surface the edge position was judged by eye and re-measured at every recipe change. When the ambient lighting changed, the same product could be set up differently.
+            - generic [ref=f9e241]:
+              - heading "What was installed" [level=4] [ref=f9e242]
+              - paragraph [ref=f9e243]: One moving channel travels to the edge target held in the recipe, while two fixed lasers keep the reference limits of the working area visible throughout production.
+          - figure "Site photograph · film and foil" [ref=f9e244]:
+            - img "Film and foil application image 1" [ref=f9e245]
+        - article [ref=f9e247]:
+          - generic [ref=f9e248]:
+            - img [aria-hidden] [ref=f9e250]:
+              - generic [ref=f9e260]: FIXED CENTRE
+            - generic [ref=f9e261]:
+              - paragraph [ref=f9e262]: TEXTILES AND TECHNICAL FABRICS · LAYUP
+              - heading "CENTRE FIXED, EDGES FROM THE RECIPE" [level=3] [ref=f9e263]
+              - paragraph [ref=f9e264]: Even with correct edges the product came out off-centre once the centre axis was lost, so the symmetry reference had to hold throughout production.
+          - generic [ref=f9e265]:
+            - generic [ref=f9e266]:
+              - generic [ref=f9e267]:
+                - text: Core
+                - generic [ref=f9e268]: Precisor
+              - generic [ref=f9e270]: System
+            - generic [ref=f9e271]:
+              - generic [ref=f9e272]: K4dual channel
+              - generic [ref=f9e273]: Configuration
+            - generic [ref=f9e274]:
+              - generic [ref=f9e275]: 2,400mm
+              - generic [ref=f9e276]: Travel
+            - generic [ref=f9e277]:
+              - generic [ref=f9e278]: ±1.00mm
+              - generic [ref=f9e279]: Projection accuracy
+          - generic [ref=f9e280]:
+            - generic [ref=f9e281]:
+              - heading "Starting point" [level=4] [ref=f9e282]
+              - paragraph [ref=f9e283]: Layup width varied by product group and the centre axis was re-marked at every changeover. The marking could differ from shift to shift.
+            - generic [ref=f9e284]:
+              - heading "What was installed" [level=4] [ref=f9e285]
+              - paragraph [ref=f9e286]: Two moving channels take the edge positions from the recipe while a fixed laser on a separate bracket keeps the centre axis continuously visible.
+          - figure "Site photograph · textiles and technical fabrics" [ref=f9e287]:
+            - img "Textiles and technical fabrics application image 1" [ref=f9e288]
+        - article [ref=f9e290]:
+          - generic [ref=f9e337]:
+            - paragraph [ref=f9e338]: LABELS AND ADHESIVE TAPE · NARROW-WIDTH SLITTING
+            - heading "DOZENS OF CUT REFERENCES FROM ONE RECIPE" [level=3] [ref=f9e339]
+            - paragraph [ref=f9e340]: One recipe meant dozens of cut positions, and measuring and setting them one by one had become the longest stoppage on the line.
+          - generic [ref=f9e341]:
+            - generic [ref=f9e342]:
+              - generic [ref=f9e343]:
+                - text: Shuttle
+                - generic [ref=f9e344]: Precisor
+              - generic [ref=f9e346]: System
+            - generic [ref=f9e347]:
+              - generic [ref=f9e348]: 20lasers
+              - generic [ref=f9e349]: Carriages
+            - generic [ref=f9e350]:
+              - generic [ref=f9e351]: 1,800mm
+              - generic [ref=f9e352]: Travel
+            - generic [ref=f9e353]:
+              - generic [ref=f9e354]: ±1.00mm
+              - generic [ref=f9e355]: Projection accuracy
+          - generic [ref=f9e356]:
+            - generic [ref=f9e357]:
+              - heading "Starting point" [level=4] [ref=f9e358]
+              - paragraph [ref=f9e359]: In narrow-width slitting the blade positions were measured and set in sequence, and a recipe change could take longer than the production run itself.
+            - generic [ref=f9e360]:
+              - heading "What was installed" [level=4] [ref=f9e361]
+              - paragraph [ref=f9e362]: The shuttle architecture carries every blade position in sequence; once setup is finished all the reference lines stay visible at the same time.
+          - figure "Site photograph · labels and adhesive tape" [ref=f9e363]:
+            - img "Labels and adhesive tape application image 1" [ref=f9e364]
+    - generic [ref=f9e367]:
+      - generic [ref=f9e368]:
+        - heading "PLANNING A SIMILAR APPLICATION?" [level=2] [ref=f9e369]
+        - paragraph [ref=f9e370]: Share your recipe range and mounting structure, and we will size the system for your line and define the scope in writing.
+      - link "TALK TO OUR SPECIALISTS" [ref=f9e371] [cursor=pointer]:
+        - /url: http://localhost/servo/en/contact/
+  - generic [ref=f9e373]:
+    - generic [ref=f9e374]:
+      - heading "MAKE AN INFORMED INVESTMENT DECISION" [level=2] [ref=f9e375]
+      - paragraph [ref=f9e376]: We share technical articles, application examples and product updates by email as they are published, to make system selection and investment decisions easier.
+    - generic [ref=f9e377]:
+      - generic [ref=f9e378]:
+        - textbox "Your email address" [ref=f9e379]
+        - generic [aria-hidden] [ref=f9e380]:
+          - text: Website
+          - textbox [ref=f9e381]
+        - button "SUBSCRIBE" [ref=f9e382] [cursor=pointer]
+      - paragraph [ref=f9e383]: Sign up for the e-newsletter
+      - paragraph [ref=f9e384]:
+        - text: Your email address is processed only to send the newsletter, and you can unsubscribe at any time. For details, see
+        - link "our privacy notice" [ref=f9e385] [cursor=pointer]:
+          - /url: http://localhost/servo/en/privacy/
+        - text: .
+  - contentinfo [ref=f9e386]:
+    - generic [ref=f9e387]:
+      - generic [ref=f9e388]:
+        - generic [ref=f9e389]:
+          - generic [ref=f9e390]: SYSTEMS
+          - link "Core Precisor" [ref=f9e391] [cursor=pointer]:
+            - /url: http://localhost/servo/en/core-precisor/
+          - link "Shuttle Precisor" [ref=f9e392] [cursor=pointer]:
+            - /url: http://localhost/servo/en/shuttle-precisor/
+          - link "Technical documents" [ref=f9e393] [cursor=pointer]:
+            - /url: http://localhost/servo/en/documents/
+        - generic [ref=f9e394]:
+          - generic [ref=f9e395]: APPLICATIONS
+          - link "Rubber and composite" [ref=f9e396] [cursor=pointer]:
+            - /url: http://localhost/servo/en/application/rubber/
+          - link "Hygiene products and nonwoven" [ref=f9e397] [cursor=pointer]:
+            - /url: http://localhost/servo/en/application/nonwoven/
+          - link "Packaging and paper" [ref=f9e398] [cursor=pointer]:
+            - /url: http://localhost/servo/en/application/packaging/
+          - link "Film and foil" [ref=f9e399] [cursor=pointer]:
+            - /url: http://localhost/servo/en/application/film-foil/
+          - link "Textiles and technical fabrics" [ref=f9e400] [cursor=pointer]:
+            - /url: http://localhost/servo/en/application/textiles/
+          - link "Labels and adhesive tape" [ref=f9e401] [cursor=pointer]:
+            - /url: http://localhost/servo/en/application/labels/
+        - generic [ref=f9e402]:
+          - generic [ref=f9e403]: SUCCESS STORIES
+          - link "Proven applications across six industries" [ref=f9e404] [cursor=pointer]:
+            - /url: http://localhost/servo/en/success-stories/
+          - link "Service and commissioning" [ref=f9e405] [cursor=pointer]:
+            - /url: http://localhost/servo/en/service/
+          - link "Helpdesk" [ref=f9e406] [cursor=pointer]:
+            - /url: http://localhost/servo/en/service-helpdesk/
+          - link "Manuals" [ref=f9e407] [cursor=pointer]:
+            - /url: http://localhost/servo/en/service-manuals/
+          - link "Guide articles" [ref=f9e408] [cursor=pointer]:
+            - /url: http://localhost/servo/en/guide/
+        - generic [ref=f9e409]:
+          - generic [ref=f9e410]: COMPANY
+          - link "About us" [ref=f9e411] [cursor=pointer]:
+            - /url: http://localhost/servo/en/company/
+          - link "Contact" [ref=f9e412] [cursor=pointer]:
+            - /url: http://localhost/servo/en/contact/
+          - link "Frequently asked questions" [ref=f9e413] [cursor=pointer]:
+            - /url: http://localhost/servo/en/faq/
+          - link "Glossary" [ref=f9e414] [cursor=pointer]:
+            - /url: http://localhost/servo/en/glossary/
+          - link "Privacy and cookies" [ref=f9e415] [cursor=pointer]:
+            - /url: http://localhost/servo/en/privacy/
+      - generic [ref=f9e416]:
+        - generic [ref=f9e417]:
+          - text: ServoMotion is a brand of Oktay Otomasyon Elektronik Mühendislik San. ve Tic. A.Ş. (
+          - link "OEM Lazer" [ref=f9e418] [cursor=pointer]:
+            - /url: https://o-em.com.tr
+          - text: ).
+        - generic [ref=f9e419]:
+          - link "info@servomotion.com.tr" [ref=f9e420] [cursor=pointer]:
+            - /url: mailto:info@servomotion.com.tr
+          - text: ·
+          - link "+90 212 577 25 67" [ref=f9e421] [cursor=pointer]:
+            - /url: tel:+902125772567

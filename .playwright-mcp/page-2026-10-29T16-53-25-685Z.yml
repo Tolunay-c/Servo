@@ -1,0 +1,382 @@
+- generic [active] [ref=f4e1]:
+  - navigation "Main menu" [ref=f4e2]:
+    - generic [ref=f4e3]:
+      - link "ServoMotion" [ref=f4e4] [cursor=pointer]:
+        - /url: http://localhost/servo/en/home/
+      - generic [ref=f4e19]:
+        - link "HOME" [ref=f4e20] [cursor=pointer]:
+          - /url: http://localhost/servo/en/home/
+        - link "CORE PRECISOR" [ref=f4e21] [cursor=pointer]:
+          - /url: http://localhost/servo/en/core-precisor/
+        - link "SHUTTLE PRECISOR" [ref=f4e22] [cursor=pointer]:
+          - /url: http://localhost/servo/en/shuttle-precisor/
+        - link "SUCCESS STORIES" [ref=f4e23] [cursor=pointer]:
+          - /url: http://localhost/servo/en/success-stories/
+        - link "SERVICE" [ref=f4e24] [cursor=pointer]:
+          - /url: http://localhost/servo/en/service/
+        - link "COMPANY" [ref=f4e25] [cursor=pointer]:
+          - /url: http://localhost/servo/en/company/
+        - link "GUIDE" [ref=f4e26] [cursor=pointer]:
+          - /url: http://localhost/servo/en/guide/
+        - link "CONTACT" [ref=f4e27] [cursor=pointer]:
+          - /url: http://localhost/servo/en/contact/
+        - link "TR" [ref=f4e28] [cursor=pointer]:
+          - /url: http://localhost/servo/
+  - main [ref=f4e29]:
+    - generic [ref=f4e30]:
+      - generic [ref=f4e31]:
+        - generic [ref=f4e32]:
+          - paragraph [ref=f4e33]: SERVO-CONTROLLED LASER POSITIONING
+          - heading [level=1] [ref=f4e34]:
+            - text: ACCURATE POSITIONING.
+            - emphasis [ref=f4e35]: FASTER CHANGEOVERS.
+          - generic [ref=f4e36]:
+            - paragraph [ref=f4e37]:
+              - generic [ref=f4e38]: Precise alignment.
+              - generic [ref=f4e39]: Fast product changeovers.
+              - strong [ref=f4e40]: Efficient production.
+            - paragraph [ref=f4e41]: Steer your production with ServoMotion laser positioning systems.
+          - generic [ref=f4e42]:
+            - link "COMPARE THE SYSTEMS" [ref=f4e43] [cursor=pointer]:
+              - /url: "#systems"
+            - link "REQUEST A QUOTE" [ref=f4e44] [cursor=pointer]:
+              - /url: http://localhost/servo/en/contact/
+        - figure "CORE PRECISOR Compact housing · Servo-controlled motion" [ref=f4e45]:
+          - img "Core Precisor" [ref=f4e46]
+          - generic [ref=f4e47]:
+            - generic [ref=f4e48]: CORE PRECISOR
+            - generic [ref=f4e49]: Compact housing · Servo-controlled motion
+      - generic [ref=f4e51]:
+        - generic [ref=f4e52]:
+          - generic [ref=f4e53]: PLC-BASED CONTROL
+          - paragraph [ref=f4e54]: Recipe and motion management
+          - generic [ref=f4e55]: PROFINET / EtherNet/IP communication
+        - generic [ref=f4e56]:
+          - generic [ref=f4e57]: SERVO MOTION ARCHITECTURE
+          - paragraph [ref=f4e58]: "CORE: independent and symmetrical motion SHUTTLE: sequential placement with a single shuttle"
+          - generic [ref=f4e59]: Position control with encoder feedback
+        - generic [ref=f4e60]:
+          - generic [ref=f4e61]: RED / GREEN LASER
+          - paragraph [ref=f4e62]: Adjustable focus · Line reference
+          - generic [ref=f4e63]: 12–24 VDC supply · Standard M12 connector
+        - generic [ref=f4e64]:
+          - generic [ref=f4e65]: APPLICATION-SPECIFIC MECHANICS
+          - paragraph [ref=f4e66]: "CORE: compact, enclosed housing SHUTTLE: three-rail, locking carriage design"
+          - generic [ref=f4e67]: Sized to the working area
+    - generic [ref=f4e69]:
+      - generic [ref=f4e70]:
+        - paragraph [ref=f4e71]: TWO ARCHITECTURES
+        - heading "ONE REFERENCE PRINCIPLE TWO WAYS TO MOVE" [level=2] [ref=f4e72]
+        - paragraph [ref=f4e73]: Both systems project the alignment reference under PLC and servo control. What separates them is how many lines have to stay visible at the same time.
+      - generic [ref=f4e74]:
+        - generic [ref=f4e75]:
+          - paragraph [ref=f4e76]: UP TO SIX LINES · SEQUENTIAL
+          - heading "CORE PRECISOR" [level=3] [ref=f4e77]
+          - paragraph [ref=f4e78]: A servo-driven laser alignment system in an enclosed housing. Laser lines move to the positions held in the recipe, and six movement configurations cover independent and symmetrical alignment needs.
+          - link "View Core Precisor →" [ref=f4e79] [cursor=pointer]:
+            - /url: http://localhost/servo/en/core-precisor/
+            - text: View Core
+            - generic [ref=f4e80]: Precisor
+            - text: →
+        - generic [ref=f4e81]:
+          - paragraph [ref=f4e82]: MANY LINES · SIMULTANEOUS
+          - heading "SHUTTLE PRECISOR" [level=3] [ref=f4e83]
+          - paragraph [ref=f4e84]: A three-rail shuttle architecture. A single servo axis carries each laser carriage to its recipe position in turn; every carriage then locks mechanically, so all lines stay visible throughout production.
+          - link "View Shuttle Precisor →" [ref=f4e85] [cursor=pointer]:
+            - /url: http://localhost/servo/en/shuttle-precisor/
+            - text: View Shuttle
+            - generic [ref=f4e86]: Precisor
+            - text: →
+    - generic [ref=f4e88]:
+      - generic [ref=f4e89]:
+        - paragraph [ref=f4e90]: PROCESS AND APPLICATION GAINS
+        - heading "ACCURACY AND REPEATABILITY IN ALIGNMENT WORK" [level=2] [ref=f4e91]
+      - generic [ref=f4e92]:
+        - article [ref=f4e93]:
+          - generic [ref=f4e94]: 01 / MATERIAL PLACEMENT
+          - heading "EDGE AND AXIS REFERENCE" [level=3] [ref=f4e95]
+          - paragraph [ref=f4e96]: The defined edge and axis positions are projected onto the working surface as laser lines. The operator places the material or part against a shared reference, which reduces the need to transfer measurements by hand.
+        - article [ref=f4e97]:
+          - generic [ref=f4e98]: 02 / MACHINE SETUP
+          - heading "A CONTROLLED SETUP PROCESS" [level=3] [ref=f4e99]
+          - paragraph [ref=f4e100]: The target positions of guides, stops and processing elements are shown by the laser references. Being able to follow the setup points directly in the working area simplifies commissioning and cuts repeated measurement steps.
+        - article [ref=f4e101]:
+          - generic [ref=f4e102]: 03 / PRODUCT CHANGEOVER
+          - heading "REPEATABILITY FROM THE RECIPE" [level=3] [ref=f4e103]
+          - paragraph [ref=f4e104]: Position data for each product is held in the recipe and reapplied under PLC control at the next changeover. Returning to the same reference layout supports a standard setup method and shortens preparation between products.
+    - generic [ref=f4e106]:
+      - generic [ref=f4e107]:
+        - paragraph [ref=f4e108]: CATEGORY DIFFERENCE
+        - heading "NOT A FIXED SETTING. POSITIONING BY RECIPE." [level=2] [ref=f4e109]
+      - generic [ref=f4e110]:
+        - generic [ref=f4e111]:
+          - generic [ref=f4e112]: Traditional fixed reference
+          - paragraph [ref=f4e113]: The laser is set once at commissioning. Every recipe change then means re-adjusting the line by hand, so the result depends on who does it, how it is measured and how much time is available.
+        - generic [ref=f4e114]:
+          - generic [ref=f4e115]: Servo-controlled reference
+          - paragraph [ref=f4e116]: Dimensions are entered at the panel and the system drives to the target positions itself. Call up the same recipe and the lines return to the same place — changeover becomes a machine task rather than an operator task, improving changeover repeatability.
+      - generic [ref=f4e117]:
+        - generic [ref=f4e118]:
+          - generic [ref=f4e119]: ±1.00mm
+          - generic [ref=f4e120]: Projection accuracy
+        - generic [ref=f4e121]:
+          - generic [ref=f4e122]: 1000mm/s
+          - generic [ref=f4e123]: Positioning speed · Core
+        - generic [ref=f4e124]:
+          - generic [ref=f4e125]: 5–40+carriages
+          - generic [ref=f4e126]: Laser carriages · Shuttle
+    - generic [ref=f4e128]:
+      - generic [ref=f4e129]:
+        - paragraph [ref=f4e130]: TECHNICAL COMPARISON
+        - heading "SAME REFERENCE. DIFFERENT MOTION ARCHITECTURE." [level=2] [ref=f4e131]
+      - table [ref=f4e133]:
+        - rowgroup [ref=f4e134]:
+          - row [ref=f4e135]:
+            - columnheader "Criterion" [ref=f4e136]
+            - columnheader "Core Precisor" [ref=f4e137]:
+              - text: Core
+              - generic [ref=f4e138]: Precisor
+            - columnheader "Shuttle Precisor" [ref=f4e139]:
+              - text: Shuttle
+              - generic [ref=f4e140]: Precisor
+        - rowgroup [ref=f4e141]:
+          - row [ref=f4e142]:
+            - cell "Architecture" [ref=f4e143]
+            - cell "Servo-driven laser alignment system in an enclosed housing 6 movement configurations" [ref=f4e144]:
+              - text: Servo-driven laser alignment system in an enclosed housing
+              - generic [ref=f4e145]: 6 movement configurations
+            - cell "Multi-laser alignment system on a three-rail shuttle structure Single servo drive, multiple locked carriages" [ref=f4e146]:
+              - text: Multi-laser alignment system on a three-rail shuttle structure
+              - generic [ref=f4e147]: Single servo drive, multiple locked carriages
+          - row [ref=f4e148]:
+            - cell "Lines visible at once" [ref=f4e149]
+            - cell "As many as the number of lasers in the housing Remaining lines are shown in turn by recipe steps" [ref=f4e150]:
+              - text: As many as the number of lasers in the housing
+              - generic [ref=f4e151]: Remaining lines are shown in turn by recipe steps
+            - cell "All cutting lines Simultaneous and continuous once the recipe is set" [ref=f4e152]:
+              - text: All cutting lines
+              - generic [ref=f4e153]: Simultaneous and continuous once the recipe is set
+          - row [ref=f4e154]:
+            - cell "Typical number of lasers" [ref=f4e155]
+            - cell "1 – 6" [ref=f4e156]
+            - cell "5 – 40+" [ref=f4e157]
+          - row [ref=f4e158]:
+            - cell "Number of servo axes" [ref=f4e159]
+            - cell "1 axis per moving laser" [ref=f4e160]
+            - cell "1 shuttle axis in total (single drive)" [ref=f4e161]
+          - row [ref=f4e162]:
+            - cell "Suitable applications" [ref=f4e163]
+            - cell "Slitting with few slits, blade alignment, single-reference lines" [ref=f4e164]
+            - cell "Multi-slit slitting, calender and wide-web lines, elastic/ear feeding" [ref=f4e165]
+          - row [ref=f4e166]:
+            - cell "After setup" [ref=f4e167]
+            - cell "Lasers move to the next recipe position" [ref=f4e168]
+            - cell "The shuttle returns to its home position, all lines stay in place" [ref=f4e169]
+          - row [ref=f4e170]:
+            - cell "Housing length" [ref=f4e171]
+            - cell "600 – 4,000 mm Longer lines are designed on request" [ref=f4e172]:
+              - text: 600 – 4,000 mm
+              - generic [ref=f4e173]: Longer lines are designed on request
+            - cell "Travel + reserve area + safety margin Scaled to the project · the configurator calculates" [ref=f4e174]:
+              - text: Travel + reserve area + safety margin
+              - generic [ref=f4e175]: Scaled to the project · the configurator calculates
+          - row [ref=f4e176]:
+            - cell "Common infrastructure" [ref=f4e177]
+            - cell "Industrial PLC and servo drive control Integration into line automation via a standard fieldbus Touchscreen operator panel Industrial line laser modules" [ref=f4e178]:
+              - generic [ref=f4e179]:
+                - generic [ref=f4e180]: Industrial PLC and servo drive control
+                - generic [ref=f4e185]: Integration into line automation via a standard fieldbus
+                - generic [ref=f4e192]: Touchscreen operator panel
+                - generic [ref=f4e197]: Industrial line laser modules
+      - paragraph [ref=f4e202]: Final performance and connectivity are assessed together with motion load, working distance and mounting conditions. The lasers provide an alignment reference; adjustment of material and machine elements remains with the operator.
+    - generic [ref=f4e204]:
+      - generic [ref=f4e205]:
+        - paragraph [ref=f4e206]: INDUSTRIAL APPLICATIONS
+        - heading "DIFFERENT PROCESSES ONE ALIGNMENT APPROACH" [level=2] [ref=f4e207]
+      - generic [ref=f4e208]:
+        - article [ref=f4e209]:
+          - heading "RUBBER AND COMPOSITE" [level=3] [ref=f4e222]
+          - paragraph [ref=f4e223]: The lay-up width of the reinforcement plies changes from product to product, so the edge and symmetry reference has to be re-established at every changeover. The reference lines follow the geometry of the application surface.
+          - paragraph [ref=f4e224]:
+            - emphasis [ref=f4e225]: Decisive factors
+            - text: Ply width, symmetry axis, geometry of the application surface and working distance.
+          - paragraph [ref=f4e226]:
+            - text: EXAMPLE INSTALLATION
+            - generic [ref=f4e227]:
+              - text: Core
+              - generic [ref=f4e228]: Precisor
+            - text: · K4 dual channel (1 fixed + 2 moving) · 1,600 mm travel
+          - link "See the application →" [ref=f4e229] [cursor=pointer]:
+            - /url: http://localhost/servo/en/application/rubber/
+        - article [ref=f4e230]:
+          - heading "HYGIENE PRODUCTS AND NONWOVEN" [level=3] [ref=f4e264]
+          - paragraph [ref=f4e265]: Every layer in a multi-ply structure needs a consistent edge and axis reference, while the product size changes often. When the size changes, the alignment positions are rebuilt from the recipe.
+          - paragraph [ref=f4e266]:
+            - emphasis [ref=f4e267]: Decisive factors
+            - text: Number of layers, working width, number of simultaneous reference lines and the optical behaviour of the nonwoven surface.
+          - paragraph [ref=f4e268]:
+            - text: EXAMPLE INSTALLATION
+            - generic [ref=f4e269]:
+              - text: Shuttle
+              - generic [ref=f4e270]: Precisor
+            - text: · 26 lasers · 2,300 mm travel
+          - link "See the application →" [ref=f4e271] [cursor=pointer]:
+            - /url: http://localhost/servo/en/application/nonwoven/
+        - article [ref=f4e272]:
+          - heading "PACKAGING AND PAPER" [level=3] [ref=f4e295]
+          - paragraph [ref=f4e296]: Changing between formats holds the line while guides and processing elements are reset. A shared position reference keeps the same setup discipline across formats.
+          - paragraph [ref=f4e297]:
+            - emphasis [ref=f4e298]: Decisive factors
+            - text: Format variety, recipe change frequency and the number of reference lines that must be visible at the same time.
+          - paragraph [ref=f4e299]:
+            - text: EXAMPLE INSTALLATION
+            - generic [ref=f4e300]:
+              - text: Shuttle
+              - generic [ref=f4e301]: Precisor
+            - text: · 16 lasers · 1,800 mm travel
+          - link "See the application →" [ref=f4e302] [cursor=pointer]:
+            - /url: http://localhost/servo/en/application/packaging/
+        - article [ref=f4e303]:
+          - heading "FILM AND FOIL" [level=3] [ref=f4e313]
+          - paragraph [ref=f4e314]: The job usually starts with where the two edges sit. Reel width and slit width change from recipe to recipe, so the edge position has to be re-established at every changeover.
+          - paragraph [ref=f4e315]:
+            - emphasis [ref=f4e316]: Decisive factors
+            - text: Surface optics, distance between the edges, laser colour and working distance.
+          - paragraph [ref=f4e317]:
+            - text: EXAMPLE INSTALLATION
+            - generic [ref=f4e318]:
+              - text: Core
+              - generic [ref=f4e319]: Precisor
+            - text: · K3 single channel + fixed (1 moving + 2 fixed references) · 2,000 mm travel
+          - link "See the application →" [ref=f4e320] [cursor=pointer]:
+            - /url: http://localhost/servo/en/application/film-foil/
+        - article [ref=f4e321]:
+          - img [aria-hidden] [ref=f4e323]:
+            - generic [ref=f4e333]: FIXED CENTRE
+          - heading "TEXTILES AND TECHNICAL FABRICS" [level=3] [ref=f4e334]
+          - paragraph [ref=f4e335]: Symmetry matters as much as edge position. Once the centre axis is lost the product comes out off-centre even when the edges are correct, so the centre reference has to stay visible throughout production.
+          - paragraph [ref=f4e336]:
+            - emphasis [ref=f4e337]: Decisive factors
+            - text: Lay-up width, centre axis, ply arrangement and mounting height.
+          - paragraph [ref=f4e338]:
+            - text: EXAMPLE INSTALLATION
+            - generic [ref=f4e339]:
+              - text: Core
+              - generic [ref=f4e340]: Precisor
+            - text: · K4 dual channel (2 moving + 1 fixed centre) · 2,400 mm travel
+          - link "See the application →" [ref=f4e341] [cursor=pointer]:
+            - /url: http://localhost/servo/en/application/textiles/
+        - article [ref=f4e342]:
+          - heading "LABELS AND ADHESIVE TAPE" [level=3] [ref=f4e388]
+          - paragraph [ref=f4e389]: In narrow-width slitting a single recipe means dozens of cut positions. Measuring and setting them one by one can become the longest stoppage on the line.
+          - paragraph [ref=f4e390]:
+            - emphasis [ref=f4e391]: Decisive factors
+            - text: Line spacing, number of simultaneous reference lines and mechanical layout.
+          - paragraph [ref=f4e392]:
+            - text: EXAMPLE INSTALLATION
+            - generic [ref=f4e393]:
+              - text: Shuttle
+              - generic [ref=f4e394]: Precisor
+            - text: · 20 lasers · 1,800 mm travel
+          - link "See the application →" [ref=f4e395] [cursor=pointer]:
+            - /url: http://localhost/servo/en/application/labels/
+      - paragraph [ref=f4e396]:
+        - text: "Real installations of this approach across six segments:"
+        - link "see the success stories →" [ref=f4e397] [cursor=pointer]:
+          - /url: http://localhost/servo/en/success-stories/
+    - generic [ref=f4e399]:
+      - generic [ref=f4e400]:
+        - paragraph [ref=f4e401]: SERVOMOTION / OEM LAZER
+        - heading "ENGINEERING FROM DESIGN THROUGH COMMISSIONING" [level=2] [ref=f4e402]
+      - generic [ref=f4e403]:
+        - paragraph [ref=f4e404]: OEM Lazer has been developing industrial laser applications since 2014. In ServoMotion systems we bring mechanical design, laser placement and servo motion control together with PLC automation. The working area, the mounting conditions and the process requirements are assessed together, and the system structure is set from that. Our engineering work runs through to installation, commissioning and integration into the production line.
+        - link "See how we engineer →" [ref=f4e405] [cursor=pointer]:
+          - /url: http://localhost/servo/en/company/
+        - link "Service and commissioning →" [ref=f4e406] [cursor=pointer]:
+          - /url: http://localhost/servo/en/service/
+        - link "Request data sheets →" [ref=f4e407] [cursor=pointer]:
+          - /url: http://localhost/servo/en/documents/
+    - generic [ref=f4e409]:
+      - generic [ref=f4e410]:
+        - heading "LET'S DEFINE THE RIGHT SYSTEM FOR YOUR LINE" [level=2] [ref=f4e411]
+        - paragraph [ref=f4e412]: Tell us the required travel range, how many lines you need at the same time and your mounting structure, and we will review the application with you.
+      - link "BUILD AN APPLICATION SUMMARY" [ref=f4e413] [cursor=pointer]:
+        - /url: http://localhost/servo/en/contact/
+  - generic [ref=f4e415]:
+    - generic [ref=f4e416]:
+      - heading "MAKE AN INFORMED INVESTMENT DECISION" [level=2] [ref=f4e417]
+      - paragraph [ref=f4e418]: We share technical articles, application examples and product updates by email as they are published, to make system selection and investment decisions easier.
+    - generic [ref=f4e419]:
+      - generic [ref=f4e420]:
+        - textbox "Your email address" [ref=f4e421]
+        - generic [aria-hidden] [ref=f4e422]:
+          - text: Website
+          - textbox [ref=f4e423]
+        - button "SUBSCRIBE" [ref=f4e424] [cursor=pointer]
+      - paragraph [ref=f4e425]: Sign up for the e-newsletter
+      - paragraph [ref=f4e426]:
+        - text: Your email address is processed only to send the newsletter, and you can unsubscribe at any time. For details, see
+        - link "our privacy notice" [ref=f4e427] [cursor=pointer]:
+          - /url: http://localhost/servo/en/privacy/
+        - text: .
+  - contentinfo [ref=f4e428]:
+    - generic [ref=f4e429]:
+      - generic [ref=f4e430]:
+        - generic [ref=f4e431]:
+          - generic [ref=f4e432]: SYSTEMS
+          - link "Core Precisor" [ref=f4e433] [cursor=pointer]:
+            - /url: http://localhost/servo/en/core-precisor/
+          - link "Shuttle Precisor" [ref=f4e434] [cursor=pointer]:
+            - /url: http://localhost/servo/en/shuttle-precisor/
+          - link "Technical documents" [ref=f4e435] [cursor=pointer]:
+            - /url: http://localhost/servo/en/documents/
+        - generic [ref=f4e436]:
+          - generic [ref=f4e437]: APPLICATIONS
+          - link "Rubber and composite" [ref=f4e438] [cursor=pointer]:
+            - /url: http://localhost/servo/en/application/rubber/
+          - link "Hygiene products and nonwoven" [ref=f4e439] [cursor=pointer]:
+            - /url: http://localhost/servo/en/application/nonwoven/
+          - link "Packaging and paper" [ref=f4e440] [cursor=pointer]:
+            - /url: http://localhost/servo/en/application/packaging/
+          - link "Film and foil" [ref=f4e441] [cursor=pointer]:
+            - /url: http://localhost/servo/en/application/film-foil/
+          - link "Textiles and technical fabrics" [ref=f4e442] [cursor=pointer]:
+            - /url: http://localhost/servo/en/application/textiles/
+          - link "Labels and adhesive tape" [ref=f4e443] [cursor=pointer]:
+            - /url: http://localhost/servo/en/application/labels/
+        - generic [ref=f4e444]:
+          - generic [ref=f4e445]: SUCCESS STORIES
+          - link "Proven applications across six industries" [ref=f4e446] [cursor=pointer]:
+            - /url: http://localhost/servo/en/success-stories/
+          - link "Service and commissioning" [ref=f4e447] [cursor=pointer]:
+            - /url: http://localhost/servo/en/service/
+          - link "Helpdesk" [ref=f4e448] [cursor=pointer]:
+            - /url: http://localhost/servo/en/service-helpdesk/
+          - link "Manuals" [ref=f4e449] [cursor=pointer]:
+            - /url: http://localhost/servo/en/service-manuals/
+          - link "Guide articles" [ref=f4e450] [cursor=pointer]:
+            - /url: http://localhost/servo/en/guide/
+        - generic [ref=f4e451]:
+          - generic [ref=f4e452]: COMPANY
+          - link "About us" [ref=f4e453] [cursor=pointer]:
+            - /url: http://localhost/servo/en/company/
+          - link "Contact" [ref=f4e454] [cursor=pointer]:
+            - /url: http://localhost/servo/en/contact/
+          - link "Frequently asked questions" [ref=f4e455] [cursor=pointer]:
+            - /url: http://localhost/servo/en/faq/
+          - link "Glossary" [ref=f4e456] [cursor=pointer]:
+            - /url: http://localhost/servo/en/glossary/
+          - link "Privacy and cookies" [ref=f4e457] [cursor=pointer]:
+            - /url: http://localhost/servo/en/privacy/
+      - generic [ref=f4e458]:
+        - generic [ref=f4e459]:
+          - text: ServoMotion is a brand of Oktay Otomasyon Elektronik Mühendislik San. ve Tic. A.Ş. (
+          - link "OEM Lazer" [ref=f4e460] [cursor=pointer]:
+            - /url: https://o-em.com.tr
+          - text: ).
+        - generic [ref=f4e461]:
+          - link "info@servomotion.com.tr" [ref=f4e462] [cursor=pointer]:
+            - /url: mailto:info@servomotion.com.tr
+          - text: ·
+          - link "+90 212 577 25 67" [ref=f4e463] [cursor=pointer]:
+            - /url: tel:+902125772567

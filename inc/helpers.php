@@ -455,3 +455,37 @@ function servo_get_svg( $name ) {
 
 	return trim( (string) file_get_contents( $file ) ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
 }
+
+/**
+ * Uygulama kaydının 2. "Uygulama Resimleri" görselinden saha fotoğrafı kutusunu (figure.fotobox) üretir.
+ *
+ * 2. görsel yoksa 1. görsel, ikisi de yoksa boş metin döner. Alt yazı, başarı hikayeleri
+ * kartlarındakiyle aynıdır: "Saha fotoğrafı · uygulama adı".
+ *
+ * @param int $id Uygulama kaydı ID'si.
+ * @return string
+ */
+function servo_uygulama_foto( $id ) {
+	$foto = 0;
+
+	foreach ( array( 2, 1 ) as $no ) {
+		$foto = (int) servo_field( "uygulama_gorsel_{$no}", $id, 0 );
+		if ( $foto ) {
+			break;
+		}
+	}
+
+	if ( ! $foto ) {
+		return '';
+	}
+
+	$resim = wp_get_attachment_image( $foto, 'servo-foto', false, array( 'loading' => 'lazy' ) );
+	if ( '' === $resim ) {
+		return '';
+	}
+
+	/* translators: %s: uygulama adı */
+	$yazi = sprintf( __( 'Saha fotoğrafı · %s', 'servomotion' ), mb_strtolower( get_the_title( $id ), 'UTF-8' ) );
+
+	return '<figure class="fotobox">' . $resim . '<figcaption>' . esc_html( $yazi ) . '</figcaption></figure>';
+}

@@ -82,7 +82,8 @@ if ( 'rakamlar' === $servo_yan && $servo_rakamlar ) {
 if ( 'gorsel' === $servo_yan ) {
 	$servo_gorsel = servo_visual( servo_sub( 'gorsel' ), servo_sub( 'gorsel_svg', '' ) );
 	if ( $servo_gorsel ) {
-		echo '<div class="pvis">' . $servo_gorsel . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		// Uygulama sayfalarında görsel sütunu eşit genişliktedir (bloklar.css, .pvis-uyg).
+		echo '<div class="pvis' . ( is_singular( 'uygulama' ) ? ' pvis-uyg' : '' ) . '">' . $servo_gorsel . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 }
 

@@ -6,8 +6,8 @@
  * - POST /uygulama-ozeti : iletisim-gonder.js'in gönderdiği özeti wp_mail ile
  *   Site Ayarları > Formlar'daki adrese yollar. Nonce, honeypot ve IP başına
  *   rate-limit ile korunur.
- * - POST /bulten         : kayıtlıdır ama henüz bir listeye bağlı değildir,
- *   501 döner. Ön yüz (bulten.js) bu uç noktayı kullanmaz.
+ * - POST /bulten         : bülten e-postasını abone tablosuna yazar (inc/bulten.php).
+ *   Nonce, honeypot ve IP başına rate-limit ile korunur; ön yüz assets/js/bulten-kayit.js.
  *
  * Tasarımın JS'i değişmez: uç nokta adresi wp_add_inline_script ile
  * window.SERVOMOTION_FORM_ENDPOINT kancasına verilir (inc/enqueue.php).
@@ -129,7 +129,7 @@ function servo_rest_kayit() {
 		array(
 			'methods'             => WP_REST_Server::CREATABLE,
 			'callback'            => 'servo_bulten_kayit',
-			'permission_callback' => '__return_true',
+			'permission_callback' => 'servo_form_nonce',
 		)
 	);
 }
@@ -247,14 +247,75 @@ function servo_ozet_gonder( $request ) {
 }
 
 /**
- * Bülten kaydı: henüz bir listeye bağlı değil.
+ * Bülten kaydı: e-postayı abone tablosuna yazar.
  *
- * Servis bağlandığında sadece bu fonksiyon değişir.
+ * Servis (ör. bir mail listesi) bağlandığında yalnızca bu fonksiyon değişir. Yanıt `durum` verir
+ * (kayitli | zaten); ekrandaki metni ön yüz seçer, böylece mesaj sayfanın dilinde çıkar.
  *
- * @return WP_Error
+ * @param WP_REST_Request $request İstek (eposta, lang, web).
+ * @return WP_REST_Response|WP_Error
  */
-function servo_bulten_kayit() {
-	return new WP_Error( 'servo_bulten_bagli_degil', __( 'Bülten henüz bir listeye bağlı değil.', 'servomotion' ), array( 'status' => 501 ) );
+function servo_bulten_kayit( $request ) {
+	if ( ! servo_form_sinir( 'bulten' ) ) {
+		return new WP_Error( 'servo_sinir', __( 'Çok fazla deneme yapıldı. Lütfen biraz sonra tekrar deneyin.', 'servomotion' ), array( 'status' => 429 ) );
+	}
+
+	// Honeypot doluysa bot kabul edilir: başarılı görünür ama kayıt yapılmaz.
+	if ( '' !== trim( (string) $request->get_param( 'web' ) ) ) {
+		return rest_ensure_response( array( 'ok' => true, 'durum' => 'kayitli' ) );
+	}
+
+	$eposta = sanitize_email( mb_substr( trim( (string) $request->get_param( 'eposta' ) ), 0, 190 ) );
+	if ( ! is_email( $eposta ) ) {
+		return new WP_Error( 'servo_bulten_gecersiz', __( 'Lütfen geçerli bir e-posta adresi girin.', 'servomotion' ), array( 'status' => 400 ) );
+	}
+
+	$sonuc = servo_bulten_ekle( $eposta, 'en' === $request->get_param( 'lang' ) ? 'en' : 'tr' );
+	if ( 'hata' === $sonuc ) {
+		return new WP_Error( 'servo_bulten_hata', __( 'Kayıt yapılamadı. Lütfen daha sonra tekrar deneyin.', 'servomotion' ), array( 'status' => 500 ) );
+	}
+
+	if ( 'yeni' === $sonuc ) {
+		servo_bulten_bildirim( $eposta, 'en' === $request->get_param( 'lang' ) ? 'en' : 'tr' );
+	}
+
+	return rest_ensure_response(
+		array(
+			'ok'    => true,
+			'durum' => 'var' === $sonuc ? 'zaten' : 'kayitli',
+		)
+	);
+}
+
+/**
+ * Yeni bülten abonesi için ekibe bildirim maili gönderir (yalnızca yeni kayıtta çağrılır).
+ *
+ * Site Ayarları > Formlar > "Bülten kaydında bildirim gönder" kapalıysa ya da alıcı adresi yoksa gönderilmez.
+ * Ekibe giden mail her zaman Türkçedir; mail kaydı wp_mail üzerinden (geliştirme modunda Mail kayıtları'na) düşer.
+ *
+ * @param string $eposta Abone adresi.
+ * @param string $dil    Abonenin dili (tr|en).
+ * @return bool Mail gönderildi mi.
+ */
+function servo_bulten_bildirim( $eposta, $dil ) {
+	// Ayar henüz hiç kaydedilmediyse (false) varsayılan açıktır; kapalı "0" olarak saklanır.
+	$ayar = get_option( 'options_tr_bulten_bildirim', false );
+	if ( false !== $ayar && ! (int) $ayar ) {
+		return false;
+	}
+
+	$alici = servo_form_alici();
+	if ( '' === $alici ) {
+		return false;
+	}
+
+	$konu  = __( 'Yeni bülten abonesi', 'servomotion' ) . ' — ' . wp_specialchars_decode( get_bloginfo( 'name' ), ENT_QUOTES );
+	$metin = __( 'E-posta', 'servomotion' ) . ': ' . $eposta . "\n"
+		. __( 'Dil', 'servomotion' ) . ': ' . ( 'en' === $dil ? 'English' : 'Türkçe' ) . "\n"
+		. __( 'Tarih', 'servomotion' ) . ': ' . wp_date( 'd.m.Y H:i' ) . "\n\n"
+		. __( 'Abone listesi', 'servomotion' ) . ': ' . admin_url( 'tools.php?page=servo-bulten-aboneleri' ) . "\n";
+
+	return (bool) wp_mail( $alici, $konu, $metin, array( 'Content-Type: text/plain; charset=UTF-8' ) );
 }
 
 /**

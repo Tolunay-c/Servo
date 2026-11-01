@@ -1,0 +1,231 @@
+- generic [active] [ref=f15e1]:
+  - navigation "Ana menü" [ref=f15e2]:
+    - generic [ref=f15e3]:
+      - link "ServoMotion" [ref=f15e4] [cursor=pointer]:
+        - /url: http://localhost/servo/
+      - generic [ref=f15e19]:
+        - link "EN" [ref=f15e20] [cursor=pointer]:
+          - /url: http://localhost/servo/en/application/rubber/
+        - button "Menüyü aç" [ref=f15e21] [cursor=pointer]
+  - main [ref=f15e23]:
+    - generic [ref=f15e25]:
+      - generic [ref=f15e26]:
+        - paragraph [ref=f15e27]: UYGULAMA · LASTİK VE KOMPOZİT
+        - heading [level=1] [ref=f15e28]:
+          - text: TAKVİYE KATMANI SERİMİNDE
+          - emphasis [ref=f15e29]: KENAR VE SİMETRİ REFERANSI
+        - paragraph [ref=f15e30]: Takviye katmanlarının serim genişliği üründen ürüne değişir. Her geçişte kenar konumunun ve simetri ekseninin yeniden kurulması gerekir; bu işlem gözle yapıldığında sonuç operatöre ve harcanan süreye bağlı kalır. ServoMotion, hedef konumları reçeteden alır ve çizgileri uygulama yüzeyine göre yansıtır.
+        - generic [ref=f15e31]:
+          - link "UYGULAMA NOTUNU TALEP EDİN" [ref=f15e32] [cursor=pointer]:
+            - /url: "#not-talep"
+          - link "CORE PRECISOR'I İNCELEYİN" [ref=f15e33] [cursor=pointer]:
+            - /url: http://localhost/servo/core-precisor/
+        - generic [ref=f15e34]:
+          - generic [ref=f15e35]:
+            - generic [ref=f15e36]: Core
+            - generic [ref=f15e37]: Örnek kurulumda kullanılan sistem
+          - generic [ref=f15e38]:
+            - generic [ref=f15e39]: K4çift kanal
+            - generic [ref=f15e40]: 1 sabit + 2 hareketli
+          - generic [ref=f15e41]:
+            - generic [ref=f15e42]: 1.600mm
+            - generic [ref=f15e43]: Strok
+      - img "Lastik ve kompozit uygulama resmi 1" [ref=f15e45]
+    - generic [ref=f15e47]:
+      - generic [ref=f15e48]:
+        - paragraph [ref=f15e50]: SAHADAN
+        - heading "Uygulama Resimleri" [level=2] [ref=f15e51]
+      - generic [ref=f15e52]:
+        - figure [ref=f15e53]:
+          - img "Lastik ve kompozit uygulama resmi 1" [ref=f15e54]
+        - figure [ref=f15e55]:
+          - img "Lastik ve kompozit uygulama resmi 2" [ref=f15e56]
+    - generic [ref=f15e58]:
+      - generic [ref=f15e59]:
+        - paragraph [ref=f15e60]: HATTIN GERÇEĞİ
+        - heading "BU BELİRTİLERİ TANIYOR MUSUNUZ?" [level=2] [ref=f15e61]
+      - generic [ref=f15e62]:
+        - generic [ref=f15e63]:
+          - generic [ref=f15e64]: Her üründe yeniden ayar
+          - paragraph [ref=f15e65]: Serim genişliği değiştiğinde kenar ve simetri referansı sıfırdan kuruluyor; ayar süresi ürün geçişinin en uzun kalemi hâline geliyor.
+        - generic [ref=f15e66]:
+          - generic [ref=f15e67]: Kavisli yüzeyde göz kararı
+          - paragraph [ref=f15e68]: Silindirik veya kavisli yüzeyde şeridin ortalanması operatörün bakış açısına göre değişiyor; iki vardiya arasında aynı ürün farklı çıkıyor.
+        - generic [ref=f15e69]:
+          - generic [ref=f15e70]: Hata bir sonraki proseste görünüyor
+          - paragraph [ref=f15e71]: Katman kaçıklığı serim sırasında fark edilmiyor; sonraki aşamada ortaya çıktığında geri dönüş maliyetli oluyor.
+        - generic [ref=f15e72]:
+          - generic [ref=f15e73]: Referans mekanik olarak kayıyor
+          - paragraph [ref=f15e74]: Sabit kılavuz ve şablonlar titreşimle ve temasla konum değiştiriyor; periyodik olarak yeniden ayarlanmaları gerekiyor.
+    - generic [ref=f15e76]:
+      - generic [ref=f15e77]:
+        - paragraph [ref=f15e78]: KEŞİFTE NE ÖLÇÜYORUZ
+        - heading "SİSTEMİ BELİRLEYEN PARAMETRELER" [level=2] [ref=f15e79]
+        - paragraph [ref=f15e80]: Bu segmentte tasarım kararlarını aşağıdaki başlıklar belirler. Değerler hatta yerinde ölçülür; teklif bu veriler üzerine kurulur.
+      - table [ref=f15e81]:
+        - rowgroup [ref=f15e82]:
+          - row [ref=f15e83]:
+            - rowheader "Serim genişliği aralığı" [ref=f15e84]
+            - cell "En dar ve en geniş ürün arasındaki fark, gövde ve hareket alanını belirler." [ref=f15e85]
+          - row [ref=f15e86]:
+            - rowheader "Simetri ekseni" [ref=f15e87]
+            - cell "Merkez referansının sürekli görünmesi gerekip gerekmediği, kanal yapısını değiştirir." [ref=f15e88]
+          - row [ref=f15e89]:
+            - rowheader "Yüzey geometrisi" [ref=f15e90]
+            - cell "Düz, kavisli veya silindirik yüzey; çizginin yansıma açısını ve montaj yüksekliğini etkiler." [ref=f15e91]
+          - row [ref=f15e92]:
+            - rowheader "Çalışma mesafesi" [ref=f15e93]
+            - cell "Lazer ile yüzey arasındaki dikey mesafe; çizgi kalınlığını ve açısal toleransı belirler." [ref=f15e94]
+          - row [ref=f15e95]:
+            - rowheader "Taşıyıcı yapı" [ref=f15e96]
+            - cell "Mevcut şase mi kullanılacak, yeni traversi mi gerekiyor; rijitlik doğrudan hassasiyete yansır." [ref=f15e97]
+          - row [ref=f15e98]:
+            - rowheader "Titreşim ve ortam" [ref=f15e99]
+            - cell "Hattın ürettiği titreşim, yüzey rengi ve tepe aydınlatması; lazer rengi seçimini etkiler." [ref=f15e100]
+    - generic [ref=f15e102]:
+      - generic [ref=f15e103]:
+        - paragraph [ref=f15e104]: SİSTEM SEÇİMİ
+        - heading "BU SEGMENTTE HANGİ MİMARİ?" [level=2] [ref=f15e105]
+      - generic [ref=f15e106]:
+        - generic [ref=f15e107]:
+          - paragraph [ref=f15e108]: ÇOĞU UYGULAMADA
+          - heading "CORE PRECISOR" [level=3] [ref=f15e109]
+          - paragraph [ref=f15e110]: Takviye serim uygulamalarında aynı anda görünmesi gereken çizgi sayısı genellikle sınırlıdır. Kapalı gövdeli yapı, hedef konumlara servo kontrolle gider; simetri gerektiğinde çift kanallı konfigürasyon merkez referansını sürekli görünür tutar.
+          - link "Core Precisor'ı inceleyin →" [ref=f15e111] [cursor=pointer]:
+            - /url: http://localhost/servo/core-precisor/
+            - text: Core
+            - generic [ref=f15e112]: Precisor
+            - text: "'ı inceleyin →"
+        - generic [ref=f15e113]:
+          - paragraph [ref=f15e114]: ÇİZGİ SAYISI ARTARSA
+          - heading "SHUTTLE PRECISOR" [level=3] [ref=f15e115]
+          - paragraph [ref=f15e116]: Aynı anda altıdan fazla çizginin görünmesi gerekiyorsa, tek servo mekikle çok sayıda lazer arabasını konumlandıran mekik mimarisi devreye girer. Karar, reçetedeki en yoğun senaryoya göre verilir.
+          - link "Shuttle Precisor'ı inceleyin →" [ref=f15e117] [cursor=pointer]:
+            - /url: http://localhost/servo/shuttle-precisor/
+            - text: Shuttle
+            - generic [ref=f15e118]: Precisor
+            - text: "'ı inceleyin →"
+      - generic [ref=f15e119]:
+        - paragraph [ref=f15e120]: ÖRNEK KURULUM
+        - paragraph [ref=f15e121]: CORE PRECISOR · K4 ÇİFT KANAL · 1.600 MM STROK
+        - paragraph [ref=f15e122]: İki bağımsız hareket kanalı ve ayrı brakette sabit bir merkez referansı. Simetrik serimde iki kenar aynı anda konumlanırken merkez çizgisi üretim boyunca görünür kalır. Değerler örnek bir kurulumdan alınmıştır; sizin hattınız için ölçüler keşifte belirlenir.
+    - generic [ref=f15e124]:
+      - generic [ref=f15e125]:
+        - paragraph [ref=f15e126]: İLGİLİ YAZILAR
+        - heading "BU KONUDA YAZDIKLARIMIZ" [level=2] [ref=f15e127]
+      - generic [ref=f15e128]:
+        - link "Bu segmentten örnek kurulum →" [ref=f15e129] [cursor=pointer]:
+          - /url: http://localhost/servo/basari-hikayeleri/#lastik
+        - link "Sabit referans lazeri ne işe yarar? →" [ref=f15e130] [cursor=pointer]:
+          - /url: http://localhost/servo/rehber/sabit-referans/
+        - link "Core Precisor'ın altı hareket konfigürasyonu →" [ref=f15e131] [cursor=pointer]:
+          - /url: http://localhost/servo/rehber/core-konfigurasyonlari/
+          - text: Core
+          - generic [ref=f15e132]: Precisor
+          - text: "'ın altı hareket konfigürasyonu →"
+        - link "Keşifte ölçtüğümüz 8 şey →" [ref=f15e133] [cursor=pointer]:
+          - /url: http://localhost/servo/rehber/kesif-sekiz-kriter/
+        - link "±1,00 mm ne demek, neden önemli? →" [ref=f15e134] [cursor=pointer]:
+          - /url: http://localhost/servo/rehber/hassasiyet/
+    - generic [ref=f15e137]:
+      - generic [ref=f15e139]:
+        - paragraph [ref=f15e140]: UYGULAMA NOTU
+        - heading "UYGULAMA NOTUNU TALEP EDİN" [level=2] [ref=f15e141]
+        - paragraph [ref=f15e142]: Uygulama notu, talep üzerine PDF olarak paylaşılır.
+      - generic [ref=f15e144]:
+        - generic [ref=f15e145]:
+          - generic [ref=f15e146]: PDF talep etmek için lütfen e-posta adresinizi girin
+          - textbox "PDF talep etmek için lütfen e-posta adresinizi girin" [ref=f15e147]
+        - generic [aria-hidden] [ref=f15e148]:
+          - text: Web sitesi
+          - textbox [ref=f15e149]
+        - button "GÖNDER" [ref=f15e150] [cursor=pointer]
+        - paragraph [ref=f15e151]:
+          - text: Bu formda paylaştığınız bilgiler yalnızca talebinizi yanıtlamak için kullanılır ve e-posta ile ekibimize iletilir. Ayrıntılar için
+          - link "KVKK aydınlatma metnimizi" [ref=f15e152] [cursor=pointer]:
+            - /url: http://localhost/servo/kvkk/
+          - text: inceleyin.
+    - generic [ref=f15e154]:
+      - generic [ref=f15e155]:
+        - heading "HATTINIZI BİRLİKTE DEĞERLENDİRELİM" [level=2] [ref=f15e156]
+        - paragraph [ref=f15e157]: Serim genişliği aralığını ve montaj yapısını paylaşın; uygulamanıza uygun sistem yapısını ve gövde ölçüsünü birlikte belirleyelim.
+      - link "UYGULAMA ÖZETİ GÖNDERİN" [ref=f15e158] [cursor=pointer]:
+        - /url: http://localhost/servo/iletisim/?konu=lastik
+  - generic [ref=f15e160]:
+    - generic [ref=f15e161]:
+      - heading "ÖNCE BİLGİ, SONRA YATIRIM" [level=2] [ref=f15e162]
+      - paragraph [ref=f15e163]: Sistem seçimi ve yatırım kararlarını kolaylaştıran teknik yazıları, uygulama örneklerini ve ürün güncellemelerini yayımlandıkça e-posta ile paylaşıyoruz.
+    - generic [ref=f15e164]:
+      - generic [ref=f15e165]:
+        - textbox "E-posta adresiniz" [ref=f15e166]
+        - generic [aria-hidden] [ref=f15e167]:
+          - text: Web sitesi
+          - textbox [ref=f15e168]
+        - button "KAYDOLUN" [ref=f15e169] [cursor=pointer]
+      - paragraph [ref=f15e170]: E-bülten aboneliği için kaydolun
+      - paragraph [ref=f15e171]:
+        - text: E-posta adresiniz yalnızca bülten göndermek için işlenir; aboneliğinizi her zaman sonlandırabilirsiniz. Ayrıntılar için
+        - link "KVKK aydınlatma metnimize bakın" [ref=f15e172] [cursor=pointer]:
+          - /url: http://localhost/servo/kvkk/
+        - text: .
+  - contentinfo [ref=f15e173]:
+    - generic [ref=f15e174]:
+      - generic [ref=f15e175]:
+        - generic [ref=f15e176]:
+          - generic [ref=f15e177]: SİSTEMLER
+          - link "Core Precisor" [ref=f15e178] [cursor=pointer]:
+            - /url: http://localhost/servo/core-precisor/
+          - link "Shuttle Precisor" [ref=f15e179] [cursor=pointer]:
+            - /url: http://localhost/servo/shuttle-precisor/
+          - link "Teknik dokümanlar" [ref=f15e180] [cursor=pointer]:
+            - /url: http://localhost/servo/dokumanlar/
+        - generic [ref=f15e181]:
+          - generic [ref=f15e182]: UYGULAMA ALANLARI
+          - link "Lastik ve kompozit" [ref=f15e183] [cursor=pointer]:
+            - /url: http://localhost/servo/uygulama/lastik/
+          - link "Hijyenik ürünler ve nonwoven" [ref=f15e184] [cursor=pointer]:
+            - /url: http://localhost/servo/uygulama/nonwoven/
+          - link "Ambalaj ve kağıt" [ref=f15e185] [cursor=pointer]:
+            - /url: http://localhost/servo/uygulama/ambalaj/
+          - link "Film ve folyo" [ref=f15e186] [cursor=pointer]:
+            - /url: http://localhost/servo/uygulama/film-folyo/
+          - link "Tekstil ve teknik kumaşlar" [ref=f15e187] [cursor=pointer]:
+            - /url: http://localhost/servo/uygulama/tekstil/
+          - link "Etiket ve yapışkanlı bant" [ref=f15e188] [cursor=pointer]:
+            - /url: http://localhost/servo/uygulama/etiket/
+        - generic [ref=f15e189]:
+          - generic [ref=f15e190]: BAŞARI HİKAYELERİ
+          - link "Sahadan altı uygulama" [ref=f15e191] [cursor=pointer]:
+            - /url: http://localhost/servo/basari-hikayeleri/
+          - link "Servis ve devreye alma" [ref=f15e192] [cursor=pointer]:
+            - /url: http://localhost/servo/servis/
+          - link "Destek hattı" [ref=f15e193] [cursor=pointer]:
+            - /url: http://localhost/servo/servis-destek-hatti/
+          - link "Kılavuzlar" [ref=f15e194] [cursor=pointer]:
+            - /url: http://localhost/servo/servis-kilavuzlar/
+          - link "Rehber yazıları" [ref=f15e195] [cursor=pointer]:
+            - /url: http://localhost/servo/rehber/
+        - generic [ref=f15e196]:
+          - generic [ref=f15e197]: KURUMSAL
+          - link "Hakkımızda" [ref=f15e198] [cursor=pointer]:
+            - /url: http://localhost/servo/kurumsal/
+          - link "İletişim" [ref=f15e199] [cursor=pointer]:
+            - /url: http://localhost/servo/iletisim/
+          - link "Sıkça sorulan sorular" [ref=f15e200] [cursor=pointer]:
+            - /url: http://localhost/servo/sss/
+          - link "Sözlük" [ref=f15e201] [cursor=pointer]:
+            - /url: http://localhost/servo/sozluk/
+          - link "KVKK ve çerezler" [ref=f15e202] [cursor=pointer]:
+            - /url: http://localhost/servo/kvkk/
+      - generic [ref=f15e203]:
+        - generic [ref=f15e204]:
+          - text: ServoMotion, Oktay Otomasyon Elektronik Mühendislik San. ve Tic. A.Ş. (
+          - link "OEM Lazer" [ref=f15e205] [cursor=pointer]:
+            - /url: https://o-em.com.tr
+          - text: ) markasıdır.
+        - generic [ref=f15e206]:
+          - link "info@servomotion.com.tr" [ref=f15e207] [cursor=pointer]:
+            - /url: mailto:info@servomotion.com.tr
+          - text: ·
+          - link "+90 212 577 25 67" [ref=f15e208] [cursor=pointer]:
+            - /url: tel:+902125772567

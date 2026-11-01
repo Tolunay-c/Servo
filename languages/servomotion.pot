@@ -1353,3 +1353,136 @@ msgstr ""
 #: template-parts/blocks/uygulama-ozeti.php
 msgid "Ambalaj ve kağıt hattında ebat geçişi"
 msgstr ""
+
+#: template-parts/uygulama/resimler.php
+msgid "Uygulama Resimleri"
+msgstr ""
+
+#: template-parts/site/bulten.php
+msgid "E-bülten aboneliği için kaydolun"
+msgstr ""
+
+#: template-parts/site/bulten.php
+msgid "E-posta adresiniz yalnızca bülten göndermek için işlenir; aboneliğinizi her zaman sonlandırabilirsiniz. Ayrıntılar için %s."
+msgstr ""
+
+#: template-parts/site/bulten.php
+msgid "KVKK aydınlatma metnimize bakın"
+msgstr ""
+
+#: inc/enqueue.php
+msgid "Başarıyla kaydedilmiştir"
+msgstr ""
+
+#: inc/enqueue.php
+msgid "Bu e-posta adresi zaten kayıtlı."
+msgstr ""
+
+#: inc/enqueue.php
+msgid "Kayıt yapılamadı. Lütfen daha sonra tekrar deneyin."
+msgstr ""
+
+#: inc/bulten.php
+msgid "Bu abonelikten çıkma bağlantısı geçerli değil ya da abonelik zaten sonlandırılmış."
+msgstr ""
+
+#: inc/bulten.php
+msgid "Bülten aboneliğiniz sonlandırıldı."
+msgstr ""
+
+#: inc/bulten.php
+msgid "Bülten aboneliğinizi sonlandırmak istiyor musunuz?"
+msgstr ""
+
+#: inc/bulten.php
+msgid "Abonelikten çık"
+msgstr ""
+
+#: inc/talep.php
+msgid "PDF talep etmek için lütfen e-posta adresinizi girin"
+msgstr ""
+
+#: inc/talep.php
+msgid "Uygulama notu"
+msgstr ""
+
+#: inc/talep.php
+msgid "Talebiniz alınmıştır. Destek ekibimiz en kısa sürede tarafınıza dönüş sağlayacaktır."
+msgstr ""
+
+#: template-parts/blocks/indirme-listesi.php
+msgid "Gönder"
+msgstr ""
+
+#: inc/guncelleme.php (Medya alt metni)
+msgid "Ambalaj ve kağıt uygulama resmi 1"
+msgstr ""
+
+#: inc/guncelleme.php (Medya alt metni)
+msgid "Ambalaj ve kağıt uygulama resmi 2"
+msgstr ""
+
+#: inc/guncelleme.php (Medya alt metni)
+msgid "Hijyenik ürünler ve nonwoven uygulama resmi 1"
+msgstr ""
+
+#: inc/guncelleme.php (Medya alt metni)
+msgid "Hijyenik ürünler ve nonwoven uygulama resmi 2"
+msgstr ""
+
+#: inc/guncelleme.php (Medya alt metni)
+msgid "Lastik ve kompozit uygulama resmi 1"
+msgstr ""
+
+#: inc/guncelleme.php (Medya alt metni)
+msgid "Lastik ve kompozit uygulama resmi 2"
+msgstr ""
+
+#: inc/guncelleme.php (Medya alt metni)
+msgid "Film ve folyo uygulama resmi 1"
+msgstr ""
+
+#: inc/guncelleme.php (Medya alt metni)
+msgid "Film ve folyo uygulama resmi 2"
+msgstr ""
+
+#: inc/guncelleme.php (Medya alt metni)
+msgid "Tekstil ve teknik kumaşlar uygulama resmi 1"
+msgstr ""
+
+#: inc/guncelleme.php (Medya alt metni)
+msgid "Tekstil ve teknik kumaşlar uygulama resmi 2"
+msgstr ""
+
+#: inc/guncelleme.php (Medya alt metni)
+msgid "Etiket ve yapışkanlı bant uygulama resmi 1"
+msgstr ""
+
+#: inc/guncelleme.php (Medya alt metni)
+msgid "Etiket ve yapışkanlı bant uygulama resmi 2"
+msgstr ""
+
+#: template-parts/uygulama/resimler.php
+msgid "SAHADAN"
+msgstr ""
+
+#: template-parts/blocks/indirme-listesi.php
+msgid "Talep et"
+msgstr ""
+
+#. translators: %s: uygulama adı
+msgid "Saha fotoğrafı · %s"
+msgstr ""
+
+#. translators: %s: menü öğesi adı
+msgid "%s alt menüsünü aç/kapat"
+msgstr ""
+
+msgid "Yeni bülten abonesi"
+msgstr ""
+
+msgid "Dil"
+msgstr ""
+
+msgid "Abone listesi"
+msgstr ""

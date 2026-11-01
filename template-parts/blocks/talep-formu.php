@@ -29,7 +29,11 @@ $servo_chk_inp = 'width:17px;height:17px;flex:none;margin-top:3px;accent-color:#
 
 echo servo_section_open( 'section talep-formu' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 echo '<div class="wrap">';
+// Tüm talep türleri: solda başlık ve açıklama, sağda form (mobilde alt alta).
+$servo_iki = true;
+echo $servo_iki ? '<div class="talep-iki"><div class="talep-iki-baslik">' : '';
 get_template_part( 'template-parts/blocks/_bolum-basligi' );
+echo $servo_iki ? '</div>' : '';
 
 echo '<div class="formbox"><form';
 echo ' action="' . esc_url( 'mailto:' . $servo_eposta ) . '" method="post" enctype="text/plain"';
@@ -37,11 +41,18 @@ echo ' data-talep="' . esc_attr( $servo_tur ) . '"';
 if ( $servo_adres ) {
 	echo ' data-adres="' . esc_url( $servo_adres ) . '"';
 }
-echo ' data-tamam="' . esc_attr__( 'Talebiniz alındı. En kısa sürede size dönüş yapacağız.', 'servomotion' ) . '"';
+echo ' data-tamam="' . ( 'uygulama_notu' === $servo_tur
+	? esc_attr__( 'Talebiniz alınmıştır. Destek ekibimiz en kısa sürede tarafınıza dönüş sağlayacaktır.', 'servomotion' )
+	: esc_attr__( 'Talebiniz alındı. En kısa sürede size dönüş yapacağız.', 'servomotion' ) ) . '"';
 echo ' data-hata="' . esc_attr__( 'Talep gönderilemedi. Lütfen tekrar deneyin veya e-posta ile yazın.', 'servomotion' ) . '">';
 
 foreach ( $servo_sema['satirlar'] as $servo_satir ) {
 	$servo_kind = $servo_satir[0];
+
+	// Gizli alanlar (ör. uygulama notu adı) bu blokta gösterilmez; sunucu gönderilen sayfadan çıkarır.
+	if ( 'gizli' === $servo_kind ) {
+		continue;
+	}
 
 	if ( 'dokumanlar' === $servo_kind ) {
 		// Asıl liste sayfanın dilindeki dokümanlar; "diğer dil" kutusu karşı dildekileri de ister.
@@ -73,7 +84,7 @@ foreach ( $servo_sema['satirlar'] as $servo_satir ) {
 		$servo_atr .= ! empty( $servo_a['zorunlu'] ) ? ' required' : '';
 		$servo_atr .= ! empty( $servo_a['placeholder'] ) ? ' placeholder="' . esc_attr( $servo_a['placeholder'] ) . '"' : '';
 
-		echo '<div class="fld"><label for="' . $servo_id . '">' . esc_html( $servo_a['etiket'] ) . '</label>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo '<div class="fld"><label for="' . $servo_id . '">' . esc_html( ! empty( $servo_a['gorunen'] ) ? $servo_a['gorunen'] : $servo_a['etiket'] ) . '</label>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 		if ( 'select' === $servo_a['tip'] ) {
 			echo '<select' . $servo_atr . '>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -106,4 +117,4 @@ if ( $servo_not ) {
 }
 
 echo '<p class="talep-sonuc" role="status" aria-live="polite" hidden></p>';
-echo '</form></div></div></section>';
+echo '</form></div>' . ( $servo_iki ? '</div>' : '' ) . '</div></section>';

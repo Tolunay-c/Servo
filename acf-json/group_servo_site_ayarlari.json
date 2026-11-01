@@ -240,6 +240,18 @@
             "placeholder": ""
         },
         {
+            "key": "field_servo_bulten_bildirim",
+            "label": "Bülten kaydında bildirim gönder",
+            "name": "bulten_bildirim",
+            "type": "true_false",
+            "instructions": "Açıkken yeni bir kişi bültene kaydolduğunda form alıcı adresine \"Yeni bülten abonesi\" bildirimi gider (e-posta, dil, tarih ve abone listesi bağlantısı). Daha önce kayıtlı bir adres tekrar denerse bildirim gitmez.",
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Açık",
+            "ui_off_text": "Kapalı"
+        },
+        {
             "key": "field_servo_talep_gonderim",
             "label": "Doküman talebi: gönderim",
             "name": "talep_gonderim",

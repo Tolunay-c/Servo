@@ -414,3 +414,28 @@ main h1 em{display:inline}
 
 /* Mobil/tablet (tek sütun): hero görseli HTML height özniteliğine (915px) kilitli kalmasın, doğal oranını (1000x915) korusun. */
 @media(max-width:900px){.hero img{height:auto;aspect-ratio:1000/915}.pvis img{display:block;width:100%;height:auto;max-height:520px;object-fit:contain;background:#000}}
+
+/* Uygulama sayfası: "Uygulama Resimleri" (koyu bölüm, .sec-hd başlık yapısı) */
+.uyg-resimler{border-top:1px solid rgba(255,255,255,.10)}
+.uyg-resimler .sec-hd h2{color:#fff}
+.uyg-resim-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;align-items:start}
+.uyg-resim-grid figure{margin:0;border:1px solid var(--line);background:#0A1017}
+.uyg-resim-grid img{display:block;width:100%;height:auto}
+.uyg-resim-grid figcaption{font:11px/1.6 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#8fa0b3;border-top:1px solid var(--line);padding:11px 16px}
+@media(max-width:700px){.uyg-resim-grid{grid-template-columns:1fr;gap:16px}}
+
+/* Ürün fotoğrafı (siyah zeminli): zemin sitenin kareli koyu zeminiyle birleşsin (revizyon 1) */
+img[src*="core-precisor"]{mix-blend-mode:lighten}
+/* Koyu zeminli sistem önerisi: kartlar açık kalır, kart içi metin koyu */
+.dark .pick h3,.dark .pick a,.dark .casebox .v{color:#0b0f14}
+/* Uygulama sayfası hero'sunda iki sütun eşit genişlikte */
+@media(min-width:901px){.phero .wrap:has(.pvis-uyg){grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+/* Koyu zeminli madde listesi (belirti / ihtiyaç): metin renkleri koyu zemine göre */
+.dark .sym b,.dark .need b{color:#fff}
+.dark .sym p,.dark .need p{color:#b4c2d1}
+/* Koyu zeminli numaralı kartlar (paket / adım / akış görünümleri): metin renkleri diğer koyu bölümlerle aynı (#b4c2d1, AA kontrast) */
+.dark .pack article,.dark .steps2 article{border-top-color:#344452}
+.dark .pack h3,.dark .steps2 h3,.dark .fstep h3{color:#fff}
+.dark .pack p,.dark .steps2 p,.dark .fstep p{color:#b4c2d1}
+.dark .pack .n,.dark .steps2 .n,.dark .fstep .n{color:#9badc1}
+.applead article,.application-grid article{display:flex;flex-direction:column}.applead .fotobox,.application-grid .fotobox{margin-top:auto;border:1px solid #d9e0e8}.applead article>.appnote+.fotobox,.applead article>p+.fotobox{margin-top:22px}.application-grid article>p{margin-bottom:22px}

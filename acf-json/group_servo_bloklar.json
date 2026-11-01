@@ -3688,6 +3688,15 @@
                                     "name": "rozet",
                                     "type": "text",
                                     "instructions": "İsteğe bağlı. Sağdaki küçük yazı (ör. WEB, TALEP). Dosya seçildiyse boş bırakılırsa dosya türü yazılır."
+                                },
+                                {
+                                    "key": "field_servo_blk_indirme_listesi__dosyalar_talep",
+                                    "label": "E-posta ile talep",
+                                    "name": "talep",
+                                    "type": "true_false",
+                                    "instructions": "Açılırsa doğrudan indirme yerine bu satırda e-posta alanı ve Gönder düğmesi çıkar; talep ekibe bildirim olarak gider, ziyaretçiye otomatik dosya gitmez. Dosya alanı, talepte hangi belgenin istendiğini ve korumalı dizine alınacak PDF'i belirler.",
+                                    "default_value": 0,
+                                    "ui": 1
                                 }
                             ],
                             "min": 0,
@@ -3811,7 +3820,8 @@
                                 "dokuman": "Doküman talebi (doküman kutuları + iletişim)",
                                 "destek": "Destek talebi",
                                 "iade": "İade / gönderim bildirimi",
-                                "kilavuz": "Kılavuz / doküman talebi (seri numarasıyla)"
+                                "kilavuz": "Kılavuz / doküman talebi (seri numarasıyla)",
+                                "uygulama_notu": "Uygulama notu talebi (yalnızca e-posta; ekibe bildirim)"
                             },
                             "default_value": "dokuman",
                             "allow_null": 0,

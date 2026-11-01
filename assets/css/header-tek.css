@@ -24,3 +24,11 @@
 @media(max-width:420px){
 .nav .brand b{font-size:20px}
 }
+/* Bağlantılı alt menülü üst öğe (UYGULAMALAR): masaüstünde hover ve klavye odağıyla açılır; hamburgerde nav-mobil.css girintili listeler. */
+@media(min-width:1181px){
+.nav .navdrop-link{position:relative;display:inline-flex;align-items:center}
+.nav .navdrop-link .navsub{left:0;margin-top:0;top:calc(100% + 14px)}
+.nav .navdrop-link .navsub:before{content:'';position:absolute;left:0;right:0;top:-16px;height:16px}
+.nav .navdrop-link:hover .navsub,.nav .navdrop-link:focus-within .navsub{display:block}
+.nav .navdrop-link .navsub a{font-family:var(--disp);font-size:13.5px}
+}

@@ -1,0 +1,59 @@
+{
+    "key": "group_servo_uygulama_resim",
+    "title": "Uygulama resimleri",
+    "fields": [
+        {
+            "key": "field_servo_uyg_resim_1",
+            "label": "Uygulama resmi 1",
+            "name": "uygulama_gorsel_1",
+            "type": "image",
+            "instructions": "Koyu hero'dan hemen sonraki \"Uygulama Resimleri\" bölümünde kullanılır. Resim kendi oranında gösterilir; alt metnini Medya'dan girin. İkisi de boşsa bölüm çıkmaz.",
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all"
+        },
+        {
+            "key": "field_servo_uyg_resim_1_aciklama",
+            "label": "Resim 1 alt yazısı",
+            "name": "uygulama_gorsel_1_aciklama",
+            "type": "text",
+            "instructions": "İsteğe bağlı kısa alt yazı; boşsa gösterilmez."
+        },
+        {
+            "key": "field_servo_uyg_resim_2",
+            "label": "Uygulama resmi 2",
+            "name": "uygulama_gorsel_2",
+            "type": "image",
+            "instructions": "İkinci resim, birincinin yanında (mobilde altında) görünür.",
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all"
+        },
+        {
+            "key": "field_servo_uyg_resim_2_aciklama",
+            "label": "Resim 2 alt yazısı",
+            "name": "uygulama_gorsel_2_aciklama",
+            "type": "text",
+            "instructions": "İsteğe bağlı kısa alt yazı; boşsa gösterilmez."
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "uygulama"
+            }
+        ]
+    ],
+    "menu_order": 2,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1791600000
+}
